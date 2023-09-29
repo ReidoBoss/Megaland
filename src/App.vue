@@ -1,5 +1,9 @@
 <template>
-  <div>
-    <h1 class="text-3xl font-bold underline">Hello Megaland!</h1>
-  </div>
+  <!-- Navigation Bar -->
+  <NavBar/>
+  <!--  -->
 </template>
+
+<script lang="ts" setup>
+import NavBar from './components/NavBar.vue';
+</script>
