@@ -1,10 +1,10 @@
 <template>
   <!-- Navigation Bar -->
   <div
-    class="bg-[#E67E23] sticky top-0 h-12 text-[#fefefe] text-lg font-semibold p-2 pt-5"
+    class="bg-[#E67E23] sticky top-0 h-11 text-[#fefefe] text-[18px] font-semibold p-2 pt-4 z-10"
   >
-    <ul class="flex justify-end gap-8">
-      <li class="">
+    <ul class="flex justify-end gap-6 ">
+      <li class="after: inline-block after:w-[100%] after:content-[''] after:absolute after:translate-x-[0] after:h-[2px] after:left-0 after:bottom-0 after:bg-white after:m-auto after:transition-[0.5s] hover:after:translate-x-[1] hover:after:origin-bottom-left">
         <router-link class="" to="/">Home</router-link>
       </li>
       <li class="">
@@ -28,7 +28,7 @@
   </div>
 
   <!-- Search and Logo Bar -->
-  <div class="flex h-14 sticky top-0">
+  <div class="flex h-14 sticky top-11 bg-white z-10">
     <div class="flex w-[10%] pl-3">
       <img  src="../assets/mgLogo.jpg" alt="">
     </div>
