@@ -2,7 +2,7 @@
   <div class="flex-col cursor-pointer pt-1 pb-1">
     <div>
       <div class="flex" @click="isActive = !isActive">
-        <div class="flex justify-center items-center w-[15%] border-red-400">
+        <div class="flex justify-center items-center w-[12%] border-red-400">
           <ChevronUpIcon
             v-if="isActive"
             class="h-[15px] w-[15px] text-[#E67E23]"
@@ -10,7 +10,7 @@
           <ChevronDownIcon v-else class="h-[15px] w-[15px] text-[#E67E23]" />
         </div>
         <div
-          class="flex items-center text-[18px] font-medium text-[#E67E23] w-[85%]"
+          class="flex items-center text-[18px] font-medium text-[#E67E23] w-[88%]"
         >
           {{ title }}
         </div>
@@ -21,7 +21,7 @@
           <!-- if type is text -->
           <div v-if="item.type === 'text'">
             <input
-              class="w-44 h-6 mr-2 mb-2 border-[#454544] border focus:outline-none pl-3"
+              class="w-36 h-6 mr-1 mb-2 border-[#454544] border focus:outline-none pl-3"
               type="text"
               name="cb1"
               id=""
@@ -44,7 +44,7 @@
           <!-- if type is dialogbox -->
           <div v-if="item.type === 'dialog'">
             <select
-              class="w-44 h-6 mr-2 mb-2 border-[#454544] border focus:outline-none pl-3"
+              class="w-36 h-6 mr-2 mb-2 border-[#454544] border focus:outline-none pl-3"
               name=""
               id=""
             >
@@ -56,7 +56,7 @@
           <!-- if type is range -->
           <div v-if="item.type === 'range'">
             <input
-              class="w-44 h-6 mr-2 mb-2 border-[#454544] pl-3"
+              class="w-36 h-6 mr-2 mb-2 border-[#454544] pl-3"
               type="range"
               name=""
               id=""
@@ -67,7 +67,7 @@
           <!-- if type is spinner -->
           <div v-if="item.type === 'spinner'" class="flex ">
             <input
-              class="w-12 h-6 ml-6 mr-2 mb-2 border-[#454544] border focus:outline-none pl-3"
+              class="w-12 h-6 ml-4 mr-2 mb-2 border-[#454544] border focus:outline-none pl-3"
               type="number"
               name=""
               id=""
@@ -88,10 +88,15 @@
 import { ref } from "vue";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/vue/24/outline";
 
+interface ContentItem {
+  type: string;
+  data: string;
+}
+
 export default {
   props: {
     title: String,
-    content: Array,
+    content: Array as () => ContentItem[],
   },
 
   setup(props) {

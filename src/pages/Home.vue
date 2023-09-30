@@ -38,12 +38,13 @@
       ></swiper-slide>
     </swiper-container>
   </div>
-  <div class="">
-
+  <div class="flex text-[#E67E23] mt-2">
+    <div class="flex w-[16%] text-lg font-semibold pl-3">Search Filter <FunnelIcon class="h-[26px] w-[26px] ml-1"/></div>
+    <div class="flex w-[84%] text-lg font-semibold pl-5">Latest <NewspaperIcon class="h-[26px] w-[26px] ml-1"/></div>
   </div>
-  <div class="flex p-4">
+  <div class="flex ">
     <!-- Accordion -->
-    <div class="h-[400px] w-[16%] flex-col overflow-auto m-2">
+    <div class="h-[455px] w-[16%] flex-col overflow-auto ml-6">
       <Accordion
         title="Property Type"
         :content="[
@@ -95,13 +96,23 @@
       />
     </div>
     <!-- Latest Sale -->
-    <div class="h-full w-[84%] flex-col m -2"></div>
+    <div class="flex flexbox flex-wrap h-full w-[84%] ml-6 mt-2 mb-6 ">
+      <Products/>
+      <Products/>
+      <Products/>
+      <Products/>
+      <Products/>
+      <Products/>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { register } from "swiper/element/bundle";
 import Accordion from "../components/Accordion.vue";
+import Products from "../components/Products.vue";
+import { FunnelIcon, NewspaperIcon } from "@heroicons/vue/24/outline";
+
 register();
 </script>
 
