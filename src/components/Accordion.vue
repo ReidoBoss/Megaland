@@ -2,12 +2,12 @@
   <div class="flex-col cursor-pointer pt-1 pb-1">
     <div>
       <div class="flex" @click="isActive = !isActive">
-        <div class="flex justify-center items-center w-[12%] border-red-400">
+        <div class="flex justify-center items-center w-[12%] bg-red-400 mr-2">
           <ChevronUpIcon
             v-if="isActive"
-            class="h-[15px] w-[15px] text-[#E67E23]"
+            class="h-[5px] w-[5px] text-[#E67E23]"
           />
-          <ChevronDownIcon v-else class="h-[15px] w-[15px] text-[#E67E23]" />
+          <ChevronDownIcon v-else class="h-[5px] w-[5px] text-[#E67E23]" />
         </div>
         <div
           class="flex items-center text-[18px] font-medium text-[#E67E23] w-[88%]"
@@ -21,7 +21,7 @@
           <!-- if type is text -->
           <div v-if="item.type === 'text'">
             <input
-              class="w-36 h-6 mr-1 mb-2 border-[#454544] border focus:outline-none pl-3"
+              class="w-44 h-6 mr-1 mb-2 border-[#454544] border focus:outline-none pl-3"
               type="text"
               name="cb1"
               id=""
@@ -44,7 +44,7 @@
           <!-- if type is dialogbox -->
           <div v-if="item.type === 'dialog'">
             <select
-              class="w-36 h-6 mr-2 mb-2 border-[#454544] border focus:outline-none pl-3"
+              class="w-44 h-6 mr-2 mb-2 border-[#454544] border focus:outline-none pl-3"
               name=""
               id=""
             >
@@ -56,7 +56,7 @@
           <!-- if type is range -->
           <div v-if="item.type === 'range'">
             <input
-              class="w-36 h-6 mr-2 mb-2 border-[#454544] pl-3"
+              class="w-44 h-6 mr-2 mb-2 border-[#454544] pl-3"
               type="range"
               name=""
               id=""
