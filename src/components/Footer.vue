@@ -43,21 +43,18 @@
             type="text"
             placeholder="Enter your email"
           />
-          <EnvelopeIcon class="text-white h-[25px] w-[25px] "/>
-          </div>
-        </div>
+          <EnvelopeIcon class="text-white h-[25px] w-[25px]" />
         </div>
       </div>
-          <div class="bg-green-500 w-[25%] p-1">
+    </div>
+    <div class="bg-green-500 w-[25%] p-1">
       <div class="flex justify-center items-center text-2xl text-white">
         <span>Gallery</span>
       </div>
     </div>
-
-
+  </div>
 </template>
 
 <script lang="ts" setup>
 import { EnvelopeIcon } from "@heroicons/vue/24/outline";
-
 </script>
