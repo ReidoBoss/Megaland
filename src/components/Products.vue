@@ -2,7 +2,7 @@
 <template>
   <div class="">
     <div
-      class="w-[380px] h-[460px] bg-white p-5 border-2 rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)]"
+      class="w-[380px] h-[465px] bg-white p-5 border-2 rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)]"
     >
       <div class="">
         <img class="h-[200px] w-full" :src="image" alt="" />
