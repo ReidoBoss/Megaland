@@ -2,12 +2,12 @@
   <div class="flex-col cursor-pointer pt-1 pb-1">
     <div>
       <div class="flex" @click="isActive = !isActive">
-        <div class="flex justify-center items-center w-[12%] bg-red-400 mr-2">
+        <div class="flex justify-center items-center w-[12%]  mr-2">
           <ChevronUpIcon
             v-if="isActive"
-            class="h-[5px] w-[5px] text-[#E67E23]"
+            class="h-[15px] w-[15px] text-[#E67E23]"
           />
-          <ChevronDownIcon v-else class="h-[5px] w-[5px] text-[#E67E23]" />
+          <ChevronDownIcon v-else class="h-[15px] w-[15px] text-[#E67E23]" />
         </div>
         <div
           class="flex items-center text-[18px] font-medium text-[#E67E23] w-[88%]"
@@ -65,7 +65,7 @@
             />
           </div>
           <!-- if type is spinner -->
-          <div v-if="item.type === 'spinner'" class="flex ">
+          <div v-if="item.type === 'spinner'" class="flex">
             <input
               class="w-12 h-6 ml-4 mr-2 mb-2 border-[#454544] border focus:outline-none pl-3"
               type="number"
@@ -75,7 +75,7 @@
               value="1"
             />
             <p>
-              {{item.data}}
+              {{ item.data }}
             </p>
           </div>
         </div>
@@ -84,7 +84,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { ref } from "vue";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/vue/24/outline";
 
@@ -93,21 +93,12 @@ interface ContentItem {
   data: string;
 }
 
-export default {
-  props: {
-    title: String,
-    content: Array as () => ContentItem[],
+defineProps({
+  title: {
+    type: String,
   },
+  content: Array as () => ContentItem[],
+});
 
-  setup(props) {
-    const isActive = ref(false);
-    return {
-      isActive,
-      title: props.title,
-      content: props.content,
-      ChevronUpIcon,
-      ChevronDownIcon,
-    };
-  },
-};
+const isActive = ref(false);
 </script>

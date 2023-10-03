@@ -6,8 +6,8 @@
         <span>About Us</span>
       </div>
       <div class="flex-col justify-center items-center font-normal">
-        <div class="flex justify-center items-center mb-2">
-          <img class="h-[120px]" src="../assets/mgLogo.jpg" alt="" />
+        <div class="flex justify-center items-center mb-2 ">
+          <img class="h-[120px] rounded-lg" src="../assets/mgLogo.jpg" alt="" />
         </div>
         <div
           class="text-center underline text-base italic cursor-pointer hover:text-[#E67E23]"
@@ -37,13 +37,20 @@
       </div>
       <div>
         <div>Join Us Now!</div>
-        <div class="flex">
+        <div class="relative mt-1">
+          <div
+            class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none"
+          >
+            <EnvelopeIcon
+              class="text-gray-500 dark:text-gray-400 h-[25px] w-[25px]"
+            />
+          </div>
           <input
-            class="placeholder-slate-300 border-b-2 bg-inherit"
             type="text"
+            id="email-address-icon"
+            class=" border-b w-[300px] h-9 focus:outline-none text-white text-sm block pl-12 p-2.5 bg-inherit dark:placeholder-gray-400 dark:text-white "
             placeholder="Enter your email"
           />
-          <EnvelopeIcon class="text-white h-[25px] w-[25px]" />
         </div>
       </div>
     </div>
