@@ -45,14 +45,8 @@
       <UserIcon class="w-10 h-10 text-[#E67E23]" />
     </div>
   </div>
-
-
- 
-
-
 </template>
 
 <script lang="ts" setup>
 import { MagnifyingGlassIcon, UserIcon } from "@heroicons/vue/24/outline";
-
 </script>
