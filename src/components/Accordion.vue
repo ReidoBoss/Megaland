@@ -17,11 +17,11 @@
       </div>
       <hr class="border-[#E67E23]" />
       <div v-if="isActive" class="text-[#454544] font-medium pl-4 pt-2">
-        <div class="" name="cb1" v-for="(item, index) in content" :key="index">
+        <div class="flex" name="cb1" v-for="(item, index) in content" :key="index">
           <!-- if type is text -->
           <div v-if="item.type === 'text'">
             <input
-              class="w-44 h-6 mr-1 mb-2 border-[#454544] border focus:outline-none pl-3"
+              class="w-44 h-6  mb-2 border-[#454544] border focus:outline-none pl-3"
               type="text"
               name="cb1"
               id=""

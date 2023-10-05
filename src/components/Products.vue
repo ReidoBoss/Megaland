@@ -1,8 +1,7 @@
-<!--  3 LEVEL HOUSE WITH ROOF DECK AND POOL IN VISTA GRANDE TALISAY -->
 <template>
   <div class="">
     <div
-      class="w-[380px] h-[465px] bg-white p-5 border-2 rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)]"
+      class="w-[380px] h-[470px] bg-white p-5 border-2 rounded-md shadow-xl hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] hover:scale-[1.02]"
     >
       <div class="">
         <img class="h-[200px] w-full" :src="image" alt="" />
@@ -39,7 +38,7 @@
       </div>
       <div class="flex justify-center items-center mt-2 text-white">
         <button
-          class="bg-[#E67E23] h-9 w-[225px] rounded-xl text-center font-medium text-[18px] hover:shadow-3xl"
+          class="bg-[#E67E23] h-9 w-[210px] hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] rounded-xl text-center font-medium text-[18px] hover:shadow-3xl"
         >
           Details
         </button>
@@ -47,7 +46,6 @@
     </div>
   </div>
 </template>
-
 <script lang="ts" setup>
 interface ProductType {
   name: string;

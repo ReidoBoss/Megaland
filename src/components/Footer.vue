@@ -6,13 +6,15 @@
         <span>About Us</span>
       </div>
       <div class="flex-col justify-center items-center font-normal">
-        <div class="flex justify-center items-center mb-2 ">
+        <div class="flex justify-center items-center mb-2">
           <img class="h-[120px] rounded-lg" src="../assets/mgLogo.jpg" alt="" />
         </div>
         <div
           class="text-center underline text-base italic cursor-pointer hover:text-[#E67E23]"
         >
-          " Begin Your Story With Us "
+          <router-link class="" to="/about"
+            >" Begin Your Story With Us "</router-link
+          >
         </div>
       </div>
     </div>
@@ -46,9 +48,9 @@
             />
           </div>
           <input
-            type="text"
+            type="email"
             id="email-address-icon"
-            class=" border-b w-[300px] h-9 focus:outline-none text-white text-sm block pl-12 p-2.5 bg-inherit dark:placeholder-gray-400 dark:text-white "
+            class="border-b w-[300px] h-9 focus:outline-none text-white text-sm block pl-12 p-2.5 bg-inherit dark:placeholder-gray-400 dark:text-white hover:border-[#E67E23]"
             placeholder="Enter your email"
           />
         </div>
