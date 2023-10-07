@@ -7,7 +7,12 @@
       </div>
       <div class="flex-col justify-center items-center font-normal">
         <div class="flex justify-center items-center mb-2">
-          <img class="h-[120px] rounded-lg" src="../assets/mgLogo.jpg" alt="" />
+          <router-link class="" to="/about"
+            ><img
+              class="hover:scale-[1.02] h-[120px] rounded-lg"
+              src="../assets/mgLogo.jpg"
+              alt=""
+          /></router-link>
         </div>
         <div
           class="text-center underline text-base italic cursor-pointer hover:text-[#E67E23]"
@@ -54,11 +59,41 @@
             placeholder="Enter your email"
           />
         </div>
+        <div>
+          <!-- <svg-icon type="mdi" :path="mdiFacebook" :size="48"></svg-icon> -->
+        </div>
       </div>
     </div>
-    <div class="bg-green-500 w-[25%] p-1">
-      <div class="flex justify-center items-center text-2xl text-white">
-        <span>Gallery</span>
+    <div class="w-[25%] p-1">
+      <div
+        class="flex flex-col justify-center items-center text-2xl text-white mb-5 mr-5 ml-5"
+      >
+        <div>Gallery</div>
+        <div class="flex h-[160px] w-full hover:scale-[1.02]">
+          <div class="flex items-center justify-center w-[65%] p-1">
+            <img
+              class="h-[145px] border-2 border-[#fefefe]"
+              src="../assets/gal1.jpg"
+              alt=""
+            />
+          </div>
+          <div class="flex flex-col w-[35%]">
+            <div class="h-[50%] items-center justify-center p-1">
+              <img
+                class="h-[70px] border-2 border-[#fefefe]"
+                src="../assets/gal2.jpg"
+                alt=""
+              />
+            </div>
+            <div class="h-[50%] items-center justify-center p-1">
+              <img
+                class="h-[70px] border-2 border-[#fefefe]"
+                src="../assets/gal3.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -66,4 +101,6 @@
 
 <script lang="ts" setup>
 import { EnvelopeIcon } from "@heroicons/vue/24/outline";
+// import SvgIcon from '@jamescoyle/vue-icon';
+// import { mdiFacebook  } from '@mdi/js';
 </script>

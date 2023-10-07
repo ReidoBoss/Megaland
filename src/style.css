@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+    .hover-underline {
+      position: relative;
+      display: inline-block;
+    }
+
+    .hover-underline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px; /* Adjust the thickness of the underline as needed */
+      background-color: #fefefe; /* Adjust the color of the underline as needed */
+      transition: width 0.6s ease;
+    }
+
+    .hover-underline:hover::before {
+      width: 100%;
+    }
