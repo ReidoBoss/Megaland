@@ -3,6 +3,7 @@
     <div
       class="w-[380px] h-[470px] bg-white p-5 border-2 rounded-md shadow-xl hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] hover:scale-[1.02]"
     >
+      <router-link class="" to="/Details">
       <div class="">
         <img class="h-[200px] w-full" :src="image" alt="" />
       </div>
@@ -43,6 +44,7 @@
           Details
         </button>
       </div>
+      </router-link>
     </div>
   </div>
 </template>

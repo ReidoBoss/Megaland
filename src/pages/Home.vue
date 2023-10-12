@@ -161,7 +161,6 @@ import { FunnelIcon, NewspaperIcon } from "@heroicons/vue/24/outline";
 import swiper1 from "../assets/swiper1.jpg";
 import swiper2 from "../assets/swiper2.jpg";
 import swiper3 from "../assets/swiper3.jpg";
-
 register();
 </script>
 
