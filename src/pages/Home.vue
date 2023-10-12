@@ -38,7 +38,7 @@
       ></swiper-slide>
     </swiper-container>
   </div>
-  <div class="flex text-[#E67E23] mt-2">
+  <div class="flex text-[#E67E23] mt-2 ">
     <div class="flex w-[16%] text-lg font-semibold pl-3">
       Search Filter <FunnelIcon class="h-[26px] w-[26px] ml-1" />
     </div>
