@@ -149,14 +149,25 @@
         :bedroom="4"
         :bathroom="2"
       />
+       <!--Agents Carousel-->
+       <div class="w-full mt-6 items-center">
+      <h1 class="mt-10 mb-20 font-black text-4xl ml-[575px]">MEET OUR <span class="text-[#E67E23]">AGENTS</span>!</h1>
+      <Agents/>
+    </div>
+    <div class="w-full mt-6 items-center">
+      <h1 class="mt-10 mb-20 font-black text-4xl ml-[575px]">OUR <span class="text-[#E67E23]">GALLERY</span>!</h1>
+      <!--Gallery Component Goes Here-->>
+    </div>
     </div>
   </div>
+
 </template>
 
 <script lang="ts" setup>
 import { register } from "swiper/element/bundle";
 import Accordion from "../components/Accordion.vue";
 import Products from "../components/Products.vue";
+import Agents from "../components/Agents.vue";
 import { FunnelIcon, NewspaperIcon } from "@heroicons/vue/24/outline";
 import swiper1 from "../assets/swiper1.jpg";
 import swiper2 from "../assets/swiper2.jpg";
