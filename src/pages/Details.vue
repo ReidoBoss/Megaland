@@ -63,17 +63,73 @@
           ]"
         />
       </div>
-      <div
-        class="h-[700px] w-[56%] flex-col overflow-auto ml-6 bg-red-500"
-      ></div>
+      <div class="w-[56%] flex-col ml-6">
+        <ProductDetails />
+      </div>
       <div
         class="h-[700px] w-[28%] flex-col overflow-auto ml-6 bg-red-500"
       ></div>
+    </div>
+    <div class="mb-5 mt-10">
+      <div class="m-3 flex w-[16%] text-lg font-semibold pl-3 text-[#E67E23]">
+        Location <MapIcon class="h-[26px] w-[26px] ml-1" />
+      </div>
+      <iframe
+        class="border-2 border-black"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.5483668762135!2d123.89617127595324!3d10.29792626783563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999a0c575cff7%3A0x76271c50dbf0b3b2!2sMegaland%20Realty!5e0!3m2!1sen!2sph!4v1697273626082!5m2!1sen!2sph"
+        width="100%"
+        height="600"
+        style="border: 0"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+    <div>
+      <div class="m-3 flex w-[16%] text-lg font-semibold pl-3 text-[#E67E23]">
+        Related Property <ChatBubbleLeftIcon class="h-[26px] w-[26px] ml-1" />
+      </div>
+      <div class="flex  flex-wrap h-full w-[84%] ml-6 mt-2 mb-6 gap-8 ">
+        <Products
+          :image="swiper1"
+          name="3 LEVEL HOUSE WITH ROOF DECK AND POOL IN VISTA GRANDE TALISAY"
+          price="₱48,000,000"
+          :size="769"
+          :bedroom="7"
+          :bathroom="7"
+        />
+        <Products
+          :image="swiper2"
+          name="2-Storey House & Lot For Sale White Hills Subdivision-Banawa"
+          price="₱12,500,000"
+          :size="200"
+          :bedroom="6"
+          :bathroom="3"
+        />
+        <Products
+          :image="swiper3"
+          name="4 Bedrooms House and Lot for Sale at Kishanta Subdivision"
+          price="₱12,500,000"
+          :size="150"
+          :bedroom="4"
+          :bathroom="2"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import Accordion from "../components/Accordion.vue";
-import { FunnelIcon, NewspaperIcon, UserIcon } from "@heroicons/vue/24/outline";
+import {
+  FunnelIcon,
+  NewspaperIcon,
+  UserIcon,
+  MapIcon,
+  ChatBubbleLeftIcon,
+} from "@heroicons/vue/24/outline";
+import ProductDetails from "../components/ProductDetails.vue";
+import swiper1 from "../assets/swiper1.jpg";
+import swiper2 from "../assets/swiper2.jpg";
+import swiper3 from "../assets/swiper3.jpg";
+import Products from "../components/Products.vue";
 </script>
