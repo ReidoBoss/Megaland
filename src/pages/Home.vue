@@ -149,18 +149,21 @@
         :bedroom="4"
         :bathroom="2"
       />
-       <!--Agents Carousel-->
-       <div class="w-full mt-6 items-center">
-      <h1 class="mt-10 mb-20 font-black text-4xl ml-[575px]">MEET OUR <span class="text-[#E67E23]">AGENTS</span>!</h1>
-      <Agents/>
-    </div>
-    <div class="w-full mt-6 items-center">
-      <h1 class="mt-10 mb-20 font-black text-4xl ml-[575px]">OUR <span class="text-[#E67E23]">GALLERY</span>!</h1>
-      <!--Gallery Component Goes Here-->>
-    </div>
     </div>
   </div>
-
+        <!--Agents Carousel-->
+        <div class="w-full mt-6 items-center">
+        <h1 class="mt-10 mb-20 font-black text-4xl ml-[575px]">
+          MEET OUR <span class="text-[#E67E23]">AGENTS</span>!
+        </h1>
+        <Agents />
+      </div>
+      <div class="w-full mt-6 items-center">
+        <h1 class="mt-10 mb-20 font-black text-4xl ml-[575px]">
+          OUR <span class="text-[#E67E23]">GALLERY</span>!
+        </h1>
+        <!--Gallery Component Goes Here-->>
+      </div>
 </template>
 
 <script lang="ts" setup>
