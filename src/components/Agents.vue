@@ -65,7 +65,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import Card from "../components/Card.vue";
-import { Carousel, Pagination, Slide } from 'vue3-carousel'
+import { Carousel, Pagination, Slide } from 'vue3-carousel';
 import card1 from "../assets/card1.jpg";
 import 'vue3-carousel/dist/carousel.css'
 
