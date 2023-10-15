@@ -1,12 +1,12 @@
 <template>
-  <div class="scroll-snap-start w-[400px] bg-white rounded-lg shadow-xl p-6 text-center hover:shadow-lg transition duration-300 cursor-pointer">
-    <div class="relative w-48 h-48 mx-auto mt-4 mb-4">
+  <div class="scroll-snap-start w-[400px] h-[570px] bg-white p-6 text-center transition duration-300 cursor-pointer border- mr-5 rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)]">
+    <div class="relative w-48 h-48 mx-auto mt-2 mb-2">
       <img :src="img" alt="img" class="w-48 h-48 border-4 border-white rounded-full object-cover relative z-10">
       <div class="absolute inset-0 border-4 border-purple-700 rounded-full z-0"></div>
     </div>
     <h2 class="font-bold text-3xl mt-4 mb-2">{{ name }}</h2>
     <span class="text-gray-700 text-xl hover:text-[#E67E23]">{{ title }}</span>
-    <p class="text-gray-700 text-lg mt-4 text-justify">
+    <p class="mt-4 text-justify text-[#454544] text-[17px] font-medium">
      {{ desc }}
     </p>
 

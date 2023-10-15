@@ -2,7 +2,7 @@
   <div class="h-[700px] text-[#454544] overflow-auto">
     <!-- Property Name -->
     <div
-      class="border-2 p-5 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70) mb-5"
+      class="border-2  p-5 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70) mb-5"
     >
       <div class="text-center font-semibold text-xl">
         3 LEVEL HOUSE WITH ROOF DECK AND POOL IN VISTA GRANDE TALISAY

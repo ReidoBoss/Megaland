@@ -61,34 +61,67 @@
             { type: 'spinner', data: 'Bedroom' },
             { type: 'spinner', data: 'Bathroom' },
           ]"
-        />
+        /> 
       </div>
-      <div class="w-[56%] flex-col ml-6">
-        <ProductDetails />
+      <div class="w-[60%] flex-col ml-6">
+        <div class="p-10 border-2  shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)">
+          <ProductDetails />
+        </div>
       </div>
-      <div
-        class="h-[700px] w-[28%] flex-col overflow-auto ml-6 bg-red-500"
-      ></div>
+      <div class="h-[700px] w-[24%] flex-col overflow-auto ml-6">
+        <div
+          class="border-2 p-5 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)"
+        >
+          <div class="relative w-48 h-48 mx-auto mt-2 mb-2 -z-30">
+            <img
+              src="../assets/marivil.png"
+              alt="img"
+              class="w-48 h-48 border-4 border-white rounded-full object-cover relative z-10"
+            />
+            <div
+              class="absolute inset-0 border-4 border-purple-700 rounded-full z-0"
+            ></div>
+          </div>
+          <div class="mt-7 text-center text-[#454544]">
+            <div class="text-center font-semibold text-2xl">Marivil Du</div>
+            <div class="font-medium">147 property</div>
+            <div class="flex justify-center items-center mt-5 text-white">
+              <button
+                class="bg-[#E67E23] h-9 w-[210px] hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] rounded-xl text-center font-medium text-[18px] hover:shadow-3xl"
+              >
+                Contact
+              </button>
+            </div>
+            <div class="mt-3">Social media Logo</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="mb-5 mt-10">
+    <div class="mb-5 mt-10 pl-5 pr-5">
       <div class="m-3 flex w-[16%] text-lg font-semibold pl-3 text-[#E67E23]">
         Location <MapIcon class="h-[26px] w-[26px] ml-1" />
       </div>
-      <iframe
-        class="border-2 border-black"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.5483668762135!2d123.89617127595324!3d10.29792626783563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999a0c575cff7%3A0x76271c50dbf0b3b2!2sMegaland%20Realty!5e0!3m2!1sen!2sph!4v1697273626082!5m2!1sen!2sph"
-        width="100%"
-        height="600"
-        style="border: 0"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
+      <div
+        class="border-2 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)"
+      >
+        <iframe
+          class="border-2 border-black"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.5483668762135!2d123.89617127595324!3d10.29792626783563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999a0c575cff7%3A0x76271c50dbf0b3b2!2sMegaland%20Realty!5e0!3m2!1sen!2sph!4v1697273626082!5m2!1sen!2sph"
+          width="100%"
+          height="600"
+          style="border: 0"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
     </div>
     <div>
       <div class="m-3 flex w-[16%] text-lg font-semibold pl-3 text-[#E67E23]">
         Related Property <ChatBubbleLeftIcon class="h-[26px] w-[26px] ml-1" />
       </div>
-      <div class="flex  flex-wrap h-full w-[84%] ml-6 mt-2 mb-6 gap-8 ">
+      <div
+        class="flex flex-wrap justify-center items-center h-full w-[84%] ml-32 mt-2 mb-6 gap-8"
+      >
         <Products
           :image="swiper1"
           name="3 LEVEL HOUSE WITH ROOF DECK AND POOL IN VISTA GRANDE TALISAY"
