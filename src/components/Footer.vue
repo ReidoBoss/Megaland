@@ -61,6 +61,8 @@
         </div>
         <div>
           <!-- <svg-icon type="mdi" :path="mdiFacebook" :size="48"></svg-icon> -->
+          <mdicon name="mdiAbacus" />
+
         </div>
       </div>
     </div>
@@ -70,15 +72,15 @@
       >
         <div>Gallery</div>
         <div class="flex h-[160px] w-full hover:scale-[1.02]">
-          <div class="flex items-center justify-center w-[65%] p-1">
+          <div class="flex items-center justify-center w-[65%]  p-1">
             <img
-              class="h-[145px] border-2 border-[#fefefe]"
+              class="h-[151px] border-2 border-[#fefefe]"
               src="../assets/gal1.jpg"
               alt=""
             />
           </div>
           <div class="flex flex-col w-[35%]">
-            <div class="h-[50%] items-center justify-center p-1">
+            <div class="h-[50%] items-center justify-center  p-1 ">
               <img
                 class="h-[70px] border-2 border-[#fefefe]"
                 src="../assets/gal2.jpg"
@@ -87,7 +89,7 @@
             </div>
             <div class="h-[50%] items-center justify-center p-1">
               <img
-                class="h-[70px] border-2 border-[#fefefe]"
+                class="h-[71px] border-2 border-[#fefefe]"
                 src="../assets/gal3.jpg"
                 alt=""
               />
@@ -101,6 +103,8 @@
 
 <script lang="ts" setup>
 import { EnvelopeIcon } from "@heroicons/vue/24/outline";
+
+
 // import SvgIcon from '@jamescoyle/vue-icon';
-// import { mdiFacebook  } from '@mdi/js';
+//  import { mdiAbacus  } from '@mdi/js';
 </script>
