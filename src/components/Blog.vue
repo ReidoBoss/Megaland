@@ -15,9 +15,15 @@
       ></iframe>
     </div>
     <div class="w-[70%] pl-2 ">
-        <div class="text-xs font-semibold  mt-0.5">2 STOREY MIRROR DESIGN SINGLE ATTACHED 4 BEDROOM HOUSE & LOT FOR SALE NEAR THE BEACH</div>
-        <div class="text-[11px] mt-1 text-gray-600" >By: Marivil Du</div>
-    </div>
+        <div class="text-xs font-semibold  mt-0.5 ml-1 tracking-wide text-justify">{{description}}</div>
+        <div class="text-[12px] mt-1 text-gray-600 font-semibold ml-1" >{{'By: '+ name}}</div>
+    </div>  
   </div>
 </template>
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+interface BlogType {
+  description: string;
+  name: string;
+}
+defineProps<BlogType>();
+</script>

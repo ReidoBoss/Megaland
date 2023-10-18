@@ -65,64 +65,80 @@
           />
         </div>
       </div>
-      <div class="w-[56%] bg-white ml-5 p-5 border-2 rounded-md shadow-xl">
-        <div class="">
-          <div class="flex flex-col justify-center items-center mt-5">
-            <div class="m-5">
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/8GAmyQqh_Kc?si=tFIxsWVFER6dBU2V"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </div>
+     <BlogDetails title="Be a Homeowner at Woodway Townhomes 2 and enjoy the benefits and
+                amenities we got to offer" 
+  location="Location: Brgy. Pooc, Talisay City" 
+  developer="Developed by: Brickland Property
+                Venture Corp." 
+                housedetails="(Single Attached- Mirror
+                Design) Details Floor Area: 123 sq.m. +/- Lot Area: 92-101 sq.m."
+  amenities="
+⭐4 bedrooms 
+⭐3 toilet & bath 
+⭐living area/ dining area
+⭐kitchen area (with soft close kitchen cabinets with overhead)
+⭐provision for extra storage room under stairs 
+⭐balcony 
+⭐w/covered car park 
+⭐ service area with own laundry tub 
 
-            <div class="flex-col flex">
-              <div class="font-sans">
-                Be a Homeowner at Woodway Townhomes 2 and enjoy the benefits and
-                amenities we got to offer Developed by: Brickland Property
-                Venture Corp. ????Location: Brgy. Pooc, Talisay City Want to
-                take a look inside? ???? HICKORY (Single Attached- Mirror
-                Design) Details Floor Area: 123 sq.m. +/- Lot Area: 92-101 sq.m.
-                +/- ⭐4 bedrooms ⭐3 toilet & bath ⭐living area/ dining area
-                ⭐kitchen area (with soft close kitchen cabinets with overhead)
-                ⭐provision for extra storage room under stairs ⭐balcony ⭐w/
-                covered car park ⭐ service area with own laundry tub ✔high
-                quality w/ beautifully designed finishes ✔ high ceiling with big
-                windows ✔ all LED lights ✔ concrete wall partitions ✔provision
-                for spacious garden ✔Upscale private subdivision along Brgy road
-                ✔24 hr security w/gated perimeter fence ✔clubhouse amenities
-                ✔parks & playground ✔basketball court ✔flood free zone ✔low
-                density community FEW UNITS LEFT! BEST INVESTMENT TO MAKE! what
-                are you waiting for? ???? 09773824416 (Globe) ☎️ 254-1640(
-                Landline) ???? marivildu75@gmail.com #houseandlotforsaleincebu
+✔high quality w/ beautifully designed finishes 
+✔ high ceiling with big windows 
+✔ all LED lights 
+✔ concrete wall partitions 
+✔provision for spacious garden 
+✔Upscale private subdivision along Brgy road
+✔24 hr security w/gated perimeter fence 
+✔clubhouse amenities
+✔parks & playground 
+✔basketball court 
+✔flood free zone 
+✔low density community FEW UNITS LEFT! BEST INVESTMENT TO MAKE! 
+  what are you waiting for?" 
+
+  name="Mrs. Marivil Du" 
+  contact=" ☎️09773824416 (Globe) 
+  ☎️ 254-1640(Landline) 
+               " email="marivildu75@gmail.com" tags="#houseandlotforsaleincebu
                 #houseandlotforsaleintalisaycitycebu #woodwaytownhomes2
                 #realestate #BestInvestment #propertyinvesting #megalandrealty
                 #cebuanarealestatebroker #ceburealestatebroker
-                #realestatebrokerphilippines
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                #realestatebrokerphilippines"/>
 
       <div class="w-[28%] mr-6">
         <div
           class="w-full h-[475px] overflow-auto bg-white border-2 rounded-md shadow-xl p-5 ml-5 mb-5 "
         >
-          <Blog />
-          <Blog />
-          <Blog />
-          <Blog />
-          <Blog />
-          <Blog />
-          <Blog />
-          <Blog />
-          <Blog />
-          <Blog />
+          <Blog 
+          description="1 STOREY MIRROR DESIGN SINGLE ATTACHED 4 BEDROOM HOUSE AND LOT FOR SALE NEAR THE BEACH"
+name="Marivil Du" />
+          <Blog 
+          description="2 STOREY MIRROR DESIGN SINGLE ATTACHED 4 BEDROOM HOUSE AND LOT FOR SALE NEAR THE BEACHB"
+name="Marivil Du"/>
+          <Blog 
+          description="3 STOREY MIRROR DESIGN SINGLE ATTACHED 4 BEDROOM HOUSE AND LOT FOR SALE NEAR THE BEACH"
+name="Marivil Du"/>
+          <Blog 
+          description="4 STOREY MIRROR DESIGN SINGLE ATTACHED 4 BEDROOM HOUSE AND LOT FOR SALE NEAR THE BEACH"
+name="Marivil Du"/>
+          <Blog 
+          description="5 STOREY MIRROR DESIGN SINGLE ATTACHED 4 BEDROOM HOUSE AND LOT FOR SALE NEAR THE BEACH"
+name="Marivil Du"/>
+          <Blog 
+          description="6 STOREY MIRROR DESIGN SINGLE ATTACHED 4 BEDROOM HOUSE AND LOT FOR SALE NEAR THE BEACH"
+name="Marivil Du"/>
+          <Blog 
+          description="7 STOREY MIRROR DESIGN SINGLE ATTACHED 4 BEDROOM HOUSE AND LOT FOR SALE NEAR THE BEACH"
+name="Marivil Du"/>
+          <Blog 
+          description="8 STOREY MIRROR DESIGN SINGLE ATTACHED 4 BEDROOM HOUSE AND LOT FOR SALE NEAR THE BEACH"
+name="Marivil Du"/>
+          <Blog 
+          description="9 STOREY MIRROR DESIGN SINGLE ATTACHED 4 BEDROOM HOUSE AND LOT FOR SALE NEAR THE BEACH"
+name="Marivil Du"/>
+          <Blog 
+          description="10 STOREY MIRROR DESIGN SINGLE ATTACHED 4 BEDROOM HOUSE AND LOT FOR SALE NEAR THE BEACH"
+name="Marivil Du"/>
         </div>
         <div class="flex  w-full text-[#E67E23] ml-3 mb-2">
           <div class="flex  text-lg font-semibold pl-3">
@@ -163,4 +179,5 @@ import {
 } from "@heroicons/vue/24/outline";
 import Blog from "../components/Blog.vue";
 import Comment from "../components/Comment.vue"
+import BlogDetails from "../components/BlogDetails.vue";
 </script>
