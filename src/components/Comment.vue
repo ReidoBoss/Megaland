@@ -15,12 +15,18 @@
     </div>
     <div class="ml-2 w-full">
         <!-- Name -->
-        <p class="ml-1 mb-0.5 font-semibold text-sm">@Mikslabyuu143</p>
+        <p class="ml-1 mb-0.5 font-semibold text-sm">{{name}}</p>
         <!-- Comment detail -->
-        <p class="ml-1 font-normal text-xs">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat, at tempora eligendi ipsa excepturi nemo reiciendis dolorem autem laudantium sequi fuga id quos nam, mollitia quia earum sint libero? Aperiam. </p>
+        <p class="ml-1 font-normal text-xs">{{description}} </p>
         <p></p>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+interface CommentSection {
+  description: string;
+  name: string;
+}
+defineProps<CommentSection>();
+</script>

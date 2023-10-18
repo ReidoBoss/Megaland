@@ -160,9 +160,16 @@ name="Marivil Du"/>
           </div>
 
           <!-- comments -->
-          <Comment/>
-          <Comment/>
-          <Comment/>
+          <Comment name="@Mikilabsyu143" description="I held her close to me
+'Cause I know she breaks so easily
+And then I told her."/>
+          <Comment name="@Mikilabsyu143" description="But I knew no matter how I tried to console her
+She'd just do the best she could
+But there are times the best is no damn good"/>
+          <Comment name="@Mikilabsyu143" description="And no matter how you try to be kind
+There's always still a part of you you leave behind
+When it falls apart
+There's no easy way to break somebody's heart"/>
         </div>
       </div>
     </div>
