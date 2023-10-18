@@ -6,6 +6,7 @@
               <iframe
                 width="700"
                 height="420"
+                butttom="hidden"
                 src="https://www.youtube.com/embed/8GAmyQqh_Kc?si=tFIxsWVFER6dBU2V"
                 title="YouTube video player"
                 frameborder="0"

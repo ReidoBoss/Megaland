@@ -110,35 +110,52 @@
           class="w-full h-[475px] overflow-auto bg-white border-2 rounded-md shadow-xl p-5 ml-5 mb-5 "
         >
           <Blog 
-          description="1 STOREY MIRROR DESIGN SINGLE ATTACHED 4 BEDROOM HOUSE AND LOT FOR SALE NEAR THE BEACH"
-name="Marivil Du" />
+          youtubeUrl="https://www.youtube.com/watch?v=2v741kHvzbY"
+      thumbnailUrl="../assets/images/Youtube-Images/image1.png"
+      description="3 LEVEL HOUSE WITH ROOF DECK AND POOL IN VISTA GRANDE TALISAY CEBU PHILIPPINES"
+      name="Marivil Du" />
           <Blog 
-          description="2 STOREY MIRROR DESIGN SINGLE ATTACHED 4 BEDROOM HOUSE AND LOT FOR SALE NEAR THE BEACHB"
-name="Marivil Du"/>
+          youtubeUrl="https://www.youtube.com/watch?v=2v741kHvzbY"
+      thumbnailUrl="../assets/images/Youtube-Images/image1.png"
+      description="Biggest 5 Star Beach Resort in Panglao Bohol Hennan Resort Alona, Man Made Forest, Baclayon Church"
+      name="Marivil Du" />
           <Blog 
-          description="3 STOREY MIRROR DESIGN SINGLE ATTACHED 4 BEDROOM HOUSE AND LOT FOR SALE NEAR THE BEACH"
-name="Marivil Du"/>
+          youtubeUrl="https://www.youtube.com/watch?v=2v741kHvzbY"
+      thumbnailUrl="../assets/images/Youtube-Images/image1.png"
+      description="FOREIGNERS CAN OWN THIS HOUSE & LOT l CONDOMINIUM TITLE l CITY HOMES MINGLANILLA CEBU PHILIPPINES"
+      name="Marivil Du" />
           <Blog 
-          description="4 STOREY MIRROR DESIGN SINGLE ATTACHED 4 BEDROOM HOUSE AND LOT FOR SALE NEAR THE BEACH"
-name="Marivil Du"/>
+          youtubeUrl="https://www.youtube.com/watch?v=2v741kHvzbY"
+      thumbnailUrl="../assets/images/Youtube-Images/image1.png"
+      description="REAL ESTATE BROKER IN CEBU l CONDO FOR RENT l MARIVIL DU"
+      name="Marivil Du" />
           <Blog 
-          description="5 STOREY MIRROR DESIGN SINGLE ATTACHED 4 BEDROOM HOUSE AND LOT FOR SALE NEAR THE BEACH"
-name="Marivil Du"/>
+          youtubeUrl="https://www.youtube.com/watch?v=2v741kHvzbY"
+      thumbnailUrl="../assets/images/Youtube-Images/image1.png"
+      description="REAL ESTATE BROKER IN CEBU 1 CONDO FOR RENT l MARIVIL DU"
+      name="Marivil Du" />
           <Blog 
-          description="6 STOREY MIRROR DESIGN SINGLE ATTACHED 4 BEDROOM HOUSE AND LOT FOR SALE NEAR THE BEACH"
-name="Marivil Du"/>
+          youtubeUrl="https://www.youtube.com/watch?v=2v741kHvzbY"
+      thumbnailUrl="../assets/images/Youtube-Images/image1.png"
+      description="3 LEVEL HOUSE WITH ROOF DECK AND POOL IN VISTA GRANDE TALISAY CEBU PHILIPPINES"
+      name="Marivil Du" />
           <Blog 
-          description="7 STOREY MIRROR DESIGN SINGLE ATTACHED 4 BEDROOM HOUSE AND LOT FOR SALE NEAR THE BEACH"
-name="Marivil Du"/>
+          youtubeUrl="https://www.youtube.com/watch?v=2v741kHvzbY"
+      thumbnailUrl="../assets/images/Youtube-Images/image1.png"
+      description="REAL ESTATE BROKER IN CEBU 1 CONDO FOR RENT l MARIVIL DU"
+      name="Marivil Du" />
           <Blog 
-          description="8 STOREY MIRROR DESIGN SINGLE ATTACHED 4 BEDROOM HOUSE AND LOT FOR SALE NEAR THE BEACH"
-name="Marivil Du"/>
+          youtubeUrl="https://www.youtube.com/watch?v=2v741kHvzbY"
+      thumbnailUrl="../assets/images/Youtube-Images/image1.png"
+      description="REAL ESTATE BROKER IN CEBU l CONDO FOR RENT l MARIVIL DU"
+      name="Marivil Du" />
           <Blog 
-          description="9 STOREY MIRROR DESIGN SINGLE ATTACHED 4 BEDROOM HOUSE AND LOT FOR SALE NEAR THE BEACH"
-name="Marivil Du"/>
-          <Blog 
-          description="10 STOREY MIRROR DESIGN SINGLE ATTACHED 4 BEDROOM HOUSE AND LOT FOR SALE NEAR THE BEACH"
-name="Marivil Du"/>
+          youtubeUrl="https://www.youtube.com/watch?v=2v741kHvzbY"
+      thumbnailUrl="../assets/images/Youtube-Images/image1.png"
+      description="REAL ESTATE BROKER IN CEBU l CONDO FOR RENT l MARIVIL DU"
+      name="Marivil Du" />
+      
+
         </div>
         <div class="flex  w-full text-[#E67E23] ml-3 mb-2">
           <div class="flex  text-lg font-semibold pl-3">
