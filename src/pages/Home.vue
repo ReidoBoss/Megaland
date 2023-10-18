@@ -161,11 +161,11 @@
     </div>
   </div>
 
-  <div class="w-full mt-6 items-center">
-    <h1 class="mt-10 mb-20 font-black text-4xl ml-[575px]">
-      OUR <span class="text-[#E67E23]">GALLERY</span>!
+  <div class="w-full mt-6 flex justify-center items-center">
+    <h1 class="mt-10 mb-20 font-black text-4xl ">
+      OUR <span class="text-[#E67E23]">GALLERY !</span>
     </h1>
-    <!--Gallery Component Goes Here-->>
+    <!--Gallery Component Goes Here-->
   </div>
 </template>
 
