@@ -203,7 +203,6 @@ import Accordion from "../components/Accordion.vue";
 import {
   FunnelIcon,
   NewspaperIcon,
-  UserIcon,
   ChatBubbleLeftIcon,
 } from "@heroicons/vue/24/outline";
 import Blog from "../components/Blog.vue";
