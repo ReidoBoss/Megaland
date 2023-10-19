@@ -39,7 +39,7 @@
       </div>
       <div class="flex justify-center items-center mt-2 text-white">
         <button
-          class="bg-[#E67E23] h-9 w-[210px] hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] rounded-xl text-center font-medium text-[18px] hover:shadow-3xl"
+          class="bg-[#E67E23] h-9 w-[225px] rounded-md text-white text-center font-semibold text-[20px] hover:bg-white hover:text-[#E67E23] hover:border-[#E67E23] border-[#E67E23] border-2 transition duration-300"
         >
           Details
         </button>
