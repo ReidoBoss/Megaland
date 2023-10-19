@@ -44,7 +44,7 @@
       </div>
       <div>
         <div>Join Us Now!</div>
-        <div class="relative mt-1">
+        <div class="relative mt-1 mb-4">
           <div
             class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none"
           >
@@ -59,10 +59,10 @@
             placeholder="Enter your email"
           />
         </div>
-        <div>
-          <!-- <svg-icon type="mdi" :path="mdiFacebook" :size="48"></svg-icon> -->
-          <mdicon name="mdiAbacus" />
-
+        <div class="flex">
+          <mdicon name="facebook" :width="30" :height="30" class="hover:text-orange-500 mr-5"  />
+          <mdicon name="instagram" :width="30" :height="30" class="hover:text-orange-500 mr-5"  />
+          <mdicon name="twitter" :width="30" :height="30" class="hover:text-orange-500 mr-5"  />
         </div>
       </div>
     </div>
@@ -104,7 +104,4 @@
 <script lang="ts" setup>
 import { EnvelopeIcon } from "@heroicons/vue/24/outline";
 
-
-// import SvgIcon from '@jamescoyle/vue-icon';
-//  import { mdiAbacus  } from '@mdi/js';
 </script>

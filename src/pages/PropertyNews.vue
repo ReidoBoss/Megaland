@@ -8,7 +8,12 @@
         Blog <NewspaperIcon class="h-[26px] w-[26px] ml-1" />
       </div>
       <div class="flex w-[28%] text-lg font-semibold pl-5">
-        All <UserIcon class="h-[26px] w-[26px] ml-1" />
+        All    <mdicon
+                class="ml-2"
+                name="post-outline"
+                :width="26"
+                :height="26"
+              />
       </div>
     </div>
     <div class="flex">
