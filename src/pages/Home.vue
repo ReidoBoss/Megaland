@@ -1,4 +1,5 @@
 <template>
+
   <div class="w-full h-[550px] bg-slate-400 -z-10 cursor-pointer">
     <swiper-container
       class="w-full h-[550px]"
@@ -108,7 +109,7 @@
         :size="769"
         :bedroom="7"
         :bathroom="7"
-      />
+      />  
       <Products
         :image="swiper2"
         name="2-Storey House & Lot For Sale White Hills Subdivision-Banawa"
@@ -153,20 +154,24 @@
   </div>
   <!--Agents Carousel-->
   <div class="p-8">
-    <div class="w-full mt-6 items-center">
-      <h1 class="mt-10 mb-20 font-black text-4xl ml-[575px]">
+    <div class="w-full mt-6 ">
+      <h1 class="mt-10 mb-20 font-black text-4xl text-center">
         MEET OUR <span class="text-[#E67E23]">AGENTS</span>!
       </h1>
       <Agents />
     </div>
   </div>
 
-  <div class="w-full mt-6 flex justify-center items-center">
-    <h1 class="mt-10 mb-20 font-black text-4xl ">
-      OUR <span class="text-[#E67E23]">GALLERY !</span>
-    </h1>
-    <!--Gallery Component Goes Here-->
-  </div>
+
+
+  <div class="w-full mt-6 justify-center">
+  <h1 class="mt-10 mb-20 font-black text-4xl text-center">
+    OUR <span class="text-[#E67E23]">GALLERY !</span>
+  </h1>
+  <Gallery/>
+</div>
+
+
 </template>
 
 <script lang="ts" setup>
@@ -174,7 +179,8 @@ import { register } from "swiper/element/bundle";
 import Accordion from "../components/Accordion.vue";
 import Products from "../components/Products.vue";
 import Agents from "../components/Agents.vue";
-import { FunnelIcon, NewspaperIcon } from "@heroicons/vue/24/outline";
+import Gallery from "../components/Gallery.vue";
+import { FunnelIcon, NewspaperIcon} from "@heroicons/vue/24/outline";
 import swiper1 from "../assets/swiper1.jpg";
 import swiper2 from "../assets/swiper2.jpg";
 import swiper3 from "../assets/swiper3.jpg";

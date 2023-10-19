@@ -21,7 +21,7 @@
       </li>
       <li class="">
         <router-link class="hover-underline" to="/listProperty"
-          >Property Listing</router-link
+          >List of Properties</router-link
         >
       </li>
     </ul>
