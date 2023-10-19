@@ -61,12 +61,10 @@
             { type: 'spinner', data: 'Bedroom' },
             { type: 'spinner', data: 'Bathroom' },
           ]"
-        />
+        /> 
       </div>
       <div class="w-[60%] flex-col ml-6">
-        <div
-          class="p-10 border-2 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)"
-        >
+        <div class="p-10 border-2  shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)">
           <ProductDetails />
         </div>
       </div>
@@ -89,7 +87,7 @@
             <div class="font-medium">147 property</div>
             <div class="flex justify-center items-center mt-5 text-white">
               <button
-                class="bg-[#E67E23] h-9 w-[225px] rounded-md text-white text-center font-semibold text-[20px] hover:bg-white hover:text-[#E67E23] hover:border-[#E67E23] border-[#E67E23] border-2 transition duration-300"
+                class="bg-[#E67E23] h-9 w-[210px] hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] rounded-xl text-center font-medium text-[18px] hover:shadow-3xl"
               >
                 Contact
               </button>
