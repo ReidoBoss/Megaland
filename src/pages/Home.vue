@@ -161,17 +161,18 @@
     </div>
   </div>
 
-  <div class="w-full mt-6 flex justify-center items-center">
-    <h1 class="mt-10 mb-20 font-black text-4xl ">
+  <div class="w-full mt-6 items-center">
+    <h1 class="mt-10 mb-20 font-black text-center text-4xl ">
       OUR <span class="text-[#E67E23]">GALLERY !</span>
     </h1>
-    <!--Gallery Component Goes Here-->
+    <Gallery/>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { register } from "swiper/element/bundle";
 import Accordion from "../components/Accordion.vue";
+import Gallery from "../components/Gallery.vue";
 import Products from "../components/Products.vue";
 import Agents from "../components/Agents.vue";
 import { FunnelIcon, NewspaperIcon } from "@heroicons/vue/24/outline";
