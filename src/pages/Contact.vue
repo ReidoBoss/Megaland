@@ -5,8 +5,7 @@
 <template>
     <div class="page-container">
       <div class="image-container">
-        <img src="../assets/mgpng.png" alt="mgpng" class="mgpng" />
-        <img src="../assets/getInTouch.png" alt="mgpng" class="mgpng" style="width: 200px; height: auto;" />
+        <img src="../assets/MegaTouch.png" alt="mgpng" class="mgpng" />
       </div>
       
       <div class="contact-text">
@@ -36,6 +35,7 @@
     <div class="form-column">
       <h2>Message/Concern</h2>
       <textarea v-model="formData.message" rows="8"></textarea>
+      <button style="background-color: orange; color: white;">Send</button>
     </div>      
     </div>
   </template>
@@ -114,20 +114,11 @@ button {
     justify-content: center;
     align-items: center;
     height: 350px;
-    background-image: url('../assets/conpic.jpeg'); /* Replace 'your-image.jpg' with the path to your background image */
+    background-image: url('../assets/conpic.jpg'); /* Replace 'your-image.jpg' with the path to your background image */
     background-size: cover;
     background-position: relative;
   }
-  .page-container::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70%;
-    background: rgba(206, 204, 204, 0.8); /* 80% gray overlay */
-    z-index: 1; /* Place the overlay above the background image */
-  }
+  
   
   .image-container {
     width: 100%;
