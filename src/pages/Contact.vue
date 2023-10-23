@@ -3,6 +3,7 @@
 </script>
 
 <template>
+  <div class="centered-container">
     <div class="page-container">
       <div class="image-container">
         <img src="../assets/MegaTouch.png" alt="mgpng" class="mgpng" />
@@ -38,6 +39,7 @@
       <button style="background-color: orange; color: white;">Send</button>
     </div>      
     </div>
+  </div>
   </template>
  <script>
  export default {
@@ -62,7 +64,11 @@
  </script>
   
   <style scoped>
-
+.centered-container {
+  margin: 0 auto; /* This centers the container horizontally */
+  max-width: 75%; /* You can adjust the maximum width as needed */
+  padding: 20px; /* Optional padding for content inside the container */
+}
 .form-container {
   display: flex;
   justify-content: space-between;
@@ -106,7 +112,7 @@ button {
     display: flex;
     justify-content: center; /* Horizontal centering */
     align-items: center;     /* Vertical centering */
-    z-index: 2;
+    position: relative;
   }
   .page-container {
     display: flex;

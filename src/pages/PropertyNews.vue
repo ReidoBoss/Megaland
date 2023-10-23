@@ -178,6 +178,7 @@
                 placeholder="Leave a comment..."
                 class="w-full border-b-2 pl-2 p3-1 focus:outline-none"
               />
+              <button class="comment-button">Send</button>
             </div>
           </div>
 
@@ -209,3 +210,22 @@ import Blog from "../components/Blog.vue";
 import Comment from "../components/Comment.vue"
 import BlogDetails from "../components/BlogDetails.vue";
 </script>
+
+<style>
+/* Comment Send Button with Orange Scheme */
+.comment-button {
+  background-color: #ff6600; /* Orange background color */
+  color: #fff; /* Text color (white) */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Hover state for the button */
+.comment-button:hover {
+  background-color: #e65200; /* Darker orange on hover */
+}
+
+</style>
