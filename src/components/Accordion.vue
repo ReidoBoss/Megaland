@@ -2,7 +2,7 @@
   <div class="flex-col cursor-pointer pt-1 pb-1">
     <div>
       <div class="flex" @click="isActive = !isActive">
-        <div class="flex justify-center items-center w-[12%]  mr-2">
+        <div class="flex justify-center items-center w-[12%] mr-2">
           <ChevronUpIcon
             v-if="isActive"
             class="h-[15px] w-[15px] text-[#E67E23]"
@@ -17,11 +17,16 @@
       </div>
       <hr class="border-[#E67E23]" />
       <div v-if="isActive" class="text-[#454544] font-medium pl-4 pt-2">
-        <div class="flex" name="cb1" v-for="(item, index) in content" :key="index">
+        <div
+          class="flex"
+          name="cb1"
+          v-for="(item, index) in content"
+          :key="index"
+        >
           <!-- if type is text -->
           <div v-if="item.type === 'text'">
             <input
-              class="w-44 h-6  mb-2 border-[#454544] border focus:outline-none pl-3"
+              class="w-44 h-6 mb-2 border-[#454544] border focus:outline-none pl-3"
               type="text"
               name="cb1"
               id=""

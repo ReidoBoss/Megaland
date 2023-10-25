@@ -60,9 +60,24 @@
           />
         </div>
         <div class="flex">
-          <mdicon name="facebook" :width="30" :height="30" class="hover:text-orange-500 mr-5"  />
-          <mdicon name="instagram" :width="30" :height="30" class="hover:text-orange-500 mr-5"  />
-          <mdicon name="twitter" :width="30" :height="30" class="hover:text-orange-500 mr-5"  />
+          <mdicon
+            name="facebook"
+            :width="30"
+            :height="30"
+            class="hover:text-orange-500 mr-5"
+          />
+          <mdicon
+            name="instagram"
+            :width="30"
+            :height="30"
+            class="hover:text-orange-500 mr-5"
+          />
+          <mdicon
+            name="twitter"
+            :width="30"
+            :height="30"
+            class="hover:text-orange-500 mr-5"
+          />
         </div>
       </div>
     </div>
@@ -72,7 +87,7 @@
       >
         <div>Gallery</div>
         <div class="flex h-[160px] w-full hover:scale-[1.02]">
-          <div class="flex items-center justify-center w-[65%]  p-1">
+          <div class="flex items-center justify-center w-[65%] p-1">
             <img
               class="h-[151px] border-2 border-[#fefefe]"
               src="../assets/gal1.jpg"
@@ -80,7 +95,7 @@
             />
           </div>
           <div class="flex flex-col w-[35%]">
-            <div class="h-[50%] items-center justify-center  p-1 ">
+            <div class="h-[50%] items-center justify-center p-1">
               <img
                 class="h-[70px] border-2 border-[#fefefe]"
                 src="../assets/gal2.jpg"
@@ -103,5 +118,4 @@
 
 <script lang="ts" setup>
 import { EnvelopeIcon } from "@heroicons/vue/24/outline";
-
 </script>
