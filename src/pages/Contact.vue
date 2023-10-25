@@ -21,82 +21,82 @@
       </div>
     </div>
 
-    <div class="grid">
-      <div class="flex-1 p-20 border border-solid border-[#e67f22] bg-gray-100">
-        <div class="grid-cols-1">
-          <h2 class="font-bold text-xl">Contact Information</h2>
-          <form class="mx-auto" @submit.prevent="submitForm">
-            <div class="mb-10 mt-10">
-              <div class="relative">
-                <input
-                  type="text"
-                  id="name"
-                  class="font-bold block px-2.5 pb-2.5 pt-4 w-[25%] text-sm text-gray-900 bg-transparent rounded-lg border-2 border-[#e67f22] appearance-none dark:text-black dark:border-[#e67f22] dark:focus:border-[#e67f22] focus:outline-none focus:ring-0 focus:border-border-[#e67f22] peer"
-                  v-model="formData.name"
-                  required
-                  placeholder=""
-                />
-                <label
-                  for="name"
-                  class="font-bold absolute text-sm text-[#e67f22] dark:text-[#e67f22] duration-300 transform -translate-y-4 scale-75 top-2 origin-[0] bg- dark:bg-gray-100 px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
-                  >Name *</label
-                >
-              </div>
+    <div
+      class="grid grid-cols-2 flex-1 p-20 gap-10 border border-solid border-[#e67f22] bg-gray-100"
+    >
+      <div class="ml-40 w-[50%]">
+        <h2 class="font-bold text-xl">Contact Information</h2>
+        <form class="mx-auto" @submit.prevent="submitForm">
+          <div class="mb-10 mt-10">
+            <div class="relative">
+              <input
+                type="text"
+                id="name"
+                class="font-bold block px-2.5 pb-2.5 pt-4 text-sm text-gray-900 bg-transparent rounded-lg border-2 border-[#e67f22] appearance-none dark:text-black dark:border-[#e67f22] dark:focus:border-[#e67f22] focus:outline-none focus:ring-0 focus:border-border-[#e67f22] peer"
+                v-model="formData.name"
+                required
+                placeholder=""
+              />
+              <label
+                for="name"
+                class="font-bold absolute text-sm text-[#e67f22] dark:text-[#e67f22] duration-300 transform -translate-y-4 scale-75 top-2 origin-[0] bg- dark:bg-gray-100 px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                >Name *</label
+              >
             </div>
-            <div class="mb-10">
-              <div class="relative">
-                <input
-                  type="text"
-                  id="email"
-                  class="font-bold block px-2.5 pb-2.5 pt-4 w-[25%] text-sm text-gray-900 bg-transparent rounded-lg border-2 border-[#e67f22] appearance-none dark:text-black dark:border-[#e67f22] dark:focus:border-[#e67f22] focus:outline-none focus:ring-0 focus:border-border-[#e67f22] peer"
-                  v-model="formData.email"
-                  required
-                  placeholder=""
-                />
-                <label
-                  for="email"
-                  class="font-bold absolute text-sm text-[#e67f22] dark:text-[#e67f22] duration-300 transform -translate-y-4 scale-75 top-2 origin-[0] bg- dark:bg-gray-100 px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
-                  >Email *</label
-                >
-              </div>
-            </div>
-            <div class="mb-10">
-              <div class="relative">
-                <input
-                  type="text"
-                  id="phone"
-                  class="font-bold block px-2.5 pb-2.5 pt-4 w-[25%] text-sm text-gray-900 bg-transparent rounded-lg border-2 border-[#e67f22] appearance-none dark:text-black dark:border-[#e67f22] dark:focus:border-[#e67f22] focus:outline-none focus:ring-0 focus:border-border-[#e67f22] peer"
-                  v-model="formData.phone"
-                  required
-                  placeholder=""
-                />
-                <label
-                  for="phone"
-                  class="font-bold absolute text-sm text-[#e67f22] dark:text-[#e67f22] duration-300 transform -translate-y-4 scale-75 top-2 origin-[0] bg- dark:bg-gray-100 px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
-                  >Phone Number *</label
-                >
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="right">
-          <h2 class="font-bold text-xl mb-10">Message/Concern</h2>
-
-          <textarea
-            class="mb-10 font-bold w-[40%] p-10 border-2 border-solid border-[#e67f22] rounded-lg h-40 resize-none"
-            v-model="formData.message"
-            rows="8"
-            placeholder="Write your thoughts..."
-          >
-          </textarea>
-          <div>
-            <button
-              class="text-[#323946] bg-[#e67f22] px-6 py-2 rounded-lg p-4.5 shadow-xl text-2.4 text-2d0d06 leading-7 font-semibold tracking-wide transition-transform transform hover:scale-105 duration-500 ease-in-out box-shadow-custom"
-            >
-              Send
-            </button>
           </div>
-        </div>
+          <div class="mb-10">
+            <div class="relative">
+              <input
+                type="text"
+                id="email"
+                class="font-bold block px-2.5 pb-2.5 pt-4 text-sm text-gray-900 bg-transparent rounded-lg border-2 border-[#e67f22] appearance-none dark:text-black dark:border-[#e67f22] dark:focus:border-[#e67f22] focus:outline-none focus:ring-0 focus:border-border-[#e67f22] peer"
+                v-model="formData.email"
+                required
+                placeholder=""
+              />
+              <label
+                for="email"
+                class="font-bold absolute text-sm text-[#e67f22] dark:text-[#e67f22] duration-300 transform -translate-y-4 scale-75 top-2 origin-[0] bg- dark:bg-gray-100 px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                >Email *</label
+              >
+            </div>
+          </div>
+          <div class="mb-10">
+            <div class="relative">
+              <input
+                type="text"
+                id="phone"
+                class="font-bold block px-2.5 pb-2.5 pt-4 text-sm text-gray-900 bg-transparent rounded-lg border-2 border-[#e67f22] appearance-none dark:text-black dark:border-[#e67f22] dark:focus:border-[#e67f22] focus:outline-none focus:ring-0 focus:border-border-[#e67f22] peer"
+                v-model="formData.phone"
+                required
+                placeholder=""
+              />
+              <label
+                for="phone"
+                class="font-bold absolute text-sm text-[#e67f22] dark:text-[#e67f22] duration-300 transform -translate-y-4 scale-75 top-2 origin-[0] bg- dark:bg-gray-100 px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                >Phone Number *</label
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="">
+        <h2 class="font-bold text-xl mb-10">Message/Concern</h2>
+
+        <textarea
+          class="font-bold p-5 border-2 border-solid border-[#e67f22] rounded-lg h-40 resize-none"
+          v-model="formData.message"
+          rows="8"
+          placeholder="Write your thoughts here..."
+        >
+        </textarea>
+      </div>
+      <div class="ml-40">
+        <button
+          class="text-[#323946] bg-[#e67f22] px-6 py-2 rounded-lg p-4.5 shadow-xl text-2.4 text-2d0d06 leading-7 font-semibold tracking-wide transition-transform transform hover:scale-100 duration-600 ease-in-out box-shadow-custom"
+        >
+          Send
+        </button>
       </div>
     </div>
   </div>
@@ -132,5 +132,10 @@ export default {
 }
 .box-shadow-custom:hover {
   box-shadow: none;
+}
+
+input,
+textarea {
+  @apply w-full;
 }
 </style>
