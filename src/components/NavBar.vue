@@ -1,23 +1,29 @@
 <template>
   <!-- Navigation Bar -->
   <div
-    class="bg-[#E67E23] sticky top-0 h-12  text-[#fefefe] text-[18px] font-semibold p-2 pt-4 z-10"
+    class="bg-[#E67E23] sticky top-0 h-12 text-[#fefefe] text-[18px] font-semibold p-2 pt-2 z-10"
   >
     <ul class="flex justify-end gap-6">
       <li class="">
-        <router-link class=" hover-underline" to="/">Home</router-link>
+        <router-link class="hover-underline" to="/">Home</router-link>
       </li>
       <li class="">
-        <router-link class="hover-underline" to="/properties">Properties</router-link>
+        <router-link class="hover-underline" to="/properties"
+          >Properties</router-link
+        >
       </li>
       <li class="">
-        <router-link class="hover-underline" to="/PropertyNews">Property News</router-link>
+        <router-link class="hover-underline" to="/PropertyNews"
+          >Property News</router-link
+        >
       </li>
       <li class="">
         <router-link class="hover-underline" to="/about">About Us</router-link>
       </li>
       <li class="">
-        <router-link class="hover-underline" to="/contact">Contact Us</router-link>
+        <router-link class="hover-underline" to="/contact"
+          >Contact Us</router-link
+        >
       </li>
       <li class="">
         <router-link class="hover-underline" to="/listProperty"
@@ -39,7 +45,9 @@
         name=""
         id=""
       />
-      <MagnifyingGlassIcon class="h-11 w-11 text-[#E67E23] cursor-pointer hover:scale-[1.02]" />
+      <MagnifyingGlassIcon
+        class="h-11 w-11 text-[#E67E23] cursor-pointer hover:scale-[1.02]"
+      />
     </div>
     <div class="flex w-[10%] justify-end items-center pr-3">
       <UserIcon class="w-10 h-10 text-[#E67E23] hover:scale-[1.02]" />
