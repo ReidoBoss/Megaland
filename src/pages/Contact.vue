@@ -9,7 +9,7 @@
 
     <div class="ml-[15%] auto grid grid-cols-10">
       <div
-        class="border-4 rounded-tl-[3%] rounded-bl-[3%] border-black shadow-2xl mb-10 col-start-1 grid col-span-3 bg-[#d78338]"
+        class="border-2 rounded-tl-[3%] rounded-bl-[3%] border-black shadow-2xl mb-10 col-start-1 grid col-span-3 bg-[#d78338]"
       >
         <div class="font-bold mt-[8%] text-xl ml-[5%] text-black">
           <span class="text-black"> Contact Information </span>
