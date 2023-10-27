@@ -1,141 +1,123 @@
-<script lang="ts" setup></script>
-
 <template>
-  <div class="mx-auto max-w-7xl">
-    <div class="relative w-full h-80 bg-cover bg-center bg-custom">
-      <div class="w-[100%] h-3/4">
-        <img
-          src="../assets/mgpng.png"
-          alt="mgpng"
-          class="relative top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-300 z-0 filter-none"
-        />
-      </div>
-
-      <div
-        class="font-bold text-xl flex justify-center align-middle mx-20 m-10"
-      >
-        <p>
-          📞+63-977-382-4416 📧megalandrealtycebu@gmail.com 📍 Unit 101, 148
-          Residences, Pelaez St, Cebu City
-        </p>
-      </div>
-    </div>
-
-    <div
-      class="grid grid-cols-2 flex-1 p-20 gap-10 border border-solid border-[#e67f22] bg-gray-100"
-    >
-      <div class="ml-40 w-[50%]">
-        <h2 class="font-bold text-xl">Contact Information</h2>
-        <form class="mx-auto" @submit.prevent="submitForm">
-          <div class="mb-10 mt-10">
-            <div class="relative">
-              <input
-                type="text"
-                id="name"
-                class="font-bold block px-2.5 pb-2.5 pt-4 text-sm text-gray-900 bg-transparent rounded-lg border-2 border-[#e67f22] appearance-none dark:text-black dark:border-[#e67f22] dark:focus:border-[#e67f22] focus:outline-none focus:ring-0 focus:border-border-[#e67f22] peer"
-                v-model="formData.name"
-                required
-                placeholder=""
-              />
-              <label
-                for="name"
-                class="font-bold absolute text-sm text-[#e67f22] dark:text-[#e67f22] duration-300 transform -translate-y-4 scale-75 top-2 origin-[0] bg- dark:bg-gray-100 px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
-                >Name *</label
-              >
-            </div>
-          </div>
-          <div class="mb-10">
-            <div class="relative">
-              <input
-                type="text"
-                id="email"
-                class="font-bold block px-2.5 pb-2.5 pt-4 text-sm text-gray-900 bg-transparent rounded-lg border-2 border-[#e67f22] appearance-none dark:text-black dark:border-[#e67f22] dark:focus:border-[#e67f22] focus:outline-none focus:ring-0 focus:border-border-[#e67f22] peer"
-                v-model="formData.email"
-                required
-                placeholder=""
-              />
-              <label
-                for="email"
-                class="font-bold absolute text-sm text-[#e67f22] dark:text-[#e67f22] duration-300 transform -translate-y-4 scale-75 top-2 origin-[0] bg- dark:bg-gray-100 px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
-                >Email *</label
-              >
-            </div>
-          </div>
-          <div class="mb-10">
-            <div class="relative">
-              <input
-                type="text"
-                id="phone"
-                class="font-bold block px-2.5 pb-2.5 pt-4 text-sm text-gray-900 bg-transparent rounded-lg border-2 border-[#e67f22] appearance-none dark:text-black dark:border-[#e67f22] dark:focus:border-[#e67f22] focus:outline-none focus:ring-0 focus:border-border-[#e67f22] peer"
-                v-model="formData.phone"
-                required
-                placeholder=""
-              />
-              <label
-                for="phone"
-                class="font-bold absolute text-sm text-[#e67f22] dark:text-[#e67f22] duration-300 transform -translate-y-4 scale-75 top-2 origin-[0] bg- dark:bg-gray-100 px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
-                >Phone Number *</label
-              >
-            </div>
-          </div>
-        </form>
-      </div>
+  <div class=" pl-32 pr-32 pb-10">
+    <div class="">
       <div class="">
-        <h2 class="font-bold text-xl mb-10">Message/Concern</h2>
-
-        <textarea
-          class="font-bold p-5 border-2 border-solid border-[#e67f22] rounded-lg h-40 resize-none"
-          v-model="formData.message"
-          rows="8"
-          placeholder="Write your thoughts here..."
-        >
-        </textarea>
+        <iframe
+          class="border-2 border-black"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.5483668762135!2d123.89617127595324!3d10.29792626783563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999a0c575cff7%3A0x76271c50dbf0b3b2!2sMegaland%20Realty!5e0!3m2!1sen!2sph!4v1697273626082!5m2!1sen!2sph"
+          width="100%"
+          height="500"
+          style="border: 0"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
-      <div class="ml-40">
-        <button
-          class="text-[#323946] bg-[#e67f22] px-6 py-2 rounded-lg p-4.5 shadow-xl text-2.4 text-2d0d06 leading-7 font-semibold tracking-wide transition-transform transform hover:scale-100 duration-600 ease-in-out box-shadow-custom"
-        >
-          Send
-        </button>
+      <div class="flex mt-10 shadow-2xl bg-gray-100 rounded-xl p-5">
+        <div class="w-[50%] flex flex-col pt-5 bg-[#E67E23] text-[#ffffff] p-10 justify-center rounded-tl-xl rounded-tr-xl rounded-bl-xl">
+          <div class="mb-10 mr-3 flex">
+            <div class="flex items-center mr-8">
+              <HomeIcon class="w-[35px] h-[35px] text-[#ffffff]" />
+            </div>
+            <div class="">
+              <div class=" text-xl font-semibold">
+                Unit 101,148 Residences Pelaez St. Kalubihan
+              </div>
+              <div class="text-gray-50">6000 Cebu City, Philippines</div>
+            </div>
+          </div>
+          <div class="mb-10 mr-3 flex ">
+            <div class=" flex items-center mr-8">
+              <PhoneIcon class="w-[35px] h-[35px] text-[#ffffff]" />
+            </div>
+            <div class="">
+              <div class=" text-xl font-semibold">
+                +63-977-382-4416
+              </div>
+              <div class=" text-gray-50"> Mon - Sat,10 Am - 6 Pm</div>
+            </div>
+          </div>
+          <div class="mb-10 mr-3 flex">
+            <div class=" flex items-center mr-8">
+              <EnvelopeIcon class="w-[35px] h-[35px] text-[#ffffff]" />
+            </div>
+            <div class="">
+              <div class=" text-xl font-semibold">
+                Megalandrealtycebu@gmail.Com
+              </div>
+              <div class="text-gray-50">Email us your query</div>
+            </div>
+          </div>
+        </div>
+        <div class="w-[50%] pt-5  ">
+          <div class="flex">
+            <div class="relative ml-3 mb-3 w-[50%]">
+            <input
+              type="text"
+              id="floating_filled"
+              class="w-full h-10 block rounded-md px-2.5 pb-2.5 pt-5 text-sm text-[#000000] bg-gray-50 border-gray-400 border box-border appearance-none dark:focus:border-[#E67E23] focus:outline-none focus:ring-0 focus:border-[#E67E23] peer"
+              placeholder=" "
+            />
+            <label
+              for="floating_filled"
+              class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-[#E67E23] peer-focus:dark:text-[#E67E23] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+              >Name*</label
+            >
+          </div>
+          <div class="relative ml-3 mb-3 w-[50%]">
+            <input
+              type="text"
+              id="floating_filled"
+              class="w-full h-10 block rounded-md px-2.5 pb-2.5 pt-5 text-sm text-[#000000] bg-gray-50 border border-gray-400 box-border appearance-none dark:focus:border-[#E67E23] focus:outline-none focus:ring-0 focus:border-[#E67E23] peer"
+              placeholder=" "
+            />
+            <label
+              for="floating_filled"
+              class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-[#E67E23] peer-focus:dark:text-[#E67E23] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+              >Email*</label
+            >
+          </div>
+          </div>
+          
+          <div class="relative ml-3 mb-3">
+            <input
+              type="text"
+              id="floating_filled"
+              class="w-full h-10 block rounded-md px-2.5 pb-2.5 pt-5 text-sm text-[#000000] bg-gray-50 border border-gray-400 box-border appearance-none dark:focus:border-[#E67E23] focus:outline-none focus:ring-0 focus:border-[#E67E23] peer"
+              placeholder=" "
+            />
+            <label
+              for="floating_filled"
+              class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-[#E67E23] peer-focus:dark:text-[#E67E23] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+              >Subject*</label
+            >
+          </div>
+          <div class="relative ml-3 mb-3">
+            <input
+              type="text"
+              id="floating_filled"
+              class="w-full h-64 block rounded-md px-2.5 pb-2.5 pt-5 text-sm text-[#000000] bg-gray-50 border border-gray-400 box-border appearance-none dark:focus:border-[#E67E23] focus:outline-none focus:ring-0 focus:border-[#E67E23] peer"
+              placeholder=" "
+            />
+            <label
+              for="floating_filled"
+              class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-[#E67E23] peer-focus:dark:text-[#E67E23] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+              >Message*</label
+            >
+          </div>
+
+          <div class="ml-3">
+            <button
+              class="bg-[#E67E23] h-9 w-full rounded-md text-white text-center font-semibold text-[20px] hover:bg-white hover:text-[#E67E23] hover:border-[#E67E23] border-[#E67E23] border-2 transition duration-300"
+            >
+              Send
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      formData: {
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-      },
-    };
-  },
-  methods: {
-    submitForm() {
-      // Handle form submission logic here
-      console.log("Form submitted with data:", this.formData);
-      // You can send this data to an API or perform other actions as needed.
-    },
-  },
-};
+
+<script lang="ts" setup>
+import { HomeIcon, EnvelopeIcon, PhoneIcon } from "@heroicons/vue/24/solid";
 </script>
-
-<style scoped>
-.bg-custom {
-  background-image: url(../assets/conpic.jpg);
-}
-.box-shadow-custom {
-  box-shadow: 0 0 10px #e67f22;
-}
-.box-shadow-custom:hover {
-  box-shadow: none;
-}
-
-input,
-textarea {
-  @apply w-full;
-}
-</style>

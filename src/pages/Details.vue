@@ -4,10 +4,10 @@
       <div class="flex w-[16%] text-lg font-semibold pl-3">
         Search Filter <FunnelIcon class="h-[26px] w-[26px] ml-1" />
       </div>
-      <div class="flex w-[56%] text-lg font-semibold pl-5">
+      <div class="flex w-[60%] text-lg font-semibold pl-5">
         Details <NewspaperIcon class="h-[26px] w-[26px] ml-1" />
       </div>
-      <div class="flex w-[28%] text-lg font-semibold pl-5">
+      <div class="flex w-[25%] text-lg font-semibold pl-5">
         Contact Agent <UserIcon class="h-[26px] w-[26px] ml-1" />
       </div>
     </div>
