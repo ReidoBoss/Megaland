@@ -1,6 +1,6 @@
 <template>
-  <div class=" pl-32 pr-32 pb-10">
-    <div class="">
+  <div class="pl-32 pr-32 pb-10">
+    <div class="shadow-2xl bg-gray-100 rounded-xl p-5">
       <div class="">
         <iframe
           class="border-2 border-black"
@@ -12,72 +12,72 @@
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-      <div class="flex mt-10 shadow-2xl bg-gray-100 rounded-xl p-5">
-        <div class="w-[50%] flex flex-col pt-5 bg-[#E67E23] text-[#ffffff] p-10 justify-center rounded-tl-xl rounded-tr-xl rounded-bl-xl">
+      <div class="flex mt-10">
+        <div
+          class="w-[50%] flex flex-col pt-5 bg-[#E67E23] text-[#ffffff] p-10 justify-center rounded-tl-xl rounded-tr-xl rounded-bl-xl"
+        >
           <div class="mb-10 mr-3 flex">
             <div class="flex items-center mr-8">
               <HomeIcon class="w-[35px] h-[35px] text-[#ffffff]" />
             </div>
             <div class="">
-              <div class=" text-xl font-semibold">
+              <div class="text-xl font-semibold">
                 Unit 101,148 Residences Pelaez St. Kalubihan
               </div>
               <div class="text-gray-50">6000 Cebu City, Philippines</div>
             </div>
           </div>
-          <div class="mb-10 mr-3 flex ">
-            <div class=" flex items-center mr-8">
+          <div class="mb-10 mr-3 flex">
+            <div class="flex items-center mr-8">
               <PhoneIcon class="w-[35px] h-[35px] text-[#ffffff]" />
             </div>
             <div class="">
-              <div class=" text-xl font-semibold">
-                +63-977-382-4416
-              </div>
-              <div class=" text-gray-50"> Mon - Sat,10 Am - 6 Pm</div>
+              <div class="text-xl font-semibold">+63-977-382-4416</div>
+              <div class="text-gray-50">Mon - Sat,10 Am - 6 Pm</div>
             </div>
           </div>
           <div class="mb-10 mr-3 flex">
-            <div class=" flex items-center mr-8">
+            <div class="flex items-center mr-8">
               <EnvelopeIcon class="w-[35px] h-[35px] text-[#ffffff]" />
             </div>
             <div class="">
-              <div class=" text-xl font-semibold">
+              <div class="text-xl font-semibold">
                 Megalandrealtycebu@gmail.Com
               </div>
               <div class="text-gray-50">Email us your query</div>
             </div>
           </div>
         </div>
-        <div class="w-[50%] pt-5  ">
+        <div class="w-[50%] pt-5">
           <div class="flex">
             <div class="relative ml-3 mb-3 w-[50%]">
-            <input
-              type="text"
-              id="floating_filled"
-              class="w-full h-10 block rounded-md px-2.5 pb-2.5 pt-5 text-sm text-[#000000] bg-gray-50 border-gray-400 border box-border appearance-none dark:focus:border-[#E67E23] focus:outline-none focus:ring-0 focus:border-[#E67E23] peer"
-              placeholder=" "
-            />
-            <label
-              for="floating_filled"
-              class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-[#E67E23] peer-focus:dark:text-[#E67E23] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
-              >Name*</label
-            >
+              <input
+                type="text"
+                id="floating_filled"
+                class="w-full h-10 block rounded-md px-2.5 pb-2.5 pt-5 text-sm text-[#000000] bg-gray-50 border-gray-400 border box-border appearance-none dark:focus:border-[#E67E23] focus:outline-none focus:ring-0 focus:border-[#E67E23] peer"
+                placeholder=" "
+              />
+              <label
+                for="floating_filled"
+                class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-[#E67E23] peer-focus:dark:text-[#E67E23] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+                >Name*</label
+              >
+            </div>
+            <div class="relative ml-3 mb-3 w-[50%]">
+              <input
+                type="text"
+                id="floating_filled"
+                class="w-full h-10 block rounded-md px-2.5 pb-2.5 pt-5 text-sm text-[#000000] bg-gray-50 border border-gray-400 box-border appearance-none dark:focus:border-[#E67E23] focus:outline-none focus:ring-0 focus:border-[#E67E23] peer"
+                placeholder=" "
+              />
+              <label
+                for="floating_filled"
+                class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-[#E67E23] peer-focus:dark:text-[#E67E23] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+                >Email*</label
+              >
+            </div>
           </div>
-          <div class="relative ml-3 mb-3 w-[50%]">
-            <input
-              type="text"
-              id="floating_filled"
-              class="w-full h-10 block rounded-md px-2.5 pb-2.5 pt-5 text-sm text-[#000000] bg-gray-50 border border-gray-400 box-border appearance-none dark:focus:border-[#E67E23] focus:outline-none focus:ring-0 focus:border-[#E67E23] peer"
-              placeholder=" "
-            />
-            <label
-              for="floating_filled"
-              class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-[#E67E23] peer-focus:dark:text-[#E67E23] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
-              >Email*</label
-            >
-          </div>
-          </div>
-          
+
           <div class="relative ml-3 mb-3">
             <input
               type="text"
@@ -117,41 +117,7 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      formData: {
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-      },
-    };
-  },
-  methods: {
-    submitForm() {
-      // Handle form submission logic here
-      console.log("Form submitted with data:", this.formData);
-      // You can send this data to an API or perform other actions as needed.
-    },
-  },
-};
+
+<script lang="ts" setup>
+import { HomeIcon, EnvelopeIcon, PhoneIcon } from "@heroicons/vue/24/solid";
 </script>
-
-<style scoped>
-.bg-custom {
-  background-image: url(../assets/conpic.jpg);
-}
-.box-shadow-custom {
-  box-shadow: 0 0 10px #e67f22;
-}
-.box-shadow-custom:hover {
-  box-shadow: none;
-}
-
-input,
-textarea {
-  @apply w-full;
-}
-</style>
