@@ -1,139 +1,115 @@
 <template>
-  <div class="mx-auto max-w-7xl">
-    <MegalandHouse
-      quote="Communication is key. Reach out to us, and we'll make
-    sure you get the assistance you deserve."
-      add="CONTACT "
-      properties="US"
-    />
-
-    <div class="ml-[15%] auto grid grid-cols-10">
-      <div
-        class="border-2 rounded-tl-[3%] rounded-bl-[3%] border-black shadow-2xl mb-10 col-start-1 grid col-span-3 bg-[#d78338]"
-      >
-        <div class="font-bold mt-[8%] text-xl ml-[5%] text-black">
-          <span class="text-black"> Contact Information </span>
-
-          <div class="text-lg mt-[7%]">
-            <div class="text-base">
-              You can use this contact info for more details.
+  <div class=" pl-32 pr-32 pb-10">
+    <div class="">
+      <div class="">
+        <iframe
+          class="border-2 border-black"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.5483668762135!2d123.89617127595324!3d10.29792626783563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999a0c575cff7%3A0x76271c50dbf0b3b2!2sMegaland%20Realty!5e0!3m2!1sen!2sph!4v1697273626082!5m2!1sen!2sph"
+          width="100%"
+          height="500"
+          style="border: 0"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <div class="flex mt-10 shadow-2xl bg-gray-100 rounded-xl p-5">
+        <div class="w-[50%] flex flex-col pt-5 bg-[#E67E23] text-[#ffffff] p-10 justify-center rounded-tl-xl rounded-tr-xl rounded-bl-xl">
+          <div class="mb-10 mr-3 flex">
+            <div class="flex items-center mr-8">
+              <HomeIcon class="w-[35px] h-[35px] text-[#ffffff]" />
             </div>
-            <div class="mt-[15%] text-[90%]">
-              📞+63-977-382-4416 <br />
-              <br />
-              📧
-              <a href="mailto:megalandrealtycebu@gmail.com" target="_blank"
-                >megalandrealtycebu@gmail.com</a
-              >
-              <br />
-              <br />
-              📍
-              <a
-                href="https://www.google.com/maps/place/148+Residence/@10.2978898,123.8960511,17z/data=!3m1!4b1!4m6!3m5!1s0x33a9995871e93837:0x3b325ce49ea3a559!8m2!3d10.2978898!4d123.898626!16s%2Fg%2F11b69bmx82?entry=ttu"
-                target="_blank"
-                >Unit 101, 148 Residences, Pelaez St,
-                <span class="ml-[8%]">Cebu City</span></a
-              >
-              <br /><br />
+            <div class="">
+              <div class=" text-xl font-semibold">
+                Unit 101,148 Residences Pelaez St. Kalubihan
+              </div>
+              <div class="text-gray-50">6000 Cebu City, Philippines</div>
             </div>
-            <div class="flex justify-center mt-10">
-              <mdicon
-                name="facebook"
-                :width="30"
-                :height="30"
-                class="hover:text-[#013883] mr-10"
-              />
-              <mdicon
-                name="instagram"
-                :width="30"
-                :height="30"
-                class="hover:text-[#b9308c] mr-10"
-              />
-              <mdicon
-                name="twitter"
-                :width="30"
-                :height="30"
-                class="hover:text-[#1c9cea] mr-10"
-              />
+          </div>
+          <div class="mb-10 mr-3 flex ">
+            <div class=" flex items-center mr-8">
+              <PhoneIcon class="w-[35px] h-[35px] text-[#ffffff]" />
+            </div>
+            <div class="">
+              <div class=" text-xl font-semibold">
+                +63-977-382-4416
+              </div>
+              <div class=" text-gray-50"> Mon - Sat,10 Am - 6 Pm</div>
+            </div>
+          </div>
+          <div class="mb-10 mr-3 flex">
+            <div class=" flex items-center mr-8">
+              <EnvelopeIcon class="w-[35px] h-[35px] text-[#ffffff]" />
+            </div>
+            <div class="">
+              <div class=" text-xl font-semibold">
+                Megalandrealtycebu@gmail.Com
+              </div>
+              <div class="text-gray-50">Email us your query</div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="grid align-middle mb-10 col-span-7 w-[85%]">
-        <div
-          class="grid grid-cols-2 flex-1 rounded-tr-[3%] rounded-br-[3%] gap-5 border-black shadow-2xl bg-gray-100"
-        >
-          <div class="flex justify-center mt-[10%]">
-            <div class="w-[55%]">
-              <h2 class="font-bold text-xl">Contact Details</h2>
-              <form class="mx-auto">
-                <div class="mb-10 mt-10">
-                  <div class="relative">
-                    <input
-                      type="text"
-                      id="name"
-                      class="font-bold block px-2.5 pb-2.5 pt-4 text-sm text-gray-900 bg-transparent rounded-lg border-2 border-black appearance-none dark:text-black dark:border-black dark:focus:border-[#e67f22] focus:outline-none focus:ring-0 focus:border-border-[#e67f22] peer"
-                      required
-                      placeholder=""
-                    />
-                    <label
-                      for="name"
-                      class="font-bold absolute text-sm focus:outline-[#e67f22] text-[#e67f22] dark:text-black duration-300 transform -translate-y-4 scale-75 top-2 origin-[0] bg- dark:bg-gray-100 px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
-                      >Name *</label
-                    >
-                  </div>
-                </div>
-                <div class="mb-10">
-                  <div class="relative">
-                    <input
-                      type="text"
-                      id="email"
-                      class="font-bold block px-2.5 pb-2.5 pt-4 text-sm text-gray-900 bg-transparent rounded-lg border-2 border-black appearance-none dark:text-black dark:border-black dark:focus:border-[#e67f22] focus:outline-none focus:ring-0 focus:border-border-[#e67f22] peer"
-                      required
-                      placeholder=""
-                    />
-                    <label
-                      for="email"
-                      class="font-bold absolute text-sm text-[#e67f22] dark:text-black duration-300 transform -translate-y-4 scale-75 top-2 origin-[0] bg- dark:bg-gray-100 px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
-                      >Email *</label
-                    >
-                  </div>
-                </div>
-                <div class="mb-10">
-                  <div class="relative">
-                    <input
-                      type="text"
-                      id="phone"
-                      class="font-bold block px-2.5 pb-2.5 pt-4 text-sm text-gray-900 bg-transparent rounded-lg border-2 border-[#e67f22] appearance-none dark:text-black dark:border-black dark:focus:border-[#e67f22] focus:outline-none focus:ring-0 focus:border-border-[#e67f22] peer"
-                      required
-                      placeholder=""
-                    />
-                    <label
-                      for="phone"
-                      class="font-bold absolute text-sm text-[#e67f22] dark:text-black duration-300 transform -translate-y-4 scale-75 top-2 origin-[0] bg- dark:bg-gray-100 px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
-                      >Phone Number *</label
-                    >
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="w-[85%] mt-[10%]">
-            <h2 class="font-bold text-xl mb-[33%]">Message/Concern</h2>
-            <div class="mt-[15%]">
-              <textarea
-                class="font-bold p-5 border-2 border-solid dark:border-black border-[#e67f22] rounded-lg h-40 resize-none bg-gray-100 focus:outline-[#e67f22]"
-                rows="8"
-                placeholder="Write your thoughts here..."
-              >
-              </textarea>
-            </div>
-          </div>
-          <div class="ml-[23%] mb-[10%] w-[100%]">
-            <button
-              class="text-[#323946] bg-[#e67f22] px-2 py-3 rounded-2xl shadow-xl text-2.4 text-2d0d06 leading-5 font-semibold tracking-wide transform transition-all duration-500 ease-in-out box-shadow-custom"
+        <div class="w-[50%] pt-5  ">
+          <div class="flex">
+            <div class="relative ml-3 mb-3 w-[50%]">
+            <input
+              type="text"
+              id="floating_filled"
+              class="w-full h-10 block rounded-md px-2.5 pb-2.5 pt-5 text-sm text-[#000000] bg-gray-50 border-gray-400 border box-border appearance-none dark:focus:border-[#E67E23] focus:outline-none focus:ring-0 focus:border-[#E67E23] peer"
+              placeholder=" "
+            />
+            <label
+              for="floating_filled"
+              class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-[#E67E23] peer-focus:dark:text-[#E67E23] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+              >Name*</label
             >
-              Send Message
+          </div>
+          <div class="relative ml-3 mb-3 w-[50%]">
+            <input
+              type="text"
+              id="floating_filled"
+              class="w-full h-10 block rounded-md px-2.5 pb-2.5 pt-5 text-sm text-[#000000] bg-gray-50 border border-gray-400 box-border appearance-none dark:focus:border-[#E67E23] focus:outline-none focus:ring-0 focus:border-[#E67E23] peer"
+              placeholder=" "
+            />
+            <label
+              for="floating_filled"
+              class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-[#E67E23] peer-focus:dark:text-[#E67E23] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+              >Email*</label
+            >
+          </div>
+          </div>
+          
+          <div class="relative ml-3 mb-3">
+            <input
+              type="text"
+              id="floating_filled"
+              class="w-full h-10 block rounded-md px-2.5 pb-2.5 pt-5 text-sm text-[#000000] bg-gray-50 border border-gray-400 box-border appearance-none dark:focus:border-[#E67E23] focus:outline-none focus:ring-0 focus:border-[#E67E23] peer"
+              placeholder=" "
+            />
+            <label
+              for="floating_filled"
+              class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-[#E67E23] peer-focus:dark:text-[#E67E23] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+              >Subject*</label
+            >
+          </div>
+          <div class="relative ml-3 mb-3">
+            <input
+              type="text"
+              id="floating_filled"
+              class="w-full h-64 block rounded-md px-2.5 pb-2.5 pt-5 text-sm text-[#000000] bg-gray-50 border border-gray-400 box-border appearance-none dark:focus:border-[#E67E23] focus:outline-none focus:ring-0 focus:border-[#E67E23] peer"
+              placeholder=" "
+            />
+            <label
+              for="floating_filled"
+              class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-[#E67E23] peer-focus:dark:text-[#E67E23] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+              >Message*</label
+            >
+          </div>
+
+          <div class="ml-3">
+            <button
+              class="bg-[#E67E23] h-9 w-full rounded-md text-white text-center font-semibold text-[20px] hover:bg-white hover:text-[#E67E23] hover:border-[#E67E23] border-[#E67E23] border-2 transition duration-300"
+            >
+              Send
             </button>
           </div>
         </div>
@@ -141,19 +117,37 @@
     </div>
   </div>
 </template>
-<script lang="ts" setup>
-import MegalandHouse from "../components/MegalandHouse.vue";
+<script>
+export default {
+  data() {
+    return {
+      formData: {
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      },
+    };
+  },
+  methods: {
+    submitForm() {
+      // Handle form submission logic here
+      console.log("Form submitted with data:", this.formData);
+      // You can send this data to an API or perform other actions as needed.
+    },
+  },
+};
 </script>
 
 <style scoped>
 .bg-custom {
   background-image: url(../assets/conpic.jpg);
 }
-
+.box-shadow-custom {
+  box-shadow: 0 0 10px #e67f22;
+}
 .box-shadow-custom:hover {
-  box-shadow: 0 0 1rem #e67f22;
-  background-color: #e67f22;
-  color: white;
+  box-shadow: none;
 }
 
 input,
