@@ -102,52 +102,30 @@
     <!-- Latest Sale -->
     <div class="flex flexbox flex-wrap h-full w-[84%] ml-6 mt-2 mb-6 gap-8">
       <Products
+        v-for="(property, index) in propertyData"
+        :key="index"
         :image="swiper1"
-        name="3 LEVEL HOUSE WITH ROOF DECK AND POOL IN VISTA GRANDE TALISAY"
-        price="₱48,000,000"
-        :size="769"
-        :bedroom="7"
-        :bathroom="7"
-      />
-      <Products
-        :image="swiper2"
-        name="2-Storey House & Lot For Sale White Hills Subdivision-Banawa"
-        price="₱12,500,000"
-        :size="200"
-        :bedroom="6"
-        :bathroom="3"
-      />
-      <Products
-        :image="swiper3"
-        name="4 Bedrooms House and Lot for Sale at Kishanta Subdivision"
-        price="₱12,500,000"
-        :size="150"
-        :bedroom="4"
-        :bathroom="2"
-      />
-      <Products
-        :image="swiper1"
-        name="3 LEVEL HOUSE WITH ROOF DECK AND POOL IN VISTA GRANDE TALISAY"
-        price="₱48,000,000"
-        :size="769"
-        :bedroom="7"
-        :bathroom="7"
-      />
-      <Products
-        :image="swiper2"
-        name="2-Storey House & Lot For Sale White Hills Subdivision-Banawa"
-        price="₱12,500,000"
-        :size="200"
-        :bedroom="6"
-        :bathroom="3"
-      />
-      <Products
-        :image="swiper3"
-        name="4 Bedrooms House and Lot for Sale at Kishanta Subdivision"
-        price="₱12,500,000"
-        :size="150"
-        :bedroom="4"
-        :bathroom="2"
+        :name="property.property_name"
+        :price="property.property_price"
+        :size="property.property_area"
+        :bedroom="property.property_bedroom"
+        :bathroom="property.property_bathroom"
+        :attic="property.property_attic"
+        :balcony = "property.property_balcony"
+        :deck = "property.property_deck"
+        :fenced = "property.property_fenced_yard"
+        :fireplace = "property.property_fireplace"
+        :frontyard = "property.property_frontyard"
+        :gasheat = "property.property_gasheat"
+        :gym = "property.property_gym"
+        :lakeview = "property.property_lakeview"
+        :pond = "property.property_pond"
+        :pool = "property.property_pool"
+        :recreation = "property.property_recreation"
+        :sprinklers = "property.property_sprinklers"
+        :storage = "property.property_storage"
+        :washer = "property.property_washer"
+        :winecellar = "property.property_winecellar"
       />
     </div>
   </div>
@@ -162,10 +140,10 @@
   </div>
 
   <div class="w-full mt-6 items-center">
-    <h1 class="mt-10 mb-20 font-black text-center text-4xl ">
+    <h1 class="mt-10 mb-20 font-black text-center text-4xl">
       OUR <span class="text-[#E67E23]">GALLERY !</span>
     </h1>
-    <Gallery/>
+    <Gallery />
   </div>
 </template>
 
@@ -177,9 +155,54 @@ import Products from "../components/Products.vue";
 import Agents from "../components/Agents.vue";
 import { FunnelIcon, NewspaperIcon } from "@heroicons/vue/24/outline";
 import swiper1 from "../assets/swiper1.jpg";
-import swiper2 from "../assets/swiper2.jpg";
-import swiper3 from "../assets/swiper3.jpg";
+
+import { ref, onMounted } from "vue";
 register();
+
+interface Property {
+  id: number;
+  image: string;
+  property_name: string;
+  property_price: number;
+  property_area: number;
+  property_bedroom: number;
+  property_bathroom: number;
+
+  property_attic: boolean;
+  property_balcony: boolean;
+  property_deck: boolean;
+  property_fenced_yard: boolean;
+  property_fireplace: boolean;
+  property_frontyard: boolean;
+  property_gasheat: boolean;
+  property_gym: boolean;
+  property_lakeview: boolean;
+  property_pond: boolean;
+  property_pool: boolean;
+  property_recreation: boolean;
+  property_sprinklers: boolean;
+  property_storage: boolean;
+  property_washer: boolean;
+  property_winecellar: boolean;
+
+
+
+
+}
+
+const propertyData = ref<Property[]>([]);
+
+onMounted(() => {
+  fetch("http://localhost:8080/api/properties", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => (propertyData.value = data))
+    .catch((error) => console.error("Error:", error));
+});
 </script>
 
 <style></style>

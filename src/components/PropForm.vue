@@ -1,13 +1,20 @@
 <template>
     <section class="max-w-4xl p-6 mx-auto bg-indigo-600 rounded-md shadow-md dark:bg-gray-800 mt-20 mb-20">
     <h1 class="text-xl font-bold text-white capitalize dark:text-white">Property Listing Form</h1>
-    <form>
+    <form @submit.prevent>
         <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
             <!--Property Name-->
             <div>
                 <label class="text-white dark:text-gray-200" for="propertyname">Property Name:</label>
                 <input v-model="propertyData.property_name" id="propertyname" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
             </div>
+
+            <!-- price -->
+            <div>
+                <label class="text-white dark:text-gray-200" for="propertyprice">Property Price:</label>
+                <input v-model="propertyData.property_price" id="propertyprice" type="number"  step="0.01" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+            </div>
+
             <!--Description-->
             <div>
                 <label class="text-white dark:text-gray-200" for="propertydesc">Description:</label>
@@ -40,7 +47,7 @@
                     <option value="CONDO">Condo</option>
                     <option value="HOUSE">House</option>
                     <option value="LAND">Land</option>
-                    <option value="TOWN">Town</option>
+                    <option value="TOWNHOUSE">Townhouse</option>
                 </select>
             </div>
 
@@ -174,21 +181,40 @@
              </div>
 
              <!--Nearest Places-->
-             <!-- <div class="ml-10 sm:mt-0">
+             <div class="ml-10 sm:mt-0">
                 <label class="block text-white dark:text-gray-200 font-medium">Nearest Places</label>
                 <div class="flex items-center mt-2">
-                    <input id="airport" type="checkbox" class="text-indigo-600 focus:ring-indigo-500 h-4 w-4 border-gray-300 rounded">
+                    <input v-model="propertyData.property_airport"  id="airport" type="checkbox" class="text-indigo-600 focus:ring-indigo-500 h-4 w-4 border-gray-300 rounded">
                     <label for="airport" class="ml-2 text-white dark:text-gray-200">Airport</label>
                 </div>
                 <div class="flex items-center mt-2">
-                    <input id="bus-stand" type="checkbox" class="text-indigo-600 focus:ring-indigo-500 h-4 w-4 border-gray-300 rounded">
+                    <input v-model="propertyData.property_busstand" id="bus-stand" type="checkbox" class="text-indigo-600 focus:ring-indigo-500 h-4 w-4 border-gray-300 rounded">
                     <label for="bus-stand" class="ml-2 text-white dark:text-gray-200">Bus Stand</label>
                 </div>
+
                 <div class="flex items-center mt-2">
-                    <input id="deck" type="checkbox" class="text-indigo-600 focus:ring-indigo-500 h-4 w-4 border-gray-300 rounded">
-                    <label for="deck" class="ml-2 text-white dark:text-gray-200">Deck</label>
+                    <input v-model="propertyData.property_hospital" id="hospital" type="checkbox" class="text-indigo-600 focus:ring-indigo-500 h-4 w-4 border-gray-300 rounded">
+                    <label for="hospital" class="ml-2 text-white dark:text-gray-200">Deck</label>
                 </div>
-            </div> -->
+
+                <div class="flex items-center mt-2">
+                    <input v-model="propertyData.property_patroltank" id="patroltank" type="checkbox" class="text-indigo-600 focus:ring-indigo-500 h-4 w-4 border-gray-300 rounded">
+                    <label for="patroltank" class="ml-2 text-white dark:text-gray-200">Deck</label>
+                </div>
+
+                <div class="flex items-center mt-2">
+                    <input v-model="propertyData.property_railway" id="railway" type="checkbox" class="text-indigo-600 focus:ring-indigo-500 h-4 w-4 border-gray-300 rounded">
+                    <label for="railway" class="ml-2 text-white dark:text-gray-200">Deck</label>
+                </div>
+                <div class="flex items-center mt-2">
+                    <input v-model="propertyData.property_shopping" id="shopping" type="checkbox" class="text-indigo-600 focus:ring-indigo-500 h-4 w-4 border-gray-300 rounded">
+                    <label for="shopping" class="ml-2 text-white dark:text-gray-200">Deck</label>
+                </div>
+                <div class="flex items-center mt-2">
+                    <input v-model="propertyData.property_universities" id="universities" type="checkbox" class="text-indigo-600 focus:ring-indigo-500 h-4 w-4 border-gray-300 rounded">
+                    <label for="universities" class="ml-2 text-white dark:text-gray-200">Deck</label>
+                </div>
+            </div>
 
             <!--Upload Image-->
             <!-- <div>
@@ -267,13 +293,23 @@
         property_sprinklers:false,
         property_storage:false,
         property_washer:false,
-        property_winecellar:false
+        property_winecellar:false,
+        property_airport: false,
+        property_busstand: false,
+        property_hospital: false,
+        property_patroltank: false,
+        property_railway: false,
+        property_shopping: false,
+        property_universities: false,
     })
 
     const submitProperty = async ()=> {
         try{
+            console.log('Submit button clicked');
+            console.log(propertyData.value);
             const response = await axios.post("http://localhost:8080/api/properties/",propertyData.value);
             console.log("Property data sent successfully",response.data);
+            window.location.reload();
         }   
         catch(error){
             console.log("Error sending property data: ",error);

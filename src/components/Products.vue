@@ -14,12 +14,15 @@
         </div>
         <div>
           <p class="text-[#454544] text-[16px] font-medium">
-            Price: <span class="text-[20px] text-[#E67E23]">{{ price }}</span>
+            Price:
+            <span class="text-[20px] text-[#E67E23]"
+              >₱ {{ price ? price.toLocaleString("en-US") : "N/A" }}</span
+            >
           </p>
         </div>
         <div>
           <p class="text-[#454544] text-[16px] font-medium">
-            Size : <span>{{ size }}</span>
+            Area : <span>{{ size }}</span>
           </p>
         </div>
         <div>
@@ -33,21 +36,35 @@
                 :height="25"
               />
             </div>
-            <div class="ml-1">{{bedroom}}</div>
+            <div class="ml-1">{{ bedroom }}</div>
             <div class="ml-2">
-              <mdicon
-                class=""
-                name="shower-"
-                :width="22"
-                :height="22"
-              />
+              <mdicon class="" name="shower-" :width="22" :height="22" />
             </div>
-            <div class="ml-1">{{bathroom}}</div>
+            <div class="ml-1">{{ bathroom }}</div>
           </div>
         </div>
         <div>
           <p class="text-[#454544] text-[16px] font-medium">
-            Amenities : <span></span>
+            Amenities :
+            <span>
+              <div class="flex gap-1">
+                <mdicon
+                  v-if="attic == true"
+                  class=""
+                  name="home-roof"
+                  :width="22"
+                  :height="22"
+                />
+
+                <mdicon
+                  v-if="balcony == true"
+                  class=""
+                  name="balcony"
+                  :width="22"
+                  :height="22"
+                />
+              </div>
+            </span>
           </p>
         </div>
         <div>
@@ -69,11 +86,28 @@
 <script lang="ts" setup>
 interface ProductType {
   name: string;
-  price: string;
+  price: number;
   size: number;
   bedroom: number;
   bathroom: number;
   image: string;
+
+  attic: boolean;
+  balcony: boolean;
+  deck: boolean;
+  fenced: boolean;
+  fireplace: boolean;
+  frontyard: boolean;
+  gasheat: boolean;
+  gym: boolean;
+  lakeview: boolean;
+  pond: boolean;
+  pool: boolean;
+  recreation: boolean;
+  sprinklers: boolean;
+  storage: boolean;
+  washer: boolean;
+  winecellar: boolean;
 }
 
 defineProps<ProductType>();
