@@ -126,6 +126,13 @@
         :storage = "property.property_storage"
         :washer = "property.property_washer"
         :winecellar = "property.property_winecellar"
+        :airport="property.property_airport "
+        :busstand="property.property_busstand "
+        :hospital="property.property_hospital"
+        :patroltank="property.property_patroltank"
+        :railway="property.property_railway"
+        :shopping="property.property_shopping"
+        :universities="property.property_universities"
       />
     </div>
   </div>
@@ -185,7 +192,13 @@ interface Property {
   property_washer: boolean;
   property_winecellar: boolean;
 
-
+  property_airport : boolean;
+  property_busstand : boolean;
+  property_hospital : boolean;
+  property_patroltank : boolean;
+  property_railway : boolean;
+  property_shopping : boolean;
+  property_universities : boolean;
 
 
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <div
-      class="w-[380px] h-[470px] bg-white p-5 border-2 rounded-md shadow-xl hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] hover:scale-[1.02]"
+      class="w-[380px] h-[500px] bg-white p-5 border-2 rounded-md shadow-xl hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] hover:scale-[1.02]"
     >
       <router-link class="" to="/Details">
         <div class="">
@@ -47,7 +47,7 @@
           <p class="text-[#454544] text-[16px] font-medium">
             Amenities :
             <span>
-              <div class="flex gap-1">
+              <div class="flex gap-2">
                 <mdicon
                   v-if="attic == true"
                   class=""
@@ -63,13 +63,166 @@
                   :width="22"
                   :height="22"
                 />
+
+                <!-- <mdicon
+                  v-if="deck == true"
+                  class=""
+                  name="balcony"
+                  :width="22"
+                  :height="22"
+                /> -->
+                <mdicon
+                  v-if="fenced == true"
+                  class=""
+                  name="fence"
+                  :width="22"
+                  :height="22"
+                />
+                <mdicon
+                  v-if="fireplace == true"
+                  class=""
+                  name="fireplace"
+                  :width="22"
+                  :height="22"
+                />
+                <!-- <mdicon
+                  v-if="frontyard == true"
+                  class=""
+                  name="balcony"
+                  :width="22"
+                  :height="22"
+                /> -->
+
+                <mdicon
+                  v-if="gasheat == true"
+                  class=""
+                  name="stove"
+                  :width="22"
+                  :height="22"
+                />
+                <mdicon
+                  v-if="gym == true"
+                  class=""
+                  name="dumbbell"
+                  :width="22"
+                  :height="22"
+                />
+                <!-- <mdicon
+                  v-if="lakeview == true"
+                  class=""
+                  name="balcony"
+                  :width="22"
+                  :height="22"
+                /> -->
+                <!-- <mdicon
+                  v-if="pond == true"
+                  class=""
+                  name="balcony"
+                  :width="22"
+                  :height="22"
+                /> -->
+                <mdicon
+                  v-if="pool == true"
+                  class=""
+                  name="pool"
+                  :width="22"
+                  :height="22"
+                />
+                <!-- <mdicon
+                  v-if="recreation == true"
+                  class=""
+                  name="balcony"
+                  :width="22"
+                  :height="22"
+                /> -->
+                <mdicon
+                  v-if="sprinklers == true"
+                  class=""
+                  name="sprinkler-variant"
+                  :width="22"
+                  :height="22"
+                />
+                <mdicon
+                  v-if="storage == true"
+                  class=""
+                  name="warehouse"
+                  :width="22"
+                  :height="22"
+                />
+                <mdicon
+                  v-if="washer == true"
+                  class=""
+                  name="tumble-dryer"
+                  :width="22"
+                  :height="22"
+                />
+                <mdicon
+                  v-if="winecellar == true"
+                  class=""
+                  name="liquor"
+                  :width="22"
+                  :height="22"
+                />
               </div>
             </span>
           </p>
         </div>
         <div>
           <p class="text-[#454544] text-[16px] font-medium">
-            Nearest Place: <span></span>
+            Nearest Place:
+            <span>
+              <div class="flex gap-2">
+                <mdicon
+                  v-if="airport == true"
+                  class=""
+                  name="airport"
+                  :width="22"
+                  :height="22"
+                />
+                <mdicon
+                  v-if="busstand == true"
+                  class=""
+                  name="bus-stop"
+                  :width="22"
+                  :height="22"
+                />
+                <mdicon
+                  v-if="patroltank == true"
+                  class=""
+                  name="gat-station"
+                  :width="22"
+                  :height="22"
+                />
+                <mdicon
+                  v-if="railway == true"
+                  class=""
+                  name="train"
+                  :width="22"
+                  :height="22"
+                />
+                <mdicon
+                  v-if="shopping == true"
+                  class=""
+                  name="shopping"
+                  :width="22"
+                  :height="22"
+                />
+                <mdicon
+                  v-if="universities == true"
+                  class=""
+                  name="account-school"
+                  :width="22"
+                  :height="22"
+                />
+                <mdicon
+                  v-if="winecellar == true"
+                  class=""
+                  name="liquor"
+                  :width="22"
+                  :height="22"
+                />
+              </div>
+            </span>
           </p>
         </div>
         <div class="flex justify-center items-center mt-2 text-white">
@@ -108,6 +261,14 @@ interface ProductType {
   storage: boolean;
   washer: boolean;
   winecellar: boolean;
+
+  airport: boolean;
+  busstand: boolean;
+  hospital: boolean;
+  patroltank: boolean;
+  railway: boolean;
+  shopping: boolean;
+  universities: boolean;
 }
 
 defineProps<ProductType>();
