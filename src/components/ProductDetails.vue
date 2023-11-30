@@ -2,7 +2,7 @@
   <div class="h-[700px] text-[#454544] overflow-auto">
     <!-- Property Name -->
     <div
-      class="border-2  p-5 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70) mb-5"
+      class="border-2 p-5 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70) mb-5"
     >
       <div class="text-center font-semibold text-xl">
         3 LEVEL HOUSE WITH ROOF DECK AND POOL IN VISTA GRANDE TALISAY
@@ -124,7 +124,7 @@
         </div>
         <div class="flex">
           <div class="border-2 mt-0 m-2 p-1 font-medium w-[50%]">
-           Built In: <span class="text-base font-normal"> 0</span>
+            Built In: <span class="text-base font-normal"> 0</span>
           </div>
           <div class="border-2 mt-0 m-2 p-1 font-medium w-[50%]">
             Property Status: <span class="text-base font-normal"> Buy</span>

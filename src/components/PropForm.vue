@@ -508,7 +508,7 @@
       </div>
 
       <!--Upload Image-->
-      <div>
+      <!-- <div>
         <label class="block text-sm font-medium text-white">
           Upload an Image
         </label>
@@ -549,7 +549,7 @@
             <p class="text-xs text-white">PNG, JPG, GIF</p>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!--Upload Video-->
       <div>
@@ -612,7 +612,7 @@ const propertyData = ref({
   property_bathroom: "",
   property_room_count: "",
   property_parking_space: "",
-  property_main_image: null as null | ArrayBuffer,  
+  property_main_image: null as string | null,
   property_attic: false,
   property_balcony: false,
   property_deck: false,
@@ -636,26 +636,31 @@ const propertyData = ref({
   property_railway: false,
   property_shopping: false,
   property_universities: false,
-  property_enable:false,
+  property_enable: false,
 });
 
-const handleImageUpload = (event: Event) => {
-  const inputElement = event.target as HTMLInputElement;
+// const handleImageUpload = (event: Event) => {
+//   const inputElement = event.target as HTMLInputElement;
 
-  if (inputElement.files && inputElement.files.length > 0) {
-    const file = inputElement.files[0];
+//   if (inputElement.files && inputElement.files.length > 0) {
+//     const file = inputElement.files[0];
 
-    // Read the file as binary data
-    const reader = new FileReader();
+//     const reader = new FileReader();
 
-    reader.onload = (e) => {
-      // Store the binary data in your data property
-      propertyData.value.property_main_image = e.target?.result as ArrayBuffer;
-    };
+//     reader.onload = (e) => {
+//       const uint8Array = new Uint8Array(e.target?.result as ArrayBuffer);
 
-    reader.readAsArrayBuffer(file);
-  }
-};
+//       // Convert Uint8Array to a regular array of numbers
+//       const byteArray = Array.from(uint8Array);
+
+//       propertyData.value.property_main_image = btoa(
+//         String.fromCharCode.apply(null, byteArray)
+//       );
+//     };
+
+//     reader.readAsArrayBuffer(file);
+//   }
+// };
 
 const submitProperty = async () => {
   try {

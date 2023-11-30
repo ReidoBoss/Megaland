@@ -23,7 +23,7 @@
         </button>
       </div>
       <div class="mt-3">
-        <div class="flex justify-center items-center ">
+        <div class="flex justify-center items-center">
           <mdicon
             name="facebook"
             :width="30"

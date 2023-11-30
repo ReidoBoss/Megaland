@@ -1,5 +1,5 @@
 <template>
-  <!-- Navigation Bar -->
+  <!-- Navigation Bar E67E23 -->
   <div
     class="bg-[#E67E23] sticky top-0 h-12 text-[#fefefe] text-[18px] font-semibold p-2 pt-2 z-10"
   >

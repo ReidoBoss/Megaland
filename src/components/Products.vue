@@ -1,34 +1,33 @@
 <template>
-  <div class="">
+  <router-link class="" to="/Details">
     <div
-      class="w-[380px] h-[500px] bg-white p-5 border-2 rounded-md shadow-xl hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] hover:scale-[1.02]"
+      class="break-words relative flex flex-col justify-between space-y-1 w-[380px] h-[535px] bg-white p-5 border-2 rounded-md shadow-xl hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] hover:scale-[1.02]"
     >
-      <router-link class="" to="/Details">
-        <div class="">
+      <div class="absolute transform rotate-90 left-auto -right-4 text-center">
+        <BookmarkIcon class="text-[#E67E23] h-28 w-24" />
+        <span
+          class="text-white font-bold absolute top-[47%] left-1/2 transform -rotate-90 -translate-y-1/2 -translate-x-1/2"
+          >{{ type }}</span
+        >
+      </div>
+      <div class="">
+        <div class="white">
           <img class="h-[200px] w-full" :src="image" alt="" />
         </div>
-        <div class="m-1">
-          <p class="text-[#454544] text-[17px] font-medium">
-            {{ name }}
-          </p>
-        </div>
-        <div>
-          <p class="text-[#454544] text-[16px] font-medium">
-            Price:
-            <span class="text-[20px] text-[#E67E23]"
-              >₱ {{ price ? price.toLocaleString("en-US") : "N/A" }}</span
-            >
-          </p>
-        </div>
-        <div>
-          <p class="text-[#454544] text-[16px] font-medium">
-            Area : <span>{{ size }}</span>
-          </p>
-        </div>
-        <div>
-          <div class="text-[#454544] text-[16px] font-medium flex">
-            <div>Rooms:</div>
-            <div class="ml-3">
+        <!-- area size, bathroom ,bedroom -->
+        <div
+          class="flex text-center h-9 w-full bg-slate-700 mt-2 text-white text-[16px] font-semibold p-1"
+        >
+          <div class="flex w-[50%]">
+            <div>
+              <mdicon class="" name="land-plots" :width="25" :height="25" />
+            </div>
+            <div class="ml-1">
+              <span>Area : </span> <span>{{ size }} m<sup>2</sup> </span>
+            </div>
+          </div>
+          <div class="flex border-white border-l w-[25%]">
+            <div class="ml-5">
               <mdicon
                 class=""
                 name="bed-queen-outline"
@@ -36,207 +35,118 @@
                 :height="25"
               />
             </div>
-            <div class="ml-1">{{ bedroom }}</div>
-            <div class="ml-2">
-              <mdicon class="" name="shower-" :width="22" :height="22" />
+            <div class="ml-1">
+              <span>{{ bedroom }}</span>
             </div>
-            <div class="ml-1">{{ bathroom }}</div>
+          </div>
+          <div class="flex border-white border-l w-[25%]">
+            <div class="ml-5">
+              <mdicon class="" name="shower" :width="23" :height="23" />
+            </div>
+            <div class="ml-1">
+              <span>{{ bathroom }}</span>
+            </div>
           </div>
         </div>
-        <div>
-          <p class="text-[#454544] text-[16px] font-medium">
-            Amenities :
-            <span>
-              <div class="flex gap-2">
-                <mdicon
-                  v-if="attic == true"
-                  class=""
-                  name="home-roof"
-                  :width="22"
-                  :height="22"
-                />
+      </div>
 
-                <mdicon
-                  v-if="balcony == true"
-                  class=""
-                  name="balcony"
-                  :width="22"
-                  :height="22"
-                />
-
-                <!-- <mdicon
-                  v-if="deck == true"
-                  class=""
-                  name="balcony"
-                  :width="22"
-                  :height="22"
-                /> -->
-                <mdicon
-                  v-if="fenced == true"
-                  class=""
-                  name="fence"
-                  :width="22"
-                  :height="22"
-                />
-                <mdicon
-                  v-if="fireplace == true"
-                  class=""
-                  name="fireplace"
-                  :width="22"
-                  :height="22"
-                />
-                <!-- <mdicon
-                  v-if="frontyard == true"
-                  class=""
-                  name="balcony"
-                  :width="22"
-                  :height="22"
-                /> -->
-
-                <mdicon
-                  v-if="gasheat == true"
-                  class=""
-                  name="stove"
-                  :width="22"
-                  :height="22"
-                />
-                <mdicon
-                  v-if="gym == true"
-                  class=""
-                  name="dumbbell"
-                  :width="22"
-                  :height="22"
-                />
-                <!-- <mdicon
-                  v-if="lakeview == true"
-                  class=""
-                  name="balcony"
-                  :width="22"
-                  :height="22"
-                /> -->
-                <!-- <mdicon
-                  v-if="pond == true"
-                  class=""
-                  name="balcony"
-                  :width="22"
-                  :height="22"
-                /> -->
-                <mdicon
-                  v-if="pool == true"
-                  class=""
-                  name="pool"
-                  :width="22"
-                  :height="22"
-                />
-                <!-- <mdicon
-                  v-if="recreation == true"
-                  class=""
-                  name="balcony"
-                  :width="22"
-                  :height="22"
-                /> -->
-                <mdicon
-                  v-if="sprinklers == true"
-                  class=""
-                  name="sprinkler-variant"
-                  :width="22"
-                  :height="22"
-                />
-                <mdicon
-                  v-if="storage == true"
-                  class=""
-                  name="warehouse"
-                  :width="22"
-                  :height="22"
-                />
-                <mdicon
-                  v-if="washer == true"
-                  class=""
-                  name="tumble-dryer"
-                  :width="22"
-                  :height="22"
-                />
-                <mdicon
-                  v-if="winecellar == true"
-                  class=""
-                  name="liquor"
-                  :width="22"
-                  :height="22"
-                />
-              </div>
-            </span>
+      <div>
+        <!-- name -->
+        <div class="m-1">
+          <p class="text-[#454544] text-[17px] font-semibold">
+            {{ name }}
           </p>
         </div>
-        <div>
-          <p class="text-[#454544] text-[16px] font-medium">
-            Nearest Place:
-            <span>
-              <div class="flex gap-2">
-                <mdicon
-                  v-if="airport == true"
-                  class=""
-                  name="airport"
-                  :width="22"
-                  :height="22"
-                />
-                <mdicon
-                  v-if="busstand == true"
-                  class=""
-                  name="bus-stop"
-                  :width="22"
-                  :height="22"
-                />
-                <mdicon
-                  v-if="patroltank == true"
-                  class=""
-                  name="gat-station"
-                  :width="22"
-                  :height="22"
-                />
-                <mdicon
-                  v-if="railway == true"
-                  class=""
-                  name="train"
-                  :width="22"
-                  :height="22"
-                />
-                <mdicon
-                  v-if="shopping == true"
-                  class=""
-                  name="shopping"
-                  :width="22"
-                  :height="22"
-                />
-                <mdicon
-                  v-if="universities == true"
-                  class=""
-                  name="account-school"
-                  :width="22"
-                  :height="22"
-                />
-                <mdicon
-                  v-if="winecellar == true"
-                  class=""
-                  name="liquor"
-                  :width="22"
-                  :height="22"
-                />
-              </div>
-            </span>
+      </div>
+      <div>
+        <div class="flex text-[#454544] font-medium">
+          <p class="flex items-center w-[32%]  text-[15px] ">
+            Price:
           </p>
+          <div class="w-[68%] text-[17px] text-[#E67E23]">
+            ₱ {{ price ? price.toLocaleString("en-US") : "N/A" }}
+          </div>
         </div>
+
+        <div class="flex text-[#454544] font-medium">
+          <p class="flex items-center w-[32%] text-[15px]">Category :</p>
+          <div class="w-[68%]  text-[17px]">{{ category }}</div>
+        </div>
+
+        <div class="text-[#454544] font-medium flex">
+          <p class="flex items-center w-[32%] text-[15px] ">
+            Address :
+          </p>
+          <div class="w-[68%] text-[17px] ">{{
+              address + ", " + city + " City"
+            }}</div>
+        </div>
+
+        <div>
+          <div class="text-[#454544] text-[15px] font-medium flex">
+            <div class="w-[32%] flex items-center">Nearest Place:</div>
+            <div class="w-[68%]  flex flex-wrap gap-2">
+              <mdicon
+                v-if="airport == true"
+                class=""
+                name="airport"
+                :width="27"
+                :height="27"
+              />
+              <mdicon
+                v-if="busstand == true"
+                class=""
+                name="bus-stop"
+                :width="27"
+                :height="27"
+              />
+              <mdicon
+                v-if="patroltank == true"
+                class=""
+                name="gas-station"
+                :width="27"
+                :height="27"
+              />
+              <mdicon
+                v-if="railway == true"
+                class=""
+                name="train"
+                :width="27"
+                :height="27"
+              />
+              <mdicon
+                v-if="shopping == true"
+                class=""
+                name="shopping"
+                :width="27"
+                :height="27"
+              />
+              <mdicon
+                v-if="universities == true"
+                class=""
+                name="town-hall"
+                :width="27"
+                :height="27"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
         <div class="flex justify-center items-center mt-2 text-white">
           <button
-            class="bg-[#E67E23] h-9 w-[225px] rounded-md text-white text-center font-semibold text-[20px] hover:bg-white hover:text-[#E67E23] hover:border-[#E67E23] border-[#E67E23] border-2 transition duration-300"
+            class="bg-[#E67E23] h-9 w-full rounded-md text-white text-center font-semibold text-[20px] hover:bg-white hover:text-[#E67E23] hover:border-[#E67E23] border-[#E67E23] border-2 transition duration-300"
           >
             Details
           </button>
         </div>
-      </router-link>
+      </div>
     </div>
-  </div>
+  </router-link>
 </template>
 <script lang="ts" setup>
+import { BookmarkIcon } from "@heroicons/vue/24/solid";
+
 interface ProductType {
   name: string;
   price: number;
@@ -245,22 +155,10 @@ interface ProductType {
   bathroom: number;
   image: string;
 
-  attic: boolean;
-  balcony: boolean;
-  deck: boolean;
-  fenced: boolean;
-  fireplace: boolean;
-  frontyard: boolean;
-  gasheat: boolean;
-  gym: boolean;
-  lakeview: boolean;
-  pond: boolean;
-  pool: boolean;
-  recreation: boolean;
-  sprinklers: boolean;
-  storage: boolean;
-  washer: boolean;
-  winecellar: boolean;
+  category: string;
+  type: string;
+  city: string;
+  address: string;
 
   airport: boolean;
   busstand: boolean;

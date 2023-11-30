@@ -100,34 +100,22 @@
       />
     </div>
     <!-- Latest Sale -->
-    <div class="flex flexbox flex-wrap h-full w-[84%] ml-6 mt-2 mb-6 gap-8">
-      <Products
+    <div class="flex flex-wrap mt-2 h-full w-[84%] gap-y-9 justify-evenly">
+      <Products class=""
         v-for="(property, index) in propertyData"
         :key="index"
         :image="swiper1"
         :name="property.property_name"
         :price="property.property_price"
+        :category="property.property_category"
         :size="property.property_area"
+        :type="property.property_type"
         :bedroom="property.property_bedroom"
         :bathroom="property.property_bathroom"
-        :attic="property.property_attic"
-        :balcony = "property.property_balcony"
-        :deck = "property.property_deck"
-        :fenced = "property.property_fenced_yard"
-        :fireplace = "property.property_fireplace"
-        :frontyard = "property.property_frontyard"
-        :gasheat = "property.property_gasheat"
-        :gym = "property.property_gym"
-        :lakeview = "property.property_lakeview"
-        :pond = "property.property_pond"
-        :pool = "property.property_pool"
-        :recreation = "property.property_recreation"
-        :sprinklers = "property.property_sprinklers"
-        :storage = "property.property_storage"
-        :washer = "property.property_washer"
-        :winecellar = "property.property_winecellar"
-        :airport="property.property_airport "
-        :busstand="property.property_busstand "
+        :address="property.property_local_area"
+        :city="property.property_city"
+        :airport="property.property_airport"
+        :busstand="property.property_busstand"
         :hospital="property.property_hospital"
         :patroltank="property.property_patroltank"
         :railway="property.property_railway"
@@ -175,32 +163,18 @@ interface Property {
   property_bedroom: number;
   property_bathroom: number;
 
-  property_attic: boolean;
-  property_balcony: boolean;
-  property_deck: boolean;
-  property_fenced_yard: boolean;
-  property_fireplace: boolean;
-  property_frontyard: boolean;
-  property_gasheat: boolean;
-  property_gym: boolean;
-  property_lakeview: boolean;
-  property_pond: boolean;
-  property_pool: boolean;
-  property_recreation: boolean;
-  property_sprinklers: boolean;
-  property_storage: boolean;
-  property_washer: boolean;
-  property_winecellar: boolean;
+  property_airport: boolean;
+  property_busstand: boolean;
+  property_hospital: boolean;
+  property_patroltank: boolean;
+  property_railway: boolean;
+  property_shopping: boolean;
+  property_universities: boolean;
 
-  property_airport : boolean;
-  property_busstand : boolean;
-  property_hospital : boolean;
-  property_patroltank : boolean;
-  property_railway : boolean;
-  property_shopping : boolean;
-  property_universities : boolean;
-
-
+  property_category: string;
+  property_type: string;
+  property_local_area: string;
+  property_city: string;
 }
 
 const propertyData = ref<Property[]>([]);
