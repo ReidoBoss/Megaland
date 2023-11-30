@@ -8,60 +8,12 @@
       class="sm:carousel-items-1 md:carousel-items-2 lg:carousel-items-3 xl:carousel-items-3"
     >
       <!--Slides-->
-      <Slide v-for="slide in 1" :key="slide">
+      <Slide v-for="(agent, index) in agentData" :key="index">
         <Card
-          name="Ryan James"
+          :name= "agent.agent_name"
           :img="card1"
-          title="Managing Broker"
-          desc="I am Guillerma Gekin a Real Estate Person under Megaland Realty with an office address Unit 101,148 Residences, Pelaez St. Kalubihan ,Cebu City."
-        />
-      </Slide>
-      <Slide v-for="slide in 1" :key="slide">
-        <Card
-          name="Neil Broce"
-          :img="card1"
-          title="Managing Broker"
-          desc="I am Guillerma Gekin a Real Estate Person under Megaland Realty with an office address Unit 101,148 Residences, Pelaez St. Kalubihan ,Cebu City."
-        />
-      </Slide>
-      <Slide v-for="slide in 1" :key="slide">
-        <Card
-          name="Stephen Sagarino"
-          :img="card1"
-          title="Managing Broker"
-          desc="I am Guillerma Gekin a Real Estate Person under Megaland Realty with an office address Unit 101,148 Residences, Pelaez St. Kalubihan ,Cebu City."
-        />
-      </Slide>
-      <Slide v-for="slide in 1" :key="slide">
-        <Card
-          name="Andrian Paul"
-          :img="card1"
-          title="Managing Broker"
-          desc="I am Guillerma Gekin a Real Estate Person under Megaland Realty with an office address Unit 101,148 Residences, Pelaez St. Kalubihan ,Cebu City."
-        />
-      </Slide>
-      <Slide v-for="slide in 1" :key="slide">
-        <Card
-          name="Enrico Bacalso"
-          :img="card1"
-          title="Managing Broker"
-          desc="I am Guillerma Gekin a Real Estate Person under Megaland Realty with an office address Unit 101,148 Residences, Pelaez St. Kalubihan ,Cebu City."
-        />
-      </Slide>
-      <Slide v-for="slide in 1" :key="slide">
-        <Card
-          name="Marivil Du"
-          :img="card1"
-          title="Managing Broker"
-          desc="I am Guillerma Gekin a Real Estate Person under Megaland Realty with an office address Unit 101,148 Residences, Pelaez St. Kalubihan ,Cebu City."
-        />
-      </Slide>
-      <Slide v-for="slide in 1" :key="slide">
-        <Card
-          name="Josh Vincent Lim"
-          :img="card1"
-          title="Managing Broker"
-          desc="I am Guillerma Gekin a Real Estate Person under Megaland Realty with an office address Unit 101,148 Residences, Pelaez St. Kalubihan ,Cebu City."
+          :title="agent.agent_position"
+          :desc="agent.agent_description"
         />
       </Slide>
     </Carousel>
@@ -73,6 +25,28 @@ import Card from "../components/Card.vue";
 import { Carousel, Slide } from "vue3-carousel";
 import card1 from "../assets/card1.jpg";
 import "vue3-carousel/dist/carousel.css";
+
+import { ref, onMounted } from "vue";
+
+interface Agent {
+  agent_name: string;
+  agent_description: string;
+  agent_position: string;
+}
+
+const agentData = ref<Agent[]>([]);
+
+onMounted(() => {
+  fetch("http://localhost:8080/api/getAgents", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => (agentData.value = data))
+    .catch((error) => console.error("Error:", error));
+});
 </script>
 
 <style scoped>

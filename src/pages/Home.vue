@@ -127,7 +127,7 @@
   <!--Agents Carousel-->
   <div class="p-8">
     <div class="w-full mt-6 items-center">
-      <h1 class="mt-10 mb-20 font-black text-4xl ml-[575px]">
+      <h1 class="mt-10 mb-14 font-black text-4xl flex justify-center items-center">
         MEET OUR <span class="text-[#E67E23]">AGENTS</span>!
       </h1>
       <Agents />
@@ -177,10 +177,18 @@ interface Property {
   property_city: string;
 }
 
+// interface Agent{
+//   agent_name: string;
+//   agent_description: string;
+//   agent_position: string;
+// }
+
+// const agentData = ref<Agent[]>([]);
+
 const propertyData = ref<Property[]>([]);
 
 onMounted(() => {
-  fetch("http://localhost:8080/api/properties", {
+  fetch("http://localhost:8080/api", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -190,6 +198,19 @@ onMounted(() => {
     .then((data) => (propertyData.value = data))
     .catch((error) => console.error("Error:", error));
 });
+
+
+// onMounted(() => {
+//   fetch("http://localhost:8080/api/getAgents", {
+//     method: "GET",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   })
+//     .then((response) => response.json())
+//     .then((data) => (agentData.value = data))
+//     .catch((error) => console.error("Error:", error));
+// });
 </script>
 
 <style></style>

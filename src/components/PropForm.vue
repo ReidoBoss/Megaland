@@ -140,6 +140,20 @@
             class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
           />
         </div>
+        <!-- local area -->
+        <div>
+          <label class="text-white dark:text-gray-200" for="propertycity"
+            >Local Area</label
+          >
+          <input
+            v-model="propertyData.property_local_area"
+            id="propertyLocalArea"
+            type="text"
+            step="any"
+            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+          />
+        </div>
+        
         <!--Zip Code-->
         <div>
           <label class="text-white dark:text-gray-200" for="zipcode"
@@ -607,6 +621,7 @@ const propertyData = ref({
   property_region: "",
   property_city: "",
   property_zipcode: "",
+  property_local_area:"",
   property_area: "",
   property_bedroom: "",
   property_bathroom: "",

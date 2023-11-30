@@ -1,6 +1,6 @@
 <template>
   <div
-    class="scroll-snap-start bg-white p-6 text-center cursor-pointer mr-5 rounded-md shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]"
+    class="scroll-snap-start text-[#454544] h-[570px] bg-white p-6 text-center cursor-pointer mr-5 rounded-md shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]"
   >
     <div class="relative w-48 h-48 mx-auto mt-2 mb-2">
       <img
@@ -10,9 +10,9 @@
       />
     </div>
     <h2 class="font-bold text-3xl mt-4 mb-2">{{ name }}</h2>
-    <span class="text-gray-700 text-xl hover:text-[#E67E23]">{{ title }}</span>
+    <span class=" text-xl font-medium hover:text-[#E67E23]">{{ title }}</span>
     <p
-      class="mt-4 text-justify text-[#454544] text-base font-medium lg:text-lg 2xl:text-xl"
+      class="mt-4 text-justify text-[#454544] text-base font-normal lg:text-lg 2xl:text-xl"
     >
       {{ desc }}
     </p>
