@@ -40,6 +40,13 @@ const routes: RouteRecordRaw[] = [
     path: "/Admin",
     name: "Admin",
     component: () => import("../pages/Admin.vue"),
+    meta: { hideNavAndFooter: true },
+  },
+  {
+    path: "/AdminTest",
+    name: "AdminTest",
+    component: () => import("../pages/AdminTest.vue"),
+    meta: { hideNavAndFooter: true },
   },
 ];
 

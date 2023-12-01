@@ -1,18 +1,19 @@
 <template>
   <div>
     <!-- Navigation Bar -->
-    <NavBar />
+    <NavBar v-if="!$route.meta.hideNavAndFooter" />
+
     <!--  -->
 
     <!-- Route -->
     <div>
-      <router-view/>
+      <router-view />
     </div>
     <!--  -->
 
     <!-- Footer -->
     <div>
-      <Footer/>
+      <Footer v-if="!$route.meta.hideNavAndFooter" />
     </div>
     <!--  -->
   </div>
