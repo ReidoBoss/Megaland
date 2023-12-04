@@ -3,33 +3,38 @@
   <div
     class="bg-[#E67E23] sticky top-0 h-12 text-[#fefefe] text-[18px] font-semibold p-2 pt-2 z-10"
   >
-    <ul class="flex justify-end gap-6">
-      <li class="">
-        <router-link class="hover-underline" to="/">Home</router-link>
+    <ul class="flex justify-end gap-6 hover: cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+
+            <li class="">
+        <router-link class="hover-underline sm:text-sm md:text-md lg:text-lg " to="/">Home</router-link>
       </li>
       <li class="">
-        <router-link class="hover-underline" to="/properties"
+            <router-link class="hover-underline sm:text-sm md:text-md lg:text-lg" to="/properties"
           >Properties</router-link
         >
       </li>
       <li class="">
-        <router-link class="hover-underline" to="/PropertyNews"
+        <router-link class="hover-underline sm:text-sm md:text-md lg:text-lg" to="/PropertyNews"
           >Property News</router-link
         >
       </li>
       <li class="">
-        <router-link class="hover-underline" to="/about">About Us</router-link>
+        <router-link class="hover-underline sm:text-sm md:text-md lg:text-lg" to="/about">About Us</router-link>
       </li>
       <li class="">
-        <router-link class="hover-underline" to="/contact"
+        <router-link class="hover-underline sm:text-sm md:text-md lg:text-lg" to="/contact"
           >Contact Us</router-link
         >
       </li>
       <li class="">
-        <router-link class="hover-underline" to="/listProperty"
+        <router-link class="hover-underline sm:text-sm md:text-md lg:text-lg" to="/listProperty"
           >Property Listing</router-link
         >
       </li>
+      
     </ul>
   </div>
 
