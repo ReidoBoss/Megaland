@@ -1,4 +1,5 @@
 <template>
+  <div class="bg-red-400">Property ID: {{ $route.params.id }}</div>
   <div class="p-3">
     <div class="flex text-[#E67E23]">
       <div class="flex w-[16%] text-lg font-semibold pl-3">
@@ -67,7 +68,7 @@
         <div
           class="p-10 border-2 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)"
         >
-          <ProductDetails />
+          <ProductDetails :property="property" />
         </div>
       </div>
       <div class="h-[700px] w-[24%] flex-col overflow-auto ml-6">
@@ -98,7 +99,7 @@
         Related Property <ChatBubbleLeftIcon class="h-[26px] w-[26px] ml-1" />
       </div>
       <div
-        class="flex flex-wrap justify-center items-center h-full w-[84%] ml-32 mt-2 mb-6 gap-8"
+        class="flex flex-wrap items-center h-full w-[84%] ml-32 mt-2 mb-6 justify-between"
       >
         <Products
           :image="swiper1"
@@ -144,4 +145,91 @@ import swiper2 from "../assets/swiper2.jpg";
 import swiper3 from "../assets/swiper3.jpg";
 import Products from "../components/Products.vue";
 import BlogOwner from "../components/BlogOwner.vue";
+
+import { ref, onMounted } from "vue";
+import { useRoute } from "vue-router";
+const route = useRoute();
+
+interface propertyType {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  address: string;
+  city: string;
+  zip: number;
+  country: string;
+  bedroom: number;
+  bathroom: number;
+  area: number;
+  parking: number;
+  category: string;
+  type: string;
+
+  attic: boolean;
+  balcony: boolean;
+  deck: boolean;
+  fence: boolean;
+  fireplace: boolean;
+  frontyard: boolean;
+  gasheat: boolean;
+  gym: boolean;
+  lakeview: boolean;
+  pond: boolean;
+  pool: boolean;
+  recreation: boolean;
+  sprinklers: boolean;
+  storage: boolean;
+  washer: boolean;
+  winecellar: boolean;
+}
+
+const property = ref<propertyType>({
+  id: 0,
+  name: "",
+  price: 0,
+  description: "",
+  address: "",
+  city: "",
+  zip: 0,
+  country: "",
+  bedroom: 0,
+  bathroom: 0,
+  area: 0,
+  parking: 0,
+  category: "",
+  type: "",
+
+  attic: false,
+  balcony: false,
+  deck: false,
+  fence: false,
+  fireplace: false,
+  frontyard: false,
+  gasheat: false,
+  gym: false,
+  lakeview: false,
+  pond: false,
+  pool: false,
+  recreation: false,
+  sprinklers: false,
+  storage: false,
+  washer: false,
+  winecellar: false,
+});
+
+onMounted(() => {
+  fetch(`http://localhost:8080/api/getPropertyDetails/${route.params.id}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      property.value = data[0];
+      console.log(property.value);
+    })
+    .catch((error) => console.error("Error:", error));
+});
 </script>

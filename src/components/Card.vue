@@ -10,7 +10,7 @@
       />
     </div>
     <h2 class="font-bold text-3xl mt-4 mb-2">{{ name }}</h2>
-    <span class=" text-xl font-medium hover:text-[#E67E23]">{{ title }}</span>
+    <span class="text-xl font-medium hover:text-[#E67E23]">{{ title }}</span>
     <p
       class="mt-4 text-justify text-[#454544] text-base font-normal lg:text-lg 2xl:text-xl"
     >

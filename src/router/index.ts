@@ -32,7 +32,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import("../pages/ListProperty.vue"),
   },
   {
-    path: "/Details",
+    path: "/Details/:id",
     name: "Details",
     component: () => import("../pages/Details.vue"),
   },

@@ -16,7 +16,7 @@
         ><div class="flex justify-center items-center">
           <img
             class="w-full h-[550px]"
-            src="../assets/swiper4.png"
+            src="../assets/s1.jpg"
             alt=""
           /></div
       ></swiper-slide>
@@ -24,7 +24,7 @@
         ><div class="flex justify-center items-center">
           <img
             class="w-full h-[550px]"
-            src="../assets/swiper5.png"
+            src="../assets/s2.jpg"
             alt=""
           /></div
       ></swiper-slide>
@@ -32,7 +32,7 @@
         ><div class="flex justify-center items-center">
           <img
             class="w-full h-[550px]"
-            src="../assets/swiper6.png"
+            src="../assets/s3.jpg"
             alt=""
           /></div
       ></swiper-slide>
@@ -101,7 +101,8 @@
     </div>
     <!-- Latest Sale -->
     <div class="flex flex-wrap mt-2 h-full w-[84%] gap-y-9 justify-evenly">
-      <Products class=""
+      <Products
+        class=""
         v-for="(property, index) in propertyData"
         :key="index"
         :image="swiper1"
@@ -127,7 +128,9 @@
   <!--Agents Carousel-->
   <div class="p-8">
     <div class="w-full mt-6 items-center">
-      <h1 class="mt-10 mb-14 font-black text-4xl flex justify-center items-center">
+      <h1
+        class="mt-10 mb-14 font-black text-4xl flex justify-center items-center"
+      >
         MEET OUR <span class="text-[#E67E23]">AGENTS</span>!
       </h1>
       <Agents />
@@ -198,7 +201,6 @@ onMounted(() => {
     .then((data) => (propertyData.value = data))
     .catch((error) => console.error("Error:", error));
 });
-
 
 // onMounted(() => {
 //   fetch("http://localhost:8080/api/getAgents", {
