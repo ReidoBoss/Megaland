@@ -21,3 +21,7 @@
     .hover-underline:hover::before {
       width: 100%;
     }
+
+    body {
+      zoom: 125%;
+    }
