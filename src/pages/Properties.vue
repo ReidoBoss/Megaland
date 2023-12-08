@@ -65,101 +65,27 @@
       <div class="flex flex-col h-full w-[84%] ml-6 mt-2 mb-6">
         <div class="flex flexbox flex-wrap gap-8">
           <Products
-            :image="swiper1"
-            name="3 LEVEL HOUSE WITH ROOF DECK AND POOL IN VISTA GRANDE TALISAY"
-            price="₱48,000,000"
-            :size="769"
-            :bedroom="7"
-            :bathroom="7"
-          />
-          <Products
-            :image="swiper2"
-            name="2-Storey House & Lot For Sale White Hills Subdivision-Banawa"
-            price="₱12,500,000"
-            :size="200"
-            :bedroom="6"
-            :bathroom="3"
-          />
-          <Products
-            :image="swiper3"
-            name="4 Bedrooms House and Lot for Sale at Kishanta Subdivision"
-            price="₱12,500,000"
-            :size="150"
-            :bedroom="4"
-            :bathroom="2"
-          />
-          <Products
-            :image="swiper1"
-            name="3 LEVEL HOUSE WITH ROOF DECK AND POOL IN VISTA GRANDE TALISAY"
-            price="₱48,000,000"
-            :size="769"
-            :bedroom="7"
-            :bathroom="7"
-          />
-          <Products
-            :image="swiper2"
-            name="2-Storey House & Lot For Sale White Hills Subdivision-Banawa"
-            price="₱12,500,000"
-            :size="200"
-            :bedroom="6"
-            :bathroom="3"
-          />
-          <Products
-            :image="swiper3"
-            name="4 Bedrooms House and Lot for Sale at Kishanta Subdivision"
-            price="₱12,500,000"
-            :size="150"
-            :bedroom="4"
-            :bathroom="2"
-          />
-          <Products
-            :image="swiper1"
-            name="3 LEVEL HOUSE WITH ROOF DECK AND POOL IN VISTA GRANDE TALISAY"
-            price="₱48,000,000"
-            :size="769"
-            :bedroom="7"
-            :bathroom="7"
-          />
-          <Products
-            :image="swiper2"
-            name="2-Storey House & Lot For Sale White Hills Subdivision-Banawa"
-            price="₱12,500,000"
-            :size="200"
-            :bedroom="6"
-            :bathroom="3"
-          />
-          <Products
-            :image="swiper3"
-            name="4 Bedrooms House and Lot for Sale at Kishanta Subdivision"
-            price="₱12,500,000"
-            :size="150"
-            :bedroom="4"
-            :bathroom="2"
-          />
-          <Products
-            :image="swiper1"
-            name="3 LEVEL HOUSE WITH ROOF DECK AND POOL IN VISTA GRANDE TALISAY"
-            price="₱48,000,000"
-            :size="769"
-            :bedroom="7"
-            :bathroom="7"
-          />
-          <Products
-            :image="swiper2"
-            name="2-Storey House & Lot For Sale White Hills Subdivision-Banawa"
-            price="₱12,500,000"
-            :size="200"
-            :bedroom="6"
-            :bathroom="3"
-          />
-          <Products
-            :image="swiper3"
-            name="4 Bedrooms House and Lot for Sale at Kishanta Subdivision"
-            price="₱12,500,000"
-            :size="150"
-            :bedroom="4"
-            :bathroom="2"
-          />
+          class=""
+          v-for="(property, index) in propertyData"
+          :key="index"
+          :image="'https://storage.googleapis.com/petbacker/images/blog/2017/dog-and-cat-cover.jpg'"
+          :name="property.property_name"
+          :price="property.property_price"
+          :category="property.property_category"
+          :size="property.property_area"
+          :type="property.property_type"
+          :bedroom="property.property_bedroom"
+          :bathroom="property.property_bathroom"
+          :address="property.property_local_area"
+          :city="property.property_city"
+          :airport="property.property_airport"
+          :busstand="property.property_busstand"
+          :hospital="property.property_hospital"
+          :patroltank="property.property_patroltank"
+          :railway="property.property_railway"
+          :shopping="property.property_shopping"
+          :universities="property.property_universities"
+        />
         </div>
         <div class="flex justify-center items-center mt-5">
           <Pagination />
@@ -172,9 +98,100 @@
 <script lang="ts" setup>
 import Accordion from "../components/Accordion.vue";
 import Products from "../components/Products.vue";
-import swiper1 from "../assets/swiper1.jpg";
-import swiper2 from "../assets/swiper2.jpg";
-import swiper3 from "../assets/swiper3.jpg";
 import Pagination from "../components/Pagination.vue";
 import { FunnelIcon, BuildingLibraryIcon } from "@heroicons/vue/24/outline";
+import { onMounted, ref } from "vue";
+
+onMounted(() => {
+  fetchAllData();
+  removeAllData();
+
+});
+var searched = localStorage.getItem("search");
+console.log(searched);
+
+interface Property {
+  id: number;
+  image: string;
+  property_name: string;
+  property_price: number;
+  property_area: number;
+  property_bedroom: number;
+  property_bathroom: number;
+
+  property_airport: boolean;
+  property_busstand: boolean;
+  property_hospital: boolean;
+  property_patroltank: boolean;
+  property_railway: boolean;
+  property_shopping: boolean;
+  property_universities: boolean;
+
+  property_category: string;
+  property_type: string;
+  property_local_area: string;
+  property_city: string;
+}
+
+var propertyData = ref<Property[]>([]);
+
+
+
+
+const findKeywordIndex = (inputString, keyword) => {
+  // Convert both the input string and the keyword to lowercase for case-insensitive comparison
+  const lowercasedInput = inputString.toLowerCase();
+  const lowercasedKeyword = keyword.toLowerCase();
+
+  // Split the input string into individual words
+  const wordsInInput = lowercasedInput.split(' ');
+
+  // Check if any word in the input string includes the keyword
+  if (wordsInInput.some(word => word.includes(lowercasedKeyword))) {
+    return 1; // Return 1 if found
+  }
+
+  return -1; // Return -1 if not found
+};
+
+
+var propertyKeyArray: any = [];
+
+const removeAllData = () => {
+  propertyData.value.splice(0, propertyData.value.length);
+};
+const fetchAllData = () => {
+  fetch("http://localhost:8080/api/search", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      var lth = Object.keys(data).length;
+      
+      for (var i = 0; i < lth; i++) {
+
+
+        const temp = data[i];
+        var bulldog = `${temp.property_area},${temp.property_category},${temp.property_city},${temp.property_local_area},${temp.property_name},${temp.property_price},${temp.property_type}`;
+        propertyKeyArray.push(`${bulldog}`);
+
+
+        const index = findKeywordIndex(propertyKeyArray[i], searched);
+        if(index!=-1){
+          propertyData.value.push(data[i]);
+        }
+        else{ 
+          propertyData.value.splice(i,1);
+        }
+
+      }
+    })
+    .catch((error) => console.error("Error:", error));
+};
+
+
+
 </script>
