@@ -2,26 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-    .hover-underline {
-      position: relative;
-      display: inline-block;
-    }
+.hover-underline {
+  position: relative;
+  display: inline-block;
+}
 
-    .hover-underline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px; /* Adjust the thickness of the underline as needed */
-      background-color: #fefefe; /* Adjust the color of the underline as needed */
-      transition: width 0.6s ease;
-    }
+.hover-underline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px; /* Adjust the thickness of the underline as needed */
+  background-color: #fefefe; /* Adjust the color of the underline as needed */
+  transition: width 0.6s ease;
+}
 
-    .hover-underline:hover::before {
-      width: 100%;
-    }
+.hover-underline:hover::before {
+  width: 100%;
+}
 
-    body {
+/* body {
       zoom: 125%;
-    }
+    } */
+
+/* Default styles go here */
+
+/* Apply 125% zoom for screens with a width of 1920px and height of 1080px */
+/* @media screen and (min-width: 1920px) and (min-height: 1080px) {
+  body {
+    zoom: 125%;
+  }
+} */
+
+/* Apply 90% zoom for screens with a width of 1366px and height of 768px
+@media screen and (min-width: 1366px) and (min-height: 768px) {
+  body {
+    zoom: 90%;
+  }
+} */
