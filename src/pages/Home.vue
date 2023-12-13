@@ -129,9 +129,9 @@
   <div class="p-8">
     <div class="w-full mt-6 items-center">
       <h1
-        class="mt-10 mb-14 font-black text-4xl flex justify-center items-center"
+        class="mt-10 mb-14 font-black text-center text-4xl flex justify-center items-center"
       >
-        MEET OUR <span class="text-[#E67E23]">AGENTS</span>!
+      OUR <span class="text-[#E67E23]">GALLERY!</span>
       </h1>
       <Agents />
     </div>
@@ -139,7 +139,7 @@
 
   <div class="w-full mt-6 items-center">
     <h1 class="mt-10 mb-20 font-black text-center text-4xl">
-      OUR <span class="text-[#E67E23]">GALLERY !</span>
+      MEET OUR<span class="text-[#E67E23]">AGENTS !</span>
     </h1>
     <Gallery />
   </div>
