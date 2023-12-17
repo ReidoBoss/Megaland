@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full relative mt-15 mb-15">
+  <div class="w-full relative mt-15 mb-15 justify-evenly gap-y-9">
     <Carousel
       :itemsToShow="3.95"
       :wrapAround="true"

@@ -1,6 +1,6 @@
 <template>
     <div class="w-full relative ">
-     <Carousel :itemsToShow="2" :wrapAround="true" :transition="500" :autoplay="5000" class="h-full mb-[60px]">
+     <Carousel :itemsToShow="3" :wrapAround="true" :transition="500" :autoplay="5000" class="h-full mb-[60px]">
      <!--Slides-->
      <Slide v-for="slide in 1" :key="slide">
        <Img

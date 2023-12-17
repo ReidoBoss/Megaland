@@ -1,18 +1,18 @@
 <template>
   <div
-    class="scroll-snap-start text-[#454544] h-[570px] bg-white p-6 text-center cursor-pointer mr-5 rounded-md shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]"
+    class="scroll-snap-start text-[#454544]  w-[400px] h-[570px] bg-white p-6 text-center cursor-pointer mr-5 rounded-md shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] overflow-hidden"
   >
-    <div class="relative w-48 h-48 mx-auto mt-2 mb-2">
+    <div class="relative w-1/2 h-1/2 mx-auto mt-3">
       <img
         :src="img"
         alt="img"
         class="w-48 h-48 border-4 border-[#E67E23] rounded-full object-cover relative z-10"
       />
     </div>
-    <h2 class="font-bold text-3xl mt-4 mb-2">{{ name }}</h2>
+    <h2 class="font-bold text-3xl mt-[-30px] mb-2 text-black">{{ name }}</h2>
     <span class="text-xl font-medium hover:text-[#E67E23]">{{ title }}</span>
     <p
-      class="mt-4 text-justify text-[#454544] text-base font-normal lg:text-lg 2xl:text-xl"
+      class="mt-4 text-justify text-[12px] font-normal lg:text-lg 2xl:text-xl line-clamp-3"
     >
       {{ desc }}
     </p>
