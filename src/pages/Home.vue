@@ -101,11 +101,12 @@
 
     <!-- Latest Sale -->
     <div class="flex flex-wrap mt-2 h-full w-[84%] gap-y-9 justify-evenly">
-      <Products
+      <Products  
         class=""
         v-for="(property, index) in propertyData"
+        :property_id="property.property_id"
         :key="index"
-        :image="swiper1"
+        :image="property.dataURL"
         :name="property.property_name"
         :price="property.property_price"
         :category="property.property_category"
@@ -122,6 +123,7 @@
         :railway="property.property_railway"
         :shopping="property.property_shopping"
         :universities="property.property_universities"
+        :image_data="property.image_data"
       />
     </div>
   </div>
@@ -151,14 +153,13 @@ import Accordion from "../components/Accordion.vue";
 import Gallery from "../components/Gallery.vue";
 import Products from "../components/Products.vue";
 import Agents from "../components/Agents.vue";
-import { ChevronDoubleLeftIcon, FunnelIcon, NewspaperIcon } from "@heroicons/vue/24/outline";
-import swiper1 from "../assets/swiper1.jpg";
+import {  FunnelIcon, NewspaperIcon } from "@heroicons/vue/24/outline";
 
 import { ref, onMounted, Ref } from "vue";
 register();
 
 interface Property {
-  id: number;
+  property_id: number;
   image: string;
   property_name: string;
   property_price: number;
@@ -178,6 +179,12 @@ interface Property {
   property_type: string;
   property_local_area: string;
   property_city: string;
+
+  image_data: {
+    type: string[];
+    data: number[];
+  };
+  dataURL?: string; 
 }
 
 var propertyData = ref<Property[]>([]);
@@ -219,10 +226,24 @@ const fetchAllData = () => {
       var lth = Object.keys(data).length;
       for (var i = 0; i < lth; i++) {
         propertyData.value.push(data[i]);
+        convertBinaryToDataURL(propertyData.value[i].image_data.data,i);
       }
+
+
+      
     })
     .catch((error) => console.error("Error:", error));
 };
+function convertBinaryToDataURL(binaryData: number[], index: number) {
+  const blob = new Blob([new Uint8Array(binaryData)], { type: 'image/png' }); 
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    propertyData.value[index].dataURL = reader.result as string;
+  };
+
+  reader.readAsDataURL(blob);
+}
 
 const filterPropertyType = (data?: DataParameter) => {
   var lth = Object.keys(data).length;
@@ -244,6 +265,7 @@ const filteredCategory = (data: DataParameter) => {
     }
   }
 };
+
 
 const filteredCity = (data: DataParameter) => {
   var city = localStorage.getItem("City");
@@ -320,12 +342,7 @@ const filteredArea = (data: DataParameter) => {
   }
 
 }
-const filteredRooms = (data:DataParameter)=> {
-  var lth = Object.keys(data).length;
-  for (var i = 0; i < lth; i++) {
-  }
 
-}
 
 const removeAllData = () => {
   propertyData.value.splice(0, propertyData.value.length);

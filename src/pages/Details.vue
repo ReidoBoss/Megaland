@@ -1,5 +1,4 @@
 <template>
-  <div class="bg-red-400">Property ID: {{ $route.params.id }}</div>
   <div class="p-3">
     <div class="flex text-[#E67E23]">
       <div class="flex w-[16%] text-lg font-semibold pl-3">
@@ -182,6 +181,14 @@ interface propertyType {
   storage: boolean;
   washer: boolean;
   winecellar: boolean;
+
+  image_data: {
+    type: string[];
+    data: number[];
+  };
+  dataURL?: string; 
+
+  
 }
 
 const property = ref<propertyType>({
@@ -216,10 +223,13 @@ const property = ref<propertyType>({
   storage: false,
   washer: false,
   winecellar: false,
+  image_data: { type: [], data: [] },
+  dataURL: ""
+
 });
 
-onMounted(() => {
-  fetch(`http://localhost:8080/api/getPropertyDetails/${route.params.id}`, {
+
+fetch(`http://localhost:8080/api/getPropertyDetails/${route.params.id}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -228,8 +238,18 @@ onMounted(() => {
     .then((response) => response.json())
     .then((data) => {
       property.value = data[0];
-      console.log(property.value);
+      convertBinaryToDataURL(property.value.image_data.data,0);
     })
     .catch((error) => console.error("Error:", error));
-});
+
+function convertBinaryToDataURL(binaryData: number[], index: number) {
+  const blob = new Blob([new Uint8Array(binaryData)], { type: 'image/png' }); 
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    property.value.dataURL = reader.result as string;
+  };
+
+  reader.readAsDataURL(blob);
+}
 </script>

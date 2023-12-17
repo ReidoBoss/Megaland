@@ -1,6 +1,5 @@
 <template>
   <div
-    @click="redirectDetails"
     class="break-words relative flex flex-col justify-between space-y-1 w-[380px] h-[535px] bg-white p-5 border-2 rounded-md shadow-xl hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] hover:scale-[1.02]"
   >
     <div class="absolute transform rotate-90 left-auto -right-3 text-center">
@@ -132,7 +131,7 @@
     </div>
     <div>
       <div class="flex justify-center items-center mt-2 text-white">
-        <button
+        <button @click="redirectDetails"
           class="bg-[#E67E23] h-9 w-full rounded-md text-white text-center font-semibold text-[20px] hover:bg-white hover:text-[#E67E23] hover:border-[#E67E23] border-[#E67E23] border-2 transition duration-300"
         >
           Details
@@ -144,18 +143,11 @@
 <script lang="ts" setup>
 import { BookmarkIcon } from "@heroicons/vue/24/solid";
 import { useRouter } from "vue-router";
-import { ref } from "vue";
-// 1 is just a sample test id
-let property_id = ref(10);
+
 const router = useRouter();
-const redirectDetails = () => {
-  router.push({
-    name: "Details",
-    params: { id: property_id.value },
-  });
-};
 
 interface ProductType {
+  property_id: number;
   name: string;
   price: number;
   size: number;
@@ -175,7 +167,19 @@ interface ProductType {
   railway: boolean;
   shopping: boolean;
   universities: boolean;
+
+  image_data: {
+    type: string[];
+    data: number[];
+  };
+  dataURL?: string; 
 }
 
-defineProps<ProductType>();
+const props = defineProps<ProductType>();
+
+const redirectDetails = () => {
+  router.push(`/Details/${props.property_id}`);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
 </script>

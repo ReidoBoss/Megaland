@@ -8,7 +8,7 @@
         {{ property.property_name }}
       </div>
       <div class="flex justify-center items-center p-5">
-        <img src="../assets/swiper2.jpg" alt="" />
+        <img :src="property.dataURL" alt="" />
       </div>
       <div class="font-medium text-center">
         Price:
@@ -96,7 +96,6 @@
   </div>
 </template>
 <script lang="ts" setup>
-// 
 
 interface PropType {
   property: any;
