@@ -63,6 +63,10 @@
       </div>
       <!-- Latest Sale -->
       <div class="flex flex-col h-full w-[84%] ml-6 mt-2 mb-6">
+        <div class="flex justify-center items-center mt-5">
+          <Pagination />
+        </div>
+        <br>
         <div class="flex flexbox flex-wrap gap-8">
           <Products
           class=""
@@ -104,13 +108,15 @@ import Pagination from "../components/Pagination.vue";
 import { FunnelIcon, BuildingLibraryIcon } from "@heroicons/vue/24/outline";
 import { onMounted, ref } from "vue";
 
+import { useRoute } from "vue-router";
+const route = useRoute();
+
 onMounted(() => {
   fetchAllData();
   removeAllData();
 
 });
 var searched = localStorage.getItem("search");
-console.log(searched);
 
 interface Property {
   property_id: number;
@@ -145,8 +151,6 @@ interface Property {
 var propertyData = ref<Property[]>([]);
 
 
-
-
 const findKeywordIndex = (inputString, keyword) => {
   const lowercasedInput = inputString.toLowerCase();
   const lowercasedKeyword = keyword.toLowerCase();
@@ -161,13 +165,13 @@ const findKeywordIndex = (inputString, keyword) => {
 };
 
 
-var propertyKeyArray: any = [];
 
 const removeAllData = () => {
   propertyData.value.splice(0, propertyData.value.length);
 };
+
 const fetchAllData = () => {
-  fetch("http://localhost:8080/api/all", {
+  fetch(`http://localhost:8080/api/all/${route.params.page}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -175,9 +179,9 @@ const fetchAllData = () => {
   })
     .then((response) => response.json())
     .then((data) => {
-      var lth = Object.keys(data).length;
+      var lth = Object.keys(data.propertyDetails).length;
       for (var i = 0; i < lth; i++) {
-        propertyData.value.push(data[i]);
+        propertyData.value.push(data.propertyDetails[i]);
         convertBinaryToDataURL(propertyData.value[i].image_data.data,i);
 
       }

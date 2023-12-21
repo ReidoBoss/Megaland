@@ -12,7 +12,7 @@
         <router-link class="hover-underline sm:text-sm md:text-md lg:text-lg " to="/">Home</router-link>
       </li>
       <li class="">
-            <router-link class="hover-underline sm:text-sm md:text-md lg:text-lg" to="/properties"
+            <router-link class="hover-underline sm:text-sm md:text-md lg:text-lg" to="/properties/1"
           >Properties</router-link
         >
       </li>

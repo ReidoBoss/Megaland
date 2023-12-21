@@ -7,7 +7,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import("../pages/Home.vue"),
   },
   {
-    path: "/properties",
+    path: "/properties/:page",
     name: "Properties",
     component: () => import("../pages/Properties.vue"),
   },
@@ -27,7 +27,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import("../pages/Contact.vue"),
   },
   {
-    path: "/listProperty",
+    path: "/listProperty/",
     name: "List Property",
     component: () => import("../pages/ListProperty.vue"),
   },
