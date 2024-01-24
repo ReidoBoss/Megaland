@@ -151,7 +151,8 @@
       <h1
         class="mt-10 mb-14 font-black custom-sm:text-xl sm:text-2xl md:text-3.5xl lg:text-4xl flex justify-center items-center"
       >
-        MEET OUR <span class="text-[#E67E23]">AGENTS </span>!
+        <span class="mx-2"> MEET OUR </span>
+        <span class="text-[#E67E23]"> AGENTS !</span>
       </h1>
       <Agents />
     </div>
@@ -161,7 +162,7 @@
     <h1
       class="mt-10 mb-20 font-black text-center custom-sm:text-xl sm:text-2xl md:text-3.5xl lg:text-4xl"
     >
-      OUR<span class="text-[#E67E23]">GALLERY !</span>
+      <span> OUR </span><span class="text-[#E67E23]">GALLERY !</span>
     </h1>
     <Gallery />
   </div>
