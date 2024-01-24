@@ -1,16 +1,16 @@
 <template>
-  <div class="w-full relative mt-15 mb-15 justify-evenly gap-y-9">
+  <div class="lg:w-full relative mt-15 mb-15">
     <Carousel
-      :itemsToShow="3.95"
+      :itemsToShow="carouselItemsToShow"
       :wrapAround="true"
       :transition="500"
-      :autoplay="2000"
+      :autoplay="0"
       class="sm:carousel-items-1 md:carousel-items-2 lg:carousel-items-3 xl:carousel-items-3"
     >
       <!--Slides-->
       <Slide v-for="(agent, index) in agentData" :key="index">
         <Card
-          :name= "agent.agent_name"
+          :name="agent.agent_name"
           :img="card1"
           :title="agent.agent_position"
           :desc="agent.agent_description"
@@ -25,8 +25,7 @@ import Card from "../components/Card.vue";
 import { Carousel, Slide } from "vue3-carousel";
 import card1 from "../assets/card1.jpg";
 import "vue3-carousel/dist/carousel.css";
-
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 
 interface Agent {
   agent_name: string;
@@ -35,6 +34,7 @@ interface Agent {
 }
 
 const agentData = ref<Agent[]>([]);
+const windowWidth = ref(window.innerWidth);
 
 onMounted(() => {
   fetch("http://localhost:8080/api/getAgents", {
@@ -46,6 +46,21 @@ onMounted(() => {
     .then((response) => response.json())
     .then((data) => (agentData.value = data))
     .catch((error) => console.error("Error:", error));
+  window.addEventListener("resize", updateWindowWidth);
+});
+const updateWindowWidth = () => {
+  windowWidth.value = window.innerWidth;
+};
+const carouselItemsToShow = ref(4);
+
+watch(windowWidth, (newWidth) => {
+  if (newWidth < 640) {
+    carouselItemsToShow.value = 1;
+  } else if (newWidth < 768) {
+    carouselItemsToShow.value = 2;
+  } else {
+    carouselItemsToShow.value = 3;
+  }
 });
 </script>
 

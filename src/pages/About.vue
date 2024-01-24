@@ -4,25 +4,33 @@
     class="bg-auto bg-no-repeat bg-center"
     style="background-image: url(../assets/card1.jpg)"
   >
-    <div class="flex mt-[100px]">
+    <div class="flex mt-[100px] custom-sm:mt-5 sm:mt-10 md:mt-20">
       <div class="justify-center flex-1 max-w-7xl py-4 mx-auto lg:py-6 md:px-6">
         <div class="flex flex-wrap">
           <div class="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
-            <span class="font-black text-2xl  md:text-3xl lg:text-3.5xl ">
-              MEET <span class="text-[#E67E23] ">MEGALAND REALTY</span></span
+            <span
+              class="font-black custom-sm:text-xl sm:text-2xl md:text-3.5xl lg:text-4xl"
             >
-            <h2 class="mt-5 mb-6 text-md font-medium text-justify md:text-lg ">
+              MEET <span class="text-[#E67E23]">MEGALAND REALTY</span></span
+            >
+            <h2
+              class="mt-5 mb-6 font-medium text-justify md:text-xl sm:text-lg custom-sm:text-sm"
+            >
               Megaland Realty was founded with one goal in mind: to make buying,
               selling, and renting real estate a simple, hassle free process for
               everyone involved
             </h2>
-            <p class="mb-10 font-normal text-justify text-md md:text-lg ">
+            <p
+              class="mb-10 font-normal text-justify text-md md:text-lg custom-sm:text-sm"
+            >
               With seventeen years of experience in real estate markets in the
               Phillippines especially in Cebu, this goal was realized when we
               opened the doors to our first Cebu office in 2010.
             </p>
 
-            <p class="mb-10 font-normal text-justify text-md md:text-lg">
+            <p
+              class="mb-10 font-normal text-justify sm:text-md md:text-lg custom-sm:text-sm"
+            >
               At Megaland Realty you are not looked at as just another customer.
               We will liten to your needs and tailor a plan to fit. Whether
               you’re in the market for a place to call home, an investment
@@ -38,7 +46,7 @@
               <img
                 :src="about"
                 alt="aboutimage"
-                class="relative object-cover w-100 h-100 rounded "
+                class="relative object-cover w-100 h-100 rounded"
               />
             </div>
           </div>
@@ -47,12 +55,14 @@
     </div>
 
     <!--OUR VALUES-->
-    <div class="justify-center flex-1 max-w-6xl mx-auto lg:py-6 md:px-6" >
-      <h1 class="mb-20 text-center font-black text-2xl  md:text-3xl lg:text-4xl" >
-        OUR <span class="text-[#E67E23] ">CORE VALUES</span>!
+    <div class="justify-center flex-1 max-w-6xl mx-auto lg:py-6 md:px-6">
+      <h1
+        class="mb-20 custom-sm:mb-4 text-center font-black custom-sm:text-xl sm:text-2xl md:text-3.5xl lg:text-4xl"
+      >
+        OUR <span class="text-[#E67E23]">CORE VALUES</span>!
       </h1>
       <div
-        class="grid grid-cols-1 lg:grid-cols-4 justify-center relative gap-8 mt-12 w-full font-medium md:grid-cols-2 "
+        class="grid grid-cols-1 lg:grid-cols-4 justify-center relative gap-8 mt-12 w-full font-medium md:grid-cols-2"
       >
         <ValCard
           header="Integrity"
@@ -71,8 +81,7 @@
           desc="At Megaland Realty we know the local real estate market. Since February 2008, our professional and friendly agents have been helping people like you with all of their needs, from buying or renting new homes to selling properties. Our sensitivity to the marketplace comes from a single yet powerful perspective: Cebu City is more than just a market, it’s our home."
         />
       </div>
-      <div class="lg:">
-      </div>
+      <div class="lg:"></div>
     </div>
 
     <div class="justify-center grid grid-cols 3 mt-[100px] mb-[100px]">

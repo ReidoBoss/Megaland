@@ -1,53 +1,72 @@
 <template>
-    <div class="w-full relative ">
-     <Carousel :itemsToShow="3" :wrapAround="true" :transition="500" :autoplay="5000" class="h-full mb-[60px]">
-     <!--Slides-->
-     <Slide v-for="slide in 1" :key="slide">
-       <Img
-       :img="gal1"
-       />
-     </Slide>
-     <Slide v-for="slide in 1" :key="slide">
-       <Img
-       :img="gal2"
-       />
-     </Slide>
-     <Slide v-for="slide in 1" :key="slide">
-       <Img
-       :img="gal3"
-       />
-     </Slide>
-     <template #addons>
-       <Pagination />
-       <Navigation/>
-     </template>
-   </Carousel>
-  
-  
-   
+  <div class="xl:w-full relative">
+    <Carousel
+      :itemsToShow="carouselItemsToShow"
+      :wrapAround="true"
+      :transition="500"
+      :autoplay="5000"
+      class="h-full mb-[60px]"
+    >
+      <!--Slides-->
+      <Slide v-for="(image, index) in images" :key="index">
+        <Img :img="image" />
+      </Slide>
+      <template #addons>
+        <Pagination />
+        <Navigation />
+      </template>
+    </Carousel>
   </div>
-   
-  </template>
-  
-  <script lang="ts" setup>
-  
-  import Img from "../components/Img.vue";
-  import { Carousel, Slide, Pagination, Navigation} from 'vue3-carousel';
-  import gal1 from "../assets/gal1.jpg";
-  import gal2 from "../assets/gal2.jpg";
-  import gal3 from "../assets/gal3.jpg";
-  import 'vue3-carousel/dist/carousel.css';
-  
-  </script>
-  <style>
-  .carousel__slide {
-    padding: 10px;
+</template>
+
+<script lang="ts" setup>
+import Img from "../components/Img.vue";
+import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
+import "vue3-carousel/dist/carousel.css";
+import { ref, onMounted, watch } from "vue";
+const windowWidth = ref(window.innerWidth);
+const carouselItemsToShow = ref<number>(3);
+
+const updateWindowWidth = () => {
+  windowWidth.value = window.innerWidth;
+};
+
+const importImages = async () => {
+  const [gal1, gal2, gal3] = await Promise.all([
+    import("../assets/gal1.jpg"),
+    import("../assets/gal2.jpg"),
+    import("../assets/gal3.jpg"),
+  ]);
+
+  return [gal1.default, gal2.default, gal3.default];
+};
+
+const images = ref<string[]>([]);
+
+onMounted(async () => {
+  window.addEventListener("resize", updateWindowWidth);
+  images.value = await importImages();
+});
+
+watch(windowWidth, (newWidth) => {
+  if (newWidth < 640) {
+    carouselItemsToShow.value = 1;
+  } else if (newWidth < 768) {
+    carouselItemsToShow.value = 2;
+  } else {
+    carouselItemsToShow.value = 3;
   }
-  
-  .carousel__prev,
-  .carousel__next {
-    box-sizing: content-box;
-    font-size: 100px;
-    color: gray;
-  }
-  </style>
+});
+</script>
+<style>
+.carousel__slide {
+  padding: 10px;
+}
+
+.carousel__prev,
+.carousel__next {
+  box-sizing: content-box;
+  font-size: 100px;
+  color: gray;
+}
+</style>

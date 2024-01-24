@@ -1,6 +1,7 @@
 <template>
   <div
-    class="break-words relative flex flex-col justify-between space-y-1 w-[380px] h-[535px] bg-white p-5 border-2 rounded-md shadow-xl hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] hover:scale-[1.02]"
+    @click="redirectDetails"
+    class="md:w-[340px] custom-sm:w-[310px] sm:w-[300px] lg:w-[380px] lg:h-[535px] break-words relative flex flex-col justify-between space-y-1 w-[380px] h-[535px] bg-white p-5 border-2 rounded-md shadow-xl hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] hover:scale-[1.02]"
   >
     <div class="absolute transform rotate-90 left-auto -right-3 text-center">
       <BookmarkIcon class="text-[#E67E23] h-28 w-24" />
@@ -52,36 +53,48 @@
     <div>
       <!-- name -->
       <div class="m-1">
-        <p class="text-[#454544] text-[17px] font-semibold">
+        <p
+          class="text-[#454544] font-bold custom-sm:text-sm text-center md:text-md sm:text-md lg:text-lg"
+        >
           {{ name }}
         </p>
       </div>
     </div>
-    <div>
+    <div class="custom-sm:text-sm sm:text-sm">
       <div class="flex text-[#454544] font-medium">
-        <p class="flex items-center w-[32%] text-[15px]">Price</p>
-        <div class="w-[68%] text-[17px] text-[#E67E23] font-semibold">
+        <p class="flex items-center w-[32%] text-[15px] m-1 font-bold">Price</p>
+        <div
+          class="w-[68%] custom-sm:text-sm sm:text-sm text-[#E67E23] font-semibold m-1"
+        >
           <span class="text-[#454544] font-medium">:</span> ₱
           {{ price ? price.toLocaleString("en-US") : "N/A" }}
         </div>
       </div>
 
       <div class="flex text-[#454544] font-medium">
-        <p class="flex items-center w-[32%] text-[15px]">Category</p>
-        <div class="w-[68%] text-[17px]">: {{ category }}</div>
+        <p class="flex items-center w-[32%] text-[15px] m-1 font-bold">
+          Category
+        </p>
+        <div class="w-[68%] custom-sm:text-sm sm:text-sm m-1">
+          : {{ category }}
+        </div>
       </div>
 
       <div class="text-[#454544] font-medium flex">
-        <p class="flex items-center w-[32%] text-[15px]">Address</p>
-        <div class="w-[68%] text-[17px]">
+        <p class="flex items-center w-[32%] text-[15px] m-1 font-bold">
+          Address
+        </p>
+        <div class="w-[68%] custom-sm:text-sm sm:text-sm m-1">
           : {{ address + ", " + city + " City" }}
         </div>
       </div>
 
       <div>
         <div class="text-[#454544] text-[15px] font-medium flex">
-          <div class="w-[32%] flex items-center">Nearest Place</div>
-          <div class="w-[68%] flex flex-wrap gap-2">
+          <div class="w-[43%] flex items-center m-1 font-bold">
+            Nearest Place
+          </div>
+          <div class="w-[68%] flex flex-wrap gap-2 m-1">
             :
             <mdicon
               v-if="airport == true"
@@ -130,8 +143,9 @@
       </div>
     </div>
     <div>
-      <div class="flex justify-center items-center mt-2 text-white">
-        <button @click="redirectDetails"
+      <div class="flex justify-center items-center text-white">
+        <button
+          @click="redirectDetails"
           class="bg-[#E67E23] h-9 w-full rounded-md text-white text-center font-semibold text-[20px] hover:bg-white hover:text-[#E67E23] hover:border-[#E67E23] border-[#E67E23] border-2 transition duration-300"
         >
           Details
@@ -172,14 +186,13 @@ interface ProductType {
     type: string[];
     data: number[];
   };
-  dataURL?: string; 
+  dataURL?: string;
 }
 
 const props = defineProps<ProductType>();
 
 const redirectDetails = () => {
   router.push(`/Details/${props.property_id}`);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: "smooth" });
 };
-
 </script>
