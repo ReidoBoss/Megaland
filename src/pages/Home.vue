@@ -1,7 +1,9 @@
 <template>
-  <div class="w-full h-[550px] bg-slate-400 -z-10 cursor-pointer">
+  <div
+    class="w-full custom-sm:h-[230px] sm:h-[250px] md:h-[350px] lg:h-[550px] bg-slate-400 -z-10 cursor-pointer"
+  >
     <swiper-container
-      class="w-full h-[550px]"
+      class="w-full custom-sm:h-[280px]"
       :cssMode="true"
       loop="true"
       :centeredSlides="true"
@@ -15,24 +17,24 @@
       <swiper-slide
         ><div class="flex justify-center items-center">
           <img
-            class="w-full h-[550px]"
-            src="../assets/swiper4.png"
+            class="w-full custom-sm:h-[230px] sm:h-[250px] md:h-[350px] lg:h-[550px]"
+            src="../assets/s1.jpg"
             alt=""
           /></div
       ></swiper-slide>
       <swiper-slide
         ><div class="flex justify-center items-center">
           <img
-            class="w-full h-[550px]"
-            src="../assets/swiper5.png"
+            class="w-full custom-sm:h-[230px] sm:h-[250px] md:h-[350px] lg:h-[550px]"
+            src="../assets/s2.jpg"
             alt=""
           /></div
       ></swiper-slide>
       <swiper-slide
         ><div class="flex justify-center items-center">
           <img
-            class="w-full h-[550px]"
-            src="../assets/swiper6.png"
+            class="w-full custom-sm:h-[230px] sm:h-[250px] md:h-[350px] lg:h-[550px]"
+            src="../assets/s3.jpg"
             alt=""
           /></div
       ></swiper-slide>

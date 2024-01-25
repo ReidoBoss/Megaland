@@ -71,7 +71,6 @@
               <option value="">China</option>
               <option value="">Japan</option>
             </select>
-            
           </div>
           <!-- if type is range -->
           <div v-if="item.type === 'range'">
@@ -82,7 +81,6 @@
               id=""
               min="500000"
               max="20000000"
-              
             />
           </div>
           <!-- if type is spinner -->
@@ -111,10 +109,8 @@ import { ref } from "vue";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/vue/24/outline";
 
 var selectedType = ref<string | null>(null);
-var chosenCategory: string[]=[];
-var typedText:string[]=[];
-
-
+var chosenCategory: string[] = [];
+var typedText: string[] = [];
 
 interface ContentItem {
   type: string;
@@ -128,7 +124,6 @@ defineProps({
   content: Array as () => ContentItem[],
 });
 
-
 const data = ref({
   textInputValue: "",
 });
@@ -140,47 +135,33 @@ const updateTextInputValue = (event: InputEvent) => {
 const typedValue = (item: ContentItem) => {
   // var textValue = data.value.textInputValue;
 
-  var locationArr: string[] = ["City","Address"]; 
-  
+  var locationArr: string[] = ["City", "Address"];
+
   if (locationArr.includes(item.data)) {
     localStorage.setItem("property_location_chosen", "yes");
-    localStorage.setItem(`${item.data}`,data.value.textInputValue); 
+    localStorage.setItem(`${item.data}`, data.value.textInputValue);
     console.log("YEah");
-  } 
-
-  else if(item.data=="₱ _ _ _ _ _ _ _ _ _ _ _ _ "){
+  } else if (item.data == "₱ _ _ _ _ _ _ _ _ _ _ _ _ ") {
     localStorage.setItem("property_price_chosen", "yes");
-    localStorage.setItem(`${item.data}`,data.value.textInputValue);  
-  }
-  else if(item.data ="Square Meter"){
+    localStorage.setItem(`${item.data}`, data.value.textInputValue);
+  } else if ((item.data = "Square Meter")) {
     localStorage.setItem("property_area_chosen", "yes");
-    localStorage.setItem(`${item.data}`,data.value.textInputValue);  
-  }
-
-  else 
-  {
+    localStorage.setItem(`${item.data}`, data.value.textInputValue);
+  } else {
     localStorage.setItem("property_area_chosen", "no");
     localStorage.setItem("property_price_chosen", "no");
     localStorage.setItem("property_location_chosen", "no");
-    localStorage.setItem(`${item.data}`,data.value.textInputValue);  
-    
-  
+    localStorage.setItem(`${item.data}`, data.value.textInputValue);
+
     console.log("NULL");
-
   }
-
-
-
 };
-
-
 
 const isActive = ref(false);
 
 const toggleAccordion = () => {
   isActive.value = !isActive.value;
 };
-
 
 const radioToggle = (item: ContentItem) => {
   if (selectedType.value === item.data) {
@@ -190,37 +171,26 @@ const radioToggle = (item: ContentItem) => {
   }
 };
 
-
-
-
 const propertyType = (item: ContentItem) => {
   radioToggle(item);
   var property_type = localStorage.getItem("property_type");
 
-
-  
-  if(property_type==""&&item.data=="RENT" ){
+  if (property_type == "" && item.data == "RENT") {
     localStorage.setItem("property_type", item.data);
-    localStorage.setItem("property_type_chosen","yes");
-  }
-  else if(property_type==""&&item.data=="BUY"){
+    localStorage.setItem("property_type_chosen", "yes");
+  } else if (property_type == "" && item.data == "BUY") {
     localStorage.setItem("property_type", item.data);
-    localStorage.setItem("property_type_chosen","yes");
-  }
-  else if(property_type=="RENT" && item.data=="BUY"){
+    localStorage.setItem("property_type_chosen", "yes");
+  } else if (property_type == "RENT" && item.data == "BUY") {
     localStorage.setItem("property_type", item.data);
-    localStorage.setItem("property_type_chosen","yes");
-  }
-  else if(property_type=="BUY" && item.data=="RENT"){
+    localStorage.setItem("property_type_chosen", "yes");
+  } else if (property_type == "BUY" && item.data == "RENT") {
     localStorage.setItem("property_type", item.data);
-    localStorage.setItem("property_type_chosen","yes");
-  }
-  else{
+    localStorage.setItem("property_type_chosen", "yes");
+  } else {
     localStorage.setItem("property_type", "");
-    localStorage.setItem("property_type_chosen","no");    
+    localStorage.setItem("property_type_chosen", "no");
   }
-
-
 };
 const propertyCategory = (item: ContentItem) => {
   localStorage.setItem("property_category", item.data);
@@ -234,15 +204,12 @@ const propertyCategory = (item: ContentItem) => {
     chosenCategory.splice(indexToRemove, 1);
   }
 
-  if(chosenCategory.length >=1){
-    localStorage.setItem("property_category_chosen","yes");
+  if (chosenCategory.length >= 1) {
+    localStorage.setItem("property_category_chosen", "yes");
+  } else {
+    localStorage.setItem("property_category_chosen", "no");
   }
-  else{
-    localStorage.setItem("property_category_chosen","no");
-  }
 
-  localStorage.setItem('chosenArray', JSON.stringify(chosenCategory));
-
-
+  localStorage.setItem("chosenArray", JSON.stringify(chosenCategory));
 };
 </script>
