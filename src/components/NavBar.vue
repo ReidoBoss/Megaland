@@ -3,38 +3,68 @@
   <div
     class="bg-[#E67E23] sticky top-0 h-12 text-[#fefefe] text-[18px] font-semibold p-2 pt-2 z-10"
   >
-    <ul class="flex justify-end gap-6 hover: cursor-pointer">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-        path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+    <mdicon
+      name="forwardburger"
+      :width="40"
+      :height="40"
+      class="hover:text-black md:hidden lg:hidden"
+    />
+
+    <ul class="flex justify-end gap-6 hover: cursor-pointer custom-sm:hidden">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        path stroke-linecap="round" stroke-linejoin="round" d="M3.75
+        6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
       </svg>
 
-            <li class="">
-        <router-link class="hover-underline sm:text-sm md:text-md lg:text-lg " to="/">Home</router-link>
+      <li class="">
+        <router-link
+          class="hover-underline custom-sm:hidden sm:text-base md:text-md lg:text-lg"
+          to="/"
+          >Home</router-link
+        >
       </li>
       <li class="">
-            <router-link class="hover-underline sm:text-sm md:text-md lg:text-lg" to="/properties/1"
+        <router-link
+          class="hover-underline custom-sm:hidden sm:text-base md:text-md lg:text-lg"
+          to="/properties/1"
           >Properties</router-link
         >
       </li>
       <li class="">
-        <router-link class="hover-underline sm:text-sm md:text-md lg:text-lg" to="/PropertyNews"
+        <router-link
+          class="hover-underline custom-sm:hidden sm:text-base md:text-md lg:text-lg"
+          to="/PropertyNews"
           >Property News</router-link
         >
       </li>
       <li class="">
-        <router-link class="hover-underline sm:text-sm md:text-md lg:text-lg" to="/about">About Us</router-link>
+        <router-link
+          class="hover-underline custom-sm:hidden sm:text-base md:text-md lg:text-lg"
+          to="/about"
+          >About Us</router-link
+        >
       </li>
       <li class="">
-        <router-link class="hover-underline sm:text-sm md:text-md lg:text-lg" to="/contact"
+        <router-link
+          class="hover-underline custom-sm:hidden sm:text-base md:text-md lg:text-lg"
+          to="/contact"
           >Contact Us</router-link
         >
       </li>
       <li class="">
-        <router-link class="hover-underline sm:text-sm md:text-md lg:text-lg" to="/listProperty"
+        <router-link
+          class="hover-underline custom-sm:hidden sm:text-base md:text-md lg:text-lg"
+          to="/listProperty"
           >Property Listing</router-link
         >
       </li>
-      
     </ul>
   </div>
 
@@ -55,7 +85,7 @@
         @input="updateTextInputValue"
         @blur="typedValue()"
       />
-   
+
       <MagnifyingGlassIcon
         class="h-11 w-11 text-[#E67E23] cursor-pointer hover:scale-[1.02]"
         @click="search"
@@ -69,15 +99,10 @@
 
 <script lang="ts" setup>
 import { MagnifyingGlassIcon, UserIcon } from "@heroicons/vue/24/outline";
-import { ref} from "vue";
+import { ref } from "vue";
 import router from "../router";
-import { useRoute } from 'vue-router';
+import { useRoute } from "vue-router";
 const route = useRoute();
-
-
-
-
-
 
 const data = ref({
   textInputValue: "",
@@ -89,23 +114,18 @@ const updateTextInputValue = (event: InputEvent) => {
 
 const typedValue = () => {
   var textValue = data.value.textInputValue;
-  localStorage.setItem('search',`${textValue}`);
-
+  localStorage.setItem("search", `${textValue}`);
 };
 
-
-
-
-const search = () => { 
+const search = () => {
   var textValue = data.value.textInputValue;
-  var currentPath = route.fullPath
+  var currentPath = route.fullPath;
 
-  if(currentPath=="/search"){
-    localStorage.setItem('search',`${textValue}`);
+  if (currentPath == "/search") {
+    localStorage.setItem("search", `${textValue}`);
     location.reload();
+  } else {
+    router.push("/search");
   }
-  else {
-    router.push('/search');
-  }
-}
+};
 </script>
