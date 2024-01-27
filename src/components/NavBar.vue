@@ -1,28 +1,9 @@
 <template>
   <!-- Navigation Bar E67E23 -->
   <div
-    class="bg-[#E67E23] sticky top-0 h-12 text-[#fefefe] text-[18px] font-semibold p-2 pt-2 z-10"
+    class="bg-[#E67E23] custom-sm:sticky custom-sm:top-0 sticky top-0 h-12 text-[#fefefe] text-[18px] font-semibold p-2 pt-2 z-10"
   >
-    <mdicon
-      name="forwardburger"
-      :width="40"
-      :height="40"
-      class="hover:text-black md:hidden lg:hidden"
-    />
-
     <ul class="flex justify-end gap-6 hover: cursor-pointer custom-sm:hidden">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        class="w-6 h-6"
-      >
-        path stroke-linecap="round" stroke-linejoin="round" d="M3.75
-        6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-      </svg>
-
       <li class="">
         <router-link
           class="hover-underline custom-sm:hidden sm:text-base md:text-md lg:text-lg"
@@ -66,10 +47,23 @@
         >
       </li>
     </ul>
+    <button
+      @click="toggleSidebar"
+      class="hover:underline custom-sm:md sm:text-md md:hidden lg:hidden ml-2"
+    >
+      <mdicon
+        name="ArrowRightBoldCircle"
+        :width="35"
+        :height="35"
+        class="hover:text-black"
+      />
+    </button>
   </div>
+  <!-- Sidebar component -->
+  <SideBar :isVisible="isSidebarVisible" :toggleSidebar="toggleSidebar" />
 
   <!-- Search and Logo Bar -->
-  <div class="flex h-14 sticky top-11 bg-white z-10">
+  <div class="flex h-14 sticky top-11 bg-white z-10 custom-sm:hidden">
     <div class="flex w-[10%] pl-3">
       <img src="../assets/mgLogo.jpg" alt="" />
     </div>
@@ -99,9 +93,15 @@
 
 <script lang="ts" setup>
 import { MagnifyingGlassIcon, UserIcon } from "@heroicons/vue/24/outline";
+import SideBar from "./SideBar.vue";
+const isSidebarVisible = ref(false);
+const toggleSidebar = () => {
+  isSidebarVisible.value = !isSidebarVisible.value;
+};
 import { ref } from "vue";
 import router from "../router";
 import { useRoute } from "vue-router";
+
 const route = useRoute();
 
 const data = ref({

@@ -22,7 +22,7 @@
 <script lang="ts" setup>
 import NavBar from "./components/NavBar.vue";
 import Footer from "./components/Footer.vue";
-import { ref, onMounted, onBeforeUnmount, watch } from 'vue';
+import { ref, onMounted, onBeforeUnmount, watch } from "vue";
 
 const screenWidth = ref(0);
 const screenHeight = ref(0);
@@ -50,11 +50,11 @@ const getZoomLevel = (): number => {
 
 onMounted(() => {
   updateZoom();
-  window.addEventListener('resize', updateZoom);
+  window.addEventListener("resize", updateZoom);
 });
 
 onBeforeUnmount(() => {
-  window.removeEventListener('resize', updateZoom);
+  window.removeEventListener("resize", updateZoom);
 });
 
 watch([screenWidth, screenHeight], () => {

@@ -131,6 +131,4 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { EnvelopeIcon } from "@heroicons/vue/24/outline";
-</script>
+<script lang="ts" setup></script>
