@@ -2,13 +2,16 @@
 <template>
   <div
     v-if="isVisible"
-    class="fixed top-0 left-0 w-64 h-screen bg-gray-800 text-white p-2 z-10 md:hidden lg:hidden"
+    class="fixed top-0 left-0 w-64 h-[100%] bg-[#111929] text-orange-500 p-2 z-10 md:hidden lg:hidden"
   >
-    <div class="">
-      <button
-        @click="toggleSidebar"
-        class="text-orange-500 custom-sm:ml-[70%] custom-sm:m"
-      >
+    <div class="flex my-2">
+      <mdicon
+        name="AccountCircle"
+        :width="35"
+        :height="35"
+        class="hover:text-white"
+      />
+      <button @click="toggleSidebar" class="text-orange-500 custom-sm:ml-[70%]">
         <mdicon
           name="CloseCircle"
           :width="35"
@@ -18,47 +21,116 @@
       </button>
     </div>
 
+    <div>
+      <div
+        class="flex h-10 sticky top-11 my-5 justify-center bg-[#111929] z-10"
+      >
+        <div class="flex w-[80%] justify-center items-center gap-1">
+          <input
+            class="border-[#E67E23] text-black font-poppins font-bold rounded w-[700px] h-11 focus:outline-none hover:shadow-2xl pl-3"
+            type="text"
+            name=""
+            id="search_bar"
+            placeholder="Search..."
+            :value="textInputValue"
+            @keyup.enter="search"
+            @input="updateTextInputValue"
+            @blur="typedValue()"
+          />
+        </div>
+      </div>
+    </div>
+
     <!-- Sidebar content goes here -->
 
     <ul class="flex flex-col gap-5 justify-end hover: cursor-pointer">
-      <li class="">
-        <router-link class="hover-underline text-orange-500 font-black" to="/"
+      <li class="flex">
+        <mdicon name="Home" :width="30" :height="30" class="hover:text-white" />
+        <router-link
+          class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
+          to="/"
           >Home</router-link
         >
       </li>
-      <li class="">
+      <li class="flex">
+        <mdicon
+          name="OfficeBuildingMarkerOutline"
+          :width="30"
+          :height="30"
+          class="hover:text-white"
+        />
         <router-link
-          class="hover-underline text-orange-500 font-black"
+          class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
           to="/properties/1"
           >Properties</router-link
         >
       </li>
-      <li class="">
+      <li class="flex">
+        <mdicon
+          name="NewspaperVariantMultipleOutline"
+          :width="30"
+          :height="30"
+          class="hover:text-white"
+        />
         <router-link
-          class="hover-underline text-orange-500 font-black"
+          class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
           to="/PropertyNews"
           >Property News</router-link
         >
       </li>
-      <li class="">
+      <div class="hover-bg-color-orange-500">
+        <li class="flex">
+          <mdicon
+            name="AccountGroupOutline"
+            :width="30"
+            :height="30"
+            class="hover:text-white"
+          />
+          <router-link
+            class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
+            to="/about"
+            >About Us</router-link
+          >
+        </li>
+      </div>
+
+      <li class="flex">
+        <mdicon
+          name="PhoneCheckOutline"
+          :width="30"
+          :height="30"
+          class="hover:text-white"
+        />
         <router-link
-          class="hover-underline text-orange-500 font-black"
-          to="/about"
-          >About Us</router-link
-        >
-      </li>
-      <li class="">
-        <router-link
-          class="hover-underline text-orange-500 font-black"
+          class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
           to="/contact"
           >Contact Us</router-link
         >
       </li>
-      <li class="">
+      <li class="flex">
+        <mdicon
+          name="ClipboardListOutline"
+          :width="30"
+          :height="30"
+          class="hover:text-white"
+        />
         <router-link
-          class="hover-underline text-orange-500 font-black"
+          class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
           to="/listProperty"
           >Property Listing</router-link
+        >
+      </li>
+      <li class="flex">
+        <mdicon
+          name="LogoutVariant"
+          :width="30"
+          :height="30"
+          class="hover:text-white"
+        />
+        <router-link
+          class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
+          to="/properties/1"
+          >Logout</router-link
         >
       </li>
     </ul>
