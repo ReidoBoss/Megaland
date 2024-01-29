@@ -1,10 +1,12 @@
 <template>
   <div class="p-3">
     <div class="flex text-[#E67E23] mb-2">
-      <div class="flex w-[16%] text-lg font-semibold pl-3">
-        Search Filter <FunnelIcon class="h-[26px] w-[26px] ml-1" />
+      <div
+        class="flex w-[16%] text-lg pl-3 font-poppins font-bold md:text-md lg:text-lg custom-sm:hidden sm:hidden md:hidden lg:block"
+      >
+        Search Filter
       </div>
-      <div class="flex w-[56%] text-lg font-semibold pl-5">
+      <div class="flex w-[56%] text-lg pl-5 font-poppins font-bold">
         Blog <NewspaperIcon class="h-[26px] w-[26px] ml-1" />
       </div>
       <div class="flex w-[28%] text-lg font-semibold pl-5">

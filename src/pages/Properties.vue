@@ -1,11 +1,14 @@
 <template>
-  <div class="flex text-[#E67E23] mt-2">
+  <div class="flex text-[#E67E23] mb-2">
     <div
-      class="flex w-[16%] text-lg font-semibold pl-3 md:hidden sm:hidden custom-sm:hidden xl:block lg:block"
+      class="flex md:w-[16%] pl-3 ml-3 font-poppins font-bold md:text-md lg:text-lg custom-sm:hidden sm:hidden md:hidden lg:block"
     >
-      Search Filter <FunnelIcon class="h-[26px] w-[26px] ml-1" />
+      Search Filter
     </div>
-    <div class="flex w-[84%] text-lg font-semibold pl-5">
+
+    <div
+      class="flex w-[84%] text-lg pl-5 font-poppins font-bold md:text-md lg:text-lg custom-sm:text-hidden sm:text-hidden custom-sm:mt-[8%]"
+    >
       Properties <BuildingLibraryIcon class="h-[26px] w-[26px] ml-1" />
     </div>
   </div>
@@ -64,12 +67,29 @@
             { type: 'spinner', data: 'Bathroom' },
           ]"
         />
+        <button
+          @click="filter"
+          style="
+            background-color: #e67e23;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10%;
+            font-weight: bold;
+            font-family: Poppins;
+            font-weight: 400;
+            margin-top: 10px;
+          "
+        >
+          Filter
+        </button>
       </div>
       <!-- Latest Sale -->
       <div
-        class="flex flex-wrap mt-2 h-full md:mx-auto md:w-[100%] lg:w-[84%] custom-sm:gap-3 custom-sm:mx-auto gap-y-9 md:gap-y-9 md:gap-5 justify-evenly"
+        class="text-yellow flex flex-wrap mt-2 h-full md:mx-auto md:w-[100%] lg:w-[84%] custom-sm:gap-3 custom-sm:mx-auto gap-y-9 md:gap-y-9 md:gap-5 justify-center custom-sm:my-6"
       >
-        <div class="flex justify-center items-center mt-5">
+        <div class="flex justify-center items-center custom-sm:my-5">
           <Pagination />
         </div>
         <br />
@@ -101,7 +121,7 @@
             :image_data="property.image"
           />
         </div>
-        <div class="flex justify-center items-center mt-5">
+        <div class="flex justify-center items-center my-10">
           <Pagination />
         </div>
       </div>

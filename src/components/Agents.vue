@@ -1,14 +1,14 @@
 <template>
-  <div class="lg:w-full relative mt-15 mb-15">
+  <div class="lg:w-full relative font-poppins custom-sm:">
     <Carousel
       :itemsToShow="carouselItemsToShow"
       :wrapAround="true"
       :transition="500"
-      :autoplay="2000"
-      class="sm:carousel-items-1 md:carousel-items-2 lg:carousel-items-3 xl:carousel-items-3"
+      :autoplay="0"
+      class="custom-sm:carousel-items-1 sm:carousel-items-1 md:carousel-items-2 lg:carousel-items-3 xl:carousel-items-3"
     >
       <!--Slides-->
-      <Slide v-for="(agent, index) in agentData" :key="index">
+      <Slide v-for="(agent, index) in agentData" :key="index" class="">
         <Card
           :name="agent.agent_name"
           :img="card1"

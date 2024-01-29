@@ -40,13 +40,13 @@
       ></swiper-slide>
     </swiper-container>
   </div>
-  <div class="flex text-[#E67E23] mt-2">
+  <div class="flex text-[#E67E23] mb-2 mt-7">
     <div
-      class="flex w-[16%] text-lg font-semibold pl-3 md:hidden sm:hidden custom-sm:hidden xl:block lg:block"
+      class="flex w-[16%] text-lg pl-3 ml-3 font-poppins font-bold custom-sm:hidden sm:hidden md:hidden lg:block"
     >
-      Search Filter <FunnelIcon class="h-[26px] w-[26px] ml-1" />
+      Search Filter
     </div>
-    <div class="flex w-[84%] text-lg font-semibold pl-5">
+    <div class="flex w-[84%] text-lg pl-5 font-poppins font-bold">
       Latest <NewspaperIcon class="h-[26px] w-[26px] ml-1" />
     </div>
   </div>
@@ -106,11 +106,15 @@
       <button
         @click="filter"
         style="
-          background-color: orange;
+          background-color: #e67e23;
           color: white;
           padding: 10px 15px;
           border: none;
           cursor: pointer;
+          border-radius: 10%;
+          font-family: Poppins;
+          font-weight: 400;
+          margin-top: 10px;
         "
       >
         Filter

@@ -3,7 +3,9 @@
   <div
     class="bg-[#E67E23] custom-sm:sticky custom-sm:top-0 sticky top-0 h-14 text-[#fefefe] text-[18px] font-semibold p-2 pt-3 z-10"
   >
-    <ul class="flex justify-end gap-6 hover: cursor-pointer custom-sm:hidden">
+    <ul
+      class="flex justify-end gap-6 hover: cursor-pointer custom-sm:hidden font-poppins font-bold"
+    >
       <li class="">
         <router-link
           class="hover-underline custom-sm:hidden sm:text-base md:text-md lg:text-lg"
@@ -52,10 +54,10 @@
       class="hover:underline custom-sm:md sm:text-md md:hidden lg:hidden ml-2"
     >
       <mdicon
-        name="ArrowRightBoldCircle"
+        name="ReorderHorizontal"
         :width="35"
         :height="35"
-        class="hover:text-black"
+        class="hover:text-white text-[#111929]"
       />
     </button>
   </div>
