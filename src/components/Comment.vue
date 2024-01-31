@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex w-full overflow-auto bg-white border-2 rounded-md shadow-xl p-3 ml-5 mb-1.5"
+    class="flex lg:w-full overflow-auto bg-white border-2 rounded-md shadow-xl md:p-2 md:ml-3 md:mb-3 lg:p-3 lg:ml-5 lg:mb-1.5"
   >
     <div class="">
       <div
@@ -14,11 +14,11 @@
       </div>
     </div>
     <div class="ml-2 w-full">
-        <!-- Name -->
-        <p class="ml-1 mb-0.5 font-semibold text-sm">{{name}}</p>
-        <!-- Comment detail -->
-        <p class="ml-1 font-normal text-xs">{{description}} </p>
-        <p></p>
+      <!-- Name -->
+      <p class="ml-1 mb-0.5 font-semibold text-sm">{{ name }}</p>
+      <!-- Comment detail -->
+      <p class="ml-1 font-normal text-xs">{{ description }}</p>
+      <p></p>
     </div>
   </div>
 </template>

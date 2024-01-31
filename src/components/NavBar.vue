@@ -8,42 +8,42 @@
     >
       <li class="">
         <router-link
-          class="hover-underline custom-sm:hidden sm:text-base md:text-md lg:text-lg"
+          class="hover-underline custom-sm:hidden sm:hidden md:hidden lg:block sm:text-base md:text-md lg:text-lg"
           to="/"
           >Home</router-link
         >
       </li>
       <li class="">
         <router-link
-          class="hover-underline custom-sm:hidden sm:text-base md:text-md lg:text-lg"
+          class="hover-underline custom-sm:hidden sm:hidden md:hidden lg:block sm:text-base md:text-md lg:text-lg"
           to="/properties/1"
           >Properties</router-link
         >
       </li>
       <li class="">
         <router-link
-          class="hover-underline custom-sm:hidden sm:text-base md:text-md lg:text-lg"
+          class="hover-underline custom-sm:hidden sm:hidden md:hidden lg:block sm:text-base md:text-md lg:text-lg"
           to="/PropertyNews"
           >Property News</router-link
         >
       </li>
       <li class="">
         <router-link
-          class="hover-underline custom-sm:hidden sm:text-base md:text-md lg:text-lg"
+          class="hover-underline custom-sm:hidden sm:hidden md:hidden lg:block sm:text-base md:text-md lg:text-lg"
           to="/about"
           >About Us</router-link
         >
       </li>
       <li class="">
         <router-link
-          class="hover-underline custom-sm:hidden sm:text-base md:text-md lg:text-lg"
+          class="hover-underline custom-sm:hidden sm:hidden md:hidden lg:block sm:text-base md:text-md lg:text-lg"
           to="/contact"
           >Contact Us</router-link
         >
       </li>
       <li class="">
         <router-link
-          class="hover-underline custom-sm:hidden sm:text-base md:text-md lg:text-lg"
+          class="hover-underline custom-sm:hidden sm:hidden md:hidden lg:block sm:text-base md:text-md lg:text-lg"
           to="/listProperty"
           >Property Listing</router-link
         >
@@ -51,7 +51,7 @@
     </ul>
     <button
       @click="toggleSidebar"
-      class="hover:underline custom-sm:md sm:text-md md:hidden lg:hidden ml-2"
+      class="hover:underline custom-sm:md sm:text-md lg:hidden ml-2"
     >
       <mdicon
         name="ReorderHorizontal"
@@ -65,30 +65,32 @@
   <SideBar :isVisible="isSidebarVisible" :toggleSidebar="toggleSidebar" />
 
   <!-- Search and Logo Bar -->
-  <div class="flex h-14 sticky top-11 bg-white z-10 custom-sm:hidden">
-    <div class="flex w-[10%] pl-3">
-      <img src="../assets/mgLogo.jpg" alt="" />
-    </div>
-    <div class="flex w-[80%] justify-center items-center gap-1">
-      <input
-        class="border-2 border-[#E67E23] rounded-full w-[550px] h-11 focus:outline-none hover:shadow-2xl pl-3"
-        type="text"
-        name=""
-        id="search_bar"
-        placeholder="Search..."
-        :value="textInputValue"
-        @keyup.enter="search"
-        @input="updateTextInputValue"
-        @blur="typedValue()"
-      />
+  <div class="custom-sm:hidden sm:hidden md:hidden lg:block sticky">
+    <div class="flex lg:h-14 sticky top-11 bg-white">
+      <div class="flex w-[10%] pl-3">
+        <img src="../assets/mgLogo.jpg" alt="" />
+      </div>
+      <div class="flex w-[80%] justify-center items-center gap-1">
+        <input
+          class="border-2 border-[#E67E23] rounded-full w-[550px] h-11 focus:outline-none hover:shadow-2xl pl-3"
+          type="text"
+          name=""
+          id="search_bar"
+          placeholder="Search..."
+          :value="textInputValue"
+          @keyup.enter="search"
+          @input="updateTextInputValue"
+          @blur="typedValue()"
+        />
 
-      <MagnifyingGlassIcon
-        class="h-11 w-11 text-[#E67E23] cursor-pointer hover:scale-[1.02]"
-        @click="search"
-      />
-    </div>
-    <div class="flex w-[10%] justify-end items-center pr-3">
-      <UserIcon class="w-10 h-10 text-[#E67E23] hover:scale-[1.02]" />
+        <MagnifyingGlassIcon
+          class="h-11 w-11 text-[#E67E23] cursor-pointer hover:scale-[1.02]"
+          @click="search"
+        />
+      </div>
+      <div class="flex w-[10%] justify-end items-center pr-3">
+        <UserIcon class="w-10 h-10 text-[#E67E23] hover:scale-[1.02]" />
+      </div>
     </div>
   </div>
 </template>

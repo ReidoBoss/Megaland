@@ -1,20 +1,26 @@
 <template>
   <div class="p-3">
-    <div class="flex text-[#E67E23] mb-2">
+    <div class="flex text-[#E67E23] mb-2 md:">
       <div
         class="flex w-[16%] text-lg pl-3 font-poppins font-bold md:text-md lg:text-lg custom-sm:hidden sm:hidden md:hidden lg:block"
       >
         Search Filter
       </div>
-      <div class="flex w-[56%] text-lg pl-5 font-poppins font-bold">
+      <div
+        class="flex w-[56%] text-lg lg:ml-[2%] lg:pl-5 font-poppins font-bold"
+      >
         Blog <NewspaperIcon class="h-[26px] w-[26px] ml-1" />
       </div>
-      <div class="flex w-[28%] text-lg font-semibold pl-5">
+      <div
+        class="custom-sm:hidden flex w-[30%] text-lg font-poppins font-bold md:ml-9 lg:ml-[10%]"
+      >
         All <mdicon class="ml-2" name="post-outline" :width="26" :height="26" />
       </div>
     </div>
     <div class="flex">
-      <div class="w-[16%]">
+      <div
+        class="md:hidden sm:hidden custom-sm:hidden xl:block lg:block lg:h-[700px] lg:w-[16%] flex-col overflow-auto ml-6"
+      >
         <div class="h-[700px] flex-col overflow-auto">
           <Accordion
             title="Property Type"
@@ -68,6 +74,7 @@
         </div>
       </div>
       <BlogDetails
+        class="lg:mx-3 font-poppins font-500 custom-sm:text-sm sm:text-sm md:text-md lg:text-md"
         title="Be a Homeowner at Woodway Townhomes 2 and enjoy the benefits and
                 amenities we got to offer"
         location="Location: Brgy. Pooc, Talisay City"
@@ -110,9 +117,11 @@
                 #realestatebrokerphilippines"
       />
 
-      <div class="w-[28%] mr-6">
+      <div
+        class="lg:w-[28%] md:w-[100%] lg:mr-6 custom-sm:hidden sm:hidden md:block lg:block"
+      >
         <div
-          class="w-full h-[475px] overflow-auto bg-white border-2 rounded-md shadow-xl p-5 ml-5 mb-5"
+          class="lg:w-full lg:h-[480px] overflow-auto bg-white border-2 rounded-md shadow-xl lg:p-5 md:p-2 md:ml-2 lg:ml-5 mb-5"
         >
           <Blog
             youtubeUrl="https://www.youtube.com/watch?v=2v741kHvzbY"
@@ -169,49 +178,58 @@
             name="Marivil Du"
           />
         </div>
-        <div class="flex w-full text-[#E67E23] ml-3 mb-2">
-          <div class="flex text-lg font-semibold pl-3">
-            Comments:
-            <ChatBubbleLeftIcon class="h-[26px] w-[26px] ml-1 text-[#E67E23]" />
-          </div>
-        </div>
+        <div></div>
         <div>
-          <div
-            class="flex w-full overflow-auto bg-white border-2 rounded-md shadow-xl p-3 ml-5 mb-6 cursor-pointer hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)]"
-          >
-            <div class="flex ml-2 w-full">
-              <input
-                type="text"
-                placeholder="Leave a comment..."
-                class="w-full border-b-2 pl-2 p3-1 focus:outline-none"
-              />
-              <a href=""
-                ><PaperAirplaneIcon
-                  class="ml-1 mr-1 w-[25px] h-[25px] text-[#E67E23] hover:scale-110"
-              /></a>
+          <div clas="lg:w-[28%] md:w-[100%]">
+            <div
+              class="flex lg:w-full text-[#E67E23] lg:ml-3 lg:mb-2 md:ml-1 md:mb-1"
+            >
+              <div class="flex text-lg font-semibold pl-3">
+                Comments:
+                <ChatBubbleLeftIcon
+                  class="h-[26px] w-[26px] ml-1 text-[#E67E23]"
+                />
+              </div>
             </div>
-          </div>
+            <div>
+              <div
+                class="flex lg:w-full md:w-[96%] overflow-auto bg-white border-2 rounded-md shadow-xl lg:p-3 lg:ml-5 lg:mb-6 md:p-3 md:ml-3 md:my-6 cursor-pointer hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)]"
+              >
+                <div class="flex ml-2 w-full">
+                  <input
+                    type="text"
+                    placeholder="Leave a comment..."
+                    class="w-full border-b-2 pl-2 p3-1 focus:outline-none"
+                  />
+                  <a href=""
+                    ><PaperAirplaneIcon
+                      class="ml-1 mr-1 w-[25px] h-[25px] text-[#E67E23] hover:scale-110"
+                  /></a>
+                </div>
+              </div>
 
-          <!-- comments -->
-          <Comment
-            name="@Mikilabsyu143"
-            description="I held her close to me
+              <!-- comments -->
+              <Comment
+                name="@Mikilabsyu143"
+                description="I held her close to me
 'Cause I know she breaks so easily
 And then I told her."
-          />
-          <Comment
-            name="@Mikilabsyu143"
-            description="But I knew no matter how I tried to console her
+              />
+              <Comment
+                name="@Mikilabsyu143"
+                description="But I knew no matter how I tried to console her
 She'd just do the best she could
 But there are times the best is no damn good"
-          />
-          <Comment
-            name="@Mikilabsyu143"
-            description="And no matter how you try to be kind
+              />
+              <Comment
+                name="@Mikilabsyu143"
+                description="And no matter how you try to be kind
 There's always still a part of you you leave behind
 When it falls apart
 There's no easy way to break somebody's heart"
-          />
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -221,7 +239,6 @@ There's no easy way to break somebody's heart"
 <script lang="ts" setup>
 import Accordion from "../components/Accordion.vue";
 import {
-  FunnelIcon,
   NewspaperIcon,
   ChatBubbleLeftIcon,
   PaperAirplaneIcon,

@@ -2,7 +2,7 @@
 <template>
   <div
     v-if="isVisible"
-    class="overflow-y-auto fixed top-0 left-0 w-64 h-[100%] bg-[#111929] text-orange-500 p-2 z-10 lg:hidden"
+    class="custom-sm:overflow-y-auto sm:overflow-y-auto md:overflow-y-auto fixed top-0 left-0 custom-sm:w-64 custom-sm:h-[100%] md:w-[50%] bg-[#111929] text-orange-500 p-2 z-10 lg:hidden"
   >
     <div class="flex my-2">
       <mdicon
@@ -11,7 +11,10 @@
         :height="35"
         class="hover:text-white"
       />
-      <button @click="toggleSidebar" class="text-orange-500 custom-sm:ml-[70%]">
+      <button
+        @click="toggleSidebar"
+        class="text-orange-500 custom-sm:ml-[70%] md:ml-[75%]"
+      >
         <mdicon
           name="CloseCircle"
           :width="35"
