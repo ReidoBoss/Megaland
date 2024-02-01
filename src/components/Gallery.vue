@@ -25,7 +25,7 @@ import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 import { ref, onMounted, watch } from "vue";
 const windowWidth = ref(window.innerWidth);
-const carouselItemsToShow = ref<number>(3);
+const carouselItemsToShow = ref(3);
 
 const updateWindowWidth = () => {
   windowWidth.value = window.innerWidth;
@@ -48,7 +48,11 @@ onMounted(async () => {
   images.value = await importImages();
 });
 
-watch(windowWidth, (newWidth) => {
+watch(windowWidth, resp);
+window.removeEventListener("resize", updateWindowWidth);
+window.addEventListener("resize", updateWindowWidth);
+resp(window.innerWidth);
+function resp(newWidth: number) {
   if (newWidth < 640) {
     carouselItemsToShow.value = 1;
   } else if (newWidth < 768) {
@@ -56,7 +60,7 @@ watch(windowWidth, (newWidth) => {
   } else {
     carouselItemsToShow.value = 3;
   }
-});
+}
 </script>
 <style>
 .carousel__slide {

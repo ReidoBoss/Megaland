@@ -46,14 +46,19 @@ onMounted(() => {
     .then((response) => response.json())
     .then((data) => (agentData.value = data))
     .catch((error) => console.error("Error:", error));
+
+  window.removeEventListener("resize", updateWindowWidth);
   window.addEventListener("resize", updateWindowWidth);
+  resp(window.innerWidth);
 });
 const updateWindowWidth = () => {
   windowWidth.value = window.innerWidth;
 };
 const carouselItemsToShow = ref(4);
 
-watch(windowWidth, (newWidth) => {
+watch(windowWidth, resp);
+
+function resp(newWidth: number) {
   if (newWidth < 640) {
     carouselItemsToShow.value = 1;
   } else if (newWidth < 768) {
@@ -61,7 +66,7 @@ watch(windowWidth, (newWidth) => {
   } else {
     carouselItemsToShow.value = 3;
   }
-});
+}
 </script>
 
 <style scoped>
