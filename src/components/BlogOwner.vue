@@ -1,8 +1,8 @@
 <template>
   <div
-    class="border-2 p-5 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)"
+    class="border-2 lg:p-5 shadow-xl md:w-[100%] rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)"
   >
-    <div class="relative w-48 h-48 mx-auto mt-2 mb-2 -z-30">
+    <div class="relative lg:w-48 lg:h-48 md:w-44 mx-auto mt-2 mb-2 -z-30">
       <img
         src="../assets/marivil.png"
         alt="img"
@@ -13,8 +13,10 @@
       ></div>
     </div>
     <div class="mt-7 text-center text-[#454544]">
-      <div class="text-center font-semibold text-2xl">Marivil Du</div>
-      <div class="font-medium">147 property</div>
+      <div class="text-center font-bold font-poppins lg:text-2xl md:text-lg">
+        Marivil Du
+      </div>
+      <div class="font-medium font-poppins">147 property</div>
       <div class="flex justify-center items-center mt-5 text-white">
         <button
           class="bg-[#E67E23] h-9 w-[225px] rounded-md text-white text-center font-semibold text-[20px] hover:bg-white hover:text-[#E67E23] hover:border-[#E67E23] border-[#E67E23] border-2 transition duration-300"
@@ -22,7 +24,7 @@
           Contact
         </button>
       </div>
-      <div class="mt-3">
+      <div class="my-5 mx-auto">
         <div class="flex justify-center items-center">
           <mdicon
             name="facebook"

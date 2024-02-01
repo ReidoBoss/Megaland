@@ -14,31 +14,46 @@
       </div>
       <div class="flex mt-10 shadow-2xl bg-gray-100 rounded-xl p-5">
         <div
-          class="w-[50%] flex flex-col pt-5 bg-[#E67E23] text-[#ffffff] p-10 justify-center rounded-tl-xl rounded-tr-xl rounded-bl-xl"
+          class="lg:w-[50%] custom-sm:w-[25%] md:w-[40%] flex flex-col lg:pt-5 bg-[#E67E23] text-[#ffffff] lg:p-10 justify-center rounded-tl-xl rounded-tr-xl rounded-bl-xl"
         >
-          <div class="mb-10 mr-3 flex">
-            <div class="flex items-center mr-8">
-              <HomeIcon class="w-[35px] h-[35px] text-[#ffffff]" />
+          <div class="lg:mb-10 lg:mr-3 flex">
+            <div class="flex items-center mx-3">
+              <mdicon
+                name="instagram"
+                :width="30"
+                :height="30"
+                class="hover:text-orange-500"
+              />
             </div>
-            <div class="">
-              <div class="text-xl font-semibold">
+            <div class="font-poppins font-bold md:text-md">
+              <div class="font-semibold">
                 Unit 101,148 Residences Pelaez St. Kalubihan
               </div>
               <div class="text-gray-50">6000 Cebu City, Philippines</div>
             </div>
           </div>
-          <div class="mb-10 mr-3 flex">
-            <div class="flex items-center mr-8">
-              <PhoneIcon class="w-[35px] h-[35px] text-[#ffffff]" />
+          <div class="mb-10 flex">
+            <div class="flex items-center mx-3">
+              <mdicon
+                name="instagram"
+                :width="27"
+                :height="27"
+                class="hover:text-orange-500 md:mr-5 lg:mr-5 custom-sm:mr-2 sm:mr-2"
+              />
             </div>
             <div class="">
               <div class="text-xl font-semibold">+63-977-382-4416</div>
               <div class="text-gray-50">Mon - Sat,10 Am - 6 Pm</div>
             </div>
           </div>
-          <div class="mb-10 mr-3 flex">
-            <div class="flex items-center mr-8">
-              <EnvelopeIcon class="w-[35px] h-[35px] text-[#ffffff]" />
+          <div class="mb-10 flex">
+            <div class="flex items-center mx-3">
+              <mdicon
+                name="instagram"
+                :width="27"
+                :height="27"
+                class="hover:text-orange-500 md:mr-5 lg:mr-5 custom-sm:mr-2 sm:mr-2"
+              />
             </div>
             <div class="">
               <div class="text-xl font-semibold">
@@ -48,7 +63,7 @@
             </div>
           </div>
         </div>
-        <div class="w-[50%] pt-5">
+        <div class="lg:w-[50%] pt-5">
           <div class="flex">
             <div class="relative ml-3 mb-3 w-[50%]">
               <input

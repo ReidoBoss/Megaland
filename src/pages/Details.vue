@@ -1,23 +1,31 @@
 <template>
   <div class="p-3">
-    <div class="flex text-[#E67E23]">
-      <div class="flex w-[16%] text-lg font-semibold pl-3">
-        Search Filter <FunnelIcon class="h-[26px] w-[26px] ml-1" />
+    <div class="flex text-[#E67E23] font">
+      <div
+        class="flex w-[16%] font-poppins font-bold text-lg pl-3 custom-sm:hidden sm:hidden md:hidden lg:block"
+      >
+        Search Filter
       </div>
-      <div class="flex w-[60%] text-lg font-semibold pl-5">
+      <div
+        class="lg:text-2xl md:text-lg flex w-[60%] text-lg lg:pl-8 lg:my-[0%] font-poppins font-bold md:my-[1%]"
+      >
         Details <NewspaperIcon class="h-[26px] w-[26px] ml-1" />
       </div>
-      <div class="flex w-[25%] text-lg font-semibold pl-5">
+      <div
+        class="md:my-[1%] font-poppins font-bold flex w-[25%] lg:text-2xl md:text-lg"
+      >
         Contact Agent <UserIcon class="h-[26px] w-[26px] ml-1" />
       </div>
     </div>
-    <div class="flex text-[#E67E23] mt-2">
-      <div class="h-[700px] w-[16%] flex-col overflow-auto">
+    <div class="flex text-[#E67E23] lg:mt-2">
+      <div
+        class="h-[700px] w-[16%] flex-col overflow-auto custom-sm:hidden sm:hidden md:hidden lg:block"
+      >
         <Accordion
           title="Property Type"
           :content="[
             { type: 'radio', data: 'Buy' },
-            { type: 'radio', data: 'rent' },
+            { type: 'radio', data: 'Rent' },
           ]"
         />
         <Accordion
@@ -63,30 +71,28 @@
           ]"
         />
       </div>
-      <div class="w-[60%] flex-col ml-6">
+      <div class="w-[55%] flex-col lg:ml-6">
         <div
-          class="p-10 border-2 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)"
+          class="border-2 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)"
         >
           <ProductDetails :property="property" />
         </div>
       </div>
-      <div class="h-[700px] w-[24%] flex-col overflow-auto ml-6">
+      <div
+        class="lg:h-[700px] lg:w-[24%] md:w-[50%] md:h-[40%] flex-col lg:ml-6 md:ml-2"
+      >
         <!--Blog Owner -->
         <BlogOwner />
       </div>
     </div>
-    <div class="mb-5 mt-10 pl-5 pr-5">
+    <div class="mb-5 mt-10 md:mx-1 md:w-[90%] md:h-[50%] lg:mx-auto">
       <div class="m-3 flex w-[16%] text-lg font-semibold pl-3 text-[#E67E23]">
         Location <MapIcon class="h-[26px] w-[26px] ml-1" />
       </div>
-      <div
-        class="border-2 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)"
-      >
+      <div class="shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)">
         <iframe
-          class="border-2 border-black"
+          class="border-2 border-black lg:w-[100%] lg:h-[600px] md:w-[100%] md:h-[500px] md:mx-5"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.5483668762135!2d123.89617127595324!3d10.29792626783563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999a0c575cff7%3A0x76271c50dbf0b3b2!2sMegaland%20Realty!5e0!3m2!1sen!2sph!4v1697273626082!5m2!1sen!2sph"
-          width="100%"
-          height="600"
           style="border: 0"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
@@ -94,11 +100,13 @@
       </div>
     </div>
     <div>
-      <div class="m-3 flex w-[16%] text-lg font-semibold pl-3 text-[#E67E23]">
+      <div
+        class="font-poppins font-bold lg:text-2xl md:text-lg my-10 lg:ml-[12%] flex lg:w-[16%] md:w-[50%] pl-3 text-[#E67E23]"
+      >
         Related Property <ChatBubbleLeftIcon class="h-[26px] w-[26px] ml-1" />
       </div>
       <div
-        class="flex flex-wrap items-center h-full w-[84%] ml-32 mt-2 mb-6 justify-between"
+        class="flex flex-wrap mt-2 h-full md:mx-auto md:w-[100%] lg:w-[84%] custom-sm:gap-3 custom-sm:mx-auto gap-y-9 md:gap-y-9 md:gap-5 justify-evenly"
       >
         <Products
           :image="swiper1"
@@ -186,9 +194,7 @@ interface propertyType {
     type: string[];
     data: number[];
   };
-  dataURL?: string; 
-
-  
+  dataURL?: string;
 }
 
 const property = ref<propertyType>({
@@ -224,26 +230,24 @@ const property = ref<propertyType>({
   washer: false,
   winecellar: false,
   image_data: { type: [], data: [] },
-  dataURL: ""
-
+  dataURL: "",
 });
 
-
 fetch(`http://localhost:8080/api/getPropertyDetails/${route.params.id}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+  },
+})
+  .then((response) => response.json())
+  .then((data) => {
+    property.value = data[0];
+    convertBinaryToDataURL(property.value.image_data.data, 0);
   })
-    .then((response) => response.json())
-    .then((data) => {
-      property.value = data[0];
-      convertBinaryToDataURL(property.value.image_data.data,0);
-    })
-    .catch((error) => console.error("Error:", error));
+  .catch((error) => console.error("Error:", error));
 
 function convertBinaryToDataURL(binaryData: number[], index: number) {
-  const blob = new Blob([new Uint8Array(binaryData)], { type: 'image/png' }); 
+  const blob = new Blob([new Uint8Array(binaryData)], { type: "image/png" });
   const reader = new FileReader();
 
   reader.onload = () => {

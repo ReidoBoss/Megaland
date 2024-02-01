@@ -30,7 +30,7 @@
       >
         <div class="flex w-[90%] justify-center items-center gap-1">
           <input
-            class="border-[#E67E23] text-black font-poppins font-bold rounded md:w-[700px] custom-sm:w-[100%] h-11 focus:outline-none hover:shadow-2xl pl-3"
+            class="border-[#E67E23] text-black font-poppins font-bold rounded md:w-[70%] custom-sm:w-[80%] h-11 focus:outline-none hover:shadow-2xl pl-3"
             type="text"
             name=""
             id="search_bar"

@@ -4,7 +4,7 @@
       :itemsToShow="carouselItemsToShow"
       :wrapAround="true"
       :transition="500"
-      :autoplay="5000"
+      :autoplay="2000"
       class="h-full mb-[60px]"
     >
       <!--Slides-->

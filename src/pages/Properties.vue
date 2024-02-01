@@ -22,7 +22,7 @@
           title="Property Type"
           :content="[
             { type: 'radio', data: 'Buy' },
-            { type: 'radio', data: 'rent' },
+            { type: 'radio', data: 'Rent' },
           ]"
         />
         <Accordion

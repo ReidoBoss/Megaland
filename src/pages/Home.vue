@@ -59,8 +59,8 @@
       <Accordion
         title="Property Type"
         :content="[
-          { type: 'radio', data: 'BUY' },
-          { type: 'radio', data: 'RENT' },
+          { type: 'radio', data: 'Buy' },
+          { type: 'radio', data: 'Rent' },
         ]"
       />
       <Accordion
