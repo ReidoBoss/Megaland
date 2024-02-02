@@ -240,23 +240,36 @@ const resetAllLocalStorage = () => {
   localStorage.setItem("Zipcode", "");
 };
 
-const fetchAllData = () => {
-  fetch("http://localhost:8080/api", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      var lth = Object.keys(data).length;
-      for (var i = 0; i < lth; i++) {
-        propertyData.value.push(data[i]);
-        convertBinaryToDataURL(propertyData.value[i].image_data.data, i);
-      }
-    })
-    .catch((error) => console.error("Error:", error));
+const fetchAllData = async () => {
+  try {
+    const response = await fetch("http://localhost:8080/api", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+
+    for (let i = 0; i < Object.keys(data).length; i++) {
+      propertyData.value.push(data[i]);
+
+      const imageResponse = await fetch(`http://localhost:8080/api/getPropertyImage/${propertyData.value[i].property_id}`);
+      const imageData = await imageResponse.json();
+
+      propertyData.value[i].image_data = {
+        type: [],
+        data: [],
+      };
+
+      propertyData.value[i].image_data.data = imageData[0].image_data.data;
+      console.log(propertyData.value[i].image_data.data);
+      convertBinaryToDataURL(propertyData.value[i].image_data.data, i);
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
 };
+
 function convertBinaryToDataURL(binaryData: number[], index: number) {
   const blob = new Blob([new Uint8Array(binaryData)], { type: "image/png" });
   const reader = new FileReader();

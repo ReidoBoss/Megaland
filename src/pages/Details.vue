@@ -166,7 +166,6 @@ import {
   ChatBubbleLeftIcon,
 } from "@heroicons/vue/24/outline";
 import ProductDetails from "../components/ProductDetails.vue";
-import ProductInfo from "../components/ProductInfo.vue";
 import swiper1 from "../assets/swiper1.jpg";
 import swiper2 from "../assets/swiper2.jpg";
 import swiper3 from "../assets/swiper3.jpg";
@@ -176,7 +175,6 @@ import BlogOwner from "../components/BlogOwner.vue";
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 const route = useRoute();
-
 interface propertyType {
   id: number;
   name: string;
@@ -214,7 +212,9 @@ interface propertyType {
     type: string[];
     data: number[];
   };
-  dataURL?: string;
+  dataURL?: string; 
+
+  
 }
 
 const property = ref<propertyType>({
@@ -250,24 +250,84 @@ const property = ref<propertyType>({
   washer: false,
   winecellar: false,
   image_data: { type: [], data: [] },
-  dataURL: "",
+  dataURL: ""
+
 });
 
-fetch(`http://localhost:8080/api/getPropertyDetails/${route.params.id}`, {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-  },
-})
-  .then((response) => response.json())
-  .then((data) => {
-    property.value = data[0];
-    convertBinaryToDataURL(property.value.image_data.data, 0);
-  })
-  .catch((error) => console.error("Error:", error));
 
+// fetch(`http://localhost:8080/api/getPropertyDetails/${route.params.id}`, {
+//     method: "GET",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   })
+//     .then((response) => response.json())
+//     .then((data) => {
+//       property.value = data[0];
+//       console.log(property.value)
+//       convertBinaryToDataURL(property.value.image_data.data,0);
+//     })
+//     .catch((error) => console.error("Error:", error));
+
+const fetchAllData = async () => {
+  try {
+    const detailsResponse = await fetch(`http://localhost:8080/api/getPropertyDetails/${route.params.id}`);
+    const detailsData = await detailsResponse.json();
+    property.value = detailsData[0];
+
+    const imageResponse = await fetch(`http://localhost:8080/api/getPropertyImage/${route.params.id}`);
+    const imageData = await imageResponse.json();
+
+    property.value.image_data = {
+      type: [],
+      data: [],
+    };
+    console.log(property.value.image_data);
+
+    property.value.image_data.data = imageData[0].image_data.data;
+    console.log(property.value.image_data.data);
+
+    convertBinaryToDataURL(property.value.image_data.data,0);
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+fetchAllData();
+
+
+// const fetchAllData = async () => {
+//   try {
+//     const response = await fetch(
+//       `http://localhost:8080/api/getPropertyDetails/${route.params.id}`
+//     );
+//     const data = await response.json();
+//     console.log(data);
+
+//     for (let i = 0; i < data.propertyDetails.length; i++) {
+//       propertyData.value.push(data.propertyDetails[i]);
+
+//       const imageResponse = await fetch(
+//         `http://localhost:8080/api/getPropertyImage/${route.params.page}`
+//       );
+//       const imageData = await imageResponse.json();
+
+//       propertyData.value[i].image_data = {
+//         type: [],
+//         data: [],
+//       };
+
+//       propertyData.value[i].image_data.data = imageData[0].image_data.data;
+
+//       convertBinaryToDataURL(propertyData.value[i].image_data.data, i);
+//     }
+//   } catch (error) {
+//     console.error("Error:", error);
+//   }
+// };
+
+    
 function convertBinaryToDataURL(binaryData: number[], index: number) {
-  const blob = new Blob([new Uint8Array(binaryData)], { type: "image/png" });
+  const blob = new Blob([new Uint8Array(binaryData)], { type: 'image/png' }); 
   const reader = new FileReader();
 
   reader.onload = () => {
@@ -276,4 +336,15 @@ function convertBinaryToDataURL(binaryData: number[], index: number) {
 
   reader.readAsDataURL(blob);
 }
+
+// function convertBinaryToDataURL(binaryData: number[]) {
+//   const blob = new Blob([new Uint8Array(binaryData)], { type: 'image/png' }); 
+//   const reader = new FileReader();
+//   console.log(reader);
+//   reader.onload = () => {
+//     property.value.dataURL = reader.result as string;
+//   };
+
+//   reader.readAsDataURL(blob);
+// }
 </script>

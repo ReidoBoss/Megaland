@@ -2,10 +2,28 @@
   <div
     class="custom-sm:w-[90%] mx-auto text-[#454544] overflow-hidden border-2 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)"
   >
+      <!-- Property Name -->
+      <div
+      class="border-2 p-5 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70) mb-5"
+    >
+      <div class="text-center font-semibold text-xl">
+        {{ property.property_name }}
+      </div>
+      <div class="flex justify-center items-center p-5">
+        <img :src="property.dataURL" alt="" />
+      </div>
+      <div class="font-medium text-center">
+        Price:
+        <span class="text-[#E67E23] text-xl ml-3">
+          ₱ {{ property.property_price ? property.property_price.toLocaleString("en-US") : "N/A" }}  
+      </span>
+      </div>
+    </div>
     <!-- Property Description -->
     <div
       class="font-poppins font-400 border-t-2 p-2 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70) mb-5"
     >
+
       <div class="font-bold custom-sm:my-[3%] sm:my-[3%]">
         Property Description:
       </div>
