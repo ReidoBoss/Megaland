@@ -1,40 +1,18 @@
 <template>
-  <div class="text-[#454544] overflow-hidden">
-    <!-- Property Name -->
-    <div
-      class="lg:mt-[4%] shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70) md:mb-[8%] lg:mb-[5%]"
-    >
-      <div
-        class="text-center font-poppins font-bold md:text-md lg:text-2xl md:mt-[3%] md:mx-[3%]"
-      >
-        {{ property.property_name }}
-      </div>
-      <div
-        class="flex justify-center items-center lg:mb-[1%] md:w-[80%] md:ml-[10%] md:my-[3%]"
-      >
-        <img :src="property.dataURL" alt="" />
-      </div>
-      <div
-        class="text-center font-poppins font-bold md:text-md lg:text-2xl lg:pb-[3%] md:pb-[3%]"
-      >
-        Price:
-        <span class="text-[#E67E23] font-bold md:text-md lg:text-2xl ml-3">
-          ₱
-          {{
-            property.property_price
-              ? property.property_price.toLocaleString("en-US")
-              : "N/A"
-          }}
-        </span>
-      </div>
-    </div>
+  <div
+    class="custom-sm:w-[90%] mx-auto text-[#454544] overflow-hidden border-2 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)"
+  >
     <!-- Property Description -->
     <div
       class="font-poppins font-400 border-t-2 p-2 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70) mb-5"
     >
-      <div class="font-bold">Property Description:</div>
+      <div class="font-bold custom-sm:my-[3%] sm:my-[3%]">
+        Property Description:
+      </div>
       <div class="pb-5 pl-5 pr-5">
-        <pre class="text-sm font-poppins overflow-hidden">
+        <pre
+          class="lg:text-lg md:text-md custom-sm:text-xs sm:text-xs font-poppins overflow-hidden"
+        >
           {{ property.property_description }}
 </pre
         >
@@ -42,37 +20,47 @@
     </div>
     <!-- Property Address -->
     <div
-      class="font-poppins border-t-2 p-2 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70) mb-5"
+      class="md:font-poppins border-t-2 p-2 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70) mb-5"
     >
-      <div class="font-bold">Property Address:</div>
+      <div class="font-bold custom-sm:my-[3%] sm:my-[3%]">
+        Property Address:
+      </div>
       <div class="lg:p-5 md:p-2">
         <div class="flex">
           <div class="w-[50%]">
             <div
-              class="border-2 rounded-md md:m-1 md:p-2 lg:m-2 lg:p-1 font-bold lg:text-md"
+              class="border-2 rounded-md md:m-1 md:p-2 lg:m-2 lg:p-1 font-bold lg:text-lg custom-sm:text-sm sm:text-sm md:text-md"
             >
               Address:
-              <span class="text-sm font-300">
+              <span
+                class="lg:text-lg md:text-md font-300 custom-sm:text-sm sm:text-sm"
+              >
                 {{ property.property_description }}</span
               >
             </div>
             <div class="border-2 m-2 p-1 font-medium">
               City:
-              <span class="text-base font-normal">
+              <span
+                class="text-base font-normal lg:text-lg md:text-md custom-sm:text-xs sm:text-xs"
+              >
                 {{ property.property_city }}</span
               >
             </div>
           </div>
-          <div class="w-[50%]">
+          <div class="lg:w-[50%] md:w-[50%]">
             <div class="border-2 m-2 p-1 font-medium">
               Zip:
-              <span class="text-base font-normal">
+              <span
+                class="text-base font-normal lg:text-lg md:text-md custom-sm:text-xs sm:text-xs"
+              >
                 {{ property.property_zipcode }}</span
               >
             </div>
             <div class="border-2 m-2 p-1 font-medium">
               State/Country:
-              <span class="text-base font-normal">
+              <span
+                class="text-base font-normal lg:text-lg md:text-md custom-sm:text-xs sm:text-xs"
+              >
                 {{ property.property_country }}
               </span>
             </div>
@@ -82,21 +70,25 @@
     </div>
     <!-- Details -->
     <div
-      class="border-2 p-2 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70) mb-5"
+      class="border-t-2 md:p-2 lg:p-2 custom-sm:mb-0 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70) md:mb-5 lg:mb-5"
     >
-      <div class="font-semibold">Details:</div>
-      <div class="p-5">
+      <div class="font-semibold custom-sm:mx-[3%]">Details:</div>
+      <div class="p-3">
         <div class="flex">
           <div class="w-[50%]">
             <div class="border-2 m-2 p-1 font-medium">
               Bedroom:
-              <span class="text-base font-normal">
+              <span
+                class="text-base font-normal lg:text-lg md:text-md custom-sm:text-xs sm:text-xs"
+              >
                 {{ property.property_bedroom }}</span
               >
             </div>
             <div class="border-2 m-2 p-1 font-medium">
               Bathroom:
-              <span class="text-base font-normal">
+              <span
+                class="text-base font-normal lg:text-lg md:text-md custom-sm:text-xs sm:text-xs"
+              >
                 {{ property.property_bathroom }}</span
               >
             </div>
@@ -104,13 +96,17 @@
           <div class="w-[50%]">
             <div class="border-2 m-2 p-1 font-medium">
               Land Area:
-              <span class="text-base font-normal">
+              <span
+                class="text-base font-normal lg:text-lg md:text-md custom-sm:text-xs sm:text-xs"
+              >
                 {{ property.property_area }}</span
               >
             </div>
             <div class="border-2 m-2 p-1 font-medium">
               Parking Space:
-              <span class="text-base font-normal">
+              <span
+                class="text-base font-normal lg:text-lg md:text-md custom-sm:text-xs sm:text-xs"
+              >
                 {{ property.property_parking_space }}</span
               >
             </div>
