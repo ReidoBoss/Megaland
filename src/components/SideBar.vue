@@ -2,7 +2,7 @@
 <template>
   <div
     v-if="isVisible"
-    class="custom-sm:overflow-y-auto sm:overflow-y-auto md:overflow-y-auto fixed top-0 left-0 custom-sm:w-64 custom-sm:h-[100%] md:w-[50%] bg-[#111929] text-orange-500 p-2 z-10 lg:hidden"
+    class="custom-sm:overflow-y-auto sm:overflow-y-auto md:overflow-y-auto fixed top-0 left-0 custom-sm:w-64 custom-sm:h-[100%] md:w-[50%] bg-[#454544] text-orange-500 p-2 z-10 lg:hidden"
   >
     <div class="flex my-2">
       <mdicon
@@ -26,7 +26,7 @@
     <div class="border-b my-5 border-orange-500 w-[100%]"></div>
     <div>
       <div
-        class="flex h-10 sticky top-11 my-5 justify-center bg-[#111929] z-10"
+        class="flex h-10 sticky top-11 my-5 justify-center bg-[#454544] z-10"
       >
         <div class="flex w-[90%] justify-center items-center gap-1">
           <input

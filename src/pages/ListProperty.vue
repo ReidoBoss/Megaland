@@ -1,5 +1,5 @@
 <template>
-  <div class="relative w-full h-[1150px] bg-cover bg-center bg-custom">
+  <!-- <div class="relative w-full h-[1150px] bg-cover bg-center bg-custom">
     <div class="h-[850px]">
       <div class="">
         <div class="text-4xl font-bold text-center pt-[3%]">
@@ -179,7 +179,7 @@
         ></textarea>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 <script lang="ts" setup></script>
 <style scoped>

@@ -180,7 +180,7 @@ import Accordion from "../components/Accordion.vue";
 import Gallery from "../components/Gallery.vue";
 import Products from "../components/Products.vue";
 import Agents from "../components/Agents.vue";
-import { FunnelIcon, NewspaperIcon } from "@heroicons/vue/24/outline";
+import { NewspaperIcon } from "@heroicons/vue/24/outline";
 
 import { ref, onMounted, Ref } from "vue";
 register();
@@ -253,7 +253,9 @@ const fetchAllData = async () => {
     for (let i = 0; i < Object.keys(data).length; i++) {
       propertyData.value.push(data[i]);
 
-      const imageResponse = await fetch(`http://localhost:8080/api/getPropertyImage/${propertyData.value[i].property_id}`);
+      const imageResponse = await fetch(
+        `http://localhost:8080/api/getPropertyImage/${propertyData.value[i].property_id}`
+      );
       const imageData = await imageResponse.json();
 
       propertyData.value[i].image_data = {
@@ -266,7 +268,7 @@ const fetchAllData = async () => {
       convertBinaryToDataURL(propertyData.value[i].image_data.data, i);
     }
   } catch (error) {
-    console.error('Error:', error);
+    console.error("Error:", error);
   }
 };
 
