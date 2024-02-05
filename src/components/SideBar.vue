@@ -2,7 +2,7 @@
 <template>
   <div
     v-if="isVisible"
-    class="custom-sm:overflow-y-auto sm:overflow-y-auto md:overflow-y-auto fixed top-0 left-0 custom-sm:w-64 custom-sm:h-[100%] md:w-[50%] bg-[#454544] text-orange-500 p-2 z-10 lg:hidden"
+    class="custom-sm:overflow-y-auto sm:overflow-y-auto md:overflow-y-auto fixed top-0 left-0 custom-sm:w-64 custom-sm:h-[100%] sm:h-[100%] md:h-[100%] md:w-[50%] bg-[#454544] text-orange-500 p-2 z-10 lg:hidden"
   >
     <div class="flex my-2">
       <mdicon
@@ -13,7 +13,7 @@
       />
       <button
         @click="toggleSidebar"
-        class="text-orange-500 custom-sm:ml-[70%] md:ml-[75%]"
+        class="text-orange-500 custom-sm:ml-[70%] sm:ml-[70%] md:ml-[75%]"
       >
         <mdicon
           name="CloseCircle"
@@ -137,6 +137,9 @@
         >
       </li>
     </ul>
+    <div class="mt-[15%] font-poppins font-bold text-xl text-">
+      Search Filter
+    </div>
     <div class="border-b my-5 border-orange-500 w-[100%]"></div>
     <div
       class="lg:h-[700px] lg:w-[16%] flex-col overflow-auto font-poppins font-bold"

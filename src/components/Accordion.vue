@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-col cursor-pointer pt-1 pb-1">
+  <div class="flex-col cursor-pointer pt-1 pb-4">
     <div>
       <!-- Accordion header -->
       <div class="flex custom-sm:mb-3 sm:mb-3" @click="toggleAccordion">
@@ -12,7 +12,7 @@
           <ChevronDownIcon v-else class="h-[15px] w-[15px] text-[#E67E23]" />
         </div>
         <div
-          class="flex items-center font-poppins font-bold custom-sm:text-white sm:custom-sm:white md:text-orange-500 lg:text-orange-500 w-[88%]"
+          class="flex items-center font-poppins font-bold custom-sm:text-white sm:text-white md:text-white lg:text-orange-500 w-[88%]"
         >
           <!-- Title of the accordion -->
           {{ title }}
