@@ -72,7 +72,7 @@ interface Property {
 
 var propertyData = ref<Property[]>([]);
 
-const findKeywordIndex = (inputString, keyword) => {
+const findKeywordIndex = (inputString: string, keyword: string) => {
   // Convert both the input string and the keyword to lowercase for case-insensitive comparison
   const lowercasedInput = inputString.toLowerCase();
   const lowercasedKeyword = keyword.toLowerCase();
@@ -94,7 +94,7 @@ const removeAllData = () => {
   propertyData.value.splice(0, propertyData.value.length);
 };
 const fetchAllData = () => {
-  fetch("https://backend-na9y.onrender.com/api/search", {
+  fetch("http://localhost:8080/api/search", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -108,12 +108,12 @@ const fetchAllData = () => {
         var bulldog = `${temp.property_area},${temp.property_category},${temp.property_city},${temp.property_local_area},${temp.property_name},${temp.property_price},${temp.property_type}`;
         propertyKeyArray.push(`${bulldog}`);
 
-        const index = findKeywordIndex(propertyKeyArray[i], searched);
+        const index = findKeywordIndex(propertyKeyArray[i], searched ?? "");
         if (index != -1) {
           propertyData.value.push(data[i]);
         } else {
           propertyData.value.splice(i, 1);
-        }
+        }https://backend-na9y.onrender.com
       }
     })
     .catch((error) => console.error("Error:", error));

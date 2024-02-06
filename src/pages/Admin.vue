@@ -1221,7 +1221,7 @@ const submitAgent = async () => {
     console.log("Submit button clicked");
     console.log(agentData.value);
     const response = await axios.post(
-      "https://backend-na9y.onrender.com/api/agents/",
+      "http://localhost:8080/api/agents/",
       agentData.value
     );
     console.log("Property data sent successfully", response.data);
@@ -1275,7 +1275,7 @@ const property_railway = ref(1);
 const property_shopping = ref(1);
 const property_universities = ref(1);
 
-const handleFileChange = (event) => {
+const handleFileChange = (event: any) => {
   const file = (event.target.files || [])[0];
   if (file) {
     imageFile.value = file;
@@ -1301,50 +1301,52 @@ const submitProperty = async () => {
     formData.append("property_region", property_region.value);
     formData.append("property_city", property_city.value);
     formData.append("property_local_area", property_local_area.value);
-    formData.append("property_zipcode", property_zipcode.value);
-    formData.append("property_area", property_area.value);
-    formData.append("property_bedroom", property_bedroom.value);
-    formData.append("property_bathroom", property_bathroom.value);
-    formData.append("property_room_count", property_room_count.value);
-    formData.append("property_parking_space", property_parking_space.value);
-    formData.append("property_enable", property_enable.value);
-    formData.append("image_data", imageFile.value);
-    formData.append("property_attic", property_attic.value);
-    formData.append("property_balcony", property_balcony.value);
-    formData.append("property_deck", property_deck.value);
-    formData.append("property_fenced_yard", property_fenced_yard.value);
-    formData.append("property_fireplace", property_fireplace.value);
-    formData.append("property_frontyard", property_frontyard.value);
-    formData.append("property_gasheat", property_gasheat.value);
-    formData.append("property_gym", property_gym.value);
-    formData.append("property_lakeview", property_lakeview.value);
-    formData.append("property_pond", property_pond.value);
-    formData.append("property_pool", property_pool.value);
-    formData.append("property_recreation", property_recreation.value);
-    formData.append("property_sprinklers", property_sprinklers.value);
-    formData.append("property_storage", property_storage.value);
-    formData.append("property_washer", property_washer.value);
-    formData.append("property_winecellar", property_winecellar.value);
-    formData.append("property_airport", property_airport.value);
-    formData.append("property_busstand", property_busstand.value);
-    formData.append("property_hospital", property_hospital.value);
-    formData.append("property_patroltank", property_patroltank.value);
-    formData.append("property_railway", property_railway.value);
-    formData.append("property_shopping", property_shopping.value);
-    formData.append("property_universities", property_universities.value);
-
-    const response = await axios.post(
-      "https://backend-na9y.onrender.com/api/addProperty/",
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }
+    formData.append("property_zipcode", property_zipcode.value as any);
+    formData.append("property_area", property_area.value as any);
+    formData.append("property_bedroom", property_bedroom.value as any);
+    formData.append("property_bathroom", property_bathroom.value as any);
+    formData.append("property_room_count", property_room_count.value as any);
+    formData.append(
+      "property_parking_space",
+      property_parking_space.value as any
+    );
+    formData.append("property_enable", property_enable.value as any);
+    formData.append("image_data", imageFile.value as any);
+    formData.append("property_attic", property_attic.value as any);
+    formData.append("property_balcony", property_balcony.value as any);
+    formData.append("property_deck", property_deck.value as any);
+    formData.append("property_fenced_yard", property_fenced_yard.value as any);
+    formData.append("property_fireplace", property_fireplace.value as any);
+    formData.append("property_frontyard", property_frontyard.value as any);
+    formData.append("property_gasheat", property_gasheat.value as any);
+    formData.append("property_gym", property_gym.value as any);
+    formData.append("property_lakeview", property_lakeview.value as any);
+    formData.append("property_pond", property_pond.value as any);
+    formData.append("property_pool", property_pool.value as any);
+    formData.append("property_recreation", property_recreation.value as any);
+    formData.append("property_sprinklers", property_sprinklers.value as any);
+    formData.append("property_storage", property_storage.value as any);
+    formData.append("property_washer", property_washer.value as any);
+    formData.append("property_winecellar", property_winecellar.value as any);
+    formData.append("property_airport", property_airport.value as any);
+    formData.append("property_busstand", property_busstand.value as any);
+    formData.append("property_hospital", property_hospital.value as any);
+    formData.append("property_patroltank", property_patroltank.value as any);
+    formData.append("property_railway", property_railway.value as any);
+    formData.append("property_shopping", property_shopping.value as any);
+    formData.append(
+      "property_universities",
+      property_universities.value as any
     );
 
+    await axios.post("http://localhost:8080/api/addProperty/", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
     window.location.reload();
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error uploading image:", error.message || "Unknown error");
   }
 };

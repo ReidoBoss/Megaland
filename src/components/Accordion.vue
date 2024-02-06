@@ -39,8 +39,8 @@
               name="cb1"
               id="textInput"
               :placeholder="item.data"
-              :value="textInputValue"
-              @input="updateTextInputValue"
+              :value="data.textInputValue"
+              @input="(e: Event) => updateTextInputValue(e as InputEvent)"
               @blur="typedValue(item)"
             />
           </div>
@@ -113,7 +113,6 @@ import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/vue/24/outline";
 
 var selectedType = ref<string | null>(null);
 var chosenCategory: string[] = [];
-var typedText: string[] = [];
 
 interface ContentItem {
   type: string;

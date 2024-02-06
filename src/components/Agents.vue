@@ -37,7 +37,7 @@ const agentData = ref<Agent[]>([]);
 const windowWidth = ref(window.innerWidth);
 
 onMounted(() => {
-  fetch("https://backend-na9y.onrender.com/api/getAgents", {
+  fetch("http://localhost:8080/api/getAgents", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

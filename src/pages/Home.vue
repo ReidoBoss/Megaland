@@ -130,7 +130,7 @@
         v-for="(property, index) in propertyData"
         :property_id="property.property_id"
         :key="index"
-        :image="property.dataURL"
+        :image="property.dataURL || ''"
         :name="property.property_name"
         :price="property.property_price"
         :category="property.property_category"
@@ -187,7 +187,7 @@ register();
 
 interface Property {
   property_id: number;
-  image: string;
+  image?: string;
   property_name: string;
   property_price: number;
   property_area: number;
@@ -242,7 +242,7 @@ const resetAllLocalStorage = () => {
 
 const fetchAllData = async () => {
   try {
-    const response = await fetch("https://backend-na9y.onrender.com/api", {
+    const response = await fetch("http://localhost:8080/api", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -254,7 +254,7 @@ const fetchAllData = async () => {
       propertyData.value.push(data[i]);
 
       const imageResponse = await fetch(
-        `https://backend-na9y.onrender.com/api/getPropertyImage/${propertyData.value[i].property_id}`
+        `http://localhost:8080/api/getPropertyImage/${propertyData.value[i].property_id}`
       );
       const imageData = await imageResponse.json();
 
@@ -395,7 +395,7 @@ const filter = () => {
   var propertyRoomChosen = localStorage.getItem("property_room_chosen");
 
   //fetch
-  fetch("https://backend-na9y.onrender.com/api", {
+  fetch("http://localhost:8080/api", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

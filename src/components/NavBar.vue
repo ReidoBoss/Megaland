@@ -77,9 +77,9 @@
           name=""
           id="search_bar"
           placeholder="Search..."
-          :value="textInputValue"
+          :value="data.textInputValue"
           @keyup.enter="search"
-          @input="updateTextInputValue"
+          @input="(e: Event) => updateTextInputValue(e as InputEvent)"
           @blur="typedValue()"
         />
 

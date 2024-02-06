@@ -130,7 +130,7 @@
         <Products
           :image="swiper1"
           name="3 LEVEL HOUSE WITH ROOF DECK AND POOL IN VISTA GRANDE TALISAY"
-          price="₱48,000,000"
+          :price="48000000"
           :size="769"
           :bedroom="7"
           :bathroom="7"
@@ -138,7 +138,7 @@
         <Products
           :image="swiper2"
           name="2-Storey House & Lot For Sale White Hills Subdivision-Banawa"
-          price="₱12,500,000"
+          :price="12500000"
           :size="200"
           :bedroom="6"
           :bathroom="3"
@@ -146,7 +146,7 @@
         <Products
           :image="swiper3"
           name="4 Bedrooms House and Lot for Sale at Kishanta Subdivision"
-          price="₱12,500,000"
+          :price="12500000"
           :size="150"
           :bedroom="4"
           :bathroom="2"
@@ -159,8 +159,6 @@
 <script lang="ts" setup>
 import Accordion from "../components/Accordion.vue";
 import {
-  FunnelIcon,
-  NewspaperIcon,
   UserIcon,
   MapIcon,
   ChatBubbleLeftIcon,
@@ -172,7 +170,7 @@ import swiper3 from "../assets/swiper3.jpg";
 import Products from "../components/Products.vue";
 import BlogOwner from "../components/BlogOwner.vue";
 
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import { useRoute } from "vue-router";
 const route = useRoute();
 interface propertyType {
@@ -251,7 +249,7 @@ const property = ref<propertyType>({
   dataURL: "",
 });
 
-// fetch(`https://backend-na9y.onrender.com/api/getPropertyDetails/${route.params.id}`, {
+// fetch(`http://localhost:8080/api/getPropertyDetails/${route.params.id}`, {
 //     method: "GET",
 //     headers: {
 //       "Content-Type": "application/json",
@@ -268,13 +266,13 @@ const property = ref<propertyType>({
 const fetchAllData = async () => {
   try {
     const detailsResponse = await fetch(
-      `https://backend-na9y.onrender.com/api/getPropertyDetails/${route.params.id}`
+      `http://localhost:8080/api/getPropertyDetails/${route.params.id}`
     );
     const detailsData = await detailsResponse.json();
     property.value = detailsData[0];
 
     const imageResponse = await fetch(
-      `https://backend-na9y.onrender.com/api/getPropertyImage/${route.params.id}`
+      `http://localhost:8080/api/getPropertyImage/${route.params.id}`
     );
     const imageData = await imageResponse.json();
 
@@ -287,7 +285,7 @@ const fetchAllData = async () => {
     property.value.image_data.data = imageData[0].image_data.data;
     console.log(property.value.image_data.data);
 
-    convertBinaryToDataURL(property.value.image_data.data, 0);
+    convertBinaryToDataURL(property.value.image_data.data);
   } catch (error) {
     console.error("Error:", error);
   }
@@ -297,7 +295,7 @@ fetchAllData();
 // const fetchAllData = async () => {
 //   try {
 //     const response = await fetch(
-//       `https://backend-na9y.onrender.com/api/getPropertyDetails/${route.params.id}`
+//       `http://localhost:8080/api/getPropertyDetails/${route.params.id}`
 //     );
 //     const data = await response.json();
 //     console.log(data);
@@ -306,7 +304,7 @@ fetchAllData();
 //       propertyData.value.push(data.propertyDetails[i]);
 
 //       const imageResponse = await fetch(
-//         `https://backend-na9y.onrender.com/api/getPropertyImage/${route.params.page}`
+//         `http://localhost:8080/api/getPropertyImage/${route.params.page}`
 //       );
 //       const imageData = await imageResponse.json();
 
@@ -324,7 +322,7 @@ fetchAllData();
 //   }
 // };
 
-function convertBinaryToDataURL(binaryData: number[], index: number) {
+function convertBinaryToDataURL(binaryData: number[]) {
   const blob = new Blob([new Uint8Array(binaryData)], { type: "image/png" });
   const reader = new FileReader();
 

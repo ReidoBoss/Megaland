@@ -271,7 +271,7 @@ const submitAgent = async () => {
     console.log("Submit button clicked");
     console.log(agentData.value);
     const response = await axios.post(
-      "https://backend-na9y.onrender.com/api/agents/",
+      "http://localhost:8080/api/agents/",
       agentData.value
     );
     console.log("Property data sent successfully", response.data);

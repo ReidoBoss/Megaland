@@ -35,9 +35,9 @@
             name=""
             id="search_bar"
             placeholder="Search..."
-            :value="textInputValue"
+            :value="data.textInputValue"
             @keyup.enter="search"
-            @input="updateTextInputValue"
+            @input="(e: Event) => updateTextInputValue(e as InputEvent)"
             @blur="typedValue()"
           />
         </div>
@@ -213,7 +213,7 @@
 import { ref, defineProps, onMounted, Ref } from "vue";
 import { register } from "swiper/element/bundle";
 import Accordion from "../components/Accordion.vue";
-const props = defineProps(["isVisible", "toggleSidebar"]);
+defineProps(["isVisible", "toggleSidebar"]);
 
 import router from "../router";
 import { useRoute } from "vue-router";
@@ -301,7 +301,7 @@ const resetAllLocalStorage = () => {
 };
 
 const fetchAllData = () => {
-  fetch("https://backend-na9y.onrender.com/api", {
+  fetch("http://localhost:8080/api", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -440,7 +440,7 @@ const filter = () => {
   var propertyRoomChosen = localStorage.getItem("property_room_chosen");
 
   //fetch
-  fetch("https://backend-na9y.onrender.com/api", {
+  fetch("http://localhost:8080/api", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

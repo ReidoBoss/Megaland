@@ -161,28 +161,28 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 
 interface ProductType {
-  property_id: number;
-  name: string;
-  price: number;
-  size: number;
-  bedroom: number;
-  bathroom: number;
-  image: string;
+  property_id?: number;
+  name?: string;
+  price?: number;
+  size?: number;
+  bedroom?: number;
+  bathroom?: number;
+  image?: string;
 
-  category: string;
-  type: string;
-  city: string;
-  address: string;
+  category?: string;
+  type?: string;
+  city?: string;
+  address?: string;
 
-  airport: boolean;
-  busstand: boolean;
-  hospital: boolean;
-  patroltank: boolean;
-  railway: boolean;
-  shopping: boolean;
-  universities: boolean;
+  airport?: boolean;
+  busstand?: boolean;
+  hospital?: boolean;
+  patroltank?: boolean;
+  railway?: boolean;
+  shopping?: boolean;
+  universities?: boolean;
 
-  image_data: {
+  image_data?: {
     type: string[];
     data: number[];
   };

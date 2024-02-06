@@ -118,7 +118,7 @@
             :railway="property.property_railway"
             :shopping="property.property_shopping"
             :universities="property.property_universities"
-            :image_data="property.image"
+            :image_data="property.image_data"
           />
         </div>
         <div class="flex justify-center items-center my-10">
@@ -133,7 +133,7 @@
 import Accordion from "../components/Accordion.vue";
 import Products from "../components/Products.vue";
 import Pagination from "../components/Pagination.vue";
-import { FunnelIcon, BuildingLibraryIcon } from "@heroicons/vue/24/outline";
+import { BuildingLibraryIcon } from "@heroicons/vue/24/outline";
 import { onMounted, ref } from "vue";
 
 import { useRoute } from "vue-router";
@@ -143,7 +143,7 @@ onMounted(() => {
   fetchAllData();
   removeAllData();
 });
-var searched = localStorage.getItem("search");
+// var searched = localStorage.getItem("search");
 
 interface Property {
   property_id: number;
@@ -176,27 +176,29 @@ interface Property {
 
 var propertyData = ref<Property[]>([]);
 
-const findKeywordIndex = (inputString, keyword) => {
-  const lowercasedInput = inputString.toLowerCase();
-  const lowercasedKeyword = keyword.toLowerCase();
+// const findKeywordIndex = (inputString, keyword) => {
+//   const lowercasedInput = inputString.toLowerCase();
+//   const lowercasedKeyword = keyword.toLowersCase();
 
-  const wordsInInput = lowercasedInput.split(" ");
+//   const wordsInInput = lowercasedInput.split(" ");
 
-  if (wordsInInput.some((word) => word.includes(lowercasedKeyword))) {
-    return 1;
-  }
+//   if (wordsInInput.some((word) => word.includes(lowercasedKeyword))) {
+//     return 1;
+//   }
 
-  return -1;
-};
+//   return -1;
+// };
 
 const removeAllData = () => {
   propertyData.value.splice(0, propertyData.value.length);
 };
 
+function filter() {}
+
 const fetchAllData = async () => {
   try {
     const response = await fetch(
-      `https://backend-na9y.onrender.com/api/all/${route.params.page}`
+      `http://localhost:8080/api/all/${route.params.page}`
     );
     const data = await response.json();
 
@@ -204,7 +206,7 @@ const fetchAllData = async () => {
       propertyData.value.push(data.propertyDetails[i]);
 
       const imageResponse = await fetch(
-        `https://backend-na9y.onrender.com/api/getPropertyImage/${propertyData.value[i].property_id}`
+        `http://localhost:8080/api/getPropertyImage/${propertyData.value[i].property_id}`
       );
       const imageData = await imageResponse.json();
 
