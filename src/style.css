@@ -38,6 +38,6 @@ body {
 /* Apply 90% zoom for screens with a width of 1366px and height of 768px */
 @media screen and (min-width: 1366px) and (min-height: 768px) {
   body {
-    zoom: 90% !important;
+    zoom: 125% !important;
   }
 }
