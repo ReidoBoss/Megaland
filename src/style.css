@@ -28,16 +28,28 @@ body {
 
 /* Default styles go here */
 
-/* Apply 125% zoom for screens with a width of 1920px and height of 1080px */
-@media screen and (min-width: 1920px) and (min-height: 1080px) {
+/* Apply 100% zoom for screens with a width up to 1920px */
+@media screen and (max-width: 1280px) {
   body {
-    zoom: 125% !important;
+    zoom: 100% !important;
   }
 }
 
-/* Apply 90% zoom for screens with a width of 1366px and height of 768px */
-@media screen and (min-width: 1366px) and (min-height: 768px) {
+@media screen and (min-width: 1281px) {
   body {
     zoom: 125% !important;
   }
 }
+/* Apply 125% zoom for screens with a width of 1921px or more */
+/* @media screen and (min-width: 1921px) {
+  body {
+    zoom: 125% !important;
+  }
+} */
+
+/* Apply 125% zoom for screens with a width of 1366px or more */
+/* @media screen and (min-width: 1366px) {
+  body {
+    zoom: 125% !important;
+  }
+} */
