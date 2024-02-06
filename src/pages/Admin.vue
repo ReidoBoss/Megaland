@@ -1221,7 +1221,7 @@ const submitAgent = async () => {
     console.log("Submit button clicked");
     console.log(agentData.value);
     const response = await axios.post(
-      "http://localhost:8080/api/agents/",
+      "https://backend-na9y.onrender.com/api/agents/",
       agentData.value
     );
     console.log("Property data sent successfully", response.data);
@@ -1339,11 +1339,15 @@ const submitProperty = async () => {
       property_universities.value as any
     );
 
-    await axios.post("http://localhost:8080/api/addProperty/", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
+    await axios.post(
+      "https://backend-na9y.onrender.com/api/addProperty/",
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
 
     window.location.reload();
   } catch (error: any) {

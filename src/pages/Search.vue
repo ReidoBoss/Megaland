@@ -94,7 +94,7 @@ const removeAllData = () => {
   propertyData.value.splice(0, propertyData.value.length);
 };
 const fetchAllData = () => {
-  fetch("http://localhost:8080/api/search", {
+  fetch("https://backend-na9y.onrender.com/api/search", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -113,7 +113,7 @@ const fetchAllData = () => {
           propertyData.value.push(data[i]);
         } else {
           propertyData.value.splice(i, 1);
-        }https://backend-na9y.onrender.com
+        }
       }
     })
     .catch((error) => console.error("Error:", error));

@@ -242,7 +242,7 @@ const resetAllLocalStorage = () => {
 
 const fetchAllData = async () => {
   try {
-    const response = await fetch("http://localhost:8080/api", {
+    const response = await fetch("https://backend-na9y.onrender.com/api", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -254,7 +254,7 @@ const fetchAllData = async () => {
       propertyData.value.push(data[i]);
 
       const imageResponse = await fetch(
-        `http://localhost:8080/api/getPropertyImage/${propertyData.value[i].property_id}`
+        `https://backend-na9y.onrender.com/api/getPropertyImage/${propertyData.value[i].property_id}`
       );
       const imageData = await imageResponse.json();
 
@@ -395,7 +395,7 @@ const filter = () => {
   var propertyRoomChosen = localStorage.getItem("property_room_chosen");
 
   //fetch
-  fetch("http://localhost:8080/api", {
+  fetch("https://backend-na9y.onrender.com/api", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

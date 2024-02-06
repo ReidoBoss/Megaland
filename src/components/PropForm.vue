@@ -691,7 +691,7 @@ const submitProperty = async () => {
     console.log("Submit button clicked");
     console.log(propertyData.value);
     const response = await axios.post(
-      "http://localhost:8080/api/properties/",
+      "https://backend-na9y.onrender.com/api/properties/",
       form
     );
     console.log("Property data sent successfully", response.data);
