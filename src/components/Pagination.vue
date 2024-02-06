@@ -80,7 +80,7 @@ const iterator = ref(1);
 const items = ref([]);
 
 const fetchData = () => {
-  fetch(`http://localhost:8080/api/all/${iterator.value}`, {
+  fetch(`https://backend-na9y.onrender.com/api/all/${iterator.value}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

@@ -142,7 +142,6 @@ const route = useRoute();
 onMounted(() => {
   fetchAllData();
   removeAllData();
-
 });
 var searched = localStorage.getItem("search");
 
@@ -172,27 +171,23 @@ interface Property {
     type: string[];
     data: number[];
   };
-  dataURL?: string; 
+  dataURL?: string;
 }
 
-
 var propertyData = ref<Property[]>([]);
-
 
 const findKeywordIndex = (inputString, keyword) => {
   const lowercasedInput = inputString.toLowerCase();
   const lowercasedKeyword = keyword.toLowerCase();
 
-  const wordsInInput = lowercasedInput.split(' ');
+  const wordsInInput = lowercasedInput.split(" ");
 
-  if (wordsInInput.some(word => word.includes(lowercasedKeyword))) {
+  if (wordsInInput.some((word) => word.includes(lowercasedKeyword))) {
     return 1;
   }
 
-  return -1; 
+  return -1;
 };
-
-
 
 const removeAllData = () => {
   propertyData.value.splice(0, propertyData.value.length);
@@ -200,35 +195,35 @@ const removeAllData = () => {
 
 const fetchAllData = async () => {
   try {
-    const response = await fetch(`http://localhost:8080/api/all/${route.params.page}`);
+    const response = await fetch(
+      `https://backend-na9y.onrender.com/api/all/${route.params.page}`
+    );
     const data = await response.json();
 
     for (let i = 0; i < data.propertyDetails.length; i++) {
       propertyData.value.push(data.propertyDetails[i]);
 
-      const imageResponse = await fetch(`http://localhost:8080/api/getPropertyImage/${propertyData.value[i].property_id}`);
+      const imageResponse = await fetch(
+        `https://backend-na9y.onrender.com/api/getPropertyImage/${propertyData.value[i].property_id}`
+      );
       const imageData = await imageResponse.json();
 
-        propertyData.value[i].image_data = {
-          type: [],
-          data: [],
-        };
-      
+      propertyData.value[i].image_data = {
+        type: [],
+        data: [],
+      };
 
       propertyData.value[i].image_data.data = imageData[0].image_data.data;
 
       convertBinaryToDataURL(propertyData.value[i].image_data.data, i);
     }
   } catch (error) {
-    console.error('Error:', error);
+    console.error("Error:", error);
   }
 };
 
-
-
-
 function convertBinaryToDataURL(binaryData: number[], index: number) {
-  const blob = new Blob([new Uint8Array(binaryData)], { type: 'image/png' });
+  const blob = new Blob([new Uint8Array(binaryData)], { type: "image/png" });
   const reader = new FileReader();
 
   reader.onload = () => {
@@ -237,7 +232,4 @@ function convertBinaryToDataURL(binaryData: number[], index: number) {
 
   reader.readAsDataURL(blob);
 }
-
-
-
 </script>

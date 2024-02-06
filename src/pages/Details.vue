@@ -212,9 +212,7 @@ interface propertyType {
     type: string[];
     data: number[];
   };
-  dataURL?: string; 
-
-  
+  dataURL?: string;
 }
 
 const property = ref<propertyType>({
@@ -250,12 +248,10 @@ const property = ref<propertyType>({
   washer: false,
   winecellar: false,
   image_data: { type: [], data: [] },
-  dataURL: ""
-
+  dataURL: "",
 });
 
-
-// fetch(`http://localhost:8080/api/getPropertyDetails/${route.params.id}`, {
+// fetch(`https://backend-na9y.onrender.com/api/getPropertyDetails/${route.params.id}`, {
 //     method: "GET",
 //     headers: {
 //       "Content-Type": "application/json",
@@ -271,11 +267,15 @@ const property = ref<propertyType>({
 
 const fetchAllData = async () => {
   try {
-    const detailsResponse = await fetch(`http://localhost:8080/api/getPropertyDetails/${route.params.id}`);
+    const detailsResponse = await fetch(
+      `https://backend-na9y.onrender.com/api/getPropertyDetails/${route.params.id}`
+    );
     const detailsData = await detailsResponse.json();
     property.value = detailsData[0];
 
-    const imageResponse = await fetch(`http://localhost:8080/api/getPropertyImage/${route.params.id}`);
+    const imageResponse = await fetch(
+      `https://backend-na9y.onrender.com/api/getPropertyImage/${route.params.id}`
+    );
     const imageData = await imageResponse.json();
 
     property.value.image_data = {
@@ -287,18 +287,17 @@ const fetchAllData = async () => {
     property.value.image_data.data = imageData[0].image_data.data;
     console.log(property.value.image_data.data);
 
-    convertBinaryToDataURL(property.value.image_data.data,0);
+    convertBinaryToDataURL(property.value.image_data.data, 0);
   } catch (error) {
     console.error("Error:", error);
   }
 };
 fetchAllData();
 
-
 // const fetchAllData = async () => {
 //   try {
 //     const response = await fetch(
-//       `http://localhost:8080/api/getPropertyDetails/${route.params.id}`
+//       `https://backend-na9y.onrender.com/api/getPropertyDetails/${route.params.id}`
 //     );
 //     const data = await response.json();
 //     console.log(data);
@@ -307,7 +306,7 @@ fetchAllData();
 //       propertyData.value.push(data.propertyDetails[i]);
 
 //       const imageResponse = await fetch(
-//         `http://localhost:8080/api/getPropertyImage/${route.params.page}`
+//         `https://backend-na9y.onrender.com/api/getPropertyImage/${route.params.page}`
 //       );
 //       const imageData = await imageResponse.json();
 
@@ -325,9 +324,8 @@ fetchAllData();
 //   }
 // };
 
-    
 function convertBinaryToDataURL(binaryData: number[], index: number) {
-  const blob = new Blob([new Uint8Array(binaryData)], { type: 'image/png' }); 
+  const blob = new Blob([new Uint8Array(binaryData)], { type: "image/png" });
   const reader = new FileReader();
 
   reader.onload = () => {
@@ -338,7 +336,7 @@ function convertBinaryToDataURL(binaryData: number[], index: number) {
 }
 
 // function convertBinaryToDataURL(binaryData: number[]) {
-//   const blob = new Blob([new Uint8Array(binaryData)], { type: 'image/png' }); 
+//   const blob = new Blob([new Uint8Array(binaryData)], { type: 'image/png' });
 //   const reader = new FileReader();
 //   console.log(reader);
 //   reader.onload = () => {

@@ -1,6 +1,7 @@
 <template>
   <section
-    class="max-w-4xl p-6 mx-auto bg-indigo-600 rounded-md shadow-md dark:bg-gray-800 mt-20 mb-20">
+    class="max-w-4xl p-6 mx-auto bg-indigo-600 rounded-md shadow-md dark:bg-gray-800 mt-20 mb-20"
+  >
     <h1 class="text-xl font-bold text-white capitalize dark:text-white">
       Property Listing Form
     </h1>
@@ -666,12 +667,12 @@ const handleImageUpload = (event: Event) => {
     // reader.onload = (e) => {
     //   const uint8Array = new Uint8Array(e.target?.result as ArrayBuffer);
 
-      // Convert Uint8Array to a regular array of numbers
-      // const byteArray = Array.from(uint8Array);
+    // Convert Uint8Array to a regular array of numbers
+    // const byteArray = Array.from(uint8Array);
 
-      // propertyData.value.property_main_image = btoa(
-      //   String.fromCharCode.apply(null, byteArray)
-      // );
+    // propertyData.value.property_main_image = btoa(
+    //   String.fromCharCode.apply(null, byteArray)
+    // );
     // };
 
     // reader.readAsArrayBuffer(file);
@@ -690,7 +691,7 @@ const submitProperty = async () => {
     console.log("Submit button clicked");
     console.log(propertyData.value);
     const response = await axios.post(
-      "http://localhost:8080/api/properties/",
+      "https://backend-na9y.onrender.com/api/properties/",
       form
     );
     console.log("Property data sent successfully", response.data);

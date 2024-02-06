@@ -217,7 +217,7 @@
           </div>
         </div> -->
       </div>
-      
+
       <div class="flex justify-end mt-6">
         <button
           @click="submitAgent"
@@ -271,7 +271,7 @@ const submitAgent = async () => {
     console.log("Submit button clicked");
     console.log(agentData.value);
     const response = await axios.post(
-      "http://localhost:8080/api/agents/",
+      "https://backend-na9y.onrender.com/api/agents/",
       agentData.value
     );
     console.log("Property data sent successfully", response.data);
