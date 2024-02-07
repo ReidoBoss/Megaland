@@ -94,7 +94,7 @@ const removeAllData = () => {
   propertyData.value.splice(0, propertyData.value.length);
 };
 const fetchAllData = () => {
-  fetch("https://backend-na9y.onrender.com/api/search", {
+  fetch("https://backend-n4gs.onrender.com/api/search", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
