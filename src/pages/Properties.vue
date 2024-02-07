@@ -198,7 +198,7 @@ function filter() {}
 const fetchAllData = async () => {
   try {
     const response = await fetch(
-      `https://backend-na9y.onrender.com/api/all/${route.params.page}`
+      `https://backend-n4gs.onrender.com/api/all/${route.params.page}`
     );
     const data = await response.json();
 
@@ -206,7 +206,7 @@ const fetchAllData = async () => {
       propertyData.value.push(data.propertyDetails[i]);
 
       const imageResponse = await fetch(
-        `https://backend-na9y.onrender.com/api/getPropertyImage/${propertyData.value[i].property_id}`
+        `https://backend-n4gs.onrender.com/api/getPropertyImage/${propertyData.value[i].property_id}`
       );
       const imageData = await imageResponse.json();
 
