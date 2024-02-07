@@ -249,7 +249,7 @@ const property = ref<propertyType>({
   dataURL: "",
 });
 
-// fetch(`https://backend-na9y.onrender.com/api/getPropertyDetails/${route.params.id}`, {
+// fetch(`https://backend-n4gs.onrender.com/api/getPropertyDetails/${route.params.id}`, {
 //     method: "GET",
 //     headers: {
 //       "Content-Type": "application/json",
@@ -266,13 +266,13 @@ const property = ref<propertyType>({
 const fetchAllData = async () => {
   try {
     const detailsResponse = await fetch(
-      `https://backend-na9y.onrender.com/api/getPropertyDetails/${route.params.id}`
+      `https://backend-n4gs.onrender.com/api/getPropertyDetails/${route.params.id}`
     );
     const detailsData = await detailsResponse.json();
     property.value = detailsData[0];
 
     const imageResponse = await fetch(
-      `https://backend-na9y.onrender.com/api/getPropertyImage/${route.params.id}`
+      `https://backend-n4gs.onrender.com/api/getPropertyImage/${route.params.id}`
     );
     const imageData = await imageResponse.json();
 
@@ -295,7 +295,7 @@ fetchAllData();
 // const fetchAllData = async () => {
 //   try {
 //     const response = await fetch(
-//       `https://backend-na9y.onrender.com/api/getPropertyDetails/${route.params.id}`
+//       `https://backend-n4gs.onrender.com/api/getPropertyDetails/${route.params.id}`
 //     );
 //     const data = await response.json();
 //     console.log(data);
@@ -304,7 +304,7 @@ fetchAllData();
 //       propertyData.value.push(data.propertyDetails[i]);
 
 //       const imageResponse = await fetch(
-//         `https://backend-na9y.onrender.com/api/getPropertyImage/${route.params.page}`
+//         `https://backend-n4gs.onrender.com/api/getPropertyImage/${route.params.page}`
 //       );
 //       const imageData = await imageResponse.json();
 
