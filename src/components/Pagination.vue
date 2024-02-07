@@ -76,7 +76,7 @@ const iterator = ref(1);
 const items = ref<number[]>([]);
 
 const fetchData = () => {
-  fetch(`https://backend-na9y.onrender.com/api/all/${iterator.value}`, {
+  fetch(`https://backend-n4gs.onrender.com/api/all/${iterator.value}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
