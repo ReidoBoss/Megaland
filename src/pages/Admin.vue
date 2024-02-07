@@ -1221,7 +1221,7 @@ const submitAgent = async () => {
     console.log("Submit button clicked");
     console.log(agentData.value);
     const response = await axios.post(
-      "https://backend-na9y.onrender.com/api/agents/",
+      "https://backend-n4gs.onrender.com/api/agents/",
       agentData.value
     );
     console.log("Property data sent successfully", response.data);
@@ -1340,7 +1340,7 @@ const submitProperty = async () => {
     );
 
     await axios.post(
-      "https://backend-na9y.onrender.com/api/addProperty/",
+      "https://backend-n4gs.onrender.com/api/addProperty/",
       formData,
       {
         headers: {
