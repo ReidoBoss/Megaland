@@ -301,7 +301,7 @@ const resetAllLocalStorage = () => {
 };
 
 const fetchAllData = () => {
-  fetch("https://backend-na9y.onrender.com/api", {
+  fetch("https://backend-n4gs.onrender.com/api", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -440,7 +440,7 @@ const filter = () => {
   var propertyRoomChosen = localStorage.getItem("property_room_chosen");
 
   //fetch
-  fetch("https://backend-na9y.onrender.com/api", {
+  fetch("https://backend-n4gs.onrender.com/api", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
