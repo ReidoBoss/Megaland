@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,vue}"],
   theme: {
     extend: {
+      colors: {
+        primary: "#101826",
+      },
       screens: {
         "custom-sm": { max: "640px" }, //Custom breakpoint for 640px and below..hehehe
       },
@@ -14,6 +17,7 @@ export default {
         300: 300,
         400: 400,
       },
+      primary: {},
     },
   },
   plugins: [],

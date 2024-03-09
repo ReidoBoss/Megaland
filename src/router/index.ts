@@ -49,14 +49,17 @@ const routes: RouteRecordRaw[] = [
     meta: { hideNavAndFooter: true },
   },
   {
+    path: "/AdminNew",
+    name: "AdminNew",
+    component: () => import("../pages/AdminNew.vue"),
+    meta: { hideNavAndFooter: true },
+  },
+  {
     path: "/search",
     name: "search",
     component: () => import("../pages/Search.vue"),
     meta: { hideNavAndFooter: false },
   },
-
- 
-
 ];
 
 const router = createRouter({
