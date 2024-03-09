@@ -1275,11 +1275,60 @@ const property_railway = ref(1);
 const property_shopping = ref(1);
 const property_universities = ref(1);
 
-const handleFileChange = (event: any) => {
+const handleFileChange = async (event: any) => {
   const file = (event.target.files || [])[0];
   if (file) {
-    imageFile.value = file;
+    try {
+      const resizedFile = await resizeImage(file);
+      imageFile.value = resizedFile;
+    } catch (error) {
+      console.error("Error resizing image:", error);
+    }
   }
+};
+
+const resizeImage = async (file) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (event) => {
+      const img = new Image();
+      img.src = event.target.result as string;
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const maxWidth = 800; // adjust the maximum width as needed
+        const maxHeight = 600; // adjust the maximum height as needed
+        let width = img.width;
+        let height = img.height;
+
+        if (width > maxWidth) {
+          height *= maxWidth / width;
+          width = maxWidth;
+        }
+
+        if (height > maxHeight) {
+          width *= maxHeight / height;
+          height = maxHeight;
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+        ctx.drawImage(img, 0, 0, width, height);
+
+        canvas.toBlob((blob) => {
+          const resizedFile = new File([blob], file.name, { type: 'image/jpeg', lastModified: Date.now() });
+          resolve(resizedFile);
+        }, 'image/jpeg', 0.9);
+      };
+      img.onerror = (error) => {
+        reject(error);
+      };
+    };
+    reader.onerror = (error) => {
+      reject(error);
+    };
+  });
 };
 
 const submitProperty = async () => {
