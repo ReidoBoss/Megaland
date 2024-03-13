@@ -55,6 +55,42 @@ const routes: RouteRecordRaw[] = [
     meta: { hideNavAndFooter: true },
   },
   {
+    path: "/AdminNewListProperty",
+    name: "AdminListProperty",
+    component: () => import("../components/PropertyListing.vue"),
+    meta: { hideNavAndFooter: true },
+  },
+  {
+    path: "/AdminNewAddAgent",
+    name: "AdminAddAgent",
+    component: () => import("../components/AddAgent.vue"),
+    meta: { hideNavAndFooter: true },
+  },
+  {
+    path: "/AdminNewAgentsTable",
+    name: "AdminAgentsTable",
+    component: () => import("../components/AgentsTable.vue"),
+    meta: { hideNavAndFooter: true },
+  },
+  {
+    path: "/AdminNewPropertyTable",
+    name: "AdminPropertyTable",
+    component: () => import("../components/PropertyTable.vue"),
+    meta: { hideNavAndFooter: true },
+  },
+  {
+    path: "/AdminNewBlogListing",
+    name: "AdminBlogListing",
+    component: () => import("../components/BlogListing.vue"),
+    meta: { hideNavAndFooter: true },
+  },
+  {
+    path: "/AdminNewBlogTable",
+    name: "AdminBlogTable",
+    component: () => import("../components/BlogTable.vue"),
+    meta: { hideNavAndFooter: true },
+  },
+  {
     path: "/search",
     name: "search",
     component: () => import("../pages/Search.vue"),

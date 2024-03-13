@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#e9d8c5] h-[3500px]">
+  <div class="bg-[#e9d8c5] h-screen">
     <nav
       class="border-gray-200 dark:bg-gray-900 py-5 items-center justify-center flex mx-auto"
     >
@@ -22,8 +22,25 @@
       </div>
     </nav>
 
+    <div class="w-full h-[5%] lg:hidden md:block custom-sm:block bg-orange-500">
+      <button
+        @click="toggleSidebar"
+        class="hover:underline custom-sm:md sm:text-md lg:hidden ml-2"
+      >
+        <mdicon
+          name="ReorderHorizontal"
+          :width="35"
+          :height="35"
+          class="hover:text-white text-[#111929]"
+        />
+      </button>
+    </div>
+    <SideBarAdminNew
+      :isVisible="isSidebarVisible"
+      :toggleSidebar="toggleSidebar"
+    />
     <!-- Tab Navigations -->
-    <div
+    <!-- <div
       class="md:bg-gray-900 md:border-t-2 md:border-l-2 md:border-r-2 md:text-xl md:font-bold md:flex md:flex-row-4 md:h-[130px] md:row-span-4 custom-sm:w-[100%] custom-sm:flex custom-sm:flex-row custom-sm:mx-auto custom-sm:h-[50px] custom-sm: custom-sm:bg-gray-900 font-poppins"
     >
       <div
@@ -77,16 +94,23 @@
         <AgentsTable v-else-if="active == 2" />
         <PropertyTable v-else-if="active == 3" />
       </Transition>
-    </div>
+    </div> -->
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
+import SideBarAdminNew from "../components/SideBarAdminNew.vue";
 import { ref } from "vue";
 const active = ref(0);
-
+const isSidebarVisible = ref(false);
+const toggleSidebar = () => {
+  isSidebarVisible.value = !isSidebarVisible.value;
+};
 import PropertyListing from "../components/PropertyListing.vue";
 import AddAgent from "../components/AddAgent.vue";
 import AgentsTable from "../components/AgentsTable.vue";
 import PropertyTable from "../components/PropertyTable.vue";
+import { ref } from "vue";
+import router from "../router";
+import { useRoute } from "vue-router";
 </script>

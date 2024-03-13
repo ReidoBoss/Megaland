@@ -1,44 +1,46 @@
 <template>
-  <div class="h-full">
-    <nav
-      class="border-gray-200 dark:bg-gray-900 py-5 items-center justify-center flex mx-auto"
-    >
-      <div
-        class="flex custom-sm:justify-center custom-sm:items-center p-4 md:mx-auto"
+  <div class="h-full bg-[#e9d8c5]">
+    <div class="bg-[#e9d8c5]">
+      <nav
+        class="border-gray-200 dark:bg-gray-900 py-5 items-center justify-center flex mx-auto"
       >
         <div
-          class="flex mx-auto items-center justify-center custom-sm:items-center custom-sm:justify-center custom-sm:flex"
+          class="flex custom-sm:justify-center custom-sm:items-center p-4 md:mx-auto"
         >
-          <img
-            src="../assets/mgLogo.png"
-            class="lg:h-20 lg:w-35 md:h-20 md:w-35 custom-sm:w-[30%] custom-sm:h-[20%]"
-            alt=""
-          />
-          <span
-            class="text-xl font-semibold dark:text-white flex custom-sm:text-sm"
-            >ADMINISTRATOR</span
+          <div
+            class="flex mx-auto items-center justify-center custom-sm:items-center custom-sm:justify-center custom-sm:flex"
           >
+            <img
+              src="../assets/mgLogo.png"
+              class="lg:h-20 lg:w-35 md:h-20 md:w-35 custom-sm:w-[30%] custom-sm:h-[20%]"
+              alt=""
+            />
+            <span
+              class="text-xl font-semibold dark:text-white flex custom-sm:text-sm"
+              >ADMINISTRATOR</span
+            >
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
 
-    <div class="w-full lg:hidden md:block custom-sm:block bg-[#e9d8c5]">
-      <button
-        @click="toggleSidebar"
-        class="hover:underline custom-sm:md sm:text-md lg:hidden ml-2"
-      >
-        <mdicon
-          name="ReorderHorizontal"
-          :width="35"
-          :height="35"
-          class="hover:text-white text-[#111929]"
-        />
-      </button>
+      <div class="w-full lg:hidden md:block custom-sm:block bg-[#e9d8c5]">
+        <button
+          @click="toggleSidebar"
+          class="hover:underline custom-sm:md sm:text-md lg:hidden ml-2"
+        >
+          <mdicon
+            name="ReorderHorizontal"
+            :width="35"
+            :height="35"
+            class="hover:text-white text-[#111929]"
+          />
+        </button>
+      </div>
+      <SideBarAdminNew
+        :isVisible="isSidebarVisible"
+        :toggleSidebar="toggleSidebar"
+      />
     </div>
-    <SideBarAdminNew
-      :isVisible="isSidebarVisible"
-      :toggleSidebar="toggleSidebar"
-    />
     <div class="lg:block w-[100%] h-[100%] sticky top-0 bg-[#e9d8c5]">
       <div class="flex flex-row row-span-2">
         <aside
@@ -127,7 +129,6 @@
             </li>
           </ul>
         </aside>
-
         <div
           class="custom-sm:w-[90%] custom-sm:h-[750px] md:w-[80%] mx-auto lg:w-[80%] md:h-[750px] md:mt-[10%] lg:mt-[5%]"
         >
@@ -141,14 +142,14 @@
                 :height="35"
                 class="hover:text-white text-[#111929] mr-2"
               />
-              <span class="font-semibold text-md"> Property List Table</span>
+              <span class="font-semibold text-md"> Blog List Table</span>
             </div>
             <div class="md:flex md:flex-row md:row-span-3 md:gap-6">
               <div
                 class="flex justify-start items-start flex-col mt-5 md:w-[30%]"
               >
                 <label class="block mb-2 text-sm font-medium" for="agentname"
-                  >Property Name:</label
+                  >Blog Title:</label
                 >
                 <input
                   id="agentname"
@@ -160,7 +161,7 @@
                 class="flex justify-start items-start flex-col mt-5 md:w-[30%]"
               >
                 <label class="block mb-2 text-sm font-medium" for="agentemail"
-                  >Email</label
+                  >Agent Name</label
                 >
                 <input
                   id="agentemail"
@@ -211,7 +212,8 @@
                   <tr class="text-xs">
                     <th scope="col" class="py-3"></th>
                     <th scope="col" class="px-6 py-3">Images</th>
-                    <th scope="col" class="px-12 py-3">Name</th>
+                    <th scope="col" class="px-12 py-3">Agent Name</th>
+                    <th scope="col" class="px-12 py-3">Blog Title</th>
                     <th scope="col" class="px-6 py-3">Property Status</th>
                     <th scope="col" class="px-6 py-3">Price</th>
 
@@ -219,7 +221,7 @@
                   </tr>
                 </thead>
                 <tbody class="font-semibold text-sm">
-                  <tr class="bg-white border-b">
+                  <tr class="bg-white border-2">
                     <th
                       scope="row"
                       class="px-2 py-6 font-medium text-gray-900 whitespace-nowrap flex justify-center items-center"
@@ -239,6 +241,7 @@
                         src="../assets/images/Youtube-Images/image1.png"
                       />
                     </td>
+                    <td class="px-6">Marivil Du</td>
                     <td class="px-6">DANARRA SOUTH</td>
 
                     <td class="px-6 py-4">Buy</td>
@@ -250,7 +253,7 @@
                     </td>
                   </tr>
 
-                  <tr class="bg-white border-b">
+                  <tr class="bg-white border-2">
                     <th
                       scope="row"
                       class="px-2 py-6 font-medium text-gray-900 whitespace-nowrap flex justify-center items-center"
@@ -270,6 +273,7 @@
                         src="../assets/images/Youtube-Images/image1.png"
                       />
                     </td>
+                    <td class="px-6">Marivil Du</td>
                     <td class="px-6">PASEO JULIO</td>
 
                     <td class="px-6 py-4">Buy</td>
@@ -300,6 +304,7 @@
                         src="../assets/images/Youtube-Images/image1.png"
                       />
                     </td>
+                    <td class="px-6">Marivil Du</td>
                     <td class="px-6">PARKVILLE BACOLOD BY SMDC</td>
 
                     <td class="px-6 py-4">Buy</td>
@@ -319,7 +324,6 @@
     </div>
   </div>
 </template>
-
 <script lang="ts" setup>
 import SideBarAdminNew from "../components/SideBarAdminNew.vue";
 import { ref } from "vue";
