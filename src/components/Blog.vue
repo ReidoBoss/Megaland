@@ -14,13 +14,11 @@
       </div>
       <div class="w-[60%] pl-2">
         <div
-          class="lg:text-xs md:text-[9px] font-semibold mt-0.5 text-justify tracking-tight"
+          class="lg:text-[11px] md:text-[9px] font-semibold mt-0.5 text-justify tracking-tight"
         >
           {{ description }}
         </div>
-        <div
-          class="lg:text-[12px] md:text-[13px] text-gray-600 font-semibold ml-1"
-        >
+        <div class="lg:text-xs md:text-[13px] text-gray-600 font-semibold ml-1">
           {{ "By: " + name }}
         </div>
       </div>
