@@ -12,7 +12,7 @@
               class="font-black custom-sm:text-xl sm:text-2xl md:text-3.5xl lg:text-4xl"
             >
               MEET <span class="text-[#E67E23]">MEGALAND REALTY</span></span
-            >
+            >git 
             <h2
               class="mt-5 mb-6 font-medium text-justify md:text-xl sm:text-lg custom-sm:text-sm font-poppins"
             >
@@ -87,6 +87,9 @@
     <div class="justify-center grid grid-cols 3 mt-[100px] mb-[100px]">
       <Buttons />
     </div>
+
+
+    
   </div>
 </template>
 

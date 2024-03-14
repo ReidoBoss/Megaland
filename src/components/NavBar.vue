@@ -89,14 +89,15 @@
         />
       </div>
       <div class="flex w-[10%] justify-end items-center pr-3">
-        <UserIcon class="w-10 h-10 text-[#E67E23] hover:scale-[1.02]" />
+        <UserIcon @click="toggleModal" class="w-10 h-10 cursor-pointer text-[#E67E23] hover:scale-[1.02]" />
       </div>
     </div>
   </div>
+  <LoginModal :modalActive="modalActive" @close-modal="toggleModal">  </LoginModal>
 </template>
 
 <script lang="ts" setup>
-import { MagnifyingGlassIcon, UserIcon } from "@heroicons/vue/24/outline";
+import { MagnifyingGlassIcon, UserIcon, XMarkIcon } from "@heroicons/vue/24/outline";
 import SideBar from "./SideBar.vue";
 const isSidebarVisible = ref(false);
 const toggleSidebar = () => {
@@ -105,8 +106,14 @@ const toggleSidebar = () => {
 import { ref } from "vue";
 import router from "../router";
 import { useRoute } from "vue-router";
+import LoginModal from "./LoginModal.vue";
 
 const route = useRoute();
+
+const modalActive = ref(null);
+const toggleModal = () => {
+  modalActive.value = !modalActive.value;
+}
 
 const data = ref({
   textInputValue: "",
@@ -133,3 +140,4 @@ const search = () => {
   }
 };
 </script>
+
