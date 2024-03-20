@@ -121,20 +121,21 @@
                 :height="30"
                 class="hover:text-white"
               />
-              <router-link
+              <div
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewBlogTable"
-                >Logout</router-link
-              >
+                
+                >Logout
+</div>
+
             </li>
           </ul>
         </aside>
         <div class="lg:w-[100%]">
            
-          <div class="lg:w-[70%] custom-sm:w-[100%] mx-auto my-[5%]">
-            <div class="flex flex-wrap mx-auto my-[5%] lg:w-[22%] custom-sm:w-[40%] bg-orange-500 rounded-full h-[180px] border-2 "><span class="w-[90%] h-[90%] flex items-center justify-center rounded-full mx-auto my-auto bg-white"><img class="lg:w-[90%] lg:h-[90%] custom-sm:w-[100%] custom-sm:h-[100%] my-auto mx-auto rounded-full " src="/src/assets/marivil.png"/></span></div>
+          <div class="lg:w-[70%] md:w-[100%] custom-sm:w-[100%] mx-auto my-[5%]">
+            <div class="flex flex-wrap mx-auto my-[5%] lg:w-[22%] md:w-[25%] custom-sm:w-[40%] bg-primary rounded-full h-[180px] border-2 "><span class="w-[90%] h-[90%] flex items-center justify-center rounded-full mx-auto my-auto bg-white"><img class="lg:w-[90%] lg:h-[90%] custom-sm:w-[100%] custom-sm:h-[100%] my-auto mx-auto rounded-full " src="/src/assets/marivil.png"/></span></div>
             
-            <table class="table table-bordered lg:w-[100%] custom-sm:w-[90%] mx-auto text-xs">
+            <table class="table table-bordered lg:w-[100%] custom-sm:w-[90%] md:w-[90%] mx-auto text-xs">
                 
               <tbody>
                <tr class="border-primary border w-[100%]">
@@ -255,6 +256,14 @@
 </template>
 <script lang="ts" setup>
 import SideBarAgentNew from "../components/SideBarAgentNew.vue";
+import { onMounted } from 'vue'
+import { Modal } from 'flowbite'
+
+
+import { initFlowbite } from 'flowbite'
+onMounted(() => {
+    initFlowbite();
+})
 import { ref } from "vue";
 const active = ref(0);
 const isSidebarVisible = ref(false);
