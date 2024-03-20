@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white h-full">
+  <div class="bg-[#e9d8c5] h-full">
     <nav
       class="border-gray-200 bg-[#E67E23] py-5 items-center justify-center flex mx-auto"
     >
@@ -22,7 +22,7 @@
       </div>
     </nav>
 
-    <div class="w-full lg:hidden md:block custom-sm:block bg-white">
+    <div class="w-full lg:hidden md:block custom-sm:block bg-[#e9d8c5]">
       <button
         @click="toggleSidebar"
         class="hover:underline custom-sm:md sm:text-md lg:hidden ml-2"

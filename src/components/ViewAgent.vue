@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white h-full">
+  <div class="bg-[#e9d8c5] h-full">
     <nav
       class="border-gray-200 bg-primary py-5 items-center justify-center flex mx-auto"
     >
@@ -22,7 +22,7 @@
       </div>
     </nav>
 
-    <div class="w-full lg:hidden md:block custom-sm:block bg-white">
+    <div class="w-full lg:hidden md:block custom-sm:block bg-[#e9d8c5]">
       <button
         @click="toggleSidebar"
         class="hover:underline custom-sm:md sm:text-md lg:hidden ml-2"
@@ -41,7 +41,7 @@
     />
 
     <div class="bg-gray-900 lg:block w-[100%] h-[100%] sticky top-0">
-      <div class="flex flex-row row-span-2 bg-white">
+      <div class="flex flex-row row-span-2 bg-[#e9d8c5]">
         <aside
           class="bg-gray-900 w-[25%] border-dashed border-orange-500 border-2 h-screen self-start sticky top-0 z-10 custom-sm:hidden sm:hidden md:hidden lg:block text-orange-500"
         >
@@ -129,103 +129,107 @@
             </li>
           </ul>
         </aside>
-        <div class="w-[100%]">
-          <h2 class="font-poppins font-bold text-lg  mt-[3%] ml-[15%] text-orange-500">Agent's Details</h2>
-          <div class="w-[70%] mx-auto my-[5%]">
-            <span class="flex flex-wrap mx-auto my-[5%] w-[22%] bg-orange-500 rounded-full h-[180px] border-2"><img class="w-[90%] h-[90%]  my-auto mx-auto rounded-full" src="/src/assets/marivil.png"/></span>
+        <div class="lg:w-[100%]">
+           
+          <div class="lg:w-[70%] custom-sm:w-[100%] mx-auto my-[5%]">
+            <div class="flex flex-wrap mx-auto my-[5%] lg:w-[22%] custom-sm:w-[40%] bg-orange-500 rounded-full h-[180px] border-2 "><span class="w-[90%] h-[90%] flex items-center justify-center rounded-full mx-auto my-auto bg-white"><img class="lg:w-[90%] lg:h-[90%] custom-sm:w-[100%] custom-sm:h-[100%] my-auto mx-auto rounded-full " src="/src/assets/marivil.png"/></span></div>
             
-            <table class="table table-bordered w-[100%] text-xs">
+            <table class="table table-bordered lg:w-[100%] custom-sm:w-[90%] mx-auto text-xs">
                 
               <tbody>
-                <tr class="border w-[50%] ">
+               <tr class="border-primary border w-[100%]">
+                
+
+               </tr>
+                <tr class="border-primary border w-[50%] ">
                   <td
-                    class="border w-[25%] py-[2%] px-[2%] font-poppins font-bold"
+                    class="border-primary border w-[25%] py-[2%] px-[2%] font-poppins font-bold"
                   >
                     Agent Name
                   </td>
-                  <td class="border px-[2%] font-semibold ">Marivil Du</td>
+                  <td class="border-primary border px-[2%] font-semibold ">Marivil Du</td>
                 </tr>
-                <tr class="border w-[50%] ">
+                <tr class="border-primary border w-[50%] ">
                   <td
-                    class="border w-[25%] py-[2%] px-[2%] font-poppins font-bold"
+                    class="border-primary border w-[25%] py-[2%] px-[2%] font-poppins font-bold"
                   >
                     Position
                   </td>
-                  <td class="border px-[2%] font-semibold">Managing Broker</td>
+                  <td class="border-primary border px-[2%] font-semibold">Managing Broker</td>
                 </tr>
-                <tr class="border w-[50%]">
+                <tr class="border-primary border w-[50%]">
                   <td
-                    class="border w-[25%] py-[2%] px-[2%] font-poppins font-bold"
+                    class="border-primary border w-[25%] py-[2%] px-[2%] font-poppins font-bold"
                   >
                     Address
                   </td>
-                  <td class="border px-[2%] font-semibold">
+                  <td class="border-primary border px-[2%] font-semibold">
                     Unit 101,148 Residences,Pelaez St.Kalubihan,Cebu City
                   </td>
                 </tr>
-                <tr class="border w-[50%] ">
+                <tr class="border-primary border w-[50%] ">
                   <td
-                    class="border w-[25%] py-[2%] px-[2%] font-poppins font-bold"
+                    class="border-primary border w-[25%] py-[2%] px-[2%] font-poppins font-bold"
                   >
                     Contact
                   </td>
-                  <td class="border px-[2%] font-semibold">09773824416; 032-254-1640</td>
+                  <td class="border-primary border px-[2%] font-semibold">09773824416; 032-254-1640</td>
                 </tr>
-                <tr class="border w-[50%] font-semibold">
+                <tr class="border-primary border w-[50%] font-semibold">
                   <td
-                    class="border w-[25%] py-[2%] px-[2%] font-poppins font-bold"
+                    class="border-primary border w-[25%] py-[2%] px-[2%] font-poppins font-bold"
                   >
                     Country
                   </td>
-                  <td class="border px-[2%] font-semibold">Philippines</td>
+                  <td class="border-primary border px-[2%] font-semibold">Philippines</td>
                 </tr>
-                <tr class="border w-[50%]">
+                <tr class="border-primary border w-[50%]">
                   <td
-                    class="border w-[25%] py-[2%] px-[2%] font-poppins font-bold"
+                    class="border-primary border w-[25%] py-[2%] px-[2%] font-poppins font-bold"
                   >
                     City
                   </td>
-                  <td class="border px-[2%] font-semibold">Cebu City</td>
+                  <td class="border-primary border px-[2%] font-semibold">Cebu City</td>
                 </tr>
-                <tr class="border w-[50%]">
+                <tr class="border-primary border w-[50%]">
                   <td
-                    class="border w-[20%] py-[2%] px-[2%] font-poppins font-bold"
+                    class="border-primary border w-[20%] py-[2%] px-[2%] font-poppins font-bold"
                   >
                     Postcode
                   </td>
-                  <td class="border px-[2%] font-semibold">6000</td>
+                  <td class="border-primary border px-[2%] font-semibold">6000</td>
                 </tr>
-                <tr class="border w-[50%]">
+                <tr class="border-primary border w-[50%]">
                   <td
-                    class="border w-[20%] py-[2%] px-[2%] font-poppins font-bold"
+                    class="border-primary border w-[20%] py-[2%] px-[2%] font-poppins font-bold"
                   >
                     Facebook Link
                   </td>
-                  <td class="border px-[2%] font-semibold">Link sa facebook ni maam</td>
+                  <td class="border-primary border px-[2%] font-semibold">Link sa facebook ni maam</td>
                 </tr>
-                <tr class="border w-[50%]">
+                <tr class="border-primary border w-[50%]">
                   <td
-                    class="border w-[25%] py-[2%] px-[2%] font-poppins font-bold"
+                    class="border-primary border w-[25%] py-[2%] px-[2%] font-poppins font-bold"
                   >
                     Twitter
                   </td>
-                  <td class="border px-[2%] font-semibold">Twitter link ni maam</td>
-                  <tr class="border w-[50%]">
+                  <td class="border-primary border px-[2%] font-semibold">Twitter link ni maam</td>
+                  <tr class="border-primary border w-[50%]">
                   <td
-                    class="border w-[25%] py-[2%] px-[2%] font-poppins font-bold"
+                    class="border-primary border w-[25%] py-[2%] px-[2%] font-poppins font-bold"
                   >
                     Instagram
                   </td>
-                  <td class="border px-[2%] font-semibold">Instagram Link</td>
+                  <td class="border-primary border px-[2%] font-semibold">Instagram Link</td>
                 </tr>
                 </tr>
-                <tr class="border w-[50%]">
+                <tr class="border-primary border w-[50%]">
                   <td
-                    class="border w-[25%] py-[2%] px-[2%] font-poppins font-bold"
+                    class="border-primary border w-[25%] py-[2%] px-[2%] font-poppins font-bold"
                   >
                     Description
                   </td>
-                  <td class="border px-[2%] font-semibold py-[3%] text-justify">
+                  <td class="border-primary border px-[2%] font-semibold py-[3%] text-justify">
                     As the Managing Broker of Megaland Realty, my real estate
                     journey began in 2006 when I started out as a Real Estate
                     Agent. In 2008, I passed the Brokers licensure Examination

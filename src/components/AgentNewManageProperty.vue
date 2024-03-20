@@ -21,7 +21,7 @@
       </div>
     </nav>
 
-    <div class="w-full lg:hidden md:block custom-sm:block bg-white">
+    <div class="w-full lg:hidden md:block custom-sm:block bg-[#e9d8c5]">
       <button
         @click="toggleSidebar"
         class="hover:underline custom-sm:md sm:text-md lg:hidden ml-2"
@@ -38,7 +38,7 @@
       :isVisible="isSidebarVisible"
       :toggleSidebar="toggleSidebar"
     />
-    <div class="lg:block w-[100%] h-[100%] sticky top-0 bg-white">
+    <div class="lg:block w-[100%] h-[100%] sticky top-0 bg-[#e9d8c5]">
       <div class="flex flex-row row-span-2">
         <aside
           class="bg-gray-900 w-[20%] border-dashed border-orange-500 border-2 h-screen self-start sticky top-0 z-10 custom-sm:hidden sm:hidden md:hidden lg:block text-orange-500"
@@ -129,7 +129,7 @@
         </aside>
 
         <div
-          class="custom-sm:w-[90%] custom-sm:h-[750px] md:w-[80%] mx-auto lg:w-[80%] md:h-[750px] md:mt-[10%] lg:mt-[5%]"
+          class="custom-sm:w-[90%] custom-sm:h-[750px] md:w-[80%] mx-auto lg:w-[80%] md:h-[750px] md:mt-[10%] lg:mt-[5%] bg-[#e9d8c5]"
         >
           <div
             class="custom-sm:w-[100%] md:w-[90%] mt-[5%] border-2 rounded-lg px-5 py-5 bg-white mx-auto"

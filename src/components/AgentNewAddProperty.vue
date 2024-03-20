@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white h-full">
+  <div class="bg-[#e9d8c5] h-full">
     <nav
       class="border-gray-200 bg-primary py-5 items-center justify-center flex mx-auto"
     >
@@ -21,7 +21,7 @@
       </div>
     </nav>
 
-    <div class="w-full lg:hidden md:block custom-sm:block bg-white">
+    <div class="w-full lg:hidden md:block custom-sm:block bg-[#e9d8c5]">
       <button
         @click="toggleSidebar"
         class="hover:underline custom-sm:md sm:text-md lg:hidden ml-2"
@@ -40,7 +40,7 @@
     />
 
     <div class="bg-gray-900 lg:block w-[100%] h-[100%] sticky top-0">
-      <div class="flex flex-row row-span-2 bg-white">
+      <div class="flex flex-row row-span-2 bg-[#e9d8c5]">
         <aside
           class="bg-primary w-[25%] border-dashed border-orange-500 border-2 h-screen self-start sticky top-0 z-10 custom-sm:hidden sm:hidden md:hidden lg:block text-orange-500"
         >
@@ -129,7 +129,7 @@
           </ul>
         </aside>
         <div
-          class="bg-white custom-sm:mb-[10%] lg:w-[100%] custom-sm:w-[90%] md:w-[90%] mx-auto"
+          class="bg-[#e9d8c5] custom-sm:mb-[10%] lg:w-[100%] custom-sm:w-[90%] md:w-[90%] mx-auto"
         >
           <div
             class="flex lg:w-[60%] md:w-[80%] mt-10 bg-gray-100 rounded-lg items-center justify-center mx-auto my-auto border-2 border-primary text-primary font-500 drop-shadow-lg"
