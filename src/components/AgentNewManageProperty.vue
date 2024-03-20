@@ -1,7 +1,7 @@
 <template>
   <div class="h-full">
     <nav
-      class="border-gray-200 dark:bg-gray-900 py-5 items-center justify-center flex mx-auto"
+      class="border-gray-200 bg-primary py-5 items-center justify-center flex mx-auto"
     >
       <div
         class="flex custom-sm:justify-center custom-sm:items-center p-4 md:mx-auto"
@@ -16,13 +16,12 @@
           />
           <span
             class="text-xl font-semibold dark:text-white flex custom-sm:text-sm"
-            >ADMINISTRATOR</span
-          >
+          ></span>
         </div>
       </div>
     </nav>
 
-    <div class="w-full lg:hidden md:block custom-sm:block bg-[#e9d8c5]">
+    <div class="w-full lg:hidden md:block custom-sm:block bg-white">
       <button
         @click="toggleSidebar"
         class="hover:underline custom-sm:md sm:text-md lg:hidden ml-2"
@@ -35,14 +34,14 @@
         />
       </button>
     </div>
-    <SideBarAdminNew
+    <SideBarAgentNew
       :isVisible="isSidebarVisible"
       :toggleSidebar="toggleSidebar"
     />
-    <div class="lg:block w-[100%] h-[100%] sticky top-0 bg-[#e9d8c5]">
+    <div class="lg:block w-[100%] h-[100%] sticky top-0 bg-white">
       <div class="flex flex-row row-span-2">
         <aside
-          class="bg-primary w-[20%] border-dashed border-2 h-screen self-start sticky top-0 z-10 custom-sm:hidden sm:hidden md:hidden lg:block text-[#e9d8c5]"
+          class="bg-gray-900 w-[20%] border-dashed border-orange-500 border-2 h-screen self-start sticky top-0 z-10 custom-sm:hidden sm:hidden md:hidden lg:block text-orange-500"
         >
           <ul
             class="flex flex-col gap-10 justify-center ml-10 items-start hover: cursor-pointer my-[50%] sticky top-1"
@@ -56,8 +55,8 @@
               />
               <router-link
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNew"
-                >Property Listing</router-link
+                to="/AgentNewViewAgent"
+                >View Profile</router-link
               >
             </li>
             <li class="flex">
@@ -69,10 +68,11 @@
               />
               <router-link
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewPropertyTable"
-                >Manage Property</router-link
+                to="/AgentNewEditAgent"
+                >Edit Profile</router-link
               >
             </li>
+
             <li class="flex">
               <mdicon
                 name="OfficeBuildingMarkerOutline"
@@ -82,8 +82,8 @@
               />
               <router-link
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewAddAgent"
-                >Add Agent</router-link
+                to="/AgentNewAddProperty"
+                >Add Property</router-link
               >
             </li>
             <li class="flex">
@@ -95,8 +95,8 @@
               />
               <router-link
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewAgentsTable"
-                >Manage Agent</router-link
+                to="/AgentNewManageProperty"
+                >Manage Property</router-link
               >
             </li>
             <li class="flex">
@@ -108,8 +108,8 @@
               />
               <router-link
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewBlogListing"
-                >Blog Listing</router-link
+                to="/AgentNewChangePassword"
+                >Change Password</router-link
               >
             </li>
             <li class="flex">
@@ -122,7 +122,7 @@
               <router-link
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
                 to="/AdminNewBlogTable"
-                >Manage Blog</router-link
+                >Logout</router-link
               >
             </li>
           </ul>
@@ -321,7 +321,7 @@
 </template>
 
 <script lang="ts" setup>
-import SideBarAdminNew from "../components/SideBarAdminNew.vue";
+import SideBarAgentNew from "../components/SideBarAgentNew.vue";
 import { ref } from "vue";
 const active = ref(0);
 const isSidebarVisible = ref(false);

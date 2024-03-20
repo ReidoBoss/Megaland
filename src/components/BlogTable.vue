@@ -58,7 +58,7 @@
               />
               <router-link
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewListProperty"
+                to="/AdminNew"
                 >Property Listing</router-link
               >
             </li>
@@ -72,7 +72,7 @@
               <router-link
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
                 to="/AdminNewPropertyTable"
-                >Property Table</router-link
+                >Manage Property</router-link
               >
             </li>
             <li class="flex">
@@ -98,7 +98,7 @@
               <router-link
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
                 to="/AdminNewAgentsTable"
-                >Agent Table</router-link
+                >Manage Agent</router-link
               >
             </li>
             <li class="flex">
@@ -124,7 +124,7 @@
               <router-link
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
                 to="/AdminNewBlogTable"
-                >Blog Table</router-link
+                >Manage Blog</router-link
               >
             </li>
           </ul>

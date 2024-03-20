@@ -89,11 +89,7 @@
             :height="30"
             class="hover:text-white"
           />
-          <router-link
-            class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-            to="/about"
-            >About Us</router-link
-          >
+          <router-link class="" to="/about">About Us</router-link>
         </li>
       </div>
 

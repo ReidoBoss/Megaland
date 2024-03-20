@@ -1295,8 +1295,8 @@ const resizeImage = async (file) => {
       const img = new Image();
       img.src = event.target.result as string;
       img.onload = () => {
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
         const maxWidth = 800; // adjust the maximum width as needed
         const maxHeight = 600; // adjust the maximum height as needed
         let width = img.width;
@@ -1316,10 +1316,17 @@ const resizeImage = async (file) => {
         canvas.height = height;
         ctx.drawImage(img, 0, 0, width, height);
 
-        canvas.toBlob((blob) => {
-          const resizedFile = new File([blob], file.name, { type: 'image/jpeg', lastModified: Date.now() });
-          resolve(resizedFile);
-        }, 'image/jpeg', 0.9);
+        canvas.toBlob(
+          (blob) => {
+            const resizedFile = new File([blob], file.name, {
+              type: "image/jpeg",
+              lastModified: Date.now(),
+            });
+            resolve(resizedFile);
+          },
+          "image/jpeg",
+          0.9
+        );
       };
       img.onerror = (error) => {
         reject(error);

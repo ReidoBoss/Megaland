@@ -26,11 +26,7 @@ const routes: RouteRecordRaw[] = [
     name: "Contact",
     component: () => import("../pages/Contact.vue"),
   },
-  {
-    path: "/listProperty/",
-    name: "List Property",
-    component: () => import("../pages/ListProperty.vue"),
-  },
+
   {
     path: "/Details/:id",
     name: "Details",
@@ -43,21 +39,49 @@ const routes: RouteRecordRaw[] = [
     meta: { hideNavAndFooter: true },
   },
   {
-    path: "/AdminTest",
-    name: "AdminTest",
-    component: () => import("../pages/AdminTest.vue"),
+    path: "/AgentNewViewAgent",
+    name: "ViewAgent",
+    component: () => import("../components/ViewAgent.vue"),
     meta: { hideNavAndFooter: true },
   },
+  {
+    path: "/AgentNewEditAgent",
+    name: "EditAgent",
+    component: () => import("../components/EditAgent.vue"),
+    meta: { hideNavAndFooter: true },
+  },
+
+  {
+    path: "/AgentNewAddProperty",
+    name: "AgentAddProperty",
+    component: () => import("../components/AgentNewAddProperty.vue"),
+    meta: { hideNavAndFooter: true },
+  },
+
+  {
+    path: "/AgentNewManageProperty",
+    name: "AgentManageProperty",
+    component: () => import("../components/AgentNewManageProperty.vue"),
+    meta: { hideNavAndFooter: true },
+  },
+
+  {
+    path: "/AgentNewChangePassword",
+    name: "AgentChangePassword",
+    component: () => import("../components/AgentNewChangePassword.vue"),
+    meta: { hideNavAndFooter: true },
+  },
+  {
+    path: "/AgentNew",
+    name: "Agent",
+    component: () => import("../pages/AgentNew.vue"),
+    meta: { hideNavAndFooter: true },
+  },
+
   {
     path: "/AdminNew",
-    name: "AdminNew",
-    component: () => import("../pages/AdminNew.vue"),
-    meta: { hideNavAndFooter: true },
-  },
-  {
-    path: "/AdminNewListProperty",
     name: "AdminListProperty",
-    component: () => import("../components/PropertyListing.vue"),
+    component: () => import("../pages/AdminNew.vue"),
     meta: { hideNavAndFooter: true },
   },
   {
