@@ -133,7 +133,7 @@ export default {
                 <td class="custom-sm:w-[20%] custom-sm:h-[20%] md:w-[10%]">
                   <img
                     class="md:w-[80%] lg:w-[80%] custom-sm:w-[80%] mx-auto my-2"
-                    src="../assets/marivil.png"
+                    src="src/assets/marivil.png"
                   />
                 </td>
                 <td class="px-6">Marivil Du</td>
@@ -162,7 +162,7 @@ export default {
                 <td class="custom-sm:w-[20%] custom-sm:h-[20%] md:w-[10%]">
                   <img
                     class="md:w-[80%] lg:w-[80%] custom-sm:w-[80%] mx-auto my-2"
-                    src="../assets/marivil.png"
+                    src="src/assets/marivil.png"
                   />
                 </td>
                 <td class="px-6">Marivil Du</td>
@@ -188,7 +188,7 @@ export default {
                 <td class="custom-sm:w-[20%] custom-sm:h-[20%] md:w-[10%]">
                   <img
                     class="md:w-[80%] lg:w-[80%] custom-sm:w-[80%] mx-auto my-2"
-                    src="../assets/marivil.png"
+                    src="src/assets/marivil.png"
                   />
                 </td>
                 <td class="px-6">Marivil Du</td>

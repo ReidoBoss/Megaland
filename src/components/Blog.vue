@@ -5,7 +5,7 @@
     <a :href="youtubeUrl" target="_blank" class="w-full flex">
       <div class="md:w-[40%] md:h-[50px]">
         <img
-          src="../assets/images/Youtube-Images/image1.png"
+          src="src/assets/images/Youtube-Images/image1.png"
           alt="YouTube Thumbnail"
           width="130"
           height="90"

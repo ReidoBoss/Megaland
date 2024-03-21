@@ -6,7 +6,7 @@
       class="my-[5%] custom-sm:w-[40%] custom-sm:h-[40%] custom-sm:mx-auto relative lg:w-48 md:w-40 mx-auto -z-30"
     >
       <img
-        src="../assets/marivil.png"
+        src="src/assets/marivil.png"
         alt="img"
         class="lg:w-48 lg:h-48 md:w-35 md:h-30 border-4 border-white rounded-full object-cover relative z-10"
       />
