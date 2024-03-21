@@ -10,9 +10,9 @@
           class="flex mx-auto items-center justify-center custom-sm:items-center custom-sm:justify-center custom-sm:flex"
         >
           <img
-            src="../assets/mgLogo.png"
-            class="lg:h-20 lg:w-35 md:h-20 md:w-35 custom-sm:w-[30%] custom-sm:h-[20%]"
-            alt=""
+            src="src/assets/mgLogo.png"
+            class="lg:h-40 lg:w-50 md:h-20 md:w-35 custom-sm:w-[30%] custom-sm:h-[20%]"
+            alt="megaland"
           />
           <span class="text-xl font-semibold flex custom-sm:text-sm"></span>
         </div>
@@ -127,7 +127,7 @@
         </aside>
 
         <div
-          class="flex flex-col items-center justify-center custom-sm:w-[90%] mx-auto custom-sm:mt-[15%] md:w-[80%] lg:w-[80%] md:py-[8%]"
+          class="flex flex-col items-center justify-center custom-sm:w-[90%] mx-auto custom-sm:mt-[15%] lg:mt-[-10%] md:w-[80%] lg:w-[80%] md:py-[8%]"
         >
           <div
             class="md:mt-[10%] lg:mt-[1%] md:w-[100%] lg:w-[50%] p-6 bg-white rounded-lg shadow md:py-[5%]"
@@ -219,7 +219,7 @@
 </template>
 
 <script lang="ts" setup>
-import SideBarAgentNew from "../components/SideBarAgentNew.vue";
+import SideBarAgentNew from "../AgentSidePages/SideBarAgentNew.vue";
 import { ref } from "vue";
 const active = ref(0);
 const isSidebarVisible = ref(false);
@@ -230,3 +230,4 @@ import { ref } from "vue";
 import router from "../router";
 import { useRoute } from "vue-router";
 </script>
+../../router

@@ -145,3 +145,4 @@ const toggleSidebar = () => {
 import router from "../router";
 import { useRoute } from "vue-router";
 </script>
+../components/AgentSidePages/SideBarAgentNew.vue

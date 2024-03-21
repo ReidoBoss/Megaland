@@ -2,15 +2,18 @@
 <template>
   <div
     v-if="isVisible"
-    class="border-2 border-dashed custom-sm:overflow-y-auto sm:overflow-y-auto md:overflow-y-auto fixed top-0 left-0 custom-sm:w-64 custom-sm:h-[100%] sm:h-[100%] md:h-[100%] md:w-[37%] bg-primary text-[#e9d8c5] p-2 z-10 lg:hidden"
+    class="border-2 border-dashed border-orange-500 custom-sm:overflow-y-auto sm:overflow-y-auto md:overflow-y-auto fixed top-0 left-0 custom-sm:w-64 custom-sm:h-[100%] sm:h-[100%] md:h-[100%] md:w-[37%] bg-primary text-orange-500 p-2 z-10 lg:hidden"
   >
     <div class="flex my-2">
-      <mdicon
-        name="AccountCircle"
-        :width="35"
-        :height="35"
-        class="hover:text-white"
-      />
+      <div>
+        <mdicon
+          name="AccountCircle"
+          :width="35"
+          :height="35"
+          class="hover:text-white"
+        />
+      </div>
+
       <button
         @click="toggleSidebar"
         class="text-[#e9d8c5] custom-sm:ml-[70%] sm:ml-[70%] md:ml-[75%]"
@@ -25,24 +28,32 @@
     </div>
 
     <!-- Sidebar content goes here -->
+    <img
+      src="src/assets/mgLogo.jpg"
+      class="lg:h-40 lg:w-50 md:h-20 md:w-35 custom-sm:w-[65%] custom-sm:h-[13%] mx-auto my-[10%] rounded-lg"
+      alt="megaland"
+    />
 
-    <ul class="flex flex-col gap-10 justify-end hover: cursor-pointer mt-[25%]">
+    <ul
+      class="flex flex-col gap-10 justify-center items-start hover: cursor-pointer my-[25%] sticky top-1"
+    >
       <li class="flex">
         <mdicon name="Home" :width="30" :height="30" class="hover:text-white" />
         <router-link
           class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-          to="/AdminNew"
-          >Property Listing</router-link
+          to="/AgentNewViewAgent"
+          >View Profile</router-link
         >
       </li>
       <li class="flex">
         <mdicon name="Home" :width="30" :height="30" class="hover:text-white" />
         <router-link
           class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-          to="/AdminNewPropertyTable"
-          >Property Table</router-link
+          to="/AgentNewEditAgent"
+          >Edit Profile</router-link
         >
       </li>
+
       <li class="flex">
         <mdicon
           name="OfficeBuildingMarkerOutline"
@@ -52,8 +63,8 @@
         />
         <router-link
           class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-          to="/AdminNewAddAgent"
-          >Add Agent</router-link
+          to="/AgentNewAddProperty"
+          >Add Property</router-link
         >
       </li>
       <li class="flex">
@@ -65,8 +76,8 @@
         />
         <router-link
           class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-          to="/AdminNewAgentsTable"
-          >Agent Table</router-link
+          to="/AgentNewManageProperty"
+          >Manage Property</router-link
         >
       </li>
       <li class="flex">
@@ -78,8 +89,8 @@
         />
         <router-link
           class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-          to="/AdminNewBlogListing"
-          >Blog Listing</router-link
+          to="/AgentNewChangePassword"
+          >Change Password</router-link
         >
       </li>
       <li class="flex">
@@ -92,7 +103,7 @@
         <router-link
           class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
           to="/AdminNewBlogTable"
-          >Blog Table</router-link
+          >Logout</router-link
         >
       </li>
     </ul>
@@ -105,6 +116,10 @@ import { register } from "swiper/element/bundle";
 
 defineProps(["isVisible", "toggleSidebar"]);
 
+const modalActive = ref(null);
+const toggleModal = () => {
+  modalActive.value = !modalActive.value;
+};
 import router from "../router";
 import { useRoute } from "vue-router";
 register();
@@ -114,3 +129,4 @@ const data = ref({
   textInputValue: "",
 });
 </script>
+../../router

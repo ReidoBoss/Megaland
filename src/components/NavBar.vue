@@ -1,7 +1,7 @@
 <template>
   <!-- Navigation Bar E67E23 -->
   <div
-    class="bg-[#E67E23] custom-sm:sticky custom-sm:top-0 sticky top-0 h-14 text-[#fefefe] text-[18px] font-semibold p-2 pt-3 z-10"
+    class="bg-[#E67E23] custom-sm:sticky custom-sm:top-0 sticky top-0 h-14 text-[#fefefe] text-[18px] font-semibold p-2 pt-3 z-10 pr-10"
   >
     <ul
       class="flex justify-end gap-6 hover: cursor-pointer custom-sm:hidden font-poppins font-bold"
@@ -39,13 +39,6 @@
           class="hover-underline custom-sm:hidden sm:hidden md:hidden lg:block sm:text-base md:text-md lg:text-lg"
           to="/contact"
           >Contact Us</router-link
-        >
-      </li>
-      <li class="">
-        <router-link
-          class="hover-underline custom-sm:hidden sm:hidden md:hidden lg:block sm:text-base md:text-md lg:text-lg"
-          to="/listProperty"
-          >Property Listing</router-link
         >
       </li>
     </ul>
@@ -89,15 +82,23 @@
         />
       </div>
       <div class="flex w-[10%] justify-end items-center pr-3">
-        <UserIcon @click="toggleModal" class="w-10 h-10 cursor-pointer text-[#E67E23] hover:scale-[1.02]" />
+        <UserIcon
+          @click="toggleModal"
+          class="w-10 h-10 cursor-pointer text-[#E67E23] hover:scale-[1.02]"
+        />
       </div>
     </div>
   </div>
-  <LoginModal :modalActive="modalActive" @close-modal="toggleModal">  </LoginModal>
+  <LoginModal :modalActive="modalActive" @close-modal="toggleModal">
+  </LoginModal>
 </template>
 
 <script lang="ts" setup>
-import { MagnifyingGlassIcon, UserIcon, XMarkIcon } from "@heroicons/vue/24/outline";
+import {
+  MagnifyingGlassIcon,
+  UserIcon,
+  XMarkIcon,
+} from "@heroicons/vue/24/outline";
 import SideBar from "./SideBar.vue";
 const isSidebarVisible = ref(false);
 const toggleSidebar = () => {
@@ -113,7 +114,7 @@ const route = useRoute();
 const modalActive = ref(null);
 const toggleModal = () => {
   modalActive.value = !modalActive.value;
-}
+};
 
 const data = ref({
   textInputValue: "",
@@ -140,4 +141,3 @@ const search = () => {
   }
 };
 </script>
-

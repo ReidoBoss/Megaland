@@ -4,120 +4,123 @@ const routes: RouteRecordRaw[] = [
   {
     path: "/",
     name: "Home",
-    component: () => import("../pages/Home.vue"),
+    component: () => import("../MainPages/Home.vue"),
   },
   {
     path: "/properties/:page",
     name: "Properties",
-    component: () => import("../pages/Properties.vue"),
+    component: () => import("../MainPages/Properties.vue"),
   },
   {
     path: "/propertyNews",
     name: "Property News",
-    component: () => import("../pages/PropertyNews.vue"),
+    component: () => import("../MainPages/PropertyNews.vue"),
   },
   {
     path: "/about",
     name: "About",
-    component: () => import("../pages/About.vue"),
+    component: () => import("../MainPages/About.vue"),
   },
   {
     path: "/contact",
     name: "Contact",
-    component: () => import("../pages/Contact.vue"),
+    component: () => import("../MainPages/Contact.vue"),
   },
 
   {
     path: "/Details/:id",
     name: "Details",
-    component: () => import("../pages/Details.vue"),
+    component: () => import("../MainPages/Details.vue"),
   },
   {
     path: "/Admin",
     name: "Admin",
-    component: () => import("../pages/Admin.vue"),
+    component: () => import("../MainPages/Admin.vue"),
     meta: { hideNavAndFooter: true },
   },
   {
     path: "/AgentNewViewAgent",
     name: "ViewAgent",
-    component: () => import("../components/ViewAgent.vue"),
+    component: () => import("../components/AgentSidePages/ViewAgent.vue"),
     meta: { hideNavAndFooter: true },
   },
   {
     path: "/AgentNewEditAgent",
     name: "EditAgent",
-    component: () => import("../components/EditAgent.vue"),
+    component: () => import("../components/AgentSidePages/EditAgent.vue"),
     meta: { hideNavAndFooter: true },
   },
 
   {
     path: "/AgentNewAddProperty",
     name: "AgentAddProperty",
-    component: () => import("../components/AgentNewAddProperty.vue"),
+    component: () =>
+      import("../components/AgentSidePages/AgentNewAddProperty.vue"),
     meta: { hideNavAndFooter: true },
   },
 
   {
     path: "/AgentNewManageProperty",
     name: "AgentManageProperty",
-    component: () => import("../components/AgentNewManageProperty.vue"),
+    component: () =>
+      import("../components/AgentSidePages/AgentNewManageProperty.vue"),
     meta: { hideNavAndFooter: true },
   },
 
   {
     path: "/AgentNewChangePassword",
     name: "AgentChangePassword",
-    component: () => import("../components/AgentNewChangePassword.vue"),
+    component: () =>
+      import("../components/AgentSidePages/AgentNewChangePassword.vue"),
     meta: { hideNavAndFooter: true },
   },
   {
     path: "/AgentNew",
     name: "Agent",
-    component: () => import("../pages/AgentNew.vue"),
+    component: () => import("../MainPages/AgentNew.vue"),
     meta: { hideNavAndFooter: true },
   },
 
   {
     path: "/AdminNew",
     name: "AdminListProperty",
-    component: () => import("../pages/AdminNew.vue"),
+    component: () => import("../MainPages/AdminNew.vue"),
     meta: { hideNavAndFooter: true },
   },
   {
     path: "/AdminNewAddAgent",
     name: "AdminAddAgent",
-    component: () => import("../components/AddAgent.vue"),
+    component: () => import("../components/AdminSidePages/AddAgent.vue"),
     meta: { hideNavAndFooter: true },
   },
   {
     path: "/AdminNewAgentsTable",
     name: "AdminAgentsTable",
-    component: () => import("../components/AgentsTable.vue"),
+    component: () => import("../components/AdminSidePages/AgentsTable.vue"),
     meta: { hideNavAndFooter: true },
   },
   {
     path: "/AdminNewPropertyTable",
     name: "AdminPropertyTable",
-    component: () => import("../components/PropertyTable.vue"),
+    component: () => import("../components/AdminSidePages/PropertyTable.vue"),
     meta: { hideNavAndFooter: true },
   },
   {
     path: "/AdminNewBlogListing",
     name: "AdminBlogListing",
-    component: () => import("../components/BlogListing.vue"),
+    component: () => import("../components/AdminSidePages/BlogListing.vue"),
     meta: { hideNavAndFooter: true },
   },
   {
     path: "/AdminNewBlogTable",
     name: "AdminBlogTable",
-    component: () => import("../components/BlogTable.vue"),
+    component: () => import("../components/AdminSidePages/BlogTable.vue"),
     meta: { hideNavAndFooter: true },
   },
   {
     path: "/search",
     name: "search",
-    component: () => import("../pages/Search.vue"),
+    component: () => import("../MainPages/Search.vue"),
     meta: { hideNavAndFooter: false },
   },
 ];

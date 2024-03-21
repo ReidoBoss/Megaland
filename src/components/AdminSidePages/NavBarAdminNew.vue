@@ -98,3 +98,4 @@ const search = () => {
   }
 };
 </script>
+../../router

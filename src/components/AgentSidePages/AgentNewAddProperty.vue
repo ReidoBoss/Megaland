@@ -10,9 +10,9 @@
           class="flex mx-auto items-center justify-center custom-sm:items-center custom-sm:justify-center custom-sm:flex"
         >
           <img
-            src="../assets/mgLogo.png"
-            class="lg:h-20 lg:w-35 md:h-20 md:w-35 custom-sm:w-[30%] custom-sm:h-[20%]"
-            alt=""
+            src="src/assets/mgLogo.png"
+            class="lg:h-40 lg:w-50 md:h-20 md:w-35 custom-sm:w-[30%] custom-sm:h-[20%]"
+            alt="megaland"
           />
           <span
             class="text-xl font-semibold dark:text-white flex custom-sm:text-sm"
@@ -966,7 +966,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import SideBarAgentNew from "../components/SideBarAgentNew.vue";
+import SideBarAgentNew from "../AgentSidePages/SideBarAgentNew.vue";
 import { ref } from "vue";
 const active = ref(0);
 const isSidebarVisible = ref(false);
@@ -977,3 +977,4 @@ const toggleSidebar = () => {
 import router from "../router";
 import { useRoute } from "vue-router";
 </script>
+../../router

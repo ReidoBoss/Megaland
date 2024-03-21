@@ -2,7 +2,7 @@
 <template>
   <div
     v-if="isVisible"
-    class="border-2 border-dashed border-orange-500 custom-sm:overflow-y-auto sm:overflow-y-auto md:overflow-y-auto fixed top-0 left-0 custom-sm:w-64 custom-sm:h-[100%] sm:h-[100%] md:h-[100%] md:w-[37%] bg-primary text-orange-500 p-2 z-10 lg:hidden"
+    class="border-2 border-dashed custom-sm:overflow-y-auto sm:overflow-y-auto md:overflow-y-auto fixed top-0 left-0 custom-sm:w-64 custom-sm:h-[100%] sm:h-[100%] md:h-[100%] md:w-[37%] bg-primary text-[#e9d8c5] p-2 z-10 lg:hidden"
   >
     <div class="flex my-2">
       <mdicon
@@ -26,26 +26,23 @@
 
     <!-- Sidebar content goes here -->
 
-    <ul
-      class="flex flex-col gap-10 justify-center items-start hover: cursor-pointer my-[50%] sticky top-1"
-    >
+    <ul class="flex flex-col gap-10 justify-end hover: cursor-pointer mt-[25%]">
       <li class="flex">
         <mdicon name="Home" :width="30" :height="30" class="hover:text-white" />
         <router-link
           class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-          to="/AgentNewViewAgent"
-          >View Profile</router-link
+          to="/AdminNew"
+          >Property Listing</router-link
         >
       </li>
       <li class="flex">
         <mdicon name="Home" :width="30" :height="30" class="hover:text-white" />
         <router-link
           class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-          to="/AgentNewEditAgent"
-          >Edit Profile</router-link
+          to="/AdminNewPropertyTable"
+          >Property Table</router-link
         >
       </li>
-
       <li class="flex">
         <mdicon
           name="OfficeBuildingMarkerOutline"
@@ -55,8 +52,8 @@
         />
         <router-link
           class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-          to="/AgentNewAddProperty"
-          >Add Property</router-link
+          to="/AdminNewAddAgent"
+          >Add Agent</router-link
         >
       </li>
       <li class="flex">
@@ -68,8 +65,8 @@
         />
         <router-link
           class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-          to="/AgentNewManageProperty"
-          >Manage Property</router-link
+          to="/AdminNewAgentsTable"
+          >Agent Table</router-link
         >
       </li>
       <li class="flex">
@@ -81,8 +78,8 @@
         />
         <router-link
           class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-          to="/AgentNewChangePassword"
-          >Change Password</router-link
+          to="/AdminNewBlogListing"
+          >Blog Listing</router-link
         >
       </li>
       <li class="flex">
@@ -95,7 +92,7 @@
         <router-link
           class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
           to="/AdminNewBlogTable"
-          >Logout</router-link
+          >Blog Table</router-link
         >
       </li>
     </ul>
@@ -117,3 +114,4 @@ const data = ref({
   textInputValue: "",
 });
 </script>
+../../router
