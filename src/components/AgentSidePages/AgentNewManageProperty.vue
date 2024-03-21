@@ -48,20 +48,20 @@
           >
             <li class="flex">
               <mdicon
-                name="Home"
+                name="AccountBoxMultipleOutline"
                 :width="30"
                 :height="30"
                 class="hover:text-white"
               />
               <router-link
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AgentNewViewAgent"
+                to="/AgentNew"
                 >View Profile</router-link
               >
             </li>
             <li class="flex">
               <mdicon
-                name="Home"
+                name="AccountEditOutline"
                 :width="30"
                 :height="30"
                 class="hover:text-white"
@@ -101,7 +101,7 @@
             </li>
             <li class="flex">
               <mdicon
-                name="NewspaperVariantMultipleOutline"
+                name="ShieldLockOutline"
                 :width="30"
                 :height="30"
                 class="hover:text-white"
@@ -114,15 +114,15 @@
             </li>
             <li class="flex">
               <mdicon
-                name="NewspaperVariantMultipleOutline"
+                name="Logout"
                 :width="30"
                 :height="30"
                 class="hover:text-white"
               />
               <router-link
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewBlogTable"
-                >Logout</router-link
+                to="/AgentNewSignOut"
+                >Logout Account</router-link
               >
             </li>
           </ul>

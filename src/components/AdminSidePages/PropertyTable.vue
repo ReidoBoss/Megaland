@@ -45,7 +45,7 @@
           class="bg-primary w-[20%] border-dashed border-2 h-screen self-start sticky top-0 z-10 custom-sm:hidden sm:hidden md:hidden lg:block text-[#e9d8c5]"
         >
           <ul
-            class="flex flex-col gap-10 justify-center ml-10 items-start hover: cursor-pointer my-[50%] sticky top-1"
+            class="flex flex-col gap-10 justify-end hover: cursor-pointer mt-[25%] ml-10"
           >
             <li class="flex">
               <mdicon
@@ -62,7 +62,7 @@
             </li>
             <li class="flex">
               <mdicon
-                name="Home"
+                name="TableLargePlus"
                 :width="30"
                 :height="30"
                 class="hover:text-white"
@@ -70,12 +70,12 @@
               <router-link
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
                 to="/AdminNewPropertyTable"
-                >Manage Property</router-link
+                >Property Table</router-link
               >
             </li>
             <li class="flex">
               <mdicon
-                name="OfficeBuildingMarkerOutline"
+                name="AccountMultiplePlusOutline"
                 :width="30"
                 :height="30"
                 class="hover:text-white"
@@ -88,7 +88,7 @@
             </li>
             <li class="flex">
               <mdicon
-                name="NewspaperVariantMultipleOutline"
+                name="TableEdit"
                 :width="30"
                 :height="30"
                 class="hover:text-white"
@@ -96,12 +96,12 @@
               <router-link
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
                 to="/AdminNewAgentsTable"
-                >Manage Agent</router-link
+                >Agent Table</router-link
               >
             </li>
             <li class="flex">
               <mdicon
-                name="NewspaperVariantMultipleOutline"
+                name="ClipboardListOutline"
                 :width="30"
                 :height="30"
                 class="hover:text-white"
@@ -114,7 +114,7 @@
             </li>
             <li class="flex">
               <mdicon
-                name="NewspaperVariantMultipleOutline"
+                name="TableAccount"
                 :width="30"
                 :height="30"
                 class="hover:text-white"
@@ -122,7 +122,20 @@
               <router-link
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
                 to="/AdminNewBlogTable"
-                >Manage Blog</router-link
+                >Blog Table</router-link
+              >
+            </li>
+            <li class="flex">
+              <mdicon
+                name="LoginVariant"
+                :width="30"
+                :height="30"
+                class="hover:text-white"
+              />
+              <router-link
+                class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
+                to="/AdminNewSignOut"
+                >Logout Account</router-link
               >
             </li>
           </ul>

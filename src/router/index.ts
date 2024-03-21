@@ -39,7 +39,7 @@ const routes: RouteRecordRaw[] = [
     meta: { hideNavAndFooter: true },
   },
   {
-    path: "/AgentNewViewAgent",
+    path: "/AgentNew",
     name: "ViewAgent",
     component: () => import("../components/AgentSidePages/ViewAgent.vue"),
     meta: { hideNavAndFooter: true },
@@ -75,9 +75,9 @@ const routes: RouteRecordRaw[] = [
     meta: { hideNavAndFooter: true },
   },
   {
-    path: "/AgentNew",
-    name: "Agent",
-    component: () => import("../MainPages/AgentNew.vue"),
+    path: "/AgentNewSignOut",
+    name: "AgentSignOut",
+    component: () => import("../components/AgentSidePages/AgentNewSignOut.vue"),
     meta: { hideNavAndFooter: true },
   },
 
@@ -115,6 +115,12 @@ const routes: RouteRecordRaw[] = [
     path: "/AdminNewBlogTable",
     name: "AdminBlogTable",
     component: () => import("../components/AdminSidePages/BlogTable.vue"),
+    meta: { hideNavAndFooter: true },
+  },
+  {
+    path: "/AdminNewSignOut",
+    name: "AdminSignOut",
+    component: () => import("../components/AdminSidePages/SignOutAdminNew.vue"),
     meta: { hideNavAndFooter: true },
   },
   {
