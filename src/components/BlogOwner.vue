@@ -1,14 +1,14 @@
 <template>
   <div
-    class="m custom-sm:mx-auto sm:mx-auto custom-sm:w-[90%] sm:h-[335px] border-2 lg:p-5 shadow-xl md:w-[100%] md:h-[335px] lg:h-[440px] rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)"
+    class="lg:ml-[-11%] custom-sm:mx-auto sm:mx-auto custom-sm:w-[100%] sm:h-[335px] border-2 lg:p-5 shadow-xl md:w-[100%] lg:w-[100%] md:h-[380px] lg:h-[440px] rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)"
   >
     <div
       class="my-[5%] custom-sm:w-[40%] custom-sm:h-[40%] custom-sm:mx-auto relative lg:w-48 md:w-40 mx-auto -z-30"
     >
       <img
-        src="src/assets/marivil.png"
+        src="../assets/marivil.png"
         alt="img"
-        class="lg:w-48 lg:h-48 md:w-35 md:h-30 border-4 border-white rounded-full object-cover relative z-10"
+        class="lg:w-48 lg:h-48 md:w-35 custom-sm:w-51 md:h-30 border-4 border-white rounded-full object-cover relative z-10"
       />
       <div
         class="absolute inset-0 border-4 border-purple-700 rounded-full z-0"

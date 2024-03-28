@@ -8,19 +8,19 @@
       </div>
 
       <div
-        class="custom-sm:hidden sm:hidden md:block lg:block md:my-[1%] font-poppins font-bold flex md:w-[60%] lg:w-[60%] custom-sm:w-[50%] sm:w-[50%] lg:text-2xl md:text-lg"
+        class="lg:ml-[4%] custom-sm:hidden sm:hidden md:block lg:block md:my-[1%] font-poppins font-bold flex md:w-[60%] lg:w-[60%] custom-sm:w-[50%] sm:w-[50%] lg:text-2xl md:text-lg"
       >
         Details
       </div>
       <div
-        class="md:my-[1%] custom-sm:my-[2%] font-poppins font-bold flex md:w-[25%] lg:w-[25%] custom-sm:w-[50%] sm:w-[50%] lg:text-2xl md:text-lg"
+        class="lg:ml-[-6%] custom-sm:hidden sm:hidden md:hidden lg:block md:my-[1%] custom-sm:my-[2%] font-poppins font-bold flex md:w-[25%] lg:w-[25%] custom-sm:w-[50%] sm:w-[50%] lg:text-2xl md:text-lg"
       >
-        Contact Agent <UserIcon class="h-[26px] w-[26px] ml-1" />
+        Contact Agent
       </div>
     </div>
     <div class="flex text-[#E67E23] lg:mt-2">
       <div
-        class="h-[700px] w-[16%] flex-col overflow-auto custom-sm:hidden sm:hidden md:hidden lg:block"
+        class="h-[700px] w-[20%] flex-col overflow-auto custom-sm:hidden sm:hidden md:hidden lg:block"
       >
         <Accordion
           title="Property Type"
@@ -74,13 +74,13 @@
       </div>
 
       <div
-        class="lg:w-[55%] md:w-[60%] custom-sm:w-[100%] sm:w-[100%] custom-sm:my-[2%] flex-col lg:ml-6"
+        class="lg:w-[60%] md:w-[95%] mx-auto custom-sm:w-[100%] sm:w-[100%] custom-sm:my-[2%] flex-col lg:mt-[-1.8%]"
       >
-        <div class="custom-sm:block sm:block md:hidden lg:hidden">
+        <div class="custom-sm:block sm:block md:block lg:hidden">
           <BlogOwner />
         </div>
         <div
-          class="lg:w-[90%] md:w-[100%] custom-sm:w-[100%] sm:w-[100%] custom-sm:my-[6%] flex-col lg:ml-6"
+          class="lg:w-[90%] md:w-[100%] custom-sm:w-[100%] sm:w-[100%] custom-sm:my-[6%] flex-col lg:ml-6 mt-[3%]"
         >
           <ProductInfo :property="property" />
         </div>
@@ -92,7 +92,7 @@
       </div>
 
       <div
-        class="custom-sm:hidden sm:hidden md:block lg:block lg:h-[900px] lg:w-[24%] md:w-[50%] md:h-[440px] flex-col lg:ml-6 md:ml-2"
+        class="custom-sm:hidden sm:hidden md:hidden lg:block lg:h-[900px] lg:w-[20%] md:w-[50%] md:h-[440px] flex-col md:ml-2"
       >
         <!--Blog Owner -->
         <BlogOwner />
@@ -102,7 +102,7 @@
       class="custom-sm:w-[90%] custom-sm: mx-auto md:mb-5 lg:mb-5 md:mt-10 lg:mt-10 md:mx-1 md:w-[90%] md:h-[50%] lg:mx-auto"
     >
       <div
-        class="my-3 custom-sm:-ml-3 sm:-ml-3 flex w-[16%] text-lg font-semibold pl-3 text-[#E67E23] font-poppins font-bold"
+        class="my-3 custom-sm:-ml-3 sm:-ml-3 flex w-[16%] text-lg pl-3 text-[#E67E23] font-poppins font-bold"
       >
         Location <MapIcon class="h-[26px] w-[26px] ml-1" />
       </div>
