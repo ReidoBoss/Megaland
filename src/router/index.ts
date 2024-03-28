@@ -124,6 +124,12 @@ const routes: RouteRecordRaw[] = [
     meta: { hideNavAndFooter: true },
   },
   {
+    path: "/agentProfile",
+    name: "AgentProfile",
+    component: () => import("../MainPages/AgentProfile.vue"),
+    meta: { hideNavAndFooter: false },
+  },
+  {
     path: "/search",
     name: "search",
     component: () => import("../MainPages/Search.vue"),

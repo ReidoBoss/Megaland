@@ -55,15 +55,13 @@
     </div>
 
     <!--OUR VALUES-->
-    <div class="justify-center flex-1 max-w-6xl mx-auto lg:py-6 md:px-6">
+    <div class="justify-center flex-1 mx-14 lg:py-6 md:px-6">
       <h1
         class="mb-20 custom-sm:mb-4 text-center font-black custom-sm:text-xl sm:text-2xl md:text-3.5xl lg:text-4xl"
       >
-        OUR <span class="text-[#E67E23]">CORE VALUES</span>!
+        OUR <span class="text-[#E67E23]">CORE VALUES</span>
       </h1>
-      <div
-        class="font-poppins grid grid-cols-1 lg:grid-cols-4 justify-center relative gap-8 mt-12 w-full font-medium md:grid-cols-2"
-      >
+      <div class="font-poppins flex justify-evenly gap-5">
         <ValCard
           header="Integrity"
           desc="Megaland Realty  was founded on integrity, professionalism, hard work and trust; values that never waver. We proudly carry the Megaland   name, a symbol of quality and integrity. Our brokers take great pride in providing a high level of personalized service to create a luxury experience for all clients, one that you will truly appreciate. Find your next property to buy or rent in Cebu City."
@@ -73,28 +71,32 @@
           desc="We envision to build a strong force in Real Estate Industry Service to the next level and to help each other to achieve financial upliftment."
         />
         <ValCard
-          header="Buying"
-          desc="Buying or selling a property with Megaland Realty as your property partner means you are informed. Good information leads to good decisions, which leads to good results. From condos and homes to prime lands, we will ensure you have all the facts and support you need, helping you minimize risk and maximize the rewards."
-        />
-        <ValCard
           header="Expertise"
           desc="At Megaland Realty we know the local real estate market. Since February 2008, our professional and friendly agents have been helping people like you with all of their needs, from buying or renting new homes to selling properties. Our sensitivity to the marketplace comes from a single yet powerful perspective: Cebu City is more than just a market, it’s our home."
         />
       </div>
-      <div class=""></div>
     </div>
 
-    <div class="justify-center grid grid-cols 3 mt-[100px] mb-[100px]">
-      <Buttons />
+    <div class="mx-20 mb-10">
+      <h1
+        class="mb-20 custom-sm:mb-4 text-center font-black custom-sm:text-xl sm:text-2xl md:text-3.5xl lg:text-4xl"
+      >
+        OUR <span class="text-[#E67E23]">TEAM</span>
+      </h1>
+      <div class="flex flex-wrap gap-5 justify-evenly">
+        <AgentCard />
+        <AgentCard />
+        <AgentCard />
+        <AgentCard />
+        <AgentCard />
+        <AgentCard />
+      </div>
     </div>
-
-
-    
   </div>
 </template>
 
 <script lang="ts" setup>
 import about from "../assets/about.png";
 import ValCard from "../components/ValCard.vue";
-import Buttons from "../components/Buttons.vue";
+import AgentCard from "../components/AgentCard.vue";
 </script>

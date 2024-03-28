@@ -13,7 +13,7 @@
               class="flex flex-col items-center justify-between p-4 md:p-5 rounded-t"
             >
               <div class="text-center">
-                <h1 class="my-3 text-4xl font-bold">Login in</h1>
+                <h1 class="my-3 text-4xl font-bold">Login</h1>
                 <p class="text-sm text-coolGray-600">
                   Sign in to access your account
                 </p>
@@ -31,13 +31,13 @@
             <div class="p-3 md:p-5">
               <form class="space-y-4" action="#">
                 <div>
-                  <label for="email" class="block mb-2 text-base font-medium"
-                    >Email Address</label
+                  <label for="username" class="block mb-2 text-base font-medium"
+                    >Username</label
                   >
                   <input
-                    type="email"
-                    name="email"
-                    id="email"
+                    type="text"
+                    name="text"
+                    id="username"
                     class="w-full px-3 py-2 text-blue-800 border border-blue-300 rounded-md bg-blue-50 focus:outline-none focus:ring-1 focus:ring-blue-300"
                     placeholder="name@company.com"
                     required
