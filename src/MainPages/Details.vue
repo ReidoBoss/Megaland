@@ -8,17 +8,17 @@
       </div>
 
       <div
-        class="lg:ml-[4%] custom-sm:hidden sm:hidden md:block lg:block md:my-[1%] font-poppins font-bold flex md:w-[60%] lg:w-[60%] custom-sm:w-[50%] sm:w-[50%] lg:text-2xl md:text-lg"
+        class="lg:ml-[7%] custom-sm:hidden sm:hidden md:block lg:block md:my-[1%] font-poppins font-bold flex md:w-[60%] lg:w-[60%] custom-sm:w-[50%] sm:w-[50%] lg:text-2xl md:text-lg"
       >
         Details
       </div>
       <div
-        class="lg:ml-[-6%] custom-sm:hidden sm:hidden md:hidden lg:block md:my-[1%] custom-sm:my-[2%] font-poppins font-bold flex md:w-[25%] lg:w-[25%] custom-sm:w-[50%] sm:w-[50%] lg:text-2xl md:text-lg"
+        class="lg:ml-[3%] custom-sm:hidden sm:hidden md:hidden lg:block md:my-[1%] custom-sm:my-[2%] font-poppins font-bold flex md:w-[25%] lg:w-[25%] custom-sm:w-[50%] sm:w-[50%] lg:text-2xl md:text-lg"
       >
         Contact Agent
       </div>
     </div>
-    <div class="flex text-[#E67E23] lg:mt-2">
+    <div class="flex lg:mt-2">
       <div
         class="h-[700px] w-[20%] flex-col overflow-auto custom-sm:hidden sm:hidden md:hidden lg:block"
       >
@@ -102,15 +102,15 @@
       class="custom-sm:w-[90%] custom-sm: mx-auto md:mb-5 lg:mb-5 md:mt-10 lg:mt-10 md:mx-1 md:w-[90%] md:h-[50%] lg:mx-auto"
     >
       <div
-        class="my-3 custom-sm:-ml-3 sm:-ml-3 flex w-[16%] text-lg pl-3 text-[#E67E23] font-poppins font-bold"
+        class="custom-sm:-ml-3 sm:-ml-3 flex w-[16%] text-xl lg:ml-[5%] text-[#E67E23] font-poppins font-bold"
       >
         Location <MapIcon class="h-[26px] w-[26px] ml-1" />
       </div>
       <div
-        class="custom-sm:w-[100%] shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)"
+        class="custom-sm:w-[100%] rounded-md mx-auto flex items-center justify-center"
       >
         <iframe
-          class="custom-sm:w-[100%] border-2 border-black lg:w-[100%] lg:h-[600px] md:w-[100%] md:h-[500px] md:mx-5"
+          class="custom-sm:w-[100%] border-2 border-black lg:w-[90%] lg:h-[600px] md:w-[100%] md:h-[500px] md:mx-5 m-5 rounded-lg"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.5483668762135!2d123.89617127595324!3d10.29792626783563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999a0c575cff7%3A0x76271c50dbf0b3b2!2sMegaland%20Realty!5e0!3m2!1sen!2sph!4v1697273626082!5m2!1sen!2sph"
           style="border: 0"
           loading="lazy"
@@ -120,9 +120,10 @@
     </div>
     <div>
       <div
-        class="font-poppins font-bold lg:text-2xl md:text-lg mt-10 lg:ml-[12%] flex lg:w-[16%] md:w-[50%] pl-3 text-[#E67E23]"
+        class="font-poppins font-bold lg:text-xl md:text-lg mt-10 lg:ml-[9%] lg:w-[16%] md:w-[50%] pl-3 text-[#E67E23] flex flex-row my-5"
       >
-        Related Property <ChatBubbleLeftIcon class="h-[26px] w-[26px] ml-1" />
+        Related Property
+        <span><ChatBubbleLeftIcon class="h-[26px] w-[26px] ml-1" /></span>
       </div>
       <div
         class="flex flex-wrap mt-2 h-full md:mx-auto md:w-[100%] lg:w-[84%] custom-sm:gap-3 custom-sm:mx-auto gap-y-9 md:gap-y-9 md:gap-5 justify-evenly"
@@ -158,11 +159,7 @@
 
 <script lang="ts" setup>
 import Accordion from "../components/Accordion.vue";
-import {
-  UserIcon,
-  MapIcon,
-  ChatBubbleLeftIcon,
-} from "@heroicons/vue/24/outline";
+import { MapIcon, ChatBubbleLeftIcon } from "@heroicons/vue/24/outline";
 import ProductDetails from "../components/ProductDetails.vue";
 import swiper1 from "../assets/swiper1.jpg";
 import swiper2 from "../assets/swiper2.jpg";

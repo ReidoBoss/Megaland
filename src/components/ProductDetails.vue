@@ -32,7 +32,7 @@
               <div class="absolute inset-0">
                 <img
                   src="../assets/gal2.jpg"
-                  class="lg:object-none h-full w-full"
+                  class="lg:object-cover h-full w-full"
                   alt="..."
                 />
               </div>
@@ -45,7 +45,7 @@
               <div class="absolute inset-0">
                 <img
                   src="../assets/gal3.jpg"
-                  class="lg:object-none h-full w-full"
+                  class="lg:object-cover h-full w-full"
                   alt="..."
                 />
               </div>
@@ -55,7 +55,7 @@
               <div class="absolute inset-0">
                 <img
                   src="../assets/gal2.jpg"
-                  class="w-full h-full lg:object-none"
+                  class="w-full h-full lg:object-cover"
                   alt="..."
                 />
               </div>
@@ -65,7 +65,7 @@
               <div class="absolute inset-0">
                 <img
                   src="../assets/gal3.jpg"
-                  class="w-full h-full lg:object-none"
+                  class="w-full h-full lg:object-cover"
                   alt="..."
                 />
               </div>
@@ -76,31 +76,31 @@
         <!-- Images Below the Carousel -->
         <div>
           <div class="grid gap-4 mx-auto w-[90%]">
-            <div class="grid grid-cols-4 my-[5%]">
-              <div>
+            <div class="flex flex-row gap-5 mx-auto my-[5%] items-center">
+              <div class="">
                 <img
-                  class="h-auto max-w-full rounded-lg"
+                  class="h-[90%] max-w-full rounded-lg"
                   src="../assets/gal1.jpg"
                   alt=""
                 />
               </div>
               <div>
                 <img
-                  class="h-auto max-w-full rounded-lg"
+                  class="h-[90%] max-w-full rounded-lg"
                   src="../assets/gal2.jpg"
                   alt=""
                 />
               </div>
               <div>
                 <img
-                  class="h-auto max-w-full rounded-lg"
+                  class="h-[90%] max-w-full rounded-lg"
                   src="../assets/gal3.jpg"
                   alt=""
                 />
               </div>
               <div>
                 <img
-                  class="h-auto max-w-full rounded-lg"
+                  class="h-[90%] max-w-full rounded-lg"
                   src="../assets/gal2.jpg"
                   alt=""
                 />
@@ -166,9 +166,9 @@
     <!-- <div class="flex justify-center items-center p-5">
         <img :src="property.dataURL" alt="" />
       </div> -->
-    <div class="font-medium text-center">
+    <div class="text-center font-bold text-xl">
       Price:
-      <span class="text-[#E67E23] text-xl ml-3">
+      <span class="text-[#E67E23] text-xl ml-3 font-bold">
         ₱
         {{
           property.property_price
@@ -182,60 +182,168 @@
   <div
     class="font-poppins font-400 border-2 p-2 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70) mb-5"
   >
-    <div class="font-bold custom-sm:my-[3%] sm:my-[3%]">
+    <div
+      class="font-bold custom-sm:my-[3%] sm:my-[3%] lg:ml-5 border-b-2 border-dashed font-poppins"
+    >
       Property Description:
     </div>
-    <div class="pb-5 pl-5 pr-5">
-      <pre
-        class="lg:text-lg md:text-md custom-sm:text-xs sm:text-xs font-poppins overflow-hidden"
+    <!-- Location Fetching -->
+    <div
+      class="font-poppins font-bold lg:text-md md:text-md custom-sm:text-sm sm:text-xs lg:ml-5"
+    >
+      Location:
+      <!-- Location Needs to be Fetched -->
+      <span class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs font-500">
+        <!-- {{ property.property_location }} -->
+        Tungkop Minglanilla
+      </span>
+    </div>
+
+    <div class="">
+      <!-- Description Fetching -->
+      <div
+        class="font-poppins font-bold lg:text-md md:text-md custom-sm:text-sm sm:text-xs lg:mx-5 my-5 text-justify"
       >
-          {{ property.property_description }}
-</pre
-      >
+        Description:
+        <!-- Description Needs to be Fetched -->
+
+        <span
+          class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs font-500 text-justify"
+        >
+          <!-- {{ property.property_description }} -->
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
+          perspiciatis dolores odio sed autem. Eum quia quae cum tenetur
+          quisquam, iusto delectus iure animi in sapiente, id recusandae aut
+          nostrum! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Obcaecati perspiciatis dolores odio sed autem. Eum quia quae cum
+          tenetur quisquam, iusto delectus iure animi in sapiente, id recusandae
+          aut nostrum! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Obcaecati perspiciatis dolores odio sed autem. Eum quia quae cum
+          tenetur quisquam, iusto delectus iure animi in sapiente, id recusandae
+          aut nostrum! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Obcaecati perspiciatis dolores odio sed autem. Eum quia quae cum
+          tenetur quisquam, iusto delectus iure animi in sapiente, id recusandae
+          aut nostrum!
+        </span>
+      </div>
     </div>
   </div>
   <!-- Property Address -->
   <div
-    class="md:font-poppins border-2 p-2 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70) mb-5"
+    class="md:font-poppins border-2 p-2 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70) mb-5 h-[360px]"
   >
-    <div class="font-bold custom-sm:my-[3%] sm:my-[3%]">Property Address:</div>
-    <div class="lg:p-5 md:p-2">
+    <div
+      class="font-bold custom-sm:my-[3%] sm:my-[3%] lg:ml-5 border-b-2 border-dashed font-poppins"
+    >
+      Property Description:
+    </div>
+    <div class="md:p-2">
       <div class="flex">
-        <div class="w-[50%]">
+        <div class="w-[95%] mx-auto flex flex-wrap items-center justify-center">
           <div
-            class="border-2 rounded-md md:m-1 md:p-2 lg:m-2 lg:p-1 font-bold lg:text-lg custom-sm:text-sm sm:text-sm md:text-md"
+            class="font-poppins font-bold lg:text-md md:text-md custom-sm:text-sm sm:text-xs lg:mx-5 my-5 text-justify border-2 lg:w-[40%] lg:h-[25%] flex items-center"
           >
-            Address:
+            <div class="ml-2">
+              <!-- Address Needs to be Fetched -->
+              Address:
+              <span
+                class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs font-500 text-justify"
+              >
+                <!-- {{ property.property_city }} -->
+
+                Lapu-Lapu City
+              </span>
+            </div>
+
             <span
-              class="lg:text-lg md:text-md font-300 custom-sm:text-sm sm:text-sm"
+              class="lg:text-md md:text-md font-400 custom-sm:text-sm sm:text-sm"
             >
-              {{ property.property_description }}</span
-            >
+            </span>
           </div>
-          <div class="border-2 m-2 p-1 font-medium">
-            City:
+          <!-- City needs to be Fetched Here -->
+
+          <div
+            class="font-poppins font-bold lg:text-md md:text-md custom-sm:text-sm sm:text-xs lg:mx-5 my-5 text-justify border-2 lg:w-[40%] lg:h-[25%] flex items-center"
+          >
+            <div class="ml-2">
+              <!-- City Needs to be Fetched -->
+              City:
+              <span
+                class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs font-500 text-justify"
+              >
+                <!-- {{ property.property_city }} -->
+
+                Cebu City
+              </span>
+            </div>
+
             <span
-              class="text-base font-normal lg:text-lg md:text-md custom-sm:text-xs sm:text-xs"
+              class="lg:text-md md:text-md font-400 custom-sm:text-sm sm:text-sm"
             >
-              {{ property.property_city }}</span
-            >
+            </span>
           </div>
-        </div>
-        <div class="lg:w-[50%] md:w-[50%]">
-          <div class="border-2 m-2 p-1 font-medium">
-            Zip:
+
+          <!-- State and Country Needs to be Fetched Here -->
+          <div
+            class="font-poppins font-bold lg:text-md md:text-md custom-sm:text-sm sm:text-xs lg:mx-5 my-5 text-justify border-2 lg:w-[40%] lg:h-[25%] flex items-center"
+          >
+            <div class="ml-2">
+              <!-- State and Country Needs to be Fetched -->
+              State and Country:
+              <span
+                class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs font-500 text-justify"
+              >
+                <!-- {{ property.property_city }} -->
+
+                Philippines
+              </span>
+            </div>
+
             <span
-              class="text-base font-normal lg:text-lg md:text-md custom-sm:text-xs sm:text-xs"
+              class="lg:text-md md:text-md font-400 custom-sm:text-sm sm:text-sm"
             >
-              {{ property.property_zipcode }}</span
-            >
+            </span>
           </div>
-          <div class="border-2 m-2 p-1 font-medium">
-            State/Country:
+          <!-- Zip Needs to be Fetched Here -->
+          <div
+            class="font-poppins font-bold lg:text-md md:text-md custom-sm:text-sm sm:text-xs lg:mx-5 my-5 text-justify border-2 lg:w-[40%] lg:h-[25%] flex items-center"
+          >
+            <div class="ml-2">
+              <!-- Zip Code Needs to be Fetched -->
+              Zip Code:
+              <span
+                class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs font-500 text-justify"
+              >
+                <!-- {{ property.property_city }} -->
+
+                6000
+              </span>
+            </div>
+
             <span
-              class="text-base font-normal lg:text-lg md:text-md custom-sm:text-xs sm:text-xs"
+              class="lg:text-md md:text-md font-400 custom-sm:text-sm sm:text-sm"
             >
-              {{ property.property_country }}
+            </span>
+          </div>
+          <!-- Neighborhood Needs to be Fetched Here -->
+          <div
+            class="font-poppins font-bold lg:text-md md:text-md custom-sm:text-sm sm:text-xs lg:mx-5 my-5 text-justify border-2 lg:w-[40%] lg:h-[25%] flex items-center"
+          >
+            <div class="ml-2">
+              <!-- Neighborhood Needs to be Fetched -->
+              Neighborhood:
+              <span
+                class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs font-500 text-justify"
+              >
+                <!-- {{ property.property_city }} -->
+
+                University of Cebu-Main
+              </span>
+            </div>
+
+            <span
+              class="lg:text-md md:text-md font-400 custom-sm:text-sm sm:text-sm"
+            >
             </span>
           </div>
         </div>
@@ -244,6 +352,357 @@
   </div>
   <!-- Details -->
   <div
+    class="md:font-poppins border-2 p-2 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70) mb-5 h-[370px]"
+  >
+    <div
+      class="font-bold custom-sm:my-[3%] sm:my-[3%] lg:ml-5 border-b-2 border-dashed font-poppins"
+    >
+      Details:
+    </div>
+    <div class="md:p-2">
+      <div class="flex">
+        <div class="w-[95%] mx-auto flex flex-wrap items-center justify-center">
+          <div
+            class="font-poppins font-bold lg:text-md md:text-md custom-sm:text-sm sm:text-xs lg:mx-5 my-5 text-justify border-2 lg:w-[40%] lg:h-[25%] flex items-center"
+          >
+            <div class="ml-2 flex flex-row gap-3 items-center">
+              <!-- Bedroom Count Needs to be Fetched -->
+              Bedrooms:
+              <span
+                class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs font-500 text-justify"
+              >
+                <!-- {{ property.bedroom }} -->
+
+                1
+              </span>
+              <mdicon
+                name="BedOutline"
+                :width="30"
+                :height="30"
+                class="mr-5 text-gray-700"
+              />
+            </div>
+          </div>
+          <!-- City needs to be Fetched Here -->
+
+          <div
+            class="font-poppins font-bold lg:text-md md:text-md custom-sm:text-sm sm:text-xs lg:mx-5 my-5 text-justify border-2 lg:w-[40%] lg:h-[25%] flex items-center"
+          >
+            <div class="ml-2 flex flex-row gap-3 items-center">
+              <!-- Bathroom Count Needs to be Fetched -->
+              Bathroom:
+              <span
+                class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs font-500 text-justify"
+              >
+                <!-- {{ property.bathroom}} -->
+
+                1
+              </span>
+              <mdicon
+                name="Shower"
+                :width="30"
+                :height="30"
+                class="mr-5 text-gray-700"
+              />
+            </div>
+          </div>
+
+          <!-- Land Area Needs to be Fetched Here -->
+          <div
+            class="font-poppins font-bold lg:text-md md:text-md custom-sm:text-sm sm:text-xs lg:mx-5 my-5 text-justify border-2 lg:w-[40%] lg:h-[25%] flex items-center"
+          >
+            <div class="ml-2 flex flex-row gap-3 items-center">
+              <!-- Land Area Needs to be Fetched -->
+              Land Area:
+              <span
+                class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs font-500 text-justify"
+              >
+                <!-- {{ property.andarea }} -->
+
+                36sqm
+              </span>
+            </div>
+          </div>
+          <!-- Zip Needs to be Fetched Here -->
+          <div
+            class="font-poppins font-bold lg:text-md md:text-md custom-sm:text-sm sm:text-xs lg:mx-5 my-5 text-justify border-2 lg:w-[40%] lg:h-[25%] flex items-center"
+          >
+            <div class="ml-2 flex flex-row gap-3 items-center">
+              <!-- Bedroom Count Needs to be Fetched -->
+              Parking Space:
+              <span
+                class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs font-500 text-justify"
+              >
+                <!-- {{ property.bedroom }} -->
+
+                0
+              </span>
+            </div>
+          </div>
+          <!-- Neighborhood Needs to be Fetched Here -->
+          <div
+            class="font-poppins font-bold lg:text-md md:text-md custom-sm:text-sm sm:text-xs lg:mx-5 my-5 text-justify border-2 lg:w-[40%] lg:h-[25%] flex items-center"
+          >
+            <div class="ml-2 flex flex-row gap-3 items-center">
+              <!-- Bedroom Count Needs to be Fetched -->
+              Built In:
+              <span
+                class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs font-500 text-justify"
+              >
+                <!-- {{ property.bedroom }} -->
+
+                0
+              </span>
+            </div>
+          </div>
+          <div
+            class="font-poppins font-bold lg:text-md md:text-md custom-sm:text-sm sm:text-xs lg:mx-5 my-5 text-justify border-2 lg:w-[40%] lg:h-[25%] flex items-center"
+          >
+            <div class="ml-2 flex flex-row gap-3 items-center">
+              <!-- Bedroom Count Needs to be Fetched -->
+              Property Status:
+              <span
+                class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs font-500 text-justify"
+              >
+                <!-- {{ property.bedroom }} -->
+
+                1
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Amenities -->
+  <div
+    class="md:font-poppins border-2 p-2 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70) mb-5 h-[360px]"
+  >
+    <div
+      class="font-bold custom-sm:my-[3%] sm:my-[3%] lg:ml-5 border-b-2 border-dashed font-poppins"
+    >
+      Amenities:
+    </div>
+    <div class="md:p-2">
+      <div class="flex">
+        <div class="w-[95%] mx-auto flex flex-wrap items-center justify-center">
+          <div
+            class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%] my-[5%]"
+          >
+            <!-- {{ property.amenities-logo }} -->
+
+            <mdicon
+              name="Sprinkler"
+              :width="30"
+              :height="30"
+              class="text-gray-700"
+            />
+            <!-- {{ property.amenities-name }} -->
+            Sprinklers
+          </div>
+          <!-- City needs to be Fetched Here -->
+
+          <div
+            class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%]"
+          >
+            <!-- {{ property.amenities-logo }} -->
+
+            <mdicon
+              name="SignDirection"
+              :width="30"
+              :height="30"
+              class="text-gray-700"
+            />
+            <!-- {{ property.amenities-name }} -->
+            Recreation
+          </div>
+
+          <!-- Land Area Needs to be Fetched Here -->
+          <div
+            class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%]"
+          >
+            <!-- {{ property.amenities-logo }} -->
+
+            <mdicon
+              name="Sprinkler"
+              :width="30"
+              :height="30"
+              class="text-gray-700"
+            />
+            <!-- {{ property.amenities-name }} -->
+            Sprinklers
+          </div>
+          <!-- Zip Needs to be Fetched Here -->
+          <div
+            class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%]"
+          >
+            <!-- {{ property.amenities-logo }} -->
+
+            <mdicon
+              name="Sprinkler"
+              :width="30"
+              :height="30"
+              class="text-gray-700"
+            />
+            <!-- {{ property.amenities-name }} -->
+            Sprinklers
+          </div>
+          <!-- Neighborhood Needs to be Fetched Here -->
+          <div
+            class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%]"
+          >
+            <!-- {{ property.amenities-logo }} -->
+
+            <mdicon
+              name="Sprinkler"
+              :width="30"
+              :height="30"
+              class="text-gray-700"
+            />
+            <!-- {{ property.amenities-name }} -->
+            Sprinklers
+          </div>
+          <div
+            class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%]"
+          >
+            <!-- {{ property.amenities-logo }} -->
+
+            <mdicon
+              name="Sprinkler"
+              :width="30"
+              :height="30"
+              class="text-gray-700"
+            />
+            <!-- {{ property.amenities-name }} -->
+            Sprinklers
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Nearest Places -->
+  <div
+    class="md:font-poppins border-2 p-2 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70) mb-5 h-[360px]"
+  >
+    <div
+      class="font-bold custom-sm:my-[3%] sm:my-[3%] lg:ml-5 border-b-2 border-dashed font-poppins"
+    >
+      Nearest Places:
+    </div>
+    <div class="md:p-2">
+      <div class="flex">
+        <div class="w-[95%] mx-auto flex flex-wrap items-center justify-center">
+          <div
+            class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[50%] my-[5%]"
+          >
+            <!-- {{ property.amenities-logo }} -->
+
+            <mdicon
+              name="Sprinkler"
+              :width="30"
+              :height="30"
+              class="text-gray-700"
+            />
+            <!-- {{ property.amenities-name }} -->
+            INDIANA AEROSPACE UNIVERSITY
+          </div>
+          <!-- City needs to be Fetched Here -->
+
+          <div
+            class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[50%]"
+          >
+            <!-- {{ property.amenities-logo }} -->
+
+            <mdicon
+              name="SignDirection"
+              :width="30"
+              :height="30"
+              class="text-gray-700"
+            />
+            <!-- {{ property.amenities-name }} -->
+            GAISANO GRAND MALL BASAK
+          </div>
+
+          <!-- Land Area Needs to be Fetched Here -->
+          <div
+            class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[50%]"
+          >
+            <!-- {{ property.amenities-logo }} -->
+
+            <mdicon
+              name="Sprinkler"
+              :width="30"
+              :height="30"
+              class="text-gray-700"
+            />
+            <!-- {{ property.amenities-name }} -->
+            MACTAN DOCTORS HOSPITAL
+          </div>
+          <!-- Zip Needs to be Fetched Here -->
+          <div
+            class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[50%]"
+          >
+            <!-- {{ property.amenities-logo }} -->
+
+            <mdicon
+              name="Sprinkler"
+              :width="30"
+              :height="30"
+              class="text-gray-700"
+            />
+            <!-- {{ property.amenities-name }} -->
+            MACTAN INTERNATIONAL AIRPORT
+          </div>
+          <!-- Neighborhood Needs to be Fetched Here -->
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script lang="ts" setup>
+import { onMounted } from "vue";
+import { initFlowbite } from "flowbite";
+
+// initialize components based on data attribute selectors
+onMounted(() => {
+  initFlowbite();
+});
+interface PropType {
+  property: any;
+}
+
+defineProps<PropType>();
+</script>
+
+<!-- <div class="border-2 m-2 p-1 font-medium">
+            City:
+            <span
+              class="text-base font-normal lg:text-md md:text-md custom-sm:text-xs sm:text-xs"
+            >
+              {{ property.property_city }}</span
+            >
+          </div> -->
+<!-- <div class="">
+            <div class="border-2 m-2 p-1 font-medium">
+              Zip:
+              <span
+                class="text-base font-normal lg:text-md md:text-md custom-sm:text-xs sm:text-xs"
+              >
+                {{ property.property_zipcode }}</span
+              >
+            </div>
+            <div class="border-2 m-2 p-1 font-medium">
+              State/Country:
+              <span
+                class="text-base font-normal lg:text-md md:text-md custom-sm:text-xs sm:text-xs"
+              >
+                {{ property.property_country }}
+              </span>
+            </div>
+          </div> -->
+
+<!-- Details -->
+<!-- <div
     class="border-2 md:p-2 lg:p-2 custom-sm:mb-0 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70) md:mb-5 lg:mb-5"
   >
     <div class="font-semibold custom-sm:mx-[3%]">Details:</div>
@@ -251,9 +710,15 @@
       <div class="flex">
         <div class="w-[50%]">
           <div class="border-2 m-2 p-1 font-medium">
+            <mdicon
+              name="instagram"
+              :width="30"
+              :height="30"
+              class="hover:text-orange-500 mr-5"
+            />
             Bedroom:
             <span
-              class="text-base font-normal lg:text-lg md:text-md custom-sm:text-xs sm:text-xs"
+              class="text-base font-normal lg:text-md md:text-md custom-sm:text-xs sm:text-xs"
             >
               {{ property.property_bedroom }}</span
             >
@@ -261,7 +726,7 @@
           <div class="border-2 m-2 p-1 font-medium">
             Bathroom:
             <span
-              class="text-base font-normal lg:text-lg md:text-md custom-sm:text-xs sm:text-xs"
+              class="text-base font-normal lg:text-md md:text-md custom-sm:text-xs sm:text-xs"
             >
               {{ property.property_bathroom }}</span
             >
@@ -271,7 +736,7 @@
           <div class="border-2 m-2 p-1 font-medium">
             Land Area:
             <span
-              class="text-base font-normal lg:text-lg md:text-md custom-sm:text-xs sm:text-xs"
+              class="text-base font-normal lg:text-md md:text-md custom-sm:text-xs sm:text-xs"
             >
               {{ property.property_area }}</span
             >
@@ -279,7 +744,7 @@
           <div class="border-2 m-2 p-1 font-medium">
             Parking Space:
             <span
-              class="text-base font-normal lg:text-lg md:text-md custom-sm:text-xs sm:text-xs"
+              class="text-base font-normal lg:text-md md:text-md custom-sm:text-xs sm:text-xs"
             >
               {{ property.property_parking_space }}</span
             >
@@ -298,22 +763,31 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="w-[100%] text-black bg-orange-500 rounded-lg h-[250px]">
-    TIWASON KUNI DIRI, MEETING PAMI SA SIMBAHAN PRACTICE PARA SA MAUNDY THURSDAY
-  </div>
-</template>
-<script lang="ts" setup>
-import { onMounted } from "vue";
-import { initFlowbite } from "flowbite";
+  </div> -->
 
-// initialize components based on data attribute selectors
-onMounted(() => {
-  initFlowbite();
-});
-interface PropType {
-  property: any;
-}
-
-defineProps<PropType>();
-</script>
+<!-- <div class="border-2 m-2 p-1 font-medium">
+            City:
+            <span
+              class="text-base font-normal lg:text-md md:text-md custom-sm:text-xs sm:text-xs"
+            >
+              {{ property.property_city }}</span
+            >
+          </div> -->
+<!-- <div class="">
+            <div class="border-2 m-2 p-1 font-medium">
+              Zip:
+              <span
+                class="text-base font-normal lg:text-md md:text-md custom-sm:text-xs sm:text-xs"
+              >
+                {{ property.property_zipcode }}</span
+              >
+            </div>
+            <div class="border-2 m-2 p-1 font-medium">
+              State/Country:
+              <span
+                class="text-base font-normal lg:text-md md:text-md custom-sm:text-xs sm:text-xs"
+              >
+                {{ property.property_country }}
+              </span>
+            </div>
+          </div> -->

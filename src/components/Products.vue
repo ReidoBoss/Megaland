@@ -1,7 +1,7 @@
 <template>
   <div
     @click="redirectDetails"
-    class="md:w-[340px] custom-sm:w-[310px] sm:w-[300px] lg:w-[380px] lg:h-[535px] break-words relative flex flex-col justify-between space-y-1 w-[380px] h-[535px] bg-white p-5 border-2 rounded-md shadow-xl hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] hover:scale-[1.02]"
+    class="md:w-[340px] custom-sm:w-[310px] sm:w-[300px] lg:w-[380px] lg:h-[550px] break-words relative flex flex-col justify-between space-y-1 w-[380px] h-[550px] bg-white p-5 border-2 rounded-md shadow-xl hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] hover:scale-[1.02]"
   >
     <div class="absolute transform rotate-90 left-auto -right-3 text-center">
       <BookmarkIcon class="text-[#E67E23] h-28 w-24" />
@@ -54,7 +54,7 @@
       <!-- name -->
       <div class="m-1">
         <p
-          class="text-[#454544] font-bold custom-sm:text-sm text-center md:text-md sm:text-md lg:text-lg"
+          class="text-[#454544] font-bold custom-sm:text-sm text-center md:text-md sm:text-md lg:text-md"
         >
           {{ name }}
         </p>
@@ -64,7 +64,7 @@
       <div class="flex text-[#454544] font-medium">
         <p class="flex items-center w-[32%] text-[15px] m-1 font-bold">Price</p>
         <div
-          class="w-[68%] custom-sm:text-sm sm:text-sm text-[#E67E23] font-semibold m-1"
+          class="w-[68%] custom-sm:text-sm sm:text-sm text-[#E67E23] font-bold font-poppins m-1"
         >
           <span class="text-[#454544] font-medium">:</span> ₱
           {{ price ? price.toLocaleString("en-US") : "N/A" }}
