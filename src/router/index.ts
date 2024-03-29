@@ -38,48 +38,54 @@ const routes: RouteRecordRaw[] = [
     component: () => import("../MainPages/Admin.vue"),
     meta: { hideNavAndFooter: true },
   },
+  // {
+  //   path: "/AgentNew",
+  //   name: "ViewAgent",
+  //   component: () => import("../components/AgentSidePages/ViewAgent.vue"),
+  //   meta: { hideNavAndFooter: true },
+  // },
   {
     path: "/AgentNew",
     name: "ViewAgent",
-    component: () => import("../components/AgentSidePages/ViewAgent.vue"),
+    component: () => import("../MainPages/AgentNew.vue"),
     meta: { hideNavAndFooter: true },
   },
-  {
-    path: "/AgentNewEditAgent",
-    name: "EditAgent",
-    component: () => import("../components/AgentSidePages/EditAgent.vue"),
-    meta: { hideNavAndFooter: true },
-  },
+  // {
+  //   path: "/AgentNewEditAgent",
+  //   name: "EditAgent",
+  //   component: () => import("../components/AgentSidePages/EditAgent.vue"),
+  //   meta: { hideNavAndFooter: true },
+  // },
 
-  {
-    path: "/AgentNewAddProperty",
-    name: "AgentAddProperty",
-    component: () =>
-      import("../components/AgentSidePages/AgentNewAddProperty.vue"),
-    meta: { hideNavAndFooter: true },
-  },
+  // {
+  //   path: "/AgentNewAddProperty",
+  //   name: "AgentAddProperty",
+  //   component: () =>
+  //     import("../components/AgentSidePages/AgentNewAddProperty.vue"),
+  //   meta: { hideNavAndFooter: true },
+  // },
 
-  {
-    path: "/AgentNewManageProperty",
-    name: "AgentManageProperty",
-    component: () =>
-      import("../components/AgentSidePages/AgentNewManageProperty.vue"),
-    meta: { hideNavAndFooter: true },
-  },
+  // {
+  //   path: "/AgentNewManageProperty",
+  //   name: "AgentManageProperty",
+  //   component: () =>
+  //     import("../components/AgentSidePages/AgentNewManageProperty.vue"),
+  //   meta: { hideNavAndFooter: true },
+  // },
 
-  {
-    path: "/AgentNewChangePassword",
-    name: "AgentChangePassword",
-    component: () =>
-      import("../components/AgentSidePages/AgentNewChangePassword.vue"),
-    meta: { hideNavAndFooter: true },
-  },
-  {
-    path: "/AgentNewSignOut",
-    name: "AgentSignOut",
-    component: () => import("../components/AgentSidePages/AgentNewSignOut.vue"),
-    meta: { hideNavAndFooter: true },
-  },
+  // {
+  //   path: "/AgentNewChangePassword",
+  //   name: "AgentChangePassword",
+  //   component: () =>
+  //     import("../components/AgentSidePages/AgentNewChangePassword.vue"),
+  //   meta: { hideNavAndFooter: true },
+  // },
+  // {
+  //   path: "/AgentNewSignOut",
+  //   name: "AgentSignOut",
+  //   component: () => import("../components/AgentSidePages/AgentNewSignOut.vue"),
+  //   meta: { hideNavAndFooter: true },
+  // },
 
   {
     path: "/AdminNew",

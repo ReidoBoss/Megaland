@@ -1,27 +1,6 @@
 <template>
-  <div class="bg-[#e9d8c5] h-full">
-    <nav
-      class="border-gray-200 bg-primary py-5 items-center justify-center flex mx-auto"
-    >
-      <div
-        class="flex custom-sm:justify-center custom-sm:items-center p-4 md:mx-auto"
-      >
-        <div
-          class="flex mx-auto items-center justify-center custom-sm:items-center custom-sm:justify-center custom-sm:flex"
-        >
-        <img
-            src="src/assets/mgLogo.png"
-            class="lg:h-40 lg:w-50 md:h-20 md:w-35 custom-sm:w-[30%] custom-sm:h-[20%]"
-            alt="megaland"
-          />
-          <span
-            class="text-xl font-bold dark:text-white flex custom-sm:text-sm"
-            ></span
-          >
-        </div>
-      </div>
-    </nav>
-
+  
+  <div class="bg-[#e9d8c5] custom-sm:w-[100%] lg:w-[80%] h-full mx-auto">
     <div class="w-full lg:hidden md:block custom-sm:block bg-[#e9d8c5]">
       <button
         @click="toggleSidebar"
@@ -40,99 +19,11 @@
       :toggleSidebar="toggleSidebar"
     />
 
-    <div class="bg-gray-900 lg:block w-[100%] h-[100%] sticky top-0">
-      <div class="flex flex-row row-span-2 bg-[#e9d8c5]">
-        <aside
-          class="bg-gray-900 w-[25%] border-dashed border-orange-500 border-2 h-screen self-start sticky top-0 z-10 custom-sm:hidden sm:hidden md:hidden lg:block text-orange-500"
-        >
-          <ul
-            class="flex flex-col gap-10 justify-center ml-10 items-start hover: cursor-pointer my-[50%] sticky top-1"
-          >
-            <li class="flex">
-              <mdicon
-                name="AccountBoxMultipleOutline"
-                :width="30"
-                :height="30"
-                class="hover:text-white"
-              />
-              <router-link
-                class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AgentNew"
-                >View Profile</router-link
-              >
-            </li>
-            <li class="flex">
-              <mdicon
-                name="AccountEditOutline"
-                :width="30"
-                :height="30"
-                class="hover:text-white"
-              />
-              <router-link
-                class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AgentNewEditAgent"
-                >Edit Profile</router-link
-              >
-            </li>
-
-            <li class="flex">
-              <mdicon
-                name="OfficeBuildingMarkerOutline"
-                :width="30"
-                :height="30"
-                class="hover:text-white"
-              />
-              <router-link
-                class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AgentNewAddProperty"
-                >Add Property</router-link
-              >
-            </li>
-            <li class="flex">
-              <mdicon
-                name="NewspaperVariantMultipleOutline"
-                :width="30"
-                :height="30"
-                class="hover:text-white"
-              />
-              <router-link
-                class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AgentNewManageProperty"
-                >Manage Property</router-link
-              >
-            </li>
-            <li class="flex">
-              <mdicon
-                name="ShieldLockOutline"
-                :width="30"
-                :height="30"
-                class="hover:text-white"
-              />
-              <router-link
-                class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AgentNewChangePassword"
-                >Change Password</router-link
-              >
-            </li>
-            <li class="flex">
-              <mdicon
-                name="Logout"
-                :width="30"
-                :height="30"
-                class="hover:text-white"
-              />
-              <router-link
-                class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AgentNewSignOut"
-                >Logout Account</router-link
-              >
-            </li>
-          </ul>
-        </aside>
-        <div class="lg:w-[100%]">
-           
-          <div class="lg:w-[70%] md:w-[100%] custom-sm:w-[100%] mx-auto my-[5%]">
-            <div class="flex flex-wrap mx-auto my-[5%] lg:w-[22%] md:w-[25%] custom-sm:w-[40%] bg-primary rounded-full h-[180px] border-2 "><span class="w-[90%] h-[90%] flex items-center justify-center rounded-full mx-auto my-auto bg-white"><img class="lg:w-[90%] lg:h-[90%] custom-sm:w-[100%] custom-sm:h-[100%] my-auto mx-auto rounded-full " src="/src/assets/marivil.png"/></span></div>
+    <div class="bg-gray-900 lg:block w-[100%] h-[100%] sticky top-0 mx-auto">
+      <div class="flex flex-row row-span-2 bg-[#e9d8c5] ">
+        <div class="lg:w-[80%] mx-auto">
+          <div class="lg:w-[100%] md:w-[100%] custom-sm:w-[100%]  my-[5%]">
+            <div class="flex flex-wrap mx-auto my-[5%] lg:w-[18%] md:w-[25%] custom-sm:w-[50%] bg-primary rounded-full h-[180px] border-2 "><span class="w-[90%] h-[90%] flex items-center justify-center rounded-full mx-auto my-auto bg-white"><img class="lg:w-[90%] lg:h-[90%] custom-sm:w-[100%] custom-sm:h-[100%] my-auto mx-auto rounded-full " src="/src/assets/marivil.png"/></span></div>
             
             <table class="table table-bordered lg:w-[100%] custom-sm:w-[90%] md:w-[90%] mx-auto text-xs">
                 
@@ -252,17 +143,16 @@
       </div>
     </div>
   </div>
+
 </template>
 <script lang="ts" setup>
 import SideBarAgentNew from "../AgentSidePages/SideBarAgentNew.vue";
-import { onMounted } from 'vue'
-import { Modal } from 'flowbite'
+import { onMounted } from "vue";
 
-
-import { initFlowbite } from 'flowbite'
+import { initFlowbite } from "flowbite";
 onMounted(() => {
-    initFlowbite();
-})
+  initFlowbite();
+});
 import { ref } from "vue";
 const active = ref(0);
 const isSidebarVisible = ref(false);
@@ -270,6 +160,10 @@ const toggleSidebar = () => {
   isSidebarVisible.value = !isSidebarVisible.value;
 };
 
-import router from "../router";
-import { useRoute } from "vue-router";
+import EditAgent from "./EditAgent.vue";
+import AgentNewAddProperty from "./AgentNewAddProperty.vue";
+import AgentNewChangePassword from "./AgentNewChangePassword.vue";
+import AgentNewSignOut from "./AgentNewSignOut.vue";
+import AgentNewManageProperty from "./AgentNewManageProperty.vue";
+const currentTab = ref(0);
 </script>

@@ -22,6 +22,28 @@
   width: 100%;
 }
 
+.hover-underlines {
+  position: relative;
+  display: inline-block;
+}
+
+.hover-underlines::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px; /* Adjust the thickness of the underline as needed */
+  background-color: #fefefe; /* Adjust the color of the underline as needed */
+  transition: width 0.6s ease;
+  margin-left: 65px;
+}
+
+.hover-underlines:hover::before {
+  width: 50%;
+  margin-left: 65px;
+}
+
 body {
   zoom: 125% !important;
 }
