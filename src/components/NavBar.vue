@@ -94,11 +94,7 @@
 </template>
 
 <script lang="ts" setup>
-import {
-  MagnifyingGlassIcon,
-  UserIcon,
-  XMarkIcon,
-} from "@heroicons/vue/24/outline";
+import { MagnifyingGlassIcon, UserIcon } from "@heroicons/vue/24/outline";
 import SideBar from "./SideBar.vue";
 const isSidebarVisible = ref(false);
 const toggleSidebar = () => {
@@ -111,7 +107,7 @@ import LoginModal from "./LoginModal.vue";
 
 const route = useRoute();
 
-const modalActive = ref(null);
+const modalActive = ref(false);
 const toggleModal = () => {
   modalActive.value = !modalActive.value;
 };

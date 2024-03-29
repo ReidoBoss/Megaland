@@ -84,13 +84,22 @@
         OUR <span class="text-[#E67E23]">TEAM</span>
       </h1>
       <div class="flex flex-wrap gap-5 justify-evenly">
-        <AgentCard />
-        <AgentCard />
-        <AgentCard />
-        <AgentCard />
-        <AgentCard />
-        <AgentCard />
+        <AgentCard :hoverable="true" />
+        <AgentCard :hoverable="true" />
+        <AgentCard :hoverable="true" />
+        <AgentCard :hoverable="true" />
+        <AgentCard :hoverable="true" />
+        <AgentCard :hoverable="true" />
       </div>
+    </div>
+
+    <div class="w-full mt-6 items-center">
+      <h1
+        class="mt-10 mb-20 font-black text-center custom-sm:text-xl sm:text-2xl md:text-3.5xl lg:text-4xl"
+      >
+        <span> OUR </span><span class="text-[#E67E23]">GALLERY !</span>
+      </h1>
+      <Gallery />
     </div>
   </div>
 </template>
@@ -99,4 +108,5 @@
 import about from "../assets/about.png";
 import ValCard from "../components/ValCard.vue";
 import AgentCard from "../components/AgentCard.vue";
+import Gallery from "../components/Gallery.vue";
 </script>

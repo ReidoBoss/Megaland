@@ -152,37 +152,70 @@
     </div>
   </div>
   <!--Agents Carousel-->
-  <div class="p-8">
-    <div class="w-full mt-6 items-center">
-      <h1
-        class="mt-10 mb-14 font-black custom-sm:text-xl sm:text-2xl md:text-3.5xl lg:text-4xl flex justify-center items-center"
-      >
-        <span class="mx-2"> MEET OUR </span>
-        <span class="text-[#E67E23]"> AGENTS !</span>
-      </h1>
-      <Agents />
-    </div>
-  </div>
-
-  <div class="w-full mt-6 items-center">
+  <div class="p-8 relative">
     <h1
-      class="mt-10 mb-20 font-black text-center custom-sm:text-xl sm:text-2xl md:text-3.5xl lg:text-4xl"
+      class="mt-10 mb-2 font-black custom-sm:text-xl sm:text-2xl md:text-3.5xl lg:text-4xl flex justify-center items-center"
     >
-      <span> OUR </span><span class="text-[#E67E23]">GALLERY !</span>
+      <span class="mx-2"> MEET OUR </span>
+      <span class="text-[#E67E23]"> AGENTS !</span>
     </h1>
-    <Gallery />
+    <!-- <Agents /> -->
+    <swiper-container
+      effect="coverflow"
+      grab-cursor="true"
+      centered-slides="true"
+      slides-per-view="auto"
+      coverflow-effect-rotate="50"
+      coverflow-effect-stretch="0"
+      coverflow-effect-depth="100"
+      coverflow-effect-modifier="1"
+      coverflow-effect-slide-shadows="false"
+      :autoplay="true"
+      disableOnInteraction="false"
+      class="w-full flex p-[50px]"
+    >
+      <swiper-slide class="bg-center bg-cover w-[370px] h-[500px]">
+        <div class="block w-full">
+          <AgentCard :hoverable="false" />
+        </div>
+      </swiper-slide>
+
+      <swiper-slide class="bg-center bg-cover w-[370px] h-[500px]">
+        <div class="block w-full">
+          <AgentCard :hoverable="false" />
+        </div>
+      </swiper-slide>
+      <swiper-slide class="bg-center bg-cover w-[370px] h-[500px]">
+        <div class="block w-full">
+          <AgentCard :hoverable="false" />
+        </div>
+      </swiper-slide>
+      <swiper-slide class="bg-center bg-cover w-[370px] h-[500px]">
+        <div class="block w-full">
+          <AgentCard :hoverable="false" />
+        </div>
+      </swiper-slide>
+      <swiper-slide class="bg-center bg-cover w-[370px] h-[500px]">
+        <div class="block w-full">
+          <AgentCard :hoverable="false" />
+        </div>
+      </swiper-slide>
+    </swiper-container>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { register } from "swiper/element/bundle";
 import Accordion from "../components/Accordion.vue";
-import Gallery from "../components/Gallery.vue";
+
 import Products from "../components/Products.vue";
-import Agents from "../components/Agents.vue";
+// import Agents from "../components/Agents.vue";
+// import AgentCard from "../components/AgentCard.vue";
 import { NewspaperIcon } from "@heroicons/vue/24/outline";
+import AgentCard from "../components/AgentCard.vue";
 
 import { ref, onMounted, Ref } from "vue";
+// import { EffectCoverflow } from "swiper/modules";
 register();
 
 interface Property {

@@ -1,7 +1,13 @@
 <template>
   <div
-    class="w-full h-full max-w-sm bg-white border-gray-200 rounded-lg border-2 shadow-lg hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] hover:scale-[1.02]"
+    :class="{
+      'max-w-sm bg-white border-gray-200 rounded-lg border-2 shadow-lg w-[370px] h-[500px] hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] hover:scale-[1.02]':
+        props.hoverable,
+      'max-w-sm bg-white border-gray-200 rounded-lg border-2 shadow-lg w-[370px] h-[500px]':
+        !props.hoverable,
+    }"
   >
+    <!--  -->
     <div class="flex justify-end px-4 pt-4">
       <button
         id="dropdownButton"
@@ -49,4 +55,10 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { defineProps } from "vue";
+
+const props = defineProps({
+  hoverable: Boolean,
+});
+</script>

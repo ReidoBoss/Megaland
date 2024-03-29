@@ -101,7 +101,10 @@
         class="flex flex-col justify-center items-center sm:text-center custom-sm:text-md sm:text-md md:text-lg lg:text-lg text-white mb-5 mr-5 ml-5"
       >
         <div>Gallery</div>
-        <div class="flex h-[160px] w-full hover:scale-[1.02]">
+        <div
+          class="flex h-[160px] w-full hover:scale-[1.02]"
+          @click="toggleModal"
+        >
           <div class="flex items-center justify-center w-[65%] p-1">
             <img
               class="h-[151px] border-2 border-[#fefefe]"
@@ -129,6 +132,16 @@
       </div>
     </div>
   </div>
+  <GalleryModal :modalActive="modalActive" @close-modal="toggleModal">
+  </GalleryModal>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { ref } from "vue";
+import GalleryModal from "./GalleryModal.vue";
+
+const modalActive = ref(false);
+const toggleModal = () => {
+  modalActive.value = !modalActive.value;
+};
+</script>
