@@ -3,7 +3,7 @@
     class="h-full custom-sm:w-[100%] sm:w-[100%] md:w-[100%] lg:w-[80%] bg-[#e9d8c5]"
   >
     <div class="lg:block w-[100%] h-[100%] sticky top-0 bg-[#e9d8c5]">
-      <div class="flex flex-row row-span-2">
+      <div class="flex flex-row row-span-2 h-[815px]">
         <div
           class="flex flex-col items-center justify-center custom-sm:w-[90%] mx-auto custom-sm:mt-[15%] lg:mt-[-10%] md:w-[80%] lg:w-[80%] md:py-[8%]"
         >

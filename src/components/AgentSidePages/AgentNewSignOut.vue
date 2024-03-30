@@ -3,7 +3,7 @@
     class="h-screen custom-sm:w-[100%] sm:w-[100%] md:w-[100%] lg:w-[80%] bg-[#e9d8c5]"
   >
     <div class="w-full lg:hidden md:block custom-sm:block bg-[#e9d8c5]">
-      <button
+      <!-- <button
         @click="toggleSidebar"
         class="hover:underline custom-sm:md sm:text-md lg:hidden ml-2"
       >
@@ -13,12 +13,12 @@
           :height="35"
           class="hover:text-white text-[#111929]"
         />
-      </button>
+      </button> -->
     </div>
-    <SideBarAgentNew
+    <!-- <SideBarAgentNew
       :isVisible="isSidebarVisible"
       :toggleSidebar="toggleSidebar"
-    />
+    /> -->
     <div class="lg:block w-[100%] h-[100%] sticky top-0 bg-[#e9d8c5]">
       <div class="flex flex-row row-span-2">
         <div

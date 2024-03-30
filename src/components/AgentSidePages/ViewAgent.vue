@@ -1,8 +1,9 @@
 <template>
-  
   <div class="bg-[#e9d8c5] custom-sm:w-[100%] lg:w-[80%] h-full mx-auto">
-    <div class="w-full lg:hidden md:block custom-sm:block bg-[#e9d8c5]">
-      <button
+    <div
+      class="w-full lg:hidden md:block custom-sm:block sm:block bg-[#e9d8c5]"
+    >
+      <!-- <button
         @click="toggleSidebar"
         class="hover:underline custom-sm:md sm:text-md lg:hidden ml-2"
       >
@@ -12,12 +13,12 @@
           :height="35"
           class="hover:text-white text-[#111929]"
         />
-      </button>
+      </button> -->
     </div>
-    <SideBarAgentNew
+    <!-- <SideBarAgentNew
       :isVisible="isSidebarVisible"
       :toggleSidebar="toggleSidebar"
-    />
+    /> -->
 
     <div class="bg-gray-900 lg:block w-[100%] h-[100%] sticky top-0 mx-auto">
       <div class="flex flex-row row-span-2 bg-[#e9d8c5] ">
@@ -143,27 +144,9 @@
       </div>
     </div>
   </div>
-
 </template>
 <script lang="ts" setup>
-import SideBarAgentNew from "../AgentSidePages/SideBarAgentNew.vue";
-import { onMounted } from "vue";
-
-import { initFlowbite } from "flowbite";
-onMounted(() => {
-  initFlowbite();
-});
 import { ref } from "vue";
 const active = ref(0);
 const isSidebarVisible = ref(false);
-const toggleSidebar = () => {
-  isSidebarVisible.value = !isSidebarVisible.value;
-};
-
-import EditAgent from "./EditAgent.vue";
-import AgentNewAddProperty from "./AgentNewAddProperty.vue";
-import AgentNewChangePassword from "./AgentNewChangePassword.vue";
-import AgentNewSignOut from "./AgentNewSignOut.vue";
-import AgentNewManageProperty from "./AgentNewManageProperty.vue";
-const currentTab = ref(0);
 </script>

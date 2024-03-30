@@ -268,23 +268,4 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import SideBarAgentNew from "../AgentSidePages/SideBarAgentNew.vue";
-import { ref } from "vue";
-const active = ref(0);
-const isSidebarVisible = ref(false);
-const toggleSidebar = () => {
-  isSidebarVisible.value = !isSidebarVisible.value;
-};
-import { ref } from "vue";
-import router from "../router";
-import { useRoute } from "vue-router";
-import { onMounted } from "vue";
-import { initFlowbite } from "flowbite";
-
-// initialize components based on data attribute selectors
-onMounted(() => {
-  initFlowbite();
-});
-import { Modal } from "flowbite";
-</script>
+<script lang="ts" setup></script>
