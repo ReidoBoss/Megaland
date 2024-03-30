@@ -63,14 +63,17 @@
       </h1>
       <div class="font-poppins flex justify-evenly gap-5">
         <ValCard
+          :imgSrc="'/src/assets/Integrity.jpg'"
           header="Integrity"
           desc="Megaland Realty  was founded on integrity, professionalism, hard work and trust; values that never waver. We proudly carry the Megaland   name, a symbol of quality and integrity. Our brokers take great pride in providing a high level of personalized service to create a luxury experience for all clients, one that you will truly appreciate. Find your next property to buy or rent in Cebu City."
         />
         <ValCard
+          :imgSrc="'/src/assets/Vision.jpg'"
           header="Vision"
           desc="We envision to build a strong force in Real Estate Industry Service to the next level and to help each other to achieve financial upliftment."
         />
         <ValCard
+          :imgSrc="'/src/assets/Expertise.jpg'"
           header="Expertise"
           desc="At Megaland Realty we know the local real estate market. Since February 2008, our professional and friendly agents have been helping people like you with all of their needs, from buying or renting new homes to selling properties. Our sensitivity to the marketplace comes from a single yet powerful perspective: Cebu City is more than just a market, it’s our home."
         />

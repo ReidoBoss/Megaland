@@ -6,13 +6,9 @@
     <p class="font-normal mr-3 ml-3 text-white text-justify">{{ desc }}</p>
   </div> -->
 
-  <div class="max-w-sm bg-white rounded-lg ">
+  <div class="max-w-sm bg-white rounded-lg">
     <a href="#">
-      <img
-        class="rounded-t-lg"
-        src="https://flowbite.com/docs/images/blog/image-1.jpg"
-        alt=""
-      />
+      <img class="rounded-t-lg" :src="imgSrc" alt="" />
     </a>
     <div class="p-5">
       <a href="#">
@@ -33,6 +29,7 @@
 interface ProductType {
   header: string;
   desc: string;
+  imgSrc: string;
 }
 
 defineProps<ProductType>();
