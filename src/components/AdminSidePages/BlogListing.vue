@@ -58,8 +58,9 @@
               <button
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
                 @click="propertyListing"
-                >Property Listing</button
               >
+                Property Listing
+              </button>
             </li>
             <li class="flex">
               <mdicon
@@ -69,10 +70,11 @@
                 class="hover:text-white"
               />
               <button
-              @click="propertyTable"
+                @click="propertyTable"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                >Property Table</button
               >
+                Property Table
+              </button>
             </li>
             <li class="flex">
               <mdicon
@@ -82,10 +84,11 @@
                 class="hover:text-white"
               />
               <button
-              @click="addAgent"
+                @click="addAgent"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                >Add Agent</button
               >
+                Add Agent
+              </button>
             </li>
             <li class="flex">
               <mdicon
@@ -95,10 +98,11 @@
                 class="hover:text-white"
               />
               <button
-              @click="agentTable"
+                @click="agentTable"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                >Agent Table</button
               >
+                Agent Table
+              </button>
             </li>
             <li class="flex">
               <mdicon
@@ -108,10 +112,11 @@
                 class="hover:text-white"
               />
               <button
-              @click="blogListing"
+                @click="blogListing"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                >Blog Listing</button
               >
+                Blog Listing
+              </button>
             </li>
             <li class="flex">
               <mdicon
@@ -121,10 +126,11 @@
                 class="hover:text-white"
               />
               <button
-              @click="blogTable"
+                @click="blogTable"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                >Blog Table</button
               >
+                Blog Table
+              </button>
             </li>
             <li class="flex">
               <mdicon
@@ -134,10 +140,11 @@
                 class="hover:text-white"
               />
               <button
-              @click="logout"
+                @click="logout"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                >Logout Account</button
               >
+                Logout Account
+              </button>
             </li>
           </ul>
         </aside>
@@ -154,7 +161,7 @@
                 <span class="text-orange-500"> List Blog</span>
               </div>
               <div
-                class="border-b-2 border-dashed border-orange-500 flex justify-start items-start w-[85%] mx-auto font-bold custom-sm:mt-[15%] custom-sm:text-sm"
+                class="border-b-2 lg:text-md md:text-md border-dashed border-orange-500 flex justify-start items-start w-[85%] mx-auto font-bold custom-sm:mt-[15%] custom-sm:text-sm"
               >
                 Blog Listing
               </div>
@@ -163,8 +170,7 @@
               >
                 <div class="w-[80%] h-[80%] my-[5%] mx-auto">
                   <form @submit.prevent>
-                    <div class="grid grid-cols-1 gap-5 mt-4 sm:grid-cols-2">
-
+                    <div class="flex flex-col gap-5 mt-4">
                       <div class="flex justify-start items-start flex-col mt-5">
                         <label
                           class="block mb-2 text-sm font-medium"
@@ -172,31 +178,29 @@
                           >Blog Title</label
                         >
                         <input
-                        v-model="title"
+                          v-model="title"
                           id="blogtitle"
                           type="text"
                           class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
                         />
                       </div>
                       <!-- Iframe -->
-                      <div class="flex justify-start items-start mt-4">
-                        <label
-                          class="block mb-2 text-sm font-medium"
-                          for="name"
+                      <div class="flex justify-start items-start mt-4 flex-col">
+                        <label class="block mb-2 text-sm font-medium" for="name"
                           >iFrame:</label
                         >
+                        <div class="w-full">
+                          <textarea
+                            v-model="iframe"
+                            id="propertydesc"
+                            type="textarea"
+                            class="block w-full px-4 py-2 h-[80px] border-0 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm custom-sm:text-sm sm:leading-6 focus:outline-none"
+                          ></textarea>
+                        </div>
                       </div>
-                      <div>
-                        <textarea
-                          v-model="iframe"
-                          id="propertydesc"
-                          type="textarea"
-                          class="block w-full px-4 py-2 h-[80px] border-0 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm custom-sm:text-sm sm:leading-6 focus:outline-none"
-                        ></textarea>
-                      </div>
+
                       <!-- location -->
-     
- 
+
                       <div class="flex justify-start items-start flex-col mt-5">
                         <label
                           class="block mb-2 text-sm font-medium"
@@ -204,7 +208,7 @@
                           >Location</label
                         >
                         <input
-                        v-model="location"
+                          v-model="location"
                           id="blogtitle"
                           type="text"
                           class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
@@ -219,7 +223,7 @@
                           >Developer</label
                         >
                         <input
-                        v-model="developer"
+                          v-model="developer"
                           id="blogtitle"
                           type="text"
                           class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
@@ -231,42 +235,37 @@
                         <label
                           class="block mb-2 text-sm font-medium"
                           for="blogtitle"
-                          >details</label
+                          >Details</label
                         >
                         <input
-                        v-model="details"
+                          v-model="details"
                           id="blogtitle"
                           type="text"
                           class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
                         />
                       </div>
                       <!-- description -->
-                      <div class="flex justify-start items-start mt-4">
-                        <label
-                          class="block mb-2 text-sm font-medium"
-                          for="name"
+                      <div class="flex justify-start items-start mt-4 flex-col">
+                        <label class="block mb-2 text-sm font-medium" for="name"
                           >Description:</label
                         >
-                      </div>
-                      <div>
                         <textarea
                           v-model="description"
                           id="propertydesc"
                           type="textarea"
                           class="block w-full px-4 py-2 h-[80px] border-0 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm custom-sm:text-sm sm:leading-6 focus:outline-none"
                         ></textarea>
-                      </div>            
-                      
-                      
+                      </div>
+
                       <!-- broker -->
                       <div class="flex justify-start items-start flex-col mt-5">
                         <label
                           class="block mb-2 text-sm font-medium"
                           for="blogtitle"
-                          >broker</label
+                          >Broker</label
                         >
                         <input
-                        v-model="broker"
+                          v-model="broker"
                           id="blogtitle"
                           type="text"
                           class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
@@ -277,24 +276,24 @@
                         <label
                           class="block mb-2 text-sm font-medium"
                           for="blogtitle"
-                          >contact_phone</label
+                          >Cellphone No.</label
                         >
                         <input
-                        v-model="contact_phone"
+                          v-model="contact_phone"
                           id="blogtitle"
                           type="text"
                           class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
                         />
                       </div>
-                    <!-- contact telephone -->
+                      <!-- contact telephone -->
                       <div class="flex justify-start items-start flex-col mt-5">
                         <label
                           class="block mb-2 text-sm font-medium"
                           for="blogtitle"
-                          >contact_phone</label
+                          >Telephone No.</label
                         >
                         <input
-                        v-model="contact_phone"
+                          v-model="contact_telephone"
                           id="blogtitle"
                           type="text"
                           class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
@@ -305,111 +304,209 @@
                         <label
                           class="block mb-2 text-sm font-medium"
                           for="blogtitle"
-                          >email address</label
+                          >Email Address</label
                         >
                         <input
-                        v-model="email"
+                          v-model="email"
                           id="blogtitle"
                           type="text"
                           class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
                         />
                       </div>
 
-                                            <!-- KEY TAGS  -->
+                      <!-- KEY TAGS  -->
                       <div class="flex justify-start items-start flex-col mt-5">
                         <label
                           class="block mb-2 text-sm font-medium"
                           for="blogtitle"
-                          >keytags</label
+                          >Key Tags</label
                         >
                         <input
-                        v-model="keytags"
+                          v-model="keytags"
                           id="blogtitle"
                           type="text"
                           class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
                         />
                       </div>
-          
 
-
-   
                       <div
                         class="text-xl font-bold my-5 absolute md:top-[46.5%] md:right-[29%] custom-sm:text-sm custom-sm:top-[58.5%] custom-sm:right-[25%]"
-                      >
-           
+                      ></div>
 
-                      </div>
                       <div
-                        class="flex flex-wrap items-center space-x-4 md:my-20 custom-sm:mt-20"
+                        class="flex flex-col items-center space-x-4 md:my-20 custom-sm:mt-20 gap-5"
                       >
                         <!-- DYNAMIC AMENITIES -->
-                        <div>⭐ANEMITY</div>
-                        <div v-for="(amenity, index) in amenities" 
-                        :key="index" 
-                        :id="amenity.id"
-                        :highlight="amenity.highlight" 
-                        class="flex items-center mt-2">
-                          <input 
-                          v-model="amenity.id" 
-                          type="text" 
-                          class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl" 
-                          :placeholder="amenity.highlight"
-                          />
+                        <div class="w-[100%] flex-col flex">
+                          <div
+                            class="w-[100%] flex flex-col gap-3 items-center justify-center"
+                          >
+                            <div
+                              class="md:text-lg lg:text-md sm:text-sm md:my-10 lg:w-[120%] md:w-[110%] lg:ml-[-8%] md:ml-[-9%] mr-[-8%] border-b-2 border-dashed border-orange-500 flex justify-start items-start custom-sm:w-[120%] custom-sm:ml-[-10%] mx-auto font-bold custom-sm:my-[10%] custom-sm:text-sm"
+                            >
+                              ⭐Amenities
+                            </div>
+                            <div class="flex flex-col w-[100%] gap-2">
+                              <div
+                                v-for="(amenity, index) in amenities"
+                                :key="index"
+                              >
+                                <div
+                                  class="flex items-center mt-2 w-[100%] justify-center"
+                                >
+                                  <input
+                                    v-model="amenity.id"
+                                    type="text"
+                                    class="h-10 w-[90%] px-4 text-md font-500 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl"
+                                    :placeholder="amenity.highlight"
+                                  />
+                                </div>
+                              </div>
+                              <div class="flex justify-center mt-5 gap-5">
+                                <button
+                                  @click="addAmenity()"
+                                  class="lg:w-[10%] custom-sm:w-[5%] md:w-[8%] px-8 items-center justify-center flex text-black border bg-orange-500 font-medium rounded-lg text-sm py-2.5 text-center"
+                                >
+                                  <mdicon
+                                    name="PlusThick"
+                                    :width="25"
+                                    :height="25"
+                                    class=""
+                                  />
+                                </button>
+                                <button
+                                  @click="removeAmenity()"
+                                  class="lg:w-[10%] custom-sm:w-[5%] md:w-[8%] px-8 items-center justify-center flex text-black border bg-red-500 font-medium rounded-lg text-sm py-2.5 text-center"
+                                >
+                                  <mdicon
+                                    name="CloseCircle"
+                                    :width="25"
+                                    :height="25"
+                                    class=""
+                                  />
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- AMENITIES -->
+
+                          <!-- DYNAMIC highlight -->
+
+                          <div
+                            class="w-[100%] flex flex-col gap-3 items-center justify-center"
+                          >
+                            <div
+                              class="md:text-lg lg:text-md sm:text-sm md:my-10 lg:w-[120%] md:w-[110%] lg:ml-[-8%] md:ml-[-9%] mr-[-8%] border-b-2 border-dashed border-orange-500 flex justify-start items-start custom-sm:w-[120%] custom-sm:ml-[-10%] mx-auto font-bold custom-sm:my-[10%] custom-sm:text-sm"
+                            >
+                              ✔Highlight
+                            </div>
+                            <div class="flex flex-col w-[100%]">
+                              <div
+                                v-for="(highlight, index) in highlight"
+                                class="flex items-center mt-2 w-[100%] justify-center"
+                                :key="index"
+                                :id="highlight.id"
+                                :highlight="highlight.highlight"
+                              >
+                                <input
+                                  v-model="highlight.id"
+                                  type="text"
+                                  class="h-10 px-4 text-md font-500 w-[90%] border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl"
+                                  :placeholder="highlight.highlight"
+                                />
+                              </div>
+                              <div
+                                class="w-[100%] flex justify-center mt-5 gap-5"
+                              >
+                                <button
+                                  @click="addHighlight()"
+                                  class="lg:w-[10%] custom-sm:w-[5%] md:w-[8%] px-8 items-center justify-center flex text-black border bg-orange-500 font-medium rounded-lg text-sm py-2.5 text-center"
+                                >
+                                  <mdicon
+                                    name="PlusThick"
+                                    :width="25"
+                                    :height="25"
+                                    class=""
+                                  />
+                                </button>
+                                <button
+                                  @click="removeHighlight()"
+                                  class="lg:w-[10%] custom-sm:w-[5%] md:w-[8%] px-8 items-center justify-center flex text-black border bg-red-500 font-medium rounded-lg text-sm py-2.5 text-center"
+                                >
+                                  <mdicon
+                                    name="CloseCircle"
+                                    :width="25"
+                                    :height="25"
+                                    class=""
+                                  />
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- highlight -->
                         </div>
-                        
 
-                        <button @click="addAmenity()">(+)</button>
-                        <button @click="removeAmenity()">(-)</button>
+                        <div
+                          class="w-[100%] flex flex-col gap-3 items-center justify-center"
+                        >
+                          <div
+                            class="md:text-lg lg:text-md sm:text-sm md:my-10 lg:w-[120%] md:w-[110%] lg:ml-[-8%] md:ml-[-9%] mr-[-8%] border-b-2 border-dashed border-orange-500 flex justify-start items-start custom-sm:w-[120%] custom-sm:ml-[-10%] mx-auto font-bold custom-sm:my-[10%] custom-sm:text-sm"
+                          >
+                            📍Land Mark
+                          </div>
+                          <div class="flex flex-col w-[100%]">
+                            <div
+                              v-for="(landmark, index) in landmark"
+                              class="flex items-center justify-center mt-2 w-[100%] gap-5"
+                              :key="index"
+                              :id="landmark.id"
+                              :highlight="landmark.highlight"
+                            >
+                              <input
+                                v-model="landmark.id"
+                                type="text"
+                                class="h-10 text-md font-500 px-4 w-[90%] border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl"
+                                :placeholder="landmark.highlight"
+                              />
+                            </div>
+                            <div
+                              class="w-[100%] flex justify-center mt-5 gap-5"
+                            >
+                              <button
+                                @click="addLandmark()"
+                                class="lg:w-[10%] custom-sm:w-[5%] md:w-[8%] px-8 items-center justify-center flex text-black border bg-orange-500 font-medium rounded-lg text-sm py-2.5 text-center"
+                              >
+                                <mdicon
+                                  name="PlusThick"
+                                  :width="25"
+                                  :height="25"
+                                  class=""
+                                />
+                              </button>
+                              <button
+                                @click="removeLandmark()"
+                                class="lg:w-[10%] custom-sm:w-[5%] md:w-[8%] px-8 items-center justify-center flex text-black border bg-red-500 font-medium rounded-lg text-sm py-2.5 text-center"
+                              >
+                                <mdicon
+                                  name="CloseCircle"
+                                  :width="25"
+                                  :height="25"
+                                  class=""
+                                />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
 
-                       <!-- AMENITIES -->
-                        
-                <!-- DYNAMIC highlight -->
-                <div> ✔HIGHLIGHT</div>
-                <div v-for="(highlight, index) in highlight" 
-                :key="index" 
-                :id="highlight.id"
-                :highlight="highlight.highlight" 
-                class="flex items-center mt-2">
-                  <input 
-                  v-model="highlight.id" 
-                  type="text" 
-                  class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl" 
-                  :placeholder="highlight.highlight"
-                  />
-                </div>
-
-
-                <button @click="addHighlight()">(+)</button>
-                <button @click="removeHighaddHighlight()">(-)</button>
-
-                <!-- highlight -->
-
-
-                                               <!-- DYNAMIC Landmark -->
-                                               <div> 📍LANDMARK</div>
-                                               <div v-for="(landmark, index) in landmark" 
-                                               :key="index" 
-                                               :id="landmark.id"
-                                               :highlight="landmark.highlight" 
-                                               class="flex items-center mt-2">
-                                                 <input 
-                                                 v-model="landmark.id" 
-                                                 type="text" 
-                                                 class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl" 
-                                                 :placeholder="landmark.highlight"
-                                                 />
-                                               </div>
-                                               
-                       
-                                               <button @click="addLandmark()">(+)</button>
-                                               <button @click="removeLandmark()">(-)</button>
-                       
-                                              <!-- landmark -->
-
+                        <!-- landmark -->
                       </div>
                       <!-- linebreak END OF DYNAMICS -->
-                      <br>
-                      <div class="flex justify-start items-start flex-col mt-5">
+                      <br />
+                      <div
+                        class="flex justify-start items-start flex-col lg:mt-[-10%]"
+                      >
                         <label class="block text-sm font-medium text-black">
                           Upload an Image
                         </label>
@@ -471,137 +568,104 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script lang="ts" setup>
 import SideBarAdminNew from "../AdminSidePages/SideBarAdminNew.vue";
 import AuthChecker from "../AuthChecker.vue";
-import { ref , onMounted} from "vue";
+import { ref, onMounted } from "vue";
 
 defineProps({
-  propertyListing:Function,
-  propertyTable:Function,
-  addAgent:Function,
-  agentTable:Function,
-  blogListing:Function,
-  blogTable:Function,
-  logout:Function,
+  propertyListing: Function,
+  propertyTable: Function,
+  addAgent: Function,
+  agentTable: Function,
+  blogListing: Function,
+  blogTable: Function,
+  logout: Function,
 });
-onMounted(()=>{
+onMounted(() => {
   addAmenity();
   addLandmark();
   addHighlight();
-
 });
 
 //dynamic amenities up to 16
 const amenities = ref([]);
 const amenitiesCounter = ref(0);
-const addAmenity = () =>{
-  if(amenitiesCounter.value<16){
-    amenitiesCounter.value ++;
+const addAmenity = () => {
+  if (amenitiesCounter.value < 16) {
+    amenitiesCounter.value++;
     amenities.value.push({
       id: ``,
-      highlight: `Amenity #${amenitiesCounter.value}`
-
+      highlight: `Amenity #${amenitiesCounter.value}`,
     });
-    
   }
-}
+};
 const removeAmenity = () => {
   if (amenities.value.length > 0) {
-    amenities.value.pop(); 
-    amenitiesCounter.value --;
+    amenities.value.pop();
+    amenitiesCounter.value--;
   }
-}
+};
 
 const getAmenityValue = (id) => {
   console.log(amenities.value[id].id);
-  return amenities.value[id].id
-}
+  return amenities.value[id].id;
+};
 
 //dynamic highlight up to 16
 const highlight = ref([]);
 const highlightCounter = ref(0);
-const addHighlight = () =>{
-  if(highlightCounter.value<16){
-    highlightCounter.value ++;
+const addHighlight = () => {
+  if (highlightCounter.value < 16) {
+    highlightCounter.value++;
     highlight.value.push({
       id: ``,
-      highlight: `Highlight #${highlightCounter.value}`
-
+      highlight: `Highlight #${highlightCounter.value}`,
     });
-    
   }
-}
+};
 const removeHighlight = () => {
   if (highlight.value.length > 0) {
-    highlight.value.pop(); 
-    highlightCounter.value --;
+    highlight.value.pop();
+    highlightCounter.value--;
   }
-}
+};
 
 const getHighlightValue = (id) => {
   console.log(highlight.value[id].id);
-  return highlight.value[id].id
-}
-
+  return highlight.value[id].id;
+};
 
 //dynamic landmark up to 5
 
 const landmark = ref([]);
 const landmarkCounter = ref(0);
-const addLandmark = () =>{
-  if(landmarkCounter.value<16){
-    landmarkCounter.value ++;
+const addLandmark = () => {
+  if (landmarkCounter.value < 16) {
+    landmarkCounter.value++;
     landmark.value.push({
       id: ``,
-      highlight: `Landmark #${landmarkCounter.value}`
-
+      highlight: `Landmark #${landmarkCounter.value}`,
     });
-    
   }
-}
+};
 const removeLandmark = () => {
   if (landmark.value.length > 0) {
-    landmark.value.pop(); 
-    landmarkCounter.value --;
+    landmark.value.pop();
+    landmarkCounter.value--;
   }
-}
+};
 
 const getLandmarkValue = (id) => {
   console.log(landmark.value[id].id);
-  return landmark.value[id].id
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  return landmark.value[id].id;
+};
 
 const active = ref(0);
 const isSidebarVisible = ref(false);
 const toggleSidebar = () => {
   isSidebarVisible.value = !isSidebarVisible.value;
 };
-
-
-
-
 </script>

@@ -58,8 +58,9 @@
               <button
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
                 @click="propertyListing"
-                >Property Listing</button
               >
+                Property Listing
+              </button>
             </li>
             <li class="flex">
               <mdicon
@@ -69,10 +70,11 @@
                 class="hover:text-white"
               />
               <button
-              @click="propertyTable"
+                @click="propertyTable"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                >Property Table</button
               >
+                Property Table
+              </button>
             </li>
             <li class="flex">
               <mdicon
@@ -82,10 +84,11 @@
                 class="hover:text-white"
               />
               <button
-              @click="addAgent"
+                @click="addAgent"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                >Add Agent</button
               >
+                Add Agent
+              </button>
             </li>
             <li class="flex">
               <mdicon
@@ -95,10 +98,11 @@
                 class="hover:text-white"
               />
               <button
-              @click="agentTable"
+                @click="agentTable"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                >Agent Table</button
               >
+                Agent Table
+              </button>
             </li>
             <li class="flex">
               <mdicon
@@ -108,10 +112,11 @@
                 class="hover:text-white"
               />
               <button
-              @click="blogListing"
+                @click="blogListing"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                >Blog Listing</button
               >
+                Blog Listing
+              </button>
             </li>
             <li class="flex">
               <mdicon
@@ -121,10 +126,11 @@
                 class="hover:text-white"
               />
               <button
-              @click="blogTable"
+                @click="blogTable"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                >Blog Table</button
               >
+                Blog Table
+              </button>
             </li>
             <li class="flex">
               <mdicon
@@ -134,10 +140,11 @@
                 class="hover:text-white"
               />
               <button
-              @click="logout"
+                @click="logout"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                >Logout Account</button
               >
+                Logout Account
+              </button>
             </li>
           </ul>
         </aside>
@@ -163,16 +170,14 @@
                 <div class="w-[80%] h-[80%] my-[5%] mx-auto">
                   <div>
                     <div class="flex justify-start items-start">
-                      <label
-                        for="name"
-                        class="block mb-2 text-sm font-medium"
+                      <label for="name" class="block mb-2 text-sm font-medium"
                         >Name</label
                       >
                     </div>
 
                     <div>
                       <input
-                      v-model="name"
+                        v-model="name"
                         type="text"
                         id="name"
                         class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
@@ -182,9 +187,7 @@
                     </div>
 
                     <div class="flex justify-start items-start mt-4">
-                      <label
-                        class="block mb-2 text-sm font-medium"
-                        for="name"
+                      <label class="block mb-2 text-sm font-medium" for="name"
                         >Description:</label
                       >
                     </div>
@@ -197,9 +200,6 @@
                       ></textarea>
                     </div>
 
-
-
-     
                     <div
                       class="md:my-10 md:ml-[-9%] mr-[-8%] border-b-2 border-dashed border-orange-500 flex justify-start items-start custom-sm:w-[120%] custom-sm:ml-[-10%] mx-auto font-bold custom-sm:my-[10%] custom-sm:text-sm"
                     >
@@ -208,19 +208,29 @@
 
                     <!--Agent-->
                     <div class="flex justify-start items-start">
-                      <label class="block mb-2 text-sm font-medium" for="propertyagent">Agent</label>
+                      <label
+                        class="block mb-2 text-sm font-medium"
+                        for="propertyagent"
+                        >Agent</label
+                      >
                     </div>
                     <div>
-                      <select v-model="agent_id" @change="currentAgentID(agent_id)" id="propertyagent" class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5">
-                        <option v-for="(agent, index) in agents" 
-                        :key="index" 
-                        :value="agent.agent_id">
-                          {{agent.agent_name}}
+                      <select
+                        v-model="agent_id"
+                        @change="currentAgentID(agent_id)"
+                        id="propertyagent"
+                        class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
+                      >
+                        <option
+                          v-for="(agent, index) in agents"
+                          :key="index"
+                          :value="agent.agent_id"
+                        >
+                          {{ agent.agent_name }}
                         </option>
                       </select>
                     </div>
-                    
-                    
+
                     <!-- Status -->
                     <div class="flex justify-start items-start flex-col mt-5">
                       <label
@@ -381,14 +391,17 @@
                     </div>
 
                     <!-- UPLOAD IMAGE -->
-
-                    <div class="flex justify-start items-start flex-col mt-5">
-                      <label class="block mb-2 text-sm font-medium">
-                        Upload Images
-                      </label>
-                  <!-- UPLOAD MAIN IMAGE -->
-                        <div
-                        class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
+                    <label
+                      class="mb-2 text-sm mt-[10%] font-poppins font-semibold flex justify-start"
+                    >
+                      Upload Images
+                    </label>
+                    <div
+                      class="flex justify-center gap-5 items-start flex-wrap lg:w-[100%] custom-sm:w-[100%] md:w-[100%] mt-5"
+                    >
+                      <!-- UPLOAD MAIN IMAGE -->
+                      <div
+                        class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md lg:w-[40%] custom-sm:w-[45%]"
                       >
                         <div class="space-y-1 text-center">
                           <svg
@@ -429,137 +442,136 @@
                         </div>
                       </div>
                       <!-- END MAIN IMAGE -->
-                      
+
                       <!-- START EXTRA 1 -->
                       <div
-                      class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
-                    >
-                      <div class="space-y-1 text-center">
-                        <svg
-                          class="mx-auto h-12 w-12 text-black"
-                          stroke="currentColor"
-                          fill="none"
-                          viewBox="0 0 48 48"
-                          aria-hidden="true"
-                        >
-                          <path
-                            d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
-                        <div class="flex text-sm text-black">
-                          <label
-                            for="extra1"
-                            class="relative cursor-pointer rounded-md bg-white font-semibold text-primary focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 hover:text-indigo-500"
+                        class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md lg:w-[40%] custom-sm:w-[45%]"
+                      >
+                        <div class="space-y-1 text-center">
+                          <svg
+                            class="mx-auto h-12 w-12 text-black"
+                            stroke="currentColor"
+                            fill="none"
+                            viewBox="0 0 48 48"
+                            aria-hidden="true"
                           >
-                            <span class="font-bold text-orange-500"
-                              >Upload a file</span
-                            >
-                            <input
-                              @change="handleFileImage1"
-                              id="extra1"
-                              name="extra1"
-                              type="file"
-                              class="sr-only"
+                            <path
+                              d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
                             />
-                          </label>
-                          <p class="pl-1">or drag and drop</p>
+                          </svg>
+                          <div class="flex text-sm text-black">
+                            <label
+                              for="extra1"
+                              class="relative cursor-pointer rounded-md bg-white font-semibold text-primary focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 hover:text-indigo-500"
+                            >
+                              <span class="font-bold text-orange-500"
+                                >Upload a file</span
+                              >
+                              <input
+                                @change="handleFileImage1"
+                                id="extra1"
+                                name="extra1"
+                                type="file"
+                                class="sr-only"
+                              />
+                            </label>
+                            <p class="pl-1">or drag and drop</p>
+                          </div>
+                          <p class="text-xs leading-5 text-gray-600">
+                            PNG, JPG, GIF
+                          </p>
                         </div>
-                        <p class="text-xs leading-5 text-gray-600">
-                          PNG, JPG, GIF
-                        </p>
                       </div>
-                    </div>
                       <!-- END EXTRA 1 -->
                       <!-- START EXTRA 2 -->
                       <div
-                      class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
-                    >
-                      <div class="space-y-1 text-center">
-                        <svg
-                          class="mx-auto h-12 w-12 text-black"
-                          stroke="currentColor"
-                          fill="none"
-                          viewBox="0 0 48 48"
-                          aria-hidden="true"
-                        >
-                          <path
-                            d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
-                        <div class="flex text-sm text-black">
-                          <label
-                            for="extra2"
-                            class="relative cursor-pointer rounded-md bg-white font-semibold text-primary focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 hover:text-indigo-500"
+                        class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md lg:w-[40%] custom-sm:w-[45%]"
+                      >
+                        <div class="space-y-1 text-center">
+                          <svg
+                            class="mx-auto h-12 w-12 text-black"
+                            stroke="currentColor"
+                            fill="none"
+                            viewBox="0 0 48 48"
+                            aria-hidden="true"
                           >
-                            <span class="font-bold text-orange-500"
-                              >Upload a file</span
-                            >
-                            <input
-                              @change="handleFileImage2"
-                              id="extra2"
-                              name="extra2"
-                              type="file"
-                              class="sr-only"
+                            <path
+                              d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
                             />
-                          </label>
-                          <p class="pl-1">or drag and drop</p>
+                          </svg>
+                          <div class="flex text-sm text-black">
+                            <label
+                              for="extra2"
+                              class="relative cursor-pointer rounded-md bg-white font-semibold text-primary focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 hover:text-indigo-500"
+                            >
+                              <span class="font-bold text-orange-500"
+                                >Upload a file</span
+                              >
+                              <input
+                                @change="handleFileImage2"
+                                id="extra2"
+                                name="extra2"
+                                type="file"
+                                class="sr-only"
+                              />
+                            </label>
+                            <p class="pl-1">or drag and drop</p>
+                          </div>
+                          <p class="text-xs leading-5 text-gray-600">
+                            PNG, JPG, GIF
+                          </p>
                         </div>
-                        <p class="text-xs leading-5 text-gray-600">
-                          PNG, JPG, GIF
-                        </p>
                       </div>
-                    </div>
                       <!-- END EXTRA 2 -->
                       <!-- START EXTRA 3 -->
                       <div
-                      class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
-                    >
-                      <div class="space-y-1 text-center">
-                        <svg
-                          class="mx-auto h-12 w-12 text-black"
-                          stroke="currentColor"
-                          fill="none"
-                          viewBox="0 0 48 48"
-                          aria-hidden="true"
-                        >
-                          <path
-                            d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
-                        <div class="flex text-sm text-black">
-                          <label
-                            for="extra3"
-                            class="relative cursor-pointer rounded-md bg-white font-semibold text-primary focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 hover:text-indigo-500"
+                        class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md lg:w-[40%] custom-sm:w-[45%]"
+                      >
+                        <div class="space-y-1 text-center">
+                          <svg
+                            class="mx-auto h-12 w-12 text-black"
+                            stroke="currentColor"
+                            fill="none"
+                            viewBox="0 0 48 48"
+                            aria-hidden="true"
                           >
-                            <span class="font-bold text-orange-500"
-                              >Upload a file</span
-                            >
-                            <input
-                              @change="handleFileImage3"
-                              id="extra3"
-                              name="extra3"
-                              type="file"
-                              class="sr-only"
+                            <path
+                              d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
                             />
-                          </label>
-                          <p class="pl-1">or drag and drop</p>
+                          </svg>
+                          <div class="flex text-sm text-black">
+                            <label
+                              for="extra3"
+                              class="relative cursor-pointer rounded-md bg-white font-semibold text-primary focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 hover:text-indigo-500"
+                            >
+                              <span class="font-bold text-orange-500"
+                                >Upload a file</span
+                              >
+                              <input
+                                @change="handleFileImage3"
+                                id="extra3"
+                                name="extra3"
+                                type="file"
+                                class="sr-only"
+                              />
+                            </label>
+                            <p class="pl-1">or drag and drop</p>
+                          </div>
+                          <p class="text-xs leading-5 text-gray-600">
+                            PNG, JPG, GIF
+                          </p>
                         </div>
-                        <p class="text-xs leading-5 text-gray-600">
-                          PNG, JPG, GIF
-                        </p>
                       </div>
-                    </div>
                       <!-- END EXTRA 3 -->
-                  
                     </div>
                     <!-- END UPLOAD IMAGE -->
                     <div
@@ -758,11 +770,16 @@
                         <!--Amenities-->
                         <div class="sm:mt-0 w-[100%]">
                           <p
-                            class="my-5 custom-sm:text-sm sm:text-sm lg:text-md md:text-lg leading-6 text-gray-600"
+                            class="mb-5 custom-sm:text-sm sm:text-sm lg:text-md md:text-lg leading-6 text-gray-600"
                           >
                             Kindly check below the following amenities and
                             nearby landmarks that are included in the property.
                           </p>
+                          <h2
+                            class="text-lg font-bold leading-7 text-gray-900 mt-5 text-start"
+                          >
+                            Amenities
+                          </h2>
                           <div class="flex items-center mt-2">
                             <input
                               v-model="attic"
@@ -987,89 +1004,92 @@
 
                       <!--Nearest Places-->
                       <div class="sm:mt-0">
-                        <h2 class="text-2xl font-bold leading-7 text-gray-900 mt-5">Nearby Landmarks</h2>
-                    
+                        <h2
+                          class="text-lg font-bold leading-7 text-gray-900 mt-5 text-start"
+                        >
+                          Nearby Landmarks
+                        </h2>
+
                         <div class="flex items-center mt-2">
-                            <input
-                                v-model="airport"
-                                id="airport"
-                                type="text"
-                                class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl"
-                                placeholder="Airport"
-                            />
-                        </div>
-                    
-                        <div class="flex items-center mt-2">
-                            <input
-                                v-model="bus_stand"
-                                id="bus-stand"
-                                type="text"
-                                class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl"
-                                placeholder="Bus Stand"
-                            />
-                        </div>
-                    
-                        <div class="flex items-center mt-2">
-                            <input
-                                v-model="hospital"
-                                id="hospital"
-                                type="text"
-                                class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl"
-                                placeholder="Hospital"
-                            />
-                        </div>
-                    
-                        <div class="flex items-center mt-2">
-                            <input
-                                v-model="patroltank"
-                                id="patroltank"
-                                type="text"
-                                class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl"
-                                placeholder="Patrol Tank"
-                            />
-                        </div>
-                    
-                        <div class="flex items-center mt-2">
-                            <input
-                                v-model="railway"
-                                id="railway"
-                                type="text"
-                                class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl"
-                                placeholder="Railway"
-                            />
-                        </div>
-                    
-                        <div class="flex items-center mt-2">
-                            <input
-                                v-model="shopping"
-                                id="shopping"
-                                type="text"
-                                class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl"
-                                placeholder="Shopping"
-                            />
-                        </div>
-                    
-                        <div class="flex items-center mt-2">
-                            <input
-                                v-model="universities"
-                                id="universities"
-                                type="text"
-                                class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl"
-                                placeholder="Universities"
-                            />
+                          <input
+                            v-model="airport"
+                            id="airport"
+                            type="text"
+                            class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl"
+                            placeholder="Airport"
+                          />
                         </div>
 
                         <div class="flex items-center mt-2">
                           <input
-                              v-model="others"
-                              id="others"
-                              type="text"
-                              class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl"
-                              placeholder="Others"
+                            v-model="bus_stand"
+                            id="bus-stand"
+                            type="text"
+                            class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl"
+                            placeholder="Bus Stand"
                           />
+                        </div>
+
+                        <div class="flex items-center mt-2">
+                          <input
+                            v-model="hospital"
+                            id="hospital"
+                            type="text"
+                            class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl"
+                            placeholder="Hospital"
+                          />
+                        </div>
+
+                        <div class="flex items-center mt-2">
+                          <input
+                            v-model="patroltank"
+                            id="patroltank"
+                            type="text"
+                            class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl"
+                            placeholder="Patrol Tank"
+                          />
+                        </div>
+
+                        <div class="flex items-center mt-2">
+                          <input
+                            v-model="railway"
+                            id="railway"
+                            type="text"
+                            class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl"
+                            placeholder="Railway"
+                          />
+                        </div>
+
+                        <div class="flex items-center mt-2">
+                          <input
+                            v-model="shopping"
+                            id="shopping"
+                            type="text"
+                            class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl"
+                            placeholder="Shopping"
+                          />
+                        </div>
+
+                        <div class="flex items-center mt-2">
+                          <input
+                            v-model="universities"
+                            id="universities"
+                            type="text"
+                            class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl"
+                            placeholder="Universities"
+                          />
+                        </div>
+
+                        <div class="flex items-center mt-2">
+                          <input
+                            v-model="others"
+                            id="others"
+                            type="text"
+                            class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl"
+                            placeholder="Others"
+                          />
+                        </div>
                       </div>
-                    </div>
-                    
                     </section>
                     <div class="flex justify-start mt-10">
                       <button
@@ -1091,21 +1111,21 @@
   </div>
 </template>
 <script setup>
-
-import { ref , onMounted} from "vue";
+import { ref, onMounted } from "vue";
 import axios from "axios";
+import SideBarAdminNew from "../AdminSidePages/SideBarAdminNew.vue";
 
 defineProps({
-  propertyListing:Function,
-  propertyTable:Function,
-  addAgent:Function,
-  agentTable:Function,
-  blogListing:Function,
-  blogTable:Function,
-  logout:Function,
+  propertyListing: Function,
+  propertyTable: Function,
+  addAgent: Function,
+  agentTable: Function,
+  blogListing: Function,
+  blogTable: Function,
+  logout: Function,
 });
 
-onMounted(()=>{
+onMounted(() => {
   getAgentsName();
 });
 
@@ -1167,86 +1187,77 @@ const shopping = ref();
 const universities = ref();
 const others = ref();
 
-
-const submitProperty = async() => {
-  try{
+const submitProperty = async () => {
+  try {
     const formData = new FormData();
 
-// General data
-formData.append("name", name.value);
-formData.append("description", description.value);
+    // General data
+    formData.append("name", name.value);
+    formData.append("description", description.value);
 
-// Property data
-formData.append("agent_id", agent_id.value);
-formData.append("status", status.value);
-formData.append("approved", approved.value);
-formData.append("iframe", iframe.value);
-formData.append("property_type", property_type.value);
-formData.append("property_price", property_price.value);
-formData.append("category", category.value);
-formData.append("main_image", main_image.value);
-formData.append("extra1", extra1.value);
-formData.append("extra2", extra2.value);
-formData.append("extra3", extra3.value);
+    // Property data
+    formData.append("agent_id", agent_id.value);
+    formData.append("status", status.value);
+    formData.append("approved", approved.value);
+    formData.append("iframe", iframe.value);
+    formData.append("property_type", property_type.value);
+    formData.append("property_price", property_price.value);
+    formData.append("category", category.value);
+    formData.append("main_image", main_image.value);
+    formData.append("extra1", extra1.value);
+    formData.append("extra2", extra2.value);
+    formData.append("extra3", extra3.value);
 
-// Address and location
-formData.append("country", country.value);
-formData.append("region", region.value);
-formData.append("city", city.value);
-formData.append("local_area", local_area.value);
-formData.append("zipcode", zipcode.value);
-formData.append("property_area", property_area.value);
-formData.append("bedroom", bedroom.value);
-formData.append("bathroom", bathroom.value);
-formData.append("rooms", rooms.value);
-formData.append("parking_space", parking_space.value);
+    // Address and location
+    formData.append("country", country.value);
+    formData.append("region", region.value);
+    formData.append("city", city.value);
+    formData.append("local_area", local_area.value);
+    formData.append("zipcode", zipcode.value);
+    formData.append("property_area", property_area.value);
+    formData.append("bedroom", bedroom.value);
+    formData.append("bathroom", bathroom.value);
+    formData.append("rooms", rooms.value);
+    formData.append("parking_space", parking_space.value);
 
-// Amenities
-formData.append("attic", attic.value ? 1 : 0);
-formData.append("balcony", balcony.value ? 1 : 0);
-formData.append("deck", deck.value ? 1 : 0);
-formData.append("fenced_yard", fenced_yard.value ? 1 : 0);
-formData.append("fireplace", fireplace.value ? 1 : 0);
-formData.append("frontyard", frontyard.value ? 1 : 0);
-formData.append("gasheat", gasheat.value ? 1 : 0);
-formData.append("gym", gym.value ? 1 : 0);
-formData.append("lake_view", lakeview.value ? 1 : 0);
-formData.append("pond", pond.value ? 1 : 0);
-formData.append("pool", pool.value ? 1 : 0);
-formData.append("recreation", recreation.value ? 1 : 0);
-formData.append("sprinklers", sprinklers.value ? 1 : 0);
-formData.append("storage", storage.value ? 1 : 0);
-formData.append("washer", washer.value ? 1 : 0);
-formData.append("wine_cellar", winecellar.value ? 1 : 0);
+    // Amenities
+    formData.append("attic", attic.value ? 1 : 0);
+    formData.append("balcony", balcony.value ? 1 : 0);
+    formData.append("deck", deck.value ? 1 : 0);
+    formData.append("fenced_yard", fenced_yard.value ? 1 : 0);
+    formData.append("fireplace", fireplace.value ? 1 : 0);
+    formData.append("frontyard", frontyard.value ? 1 : 0);
+    formData.append("gasheat", gasheat.value ? 1 : 0);
+    formData.append("gym", gym.value ? 1 : 0);
+    formData.append("lake_view", lakeview.value ? 1 : 0);
+    formData.append("pond", pond.value ? 1 : 0);
+    formData.append("pool", pool.value ? 1 : 0);
+    formData.append("recreation", recreation.value ? 1 : 0);
+    formData.append("sprinklers", sprinklers.value ? 1 : 0);
+    formData.append("storage", storage.value ? 1 : 0);
+    formData.append("washer", washer.value ? 1 : 0);
+    formData.append("wine_cellar", winecellar.value ? 1 : 0);
 
+    // Landmarks
+    formData.append("airport", airport.value);
+    formData.append("bus_stand", bus_stand.value);
+    formData.append("hospital", hospital.value);
+    formData.append("patroltank", patroltank.value);
+    formData.append("railway", railway.value);
+    formData.append("shopping", shopping.value);
+    formData.append("universities", universities.value);
+    formData.append("others", others.value);
 
-// Landmarks
-formData.append("airport", airport.value);
-formData.append("bus_stand", bus_stand.value);
-formData.append("hospital", hospital.value);
-formData.append("patroltank", patroltank.value);
-formData.append("railway", railway.value);
-formData.append("shopping", shopping.value);
-formData.append("universities", universities.value);
-formData.append("others", others.value);
-
-    await axios.post("http://localhost:8080/addProperty",formData,{
+    await axios.post("http://localhost:8080/addProperty", formData, {
       headers: {
-        "Content-Type" : "multipart/form-data",
-        },
+        "Content-Type": "multipart/form-data",
+      },
     });
     alert("added!");
+  } catch (error) {
+    console.log("Error:", error);
   }
-  catch(error){
-
-    console.log("Error:",error);
-  }
-}
-
-
-
-
-
+};
 
 const handleFileImage = async (event) => {
   const file = (event.target.files || [])[0];
@@ -1350,58 +1361,44 @@ const resizeImage = (file) => {
 
       ctx.drawImage(image, 0, 0, width, height);
 
-      canvas.toBlob((blob) => {
-        const resizedFile = new File([blob], file.name, {
-          type: "image/jpeg",
-          lastModified: Date.now(),
-        });
-        resolve(resizedFile);
-      }, "image/jpeg", 0.7); // Quality: 0.7
+      canvas.toBlob(
+        (blob) => {
+          const resizedFile = new File([blob], file.name, {
+            type: "image/jpeg",
+            lastModified: Date.now(),
+          });
+          resolve(resizedFile);
+        },
+        "image/jpeg",
+        0.7
+      ); // Quality: 0.7
     };
 
     reader.readAsDataURL(file);
   });
 };
 
-
-
-
-
-
-
 const getAgentsName = async () => {
-  try{
+  try {
     const response = await fetch(`http://localhost:8080/getAgents`);
     const data = await response.json();
-    for(var i =0 ; i < data.length ; i ++){
+    for (var i = 0; i < data.length; i++) {
       agents.value.push({
         agent_id: data[i].agent_id,
-        agent_name : data[i].agent_name,
+        agent_name: data[i].agent_name,
       });
     }
-  }
-  catch(error){
+  } catch (error) {
     console.log("Error:", error);
   }
-}
+};
 
 const currentAgentID = (id) => {
   agent_id.value = id;
-}
-
-
-
-
-
-
-
-
-
+};
 
 const isSidebarVisible = ref(false);
 const toggleSidebar = () => {
   isSidebarVisible.value = !isSidebarVisible.value;
 };
-
-
 </script>
