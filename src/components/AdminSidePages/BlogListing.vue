@@ -291,10 +291,10 @@
                         <label
                           class="block mb-2 text-sm font-medium"
                           for="blogtitle"
-                          >contact_phone</label
+                          >contact_telephone</label
                         >
                         <input
-                        v-model="contact_phone"
+                        v-model="contact_telephone"
                           id="blogtitle"
                           type="text"
                           class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
@@ -308,7 +308,7 @@
                           >email address</label
                         >
                         <input
-                        v-model="email"
+                        v-model="email_address"
                           id="blogtitle"
                           type="text"
                           class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
@@ -323,7 +323,7 @@
                           >keytags</label
                         >
                         <input
-                        v-model="keytags"
+                        v-model="key_tags"
                           id="blogtitle"
                           type="text"
                           class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
@@ -438,6 +438,7 @@
                               >
                                 <span class="">Upload a file</span>
                                 <input
+                                @change="handleFileImage"
                                   id="agentimage"
                                   name="agentimage"
                                   type="file"
@@ -455,7 +456,7 @@
                     </div>
                     <div class="flex justify-start items-start flex-col mt-6">
                       <button
-                        @click="submitAgent"
+                        @click="submitBlog"
                         class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-[#E67E23] rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600 mr-4"
                         id="saveAgent"
                       >
@@ -478,7 +479,7 @@
 import SideBarAdminNew from "../AdminSidePages/SideBarAdminNew.vue";
 import AuthChecker from "../AuthChecker.vue";
 import { ref , onMounted} from "vue";
-
+import axios from "axios";
 defineProps({
   propertyListing:Function,
   propertyTable:Function,
@@ -494,6 +495,66 @@ onMounted(()=>{
   addHighlight();
 
 });
+const name = ref();
+const location = ref();
+const developer = ref();
+const details = ref();
+const description = ref();
+const broker = ref();
+const contact_phone = ref();
+const contact_telephone = ref();
+const email_address = ref();
+const key_tags = ref();
+const iframe = ref();
+const thumbnail = ref(null);
+
+const submitBlog = async () => {
+  try{
+    const formData = new FormData();
+    
+    formData.append('name',name.value);
+    formData.append('location',location.value);
+    formData.append('developer',developer.value);
+    formData.append('details',details.value);
+    formData.append('description',description.value);
+    formData.append('broker',broker.value);
+    formData.append('contact_phone',contact_phone.value);
+    formData.append('contact_telephone',contact_telephone.value);
+    formData.append('email_address',email_address.value);
+    formData.append('key_tags',key_tags.value);
+    formData.append('iframe',iframe.value);
+    formData.append('thumbnail',thumbnail.value);
+
+
+
+    for(var i =0; i < amenitiesCounter.value ;i++){
+      formData.append(`amenities_${i+1}`, getAmenityValue(i) !== undefined && getAmenityValue(i) !== null ? getAmenityValue(i) : 0);
+    }
+    for(var i =0; i < highlightCounter.value ;i++){
+      formData.append(`highlights_${i+1}`, getHighlightValue(i) !== undefined && getHighlightValue(i) !== null ? getHighlightValue(i) : 0);
+    }
+    for(var i =0; i < landmarkCounter.value ;i++){
+      formData.append(`landmark_${i+1}`, getLandmarkValue(i) !== undefined && getLandmarkValue(i) !== null ? getLandmarkValue(i) : 0);
+    }
+    console.log('FormData:');
+    for (var pair of formData.entries()) {
+      console.log(pair[0] + ': ' + pair[1]);
+    }
+    await axios.post("http://localhost:8080/addBlog",formData,{
+      headers: {
+        "Content-Type" : "multipart/form-data",
+        },
+    });
+    alert("added!");
+
+  }
+  catch(error){
+    console.log("Error: ", error);
+  }
+}
+
+
+
 
 //dynamic amenities up to 16
 const amenities = ref([]);
@@ -548,7 +609,7 @@ const getHighlightValue = (id) => {
 }
 
 
-//dynamic landmark up to 5
+//dynamic landmark up to 16
 
 const landmark = ref([]);
 const landmarkCounter = ref(0);
@@ -575,7 +636,78 @@ const getLandmarkValue = (id) => {
   return landmark.value[id].id
 }
 
+//get image val
 
+const handleFileImage = async (event) => {
+  const file = (event.target.files || [])[0];
+  if (file) {
+    const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
+    if (!allowedTypes.includes(file.type)) {
+      console.log("Invalid file type. Please upload an image.");
+      return;
+    }
+
+    const resizedImage = await resizeImage(file);
+    thumbnail.value = resizedImage;
+    console.log("File uploaded:", resizedImage.name);
+  }
+};
+
+
+const resizeImage = (file) => {
+  return new Promise((resolve) => {
+    const maxSizeKB = 500; // Maximum size in kilobytes
+    const maxSizeBytes = maxSizeKB * 1024; // Convert KB to bytes
+    const image = new Image();
+    const reader = new FileReader();
+
+    reader.onload = function (event) {
+      image.src = event.target.result;
+    };
+
+    image.onload = function () {
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+
+      let width = image.width;
+      let height = image.height;
+
+      if (file.size <= maxSizeBytes) {
+        // Image already within size limit
+        resolve(file);
+        return;
+      }
+
+      // Calculate new dimensions to maintain aspect ratio
+      if (width > height) {
+        if (width > maxSizeKB) {
+          height *= maxSizeKB / width;
+          width = maxSizeKB;
+        }
+      } else {
+        if (height > maxSizeKB) {
+          width *= maxSizeKB / height;
+          height = maxSizeKB;
+        }
+      }
+
+      canvas.width = width;
+      canvas.height = height;
+
+      ctx.drawImage(image, 0, 0, width, height);
+
+      canvas.toBlob((blob) => {
+        const resizedFile = new File([blob], file.name, {
+          type: "image/jpeg",
+          lastModified: Date.now(),
+        });
+        resolve(resizedFile);
+      }, "image/jpeg", 0.7); // Quality: 0.7
+    };
+
+    reader.readAsDataURL(file);
+  });
+};
 
 
 
