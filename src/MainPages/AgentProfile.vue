@@ -15,12 +15,12 @@
           >
             <div class="flex flex-col items-center">
               <img
-                src="https://randomuser.me/api/portraits/men/94.jpg"
+                :src="image"
                 class="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0"
               />
 
-              <h1 class="text-xl font-bold">John Doe</h1>
-              <p class="text-gray-700">Software Developer</p>
+              <h1 class="text-xl font-bold">{{name}}</h1>
+              <p class="text-gray-700">{{position}}</p>
             </div>
             <hr class="my-6 border-t border-gray-300" />
             <div class="flex flex-col">
@@ -31,33 +31,41 @@
               <ul>
                 <li class="mb-1 flex">
                   <span class="mr-3">
-                    <mdicon
+                    <a :href="fb">
+                    <mdicon 
+                     
                       name="facebook"
                       :width="30"
                       :height="30"
                       class="hover:text-orange-500"
-                    /> </span
-                  >Facebook
+                    /> </a> </span
+                  >Facebook 
                 </li>
+
                 <li class="mb-1 flex">
                   <span class="mr-3">
-                    <mdicon
+                    <a :href="instagram">
+                    <mdicon 
+                     
                       name="instagram"
                       :width="30"
                       :height="30"
                       class="hover:text-orange-500"
-                    /> </span
-                  >Instagram
+                    /> </a> </span
+                  >Instagram 
                 </li>
+
                 <li class="mb-1 flex">
                   <span class="mr-3">
-                    <mdicon
+                    <a :href="x">
+                    <mdicon 
+                     
                       name="twitter"
                       :width="30"
                       :height="30"
                       class="hover:text-orange-500"
-                    /> </span
-                  >Twitter
+                    /> </a> </span
+                  >Twitter 
                 </li>
               </ul>
             </div>
@@ -69,13 +77,7 @@
           >
             <h2 class="text-xl font-bold mb-4">Agent Profile:</h2>
             <p class="text-gray-700 px-12 py-2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              finibus est vitae tortor ullamcorper, ut vestibulum velit
-              convallis. Aenean posuere risus non velit egestas suscipit. Nunc
-              finibus vel ante id euismod. Vestibulum ante ipsum primis in
-              faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam
-              erat volutpat. Nulla vulputate pharetra tellus, in luctus risus
-              rhoncus id.
+              {{ description }}
             </p>
 
             <h2 class="text-xl font-bold mt-6 mb-4">Address:</h2>
@@ -92,7 +94,7 @@
                       <span
                         class="lg:text-lg md:text-md font-300 custom-sm:text-sm sm:text-sm"
                       >
-                        Tabada,Mambaling</span
+                        {{address}}</span
                       >
                     </div>
                     <div class="border-2 m-2 p-1 font-medium">
@@ -100,25 +102,18 @@
                       <span
                         class="text-base font-normal lg:text-lg md:text-md custom-sm:text-xs sm:text-xs"
                       >
-                        Cebu City</span
+                        {{city}}</span
                       >
                     </div>
                   </div>
                   <div class="lg:w-[50%] md:w-[50%]">
-                    <div class="border-2 m-2 p-1 font-medium">
-                      Zip:
-                      <span
-                        class="text-base font-normal lg:text-lg md:text-md custom-sm:text-xs sm:text-xs"
-                      >
-                        6000</span
-                      >
-                    </div>
+         
                     <div class="border-2 m-2 p-1 font-medium">
                       State/Country:
                       <span
                         class="text-base font-normal lg:text-lg md:text-md custom-sm:text-xs sm:text-xs"
                       >
-                        Phillippines
+                        {{ country }}
                       </span>
                     </div>
                   </div>
@@ -132,4 +127,60 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script setup>
+import {ref,onMounted} from "vue";
+import { useRoute } from "vue-router";
+onMounted(()=>{
+  getAgent();
+});
+
+const route = useRoute();
+const id = route.params.id;
+
+const image = ref(null);
+const name = ref();
+const position = ref();
+
+const fb = ref();
+const x = ref();
+const instagram = ref();
+
+const description = ref();
+const address = ref();
+const city = ref();
+const country = ref();
+
+const getAgent = async ()=> {
+  const response = await fetch(`http://localhost:8080/getAgentByID/${id}`);
+  const data = await response.json();
+
+  image.value = await convertBlob(data[0].profile_picture.data);
+  name.value = data[0].agent_name
+  position.value = data[0].position;
+  description.value = data[0].description;
+  address.value = data[0].address;
+  city.value = data[0].city;
+  country.value = data[0].country;
+
+  fb.value = data[0].facebook;
+  console.log(data[0])
+  x.value = data[0].x;
+  instagram.value = data[0].instagram;
+}
+
+
+const convertBlob = (image) =>{
+
+return new Promise((resolve,reject)=>{
+  if(image){
+  const blob = new Blob([new Uint8Array(image)], { type: 'image/jpeg' }); 
+  const reader = new FileReader();
+  reader.readAsDataURL(blob);
+      reader.onloadend = () => {
+        const dataURL = reader.result;
+        resolve (dataURL);
+      }
+  }
+});
+}
+</script>

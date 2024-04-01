@@ -58,9 +58,12 @@
       </div>
     </div>
   </div>
+
 </template>
 
 <script lang="ts" setup>
+import AuthChecker from "../AuthChecker.vue";
+
 import { MagnifyingGlassIcon, UserIcon } from "@heroicons/vue/24/outline";
 import SideBar from "./SideBar.vue";
 const isSidebarVisible = ref(false);
@@ -98,4 +101,3 @@ const search = () => {
   }
 };
 </script>
-../../router

@@ -55,10 +55,10 @@
                 :height="30"
                 class="hover:text-white"
               />
-              <router-link
+              <button
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNew"
-                >Property Listing</router-link
+                @click="propertyListing"
+                >Property Listing</button
               >
             </li>
             <li class="flex">
@@ -68,10 +68,10 @@
                 :height="30"
                 class="hover:text-white"
               />
-              <router-link
+              <button
+              @click="propertyTable"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewPropertyTable"
-                >Property Table</router-link
+                >Property Table</button
               >
             </li>
             <li class="flex">
@@ -81,10 +81,10 @@
                 :height="30"
                 class="hover:text-white"
               />
-              <router-link
+              <button
+              @click="addAgent"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewAddAgent"
-                >Add Agent</router-link
+                >Add Agent</button
               >
             </li>
             <li class="flex">
@@ -94,10 +94,10 @@
                 :height="30"
                 class="hover:text-white"
               />
-              <router-link
+              <button
+              @click="agentTable"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewAgentsTable"
-                >Agent Table</router-link
+                >Agent Table</button
               >
             </li>
             <li class="flex">
@@ -107,10 +107,10 @@
                 :height="30"
                 class="hover:text-white"
               />
-              <router-link
+              <button
+              @click="blogListing"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewBlogListing"
-                >Blog Listing</router-link
+                >Blog Listing</button
               >
             </li>
             <li class="flex">
@@ -120,10 +120,10 @@
                 :height="30"
                 class="hover:text-white"
               />
-              <router-link
+              <button
+              @click="blogTable"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewBlogTable"
-                >Blog Table</router-link
+                >Blog Table</button
               >
             </li>
             <li class="flex">
@@ -133,10 +133,10 @@
                 :height="30"
                 class="hover:text-white"
               />
-              <router-link
+              <button
+              @click="logout"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewSignOut"
-                >Logout Account</router-link
+                >Logout Account</button
               >
             </li>
           </ul>
@@ -164,6 +164,7 @@
                 <div class="w-[80%] h-[80%] my-[5%] mx-auto">
                   <form @submit.prevent>
                     <div class="grid grid-cols-1 gap-5 mt-4 sm:grid-cols-2">
+
                       <div class="flex justify-start items-start flex-col mt-5">
                         <label
                           class="block mb-2 text-sm font-medium"
@@ -171,524 +172,243 @@
                           >Blog Title</label
                         >
                         <input
+                        v-model="title"
+                          id="blogtitle"
+                          type="text"
+                          class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
+                        />
+                      </div>
+                      <!-- Iframe -->
+                      <div class="flex justify-start items-start mt-4">
+                        <label
+                          class="block mb-2 text-sm font-medium"
+                          for="name"
+                          >iFrame:</label
+                        >
+                      </div>
+                      <div>
+                        <textarea
+                          v-model="iframe"
+                          id="propertydesc"
+                          type="textarea"
+                          class="block w-full px-4 py-2 h-[80px] border-0 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm custom-sm:text-sm sm:leading-6 focus:outline-none"
+                        ></textarea>
+                      </div>
+                      <!-- location -->
+     
+ 
+                      <div class="flex justify-start items-start flex-col mt-5">
+                        <label
+                          class="block mb-2 text-sm font-medium"
+                          for="blogtitle"
+                          >Location</label
+                        >
+                        <input
+                        v-model="location"
                           id="blogtitle"
                           type="text"
                           class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
                         />
                       </div>
 
+                      <!-- developer -->
                       <div class="flex justify-start items-start flex-col mt-5">
                         <label
                           class="block mb-2 text-sm font-medium"
-                          for="blogdesc"
-                          >Description:</label
-                        >
-                        <textarea
-                          id="blogdesc"
-                          type="textarea"
-                          class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
-                        ></textarea>
-                      </div>
-
-                      <div class="flex justify-start items-start flex-col mt-5">
-                        <label
-                          class="block mb-2 text-sm font-medium"
-                          for="blogdeveloper"
+                          for="blogtitle"
                           >Developer</label
                         >
                         <input
-                          id="blogdeveloper"
+                        v-model="developer"
+                          id="blogtitle"
                           type="text"
                           class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
                         />
                       </div>
 
+                      <!-- details -->
                       <div class="flex justify-start items-start flex-col mt-5">
                         <label
                           class="block mb-2 text-sm font-medium"
-                          for="agentemail"
-                          >Email</label
+                          for="blogtitle"
+                          >details</label
                         >
                         <input
-                          id="agentemail"
-                          type="email"
+                        v-model="details"
+                          id="blogtitle"
+                          type="text"
                           class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
                         />
                       </div>
-
+                      <!-- description -->
+                      <div class="flex justify-start items-start mt-4">
+                        <label
+                          class="block mb-2 text-sm font-medium"
+                          for="name"
+                          >Description:</label
+                        >
+                      </div>
+                      <div>
+                        <textarea
+                          v-model="description"
+                          id="propertydesc"
+                          type="textarea"
+                          class="block w-full px-4 py-2 h-[80px] border-0 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm custom-sm:text-sm sm:leading-6 focus:outline-none"
+                        ></textarea>
+                      </div>            
+                      
+                      
+                      <!-- broker -->
                       <div class="flex justify-start items-start flex-col mt-5">
                         <label
                           class="block mb-2 text-sm font-medium"
-                          for="agentaddress"
-                          >Address</label
+                          for="blogtitle"
+                          >broker</label
                         >
                         <input
-                          id="agentaddress"
+                        v-model="broker"
+                          id="blogtitle"
+                          type="text"
+                          class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
+                        />
+                      </div>
+                      <!-- contact phone -->
+                      <div class="flex justify-start items-start flex-col mt-5">
+                        <label
+                          class="block mb-2 text-sm font-medium"
+                          for="blogtitle"
+                          >contact_phone</label
+                        >
+                        <input
+                        v-model="contact_phone"
+                          id="blogtitle"
+                          type="text"
+                          class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
+                        />
+                      </div>
+                    <!-- contact telephone -->
+                      <div class="flex justify-start items-start flex-col mt-5">
+                        <label
+                          class="block mb-2 text-sm font-medium"
+                          for="blogtitle"
+                          >contact_phone</label
+                        >
+                        <input
+                        v-model="contact_phone"
+                          id="blogtitle"
+                          type="text"
+                          class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
+                        />
+                      </div>
+                      <!-- email address -->
+                      <div class="flex justify-start items-start flex-col mt-5">
+                        <label
+                          class="block mb-2 text-sm font-medium"
+                          for="blogtitle"
+                          >email address</label
+                        >
+                        <input
+                        v-model="email"
+                          id="blogtitle"
                           type="text"
                           class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
                         />
                       </div>
 
+                                            <!-- KEY TAGS  -->
                       <div class="flex justify-start items-start flex-col mt-5">
                         <label
                           class="block mb-2 text-sm font-medium"
-                          for="agentcontact"
-                          >Contact</label
+                          for="blogtitle"
+                          >keytags</label
                         >
                         <input
-                          id="agentcontact"
-                          type="number"
-                          class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
-                        />
-                      </div>
-
-                      <div class="flex justify-start items-start flex-col mt-5">
-                        <label
-                          class="block mb-2 text-sm font-medium"
-                          for="agentcity"
-                          >City</label
-                        >
-                        <input
-                          id="agentcity"
+                        v-model="keytags"
+                          id="blogtitle"
                           type="text"
                           class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
                         />
                       </div>
+          
 
-                      <div class="flex justify-start items-start flex-col mt-5">
-                        <label
-                          class="block mb-2 text-sm font-medium"
-                          for="agentcountry"
-                          >Country</label
-                        >
-                        <input
-                          id="agentcountry"
-                          type="text"
-                          class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
-                        />
-                      </div>
 
-                      <div class="flex justify-start items-start flex-col mt-5">
-                        <label
-                          class="block mb-2 text-sm font-medium"
-                          for="agentregion"
-                          >Region</label
-                        >
-                        <input
-                          id="agentregion"
-                          type="text"
-                          class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
-                        />
-                      </div>
-
-                      <div class="flex justify-start items-start flex-col mt-5">
-                        <label
-                          class="block mb-2 text-sm font-medium"
-                          for="agentusername"
-                          >Username</label
-                        >
-                        <input
-                          id="agentusername"
-                          type="text"
-                          class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
-                        />
-                      </div>
-
-                      <div class="flex justify-start items-start flex-col mt-5">
-                        <label
-                          class="block mb-2 text-sm font-medium"
-                          for="agentpassword"
-                          >Password</label
-                        >
-                        <input
-                          id="agentpassword"
-                          type="password"
-                          class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
-                        />
-                      </div>
-
-                      <div class="flex justify-start items-start flex-col mt-5">
-                        <label
-                          class="block mb-2 text-sm font-medium"
-                          for="agentfb"
-                          >Facebook</label
-                        >
-                        <input
-                          id="agentfb"
-                          type="text"
-                          class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
-                        />
-                      </div>
-
-                      <div class="flex justify-start items-start flex-col mt-5">
-                        <label
-                          class="block mb-2 text-sm font-medium"
-                          for="agentx"
-                          >X(Twitter)</label
-                        >
-                        <input
-                          id="agentx"
-                          type="text"
-                          class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
-                        />
-                      </div>
-
-                      <div class="flex justify-start items-start flex-col mt-5">
-                        <label
-                          class="block mb-2 text-sm font-medium"
-                          for="agentinsta"
-                          >Instagram</label
-                        >
-                        <input
-                          id="agentinsta"
-                          type="text"
-                          class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
-                        />
-                      </div>
+   
                       <div
                         class="text-xl font-bold my-5 absolute md:top-[46.5%] md:right-[29%] custom-sm:text-sm custom-sm:top-[58.5%] custom-sm:right-[25%]"
                       >
-                        Amenities & Nearby Landmarks
+           
+
                       </div>
                       <div
                         class="flex flex-wrap items-center space-x-4 md:my-20 custom-sm:mt-20"
                       >
-                        <div class="sm:mt-0 w-[100%]">
-                          <div class="flex items-center mt-2">
-                            <input
-                              v-model="property_attic"
-                              id="attic"
-                              type="checkbox"
-                              class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                            />
-                            <label
-                              for="attic"
-                              class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                              >Attic</label
-                            >
-                          </div>
-                          <div class="flex items-center mt-2">
-                            <input
-                              v-model="property_balcony"
-                              id="balcony"
-                              type="checkbox"
-                              class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                            />
-                            <label
-                              for="attic"
-                              class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                              >Balcony</label
-                            >
-                          </div>
-                          <div class="flex items-center mt-2">
-                            <input
-                              v-model="property_deck"
-                              id="deck"
-                              type="checkbox"
-                              class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                            />
-                            <label
-                              for="attic"
-                              class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                              >Deck</label
-                            >
-                          </div>
-                          <div class="flex items-center mt-2">
-                            <input
-                              v-model="property_fenced_yard"
-                              id="fenced-yard"
-                              type="checkbox"
-                              class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                            />
-                            <label
-                              for="attic"
-                              class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                              >Fenced Yard</label
-                            >
-                          </div>
-                          <div class="flex items-center mt-2">
-                            <input
-                              v-model="property_fireplace"
-                              id="fireplace"
-                              type="checkbox"
-                              class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                            />
-                            <label
-                              for="attic"
-                              class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                              >Fireplace</label
-                            >
-                          </div>
-                          <div class="flex items-center mt-2">
-                            <input
-                              v-model="property_frontyard"
-                              id="frontyard"
-                              type="checkbox"
-                              class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                            />
-                            <label
-                              for="attic"
-                              class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                              >Front Yard</label
-                            >
-                          </div>
-
-                          <div class="flex items-center mt-2">
-                            <input
-                              v-model="property_gasheat"
-                              id="gasheat"
-                              type="checkbox"
-                              class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                            />
-                            <label
-                              for="attic"
-                              class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                              >Gas Heat</label
-                            >
-                          </div>
-
-                          <div class="flex items-center mt-2">
-                            <input
-                              v-model="property_gym"
-                              id="gym"
-                              type="checkbox"
-                              class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                            />
-                            <label
-                              for="attic"
-                              class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                              >Gym</label
-                            >
-                          </div>
-
-                          <div class="flex items-center mt-2">
-                            <input
-                              v-model="property_lakeview"
-                              id="lakeview"
-                              type="checkbox"
-                              class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                            />
-                            <label
-                              for="attic"
-                              class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                              >Lake View</label
-                            >
-                          </div>
-
-                          <div class="flex items-center mt-2">
-                            <input
-                              v-model="property_pond"
-                              id="pond"
-                              type="checkbox"
-                              class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                            />
-                            <label
-                              for="attic"
-                              class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                              >Pond</label
-                            >
-                          </div>
-
-                          <div class="flex items-center mt-2">
-                            <input
-                              v-model="property_pool"
-                              id="pool"
-                              type="checkbox"
-                              class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                            />
-                            <label
-                              for="attic"
-                              class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                              >Pool</label
-                            >
-                          </div>
-
-                          <div class="flex items-center mt-2">
-                            <input
-                              v-model="property_recreation"
-                              id="recreation"
-                              type="checkbox"
-                              class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                            />
-                            <label
-                              for="attic"
-                              class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                              >Recreation</label
-                            >
-                          </div>
-
-                          <div class="flex items-center mt-2">
-                            <input
-                              v-model="property_sprinklers"
-                              id="sprinklers"
-                              type="checkbox"
-                              class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                            />
-                            <label
-                              for="attic"
-                              class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                              >Sprinklers</label
-                            >
-                          </div>
-
-                          <div class="flex items-center mt-2">
-                            <input
-                              v-model="property_storage"
-                              id="storage"
-                              type="checkbox"
-                              class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                            />
-                            <label
-                              for="attic"
-                              class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                              >Storage</label
-                            >
-                          </div>
-
-                          <div class="flex items-center mt-2">
-                            <input
-                              v-model="property_washer"
-                              id="washer"
-                              type="checkbox"
-                              class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                            />
-                            <label
-                              for="attic"
-                              class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                              >Washer</label
-                            >
-                          </div>
-
-                          <div class="flex items-center mt-2">
-                            <input
-                              v-model="property_winecellar"
-                              id="winecellar"
-                              type="checkbox"
-                              class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                            />
-                            <label
-                              for="attic"
-                              class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                              >Wine Cellar</label
-                            >
-                          </div>
+                        <!-- DYNAMIC AMENITIES -->
+                        <div>⭐ANEMITY</div>
+                        <div v-for="(amenity, index) in amenities" 
+                        :key="index" 
+                        :id="amenity.id"
+                        :highlight="amenity.highlight" 
+                        class="flex items-center mt-2">
+                          <input 
+                          v-model="amenity.id" 
+                          type="text" 
+                          class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl" 
+                          :placeholder="amenity.highlight"
+                          />
                         </div>
+                        
+
+                        <button @click="addAmenity()">(+)</button>
+                        <button @click="removeAmenity()">(-)</button>
+
+                       <!-- AMENITIES -->
+                        
+                <!-- DYNAMIC highlight -->
+                <div> ✔HIGHLIGHT</div>
+                <div v-for="(highlight, index) in highlight" 
+                :key="index" 
+                :id="highlight.id"
+                :highlight="highlight.highlight" 
+                class="flex items-center mt-2">
+                  <input 
+                  v-model="highlight.id" 
+                  type="text" 
+                  class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl" 
+                  :placeholder="highlight.highlight"
+                  />
+                </div>
+
+
+                <button @click="addHighlight()">(+)</button>
+                <button @click="removeHighaddHighlight()">(-)</button>
+
+                <!-- highlight -->
+
+
+                                               <!-- DYNAMIC Landmark -->
+                                               <div> 📍LANDMARK</div>
+                                               <div v-for="(landmark, index) in landmark" 
+                                               :key="index" 
+                                               :id="landmark.id"
+                                               :highlight="landmark.highlight" 
+                                               class="flex items-center mt-2">
+                                                 <input 
+                                                 v-model="landmark.id" 
+                                                 type="text" 
+                                                 class="h-10 px-4 border-gray-300 text-gray-900 focus:ring-indigo-600 rounded-xl" 
+                                                 :placeholder="landmark.highlight"
+                                                 />
+                                               </div>
+                                               
+                       
+                                               <button @click="addLandmark()">(+)</button>
+                                               <button @click="removeLandmark()">(-)</button>
+                       
+                                              <!-- landmark -->
+
                       </div>
-
-                      <!--Nearest Places-->
-                      <div class="sm:mt-0">
-                        <!-- <h2 class="text-2xl font-bold leading-7 text-gray-900 mt-5">
-                  Nearby Landmarks
-                </h2> -->
-
-                        <div class="flex items-center md:mt-20">
-                          <input
-                            v-model="property_airport"
-                            id="airport"
-                            type="checkbox"
-                            class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                          />
-                          <label
-                            for="attic"
-                            class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                            >Airport</label
-                          >
-                        </div>
-                        <div class="flex items-center mt-2">
-                          <input
-                            v-model="property_busstand"
-                            id="bus-stand"
-                            type="checkbox"
-                            class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                          />
-                          <label
-                            for="attic"
-                            class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                            >Bus Stand</label
-                          >
-                        </div>
-
-                        <div class="flex items-center mt-2">
-                          <input
-                            v-model="property_hospital"
-                            id="hospital"
-                            type="checkbox"
-                            class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                          />
-                          <label
-                            for="attic"
-                            class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                            >Deck</label
-                          >
-                        </div>
-
-                        <div class="flex items-center mt-2">
-                          <input
-                            v-model="property_patroltank"
-                            id="patroltank"
-                            type="checkbox"
-                            class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                          />
-                          <label
-                            for="attic"
-                            class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                            >Deck</label
-                          >
-                        </div>
-
-                        <div class="flex items-center mt-2">
-                          <input
-                            v-model="property_railway"
-                            id="railway"
-                            type="checkbox"
-                            class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                          />
-                          <label
-                            for="attic"
-                            class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                            >Deck</label
-                          >
-                        </div>
-                        <div class="flex items-center mt-2">
-                          <input
-                            v-model="property_shopping"
-                            id="shopping"
-                            type="checkbox"
-                            class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                          />
-                          <label
-                            for="attic"
-                            class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                            >Deck</label
-                          >
-                        </div>
-                        <div class="flex items-center mt-2">
-                          <input
-                            v-model="property_universities"
-                            id="universities"
-                            type="checkbox"
-                            class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                          />
-                          <label
-                            for="attic"
-                            class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                            >Deck</label
-                          >
-                        </div>
-                        <div class="flex items-center mt-2">
-                          <input
-                            v-model="property_enable"
-                            id="enable"
-                            type="checkbox"
-                            class="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-600 rounded-xl"
-                          />
-                          <label
-                            for="attic"
-                            class="ml-2 text-sm font-semibold leading-6 text-gray-900"
-                            >Enable</label
-                          >
-                        </div>
-                      </div>
+                      <!-- linebreak END OF DYNAMICS -->
+                      <br>
                       <div class="flex justify-start items-start flex-col mt-5">
                         <label class="block text-sm font-medium text-black">
                           Upload an Image
@@ -751,18 +471,137 @@
       </div>
     </div>
   </div>
+
 </template>
 
 <script lang="ts" setup>
 import SideBarAdminNew from "../AdminSidePages/SideBarAdminNew.vue";
-import { ref } from "vue";
+import AuthChecker from "../AuthChecker.vue";
+import { ref , onMounted} from "vue";
+
+defineProps({
+  propertyListing:Function,
+  propertyTable:Function,
+  addAgent:Function,
+  agentTable:Function,
+  blogListing:Function,
+  blogTable:Function,
+  logout:Function,
+});
+onMounted(()=>{
+  addAmenity();
+  addLandmark();
+  addHighlight();
+
+});
+
+//dynamic amenities up to 16
+const amenities = ref([]);
+const amenitiesCounter = ref(0);
+const addAmenity = () =>{
+  if(amenitiesCounter.value<16){
+    amenitiesCounter.value ++;
+    amenities.value.push({
+      id: ``,
+      highlight: `Amenity #${amenitiesCounter.value}`
+
+    });
+    
+  }
+}
+const removeAmenity = () => {
+  if (amenities.value.length > 0) {
+    amenities.value.pop(); 
+    amenitiesCounter.value --;
+  }
+}
+
+const getAmenityValue = (id) => {
+  console.log(amenities.value[id].id);
+  return amenities.value[id].id
+}
+
+//dynamic highlight up to 16
+const highlight = ref([]);
+const highlightCounter = ref(0);
+const addHighlight = () =>{
+  if(highlightCounter.value<16){
+    highlightCounter.value ++;
+    highlight.value.push({
+      id: ``,
+      highlight: `Highlight #${highlightCounter.value}`
+
+    });
+    
+  }
+}
+const removeHighlight = () => {
+  if (highlight.value.length > 0) {
+    highlight.value.pop(); 
+    highlightCounter.value --;
+  }
+}
+
+const getHighlightValue = (id) => {
+  console.log(highlight.value[id].id);
+  return highlight.value[id].id
+}
+
+
+//dynamic landmark up to 5
+
+const landmark = ref([]);
+const landmarkCounter = ref(0);
+const addLandmark = () =>{
+  if(landmarkCounter.value<16){
+    landmarkCounter.value ++;
+    landmark.value.push({
+      id: ``,
+      highlight: `Landmark #${landmarkCounter.value}`
+
+    });
+    
+  }
+}
+const removeLandmark = () => {
+  if (landmark.value.length > 0) {
+    landmark.value.pop(); 
+    landmarkCounter.value --;
+  }
+}
+
+const getLandmarkValue = (id) => {
+  console.log(landmark.value[id].id);
+  return landmark.value[id].id
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const active = ref(0);
 const isSidebarVisible = ref(false);
 const toggleSidebar = () => {
   isSidebarVisible.value = !isSidebarVisible.value;
 };
-import { ref } from "vue";
-import router from "../router";
-import { useRoute } from "vue-router";
+
+
+
+
 </script>
-./AdminSidePages/SideBarAdminNew.vue ../../router

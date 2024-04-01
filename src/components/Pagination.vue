@@ -1,97 +1,85 @@
 <template>
-  <nav aria-label="Page navigation example">
-    <ul class="flex items-center -space-x-px h-10 text-base">
-      <li>
-        <a
-          href="#"
-          class="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+  <div class="flex items-center gap-4">
+    <button
+      :disabled="currentPage == 1"
+      class="flex items-center gap-2 px-6 py-3 text-sm font-bold text-center text-orange-500 uppercase align-middle transition-all rounded-lg select-none hover:bg-orange-100 active:bg-orange-200 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+      type="button"
+      @click="previous()"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        aria-hidden="true"
+        class="w-5 h-5"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+        ></path>
+      </svg>
+      Previous
+    </button>
+    <div class="flex items-center gap-2">
+      <button 
+        @click="changePage(page.i)"
+        v-for="(page,index) in pages"
+        :key="index"
+        :i="page.i"
+        :class="{
+          'relative h-10 max-h-[40px] w-10 max-w-[40px] select-none rounded-lg bg-orange-500 text-center align-middle text-sm font-bold uppercase text-white shadow-md shadow-orange-100 transition-all hover:shadow-lg hover:shadow-orange-200 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none': page.i === currentPage,
+          'relative h-10 max-h-[40px] w-10 max-w-[40px] select-none rounded-lg text-center align-middle text-sm font-bold uppercase text-gray-900 transition-all hover:bg-orange-100 active:bg-orange-200 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none': page.i !== currentPage
+        }"
+        type="button"
+      >
+        <span
+          class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
         >
-          <span class="sr-only">Previous</span>
-          <svg
-            class="w-3 h-3"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 6 10"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 1 1 5l4 4"
-            />
-          </svg>
-        </a>
-      </li>
-
-      <li v-for="item in items" :key="item">
-        <a
-          @click="redirect(item - 1)"
-          class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-          >{{ item - 1 }}</a
-        >
-      </li>
-
-      <li>
-        <a
-          href="#"
-          class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-        >
-          <span class="sr-only">Next</span>
-          <svg
-            class="w-3 h-3"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 6 10"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="m1 9 4-4-4-4"
-            />
-          </svg>
-        </a>
-      </li>
-    </ul>
-  </nav>
+          {{ page.i }}
+        </span>
+      </button>
+    </div>
+    <button
+      :disabled="currentPage === totalPage"
+      class="flex items-center gap-2 px-6 py-3 text-sm font-bold text-center text-orange-500 uppercase align-middle transition-all rounded-lg select-none hover:bg-orange-100 active:bg-orange-200 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+      type="button"
+      @click="next()"
+    >
+      Next
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        aria-hidden="true"
+        class="w-5 h-5"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+        ></path>
+      </svg>
+    </button>
+  </div>
 </template>
 
-<script lang="ts" setup>
-import { useRouter } from "vue-router";
-import { ref } from "vue";
 
-const router = useRouter();
+<script setup>
+import {ref,onMounted} from "vue";
+defineProps({
+  postCount: Number,
+  currentPage: Number,
+  totalPage:Number,
+  pages:Array,
+  next:Function,
+  previous:Function,
+  changePage:Function,
+})
 
-const redirect = (num: number) => {
-  const newUrl = `/properties/${num}`;
-  router.push(newUrl);
-  window.location.href = newUrl;
-};
 
-const iterator = ref(1);
-const items = ref<number[]>([]);
-
-const fetchData = () => {
-  fetch(`https://backend-n4gs.onrender.com/api/all/${iterator.value}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      var lth = Object.keys(data.propertyDetails).length;
-      if (lth !== 0) {
-        iterator.value++;
-        items.value.push(iterator.value);
-        fetchData(); // Continue fetching if necessary
-      }
-    })
-    .catch((error) => console.error("Error:", error));
-};
-fetchData();
 </script>

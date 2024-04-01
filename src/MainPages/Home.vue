@@ -47,7 +47,7 @@
       Search Filter
     </div>
     <div class="flex w-[84%] text-lg pl-5 font-poppins font-bold">
-      Latest <NewspaperIcon class="h-[26px] w-[26px] ml-1" />
+      Latest<NewspaperIcon class="h-[26px] w-[26px] ml-1" />
     </div>
   </div>
   <div class="flex">
@@ -127,10 +127,10 @@
     >
       <Products
         class=""
-        v-for="(property, index) in propertyData"
+        v-for="(property, index) in properties"
         :property_id="property.property_id"
         :key="index"
-        :image="property.dataURL || ''"
+        :image="property.imageUrl || ''"
         :name="property.property_name"
         :price="property.property_price"
         :category="property.property_category"
@@ -174,331 +174,194 @@
       disableOnInteraction="false"
       class="w-full flex p-[50px]"
     >
-      <swiper-slide class="bg-center bg-cover w-[370px] h-[500px]">
+
+
+
+      <swiper-slide 
+      v-for="(agent, index) in agents"
+      :key="index"
+      class="bg-center bg-cover w-[370px] h-[500px]">
         <div class="block w-full">
-          <AgentCard :hoverable="false" />
+          <AgentCard 
+
+          :image="agent.image"
+          :id="agent.id"
+          :name="agent.name"
+          :position="agent.position"
+          :description="agent.description"
+          :hoverable="false" />
         </div>
       </swiper-slide>
 
-      <swiper-slide class="bg-center bg-cover w-[370px] h-[500px]">
-        <div class="block w-full">
-          <AgentCard :hoverable="false" />
-        </div>
-      </swiper-slide>
-      <swiper-slide class="bg-center bg-cover w-[370px] h-[500px]">
-        <div class="block w-full">
-          <AgentCard :hoverable="false" />
-        </div>
-      </swiper-slide>
-      <swiper-slide class="bg-center bg-cover w-[370px] h-[500px]">
-        <div class="block w-full">
-          <AgentCard :hoverable="false" />
-        </div>
-      </swiper-slide>
-      <swiper-slide class="bg-center bg-cover w-[370px] h-[500px]">
-        <div class="block w-full">
-          <AgentCard :hoverable="false" />
-        </div>
-      </swiper-slide>
     </swiper-container>
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import { register } from "swiper/element/bundle";
 import Accordion from "../components/Accordion.vue";
-
 import Products from "../components/Products.vue";
-// import Agents from "../components/Agents.vue";
-// import AgentCard from "../components/AgentCard.vue";
 import { NewspaperIcon } from "@heroicons/vue/24/outline";
 import AgentCard from "../components/AgentCard.vue";
+import { ref, onMounted } from "vue";
 
-import { ref, onMounted, Ref } from "vue";
-// import { EffectCoverflow } from "swiper/modules";
-register();
+import { useRouter } from "vue-router";
+const router = useRouter();
 
-interface Property {
-  property_id: number;
-  image?: string;
-  property_name: string;
-  property_price: number;
-  property_area: number;
-  property_bedroom: number;
-  property_bathroom: number;
 
-  property_airport: boolean;
-  property_busstand: boolean;
-  property_hospital: boolean;
-  property_patroltank: boolean;
-  property_railway: boolean;
-  property_shopping: boolean;
-  property_universities: boolean;
-
-  property_category: string;
-  property_type: string;
-  property_local_area: string;
-  property_city: string;
-
-  image_data: {
-    type: string[];
-    data: number[];
-  };
-  dataURL?: string;
-}
-
-var propertyData = ref<Property[]>([]);
-
-type DataParameter = any | Ref<{}>;
-
-onMounted(() => {
-  resetAllLocalStorage();
-  fetchAllData();
+onMounted(()=>{
+  register();
+  get6Properties();
+  getAgents();
 });
 
-const resetAllLocalStorage = () => {
-  localStorage.setItem("property_type", "");
-  localStorage.setItem("property_category", "");
-  localStorage.setItem("property_type_chosen", "no");
-  localStorage.setItem("property_location_chosen", "no");
-  localStorage.setItem("property_category_chosen", "no");
-  localStorage.setItem("property_price_chosen", "no");
-  localStorage.setItem("property_area_chosen", "no");
-  localStorage.setItem("property_room_chosen", "no");
+const properties = ref([]);
 
-  localStorage.setItem("chosenArray", JSON.stringify(null));
-  localStorage.setItem("City", "");
-  localStorage.setItem("Address", "");
-  localStorage.setItem("Neighboorhood", "");
-  localStorage.setItem("Zipcode", "");
-};
 
-const fetchAllData = async () => {
+// START OF PROPERTIES FETCH
+const get6Properties = async () =>{
+  const response = await fetch ('http://localhost:8080/getAllPropertyID');
+  const data = await response.json();
+
+  for (var i = 0; i < data.length; i++) {
   try {
-    const response = await fetch("https://backend-n4gs.onrender.com/api", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+    var id = data[i].property_id;
+    const propertyGenData = await general_data(id);
+    const propertyData = await property_data(id);
+    const propertyAddress = await property_address(id);
+    const propertyLandmark = await property_landmark(id);
+    const propertyImage = await property_image(id);
+    const imageData = propertyImage[0].main_image.data;
+
+
+    properties.value.push({
+      property_id: id,
+      property_name: propertyGenData[0].name,
+      imageUrl: await convertBlob(imageData),
+
+      property_price: propertyData[0].property_price,
+      property_category: propertyData[0].category,
+      property_type: propertyData[0].property_type,
+      property_area: propertyAddress[0].property_area,
+      property_bedroom: propertyAddress[0].bedroom,
+      property_bathroom: propertyAddress[0].bathroom,
+      property_local_area: propertyAddress[0].local_area,
+      property_city: propertyAddress[0].city,
+      
+      property_airport: propertyLandmark[0].airport ? 1 : 0,
+      property_busstand: propertyLandmark[0].bus_stand ? 1 : 0,
+      property_hospital: propertyLandmark[0].hospital ? 1 : 0,
+      property_patroltank: propertyLandmark[0].patroltank ? 1 : 0,
+      property_railway: propertyLandmark[0].railway ? 1 : 0,
+      property_shopping: propertyLandmark[0].shopping ? 1 : 0,
+      property_universities: propertyLandmark[0].universities ? 1 : 0,
     });
-    const data = await response.json();
 
-    for (let i = 0; i < Object.keys(data).length; i++) {
-      propertyData.value.push(data[i]);
-
-      const imageResponse = await fetch(
-        `https://backend-n4gs.onrender.com/api/getPropertyImage/${propertyData.value[i].property_id}`
-      );
-      const imageData = await imageResponse.json();
-
-      propertyData.value[i].image_data = {
-        type: [],
-        data: [],
-      };
-
-      propertyData.value[i].image_data.data = imageData[0].image_data.data;
-      console.log(propertyData.value[i].image_data.data);
-      convertBinaryToDataURL(propertyData.value[i].image_data.data, i);
+    if (i + 1 == 6) {
+      break;
     }
   } catch (error) {
-    console.error("Error:", error);
+    console.error("Error processing property:", error);
   }
-};
-
-function convertBinaryToDataURL(binaryData: number[], index: number) {
-  const blob = new Blob([new Uint8Array(binaryData)], { type: "image/png" });
-  const reader = new FileReader();
-
-  reader.onload = () => {
-    propertyData.value[index].dataURL = reader.result as string;
-  };
-
-  reader.readAsDataURL(blob);
 }
 
-const filterPropertyType = (data?: DataParameter) => {
-  var lth = Object.keys(data).length;
-  var property_type = localStorage.getItem("property_type");
-  for (var i = 0; i < lth; i++) {
-    if (data[i].property_type == property_type) {
-      propertyData.value.push(data[i]);
-    }
-  }
-};
-const filteredCategory = (data: DataParameter) => {
-  var chosenCategoryArray: string[] = JSON.parse(
-    `${localStorage.getItem("chosenArray")}`
-  );
 
-  var lth = Object.keys(data).length;
-
-  for (var i = 0; i < lth; i++) {
-    if (chosenCategoryArray.includes(data[i].property_category)) {
-      propertyData.value.push(data[i]);
-    }
-  }
 };
 
-const filteredCity = (data: DataParameter) => {
-  var city = localStorage.getItem("City");
-  var address = localStorage.getItem("Address");
-  var zipcode = localStorage.getItem("Zipcode");
+const general_data = async (i) =>{
+  try {
+    const response = await fetch(`http://localhost:8080/getGeneralData/${i}`)
+    const data = await response.json();
+    return data;
+  }
+  catch(error){
+    console.log("Error: ",error);
+  }
+}
+const property_image = async (i) =>{
+  try {
+    const response = await fetch(`http://localhost:8080/getPropertyImage/${i}`)
+    const data = await response.json();
+    return data;
+  }
+  catch(error){
+    console.log("Error: ",error);
+  }
+}
+const property_data = async (i) =>{
+  try {
+    const response = await fetch(`http://localhost:8080/getPropertyData/${i}`)
+    const data = await response.json();
+    return data;
+  }
+  catch(error){
+    console.log("Error: ",error);
+  }
+}
+const property_address = async (i) =>{
+  try {
+    const response = await fetch(`http://localhost:8080/getPropertyAddress/${i}`)
+    const data = await response.json();
+    return data;
+  }
+  catch(error){
+    console.log("Error: ",error);
+  }
+}
 
-  const isRef = (d: any): d is Ref<{}> => typeof d === "object" && "value" in d;
+const property_landmark = async (i) =>{
+  try {
+    const response = await fetch(`http://localhost:8080/getPropertyLandMark/${i}`)
+    const data = await response.json();
+    return data;
+  }
+  catch(error){
+    console.log("Error: ",error);
+  }
+}
+//START OF AGENT FETCH
+const agents = ref([]);//array of agents
+const getAgents = async () =>{
+  const response = await fetch('http://localhost:8080/getAgents');
+  const data = await response.json();
 
-  if (isRef(data)) {
-    var lth = propertyData.value.length;
-    for (var i = lth - 1; i >= 0; i--) {
-      var propertyCity = propertyData.value[i]?.property_city;
-      var propertyAddress = propertyData.value[i]?.property_local_area;
+  
 
-      var CityTrue = propertyCity == city;
-      var AddressTrue = propertyAddress == address;
+  for(var i= 0 ; i < data.length ; i ++){
+    var image = await getAgentImageByID(data[i].agent_id);
+    agents.value.push({
+      id: data[i].agent_id,
+      image: await convertBlob(image),
+      name: data[i].agent_name,
+      position: data[i].position,
+      description: data[i].description,
+    });
+  }
+}
+const getAgentImageByID = async(id)=>{
+  const response = await fetch(`http://localhost:8080/getAgentByID/${id}`);
+  const data = await response.json();
 
-      if (!CityTrue) {
-        propertyData.value.splice(i, 1);
-        console.log(
-          propertyData.value[i]?.property_name,
-          propertyData.value[i]?.property_city
-        );
+  return data[0].profile_picture.data;
+}
+
+
+const convertBlob = (image) =>{
+
+return new Promise((resolve,reject)=>{
+  if(image){
+  const blob = new Blob([new Uint8Array(image)], { type: 'image/jpeg' }); 
+  const reader = new FileReader();
+  reader.readAsDataURL(blob);
+      reader.onloadend = () => {
+        const dataURL = reader.result;
+        resolve (dataURL);
       }
-    }
-  } else {
-    var lth = Object.keys(data).length;
-
-    for (var i = 0; i < lth; i++) {
-      var property_city = data[i].property_city;
-      var property_address = data[i].property_local_area;
-      var property_zipcod = data[i].property_zipcode;
-
-      var CityTrue = property_city == city;
-      var AddressTrue = property_address == address;
-      var ZipCodeTrue = property_zipcod == zipcode;
-
-      if (
-        (CityTrue || !city) &&
-        (AddressTrue || !address) &&
-        (ZipCodeTrue || !zipcode)
-      ) {
-        propertyData.value.push(data[i]);
-      }
-    }
   }
-};
+});
+}
 
-const filteredPrice = (data: DataParameter) => {
-  var priceText = "₱ _ _ _ _ _ _ _ _ _ _ _ _ ";
-  var lth = Object.keys(data).length;
-  var price = parseInt(`${localStorage.getItem(priceText)}`, 10);
 
-  for (var i = 0; i < lth; i++) {
-    var property_price = data[i].property_price;
-    if (property_price > price) {
-      propertyData.value.push(data[i]);
-    }
-  }
-};
-const filteredArea = (data: DataParameter) => {
-  var areaText = "Square Meter";
-  var lth = Object.keys(data).length;
-  var area = parseInt(`${localStorage.getItem(areaText)}`, 10);
 
-  for (var i = 0; i < lth; i++) {
-    var property_area = data[i].property_area;
-    if (property_area < area) {
-      propertyData.value.push(data[i]);
-    }
-  }
-};
 
-const removeAllData = () => {
-  propertyData.value.splice(0, propertyData.value.length);
-};
-
-const filter = () => {
-  var chosenCategoryArray: string[] = JSON.parse(
-    `${localStorage.getItem("chosenArray")}`
-  );
-
-  var propertyTypeChosen = localStorage.getItem("property_type_chosen");
-  var propertyCategoryChosen = localStorage.getItem("property_category_chosen");
-  var propertyLocationChosen = localStorage.getItem("property_location_chosen");
-  var propertyPriceChosen = localStorage.getItem("property_price_chosen");
-  var propertyAreaChosen = localStorage.getItem("property_area_chosen");
-  var propertyRoomChosen = localStorage.getItem("property_room_chosen");
-
-  //fetch
-  fetch("https://backend-n4gs.onrender.com/api", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      var lth = Object.keys(data).length;
-      var property_type = localStorage.getItem("property_type");
-
-      if (
-        propertyTypeChosen === "yes" &&
-        propertyCategoryChosen === "no" &&
-        propertyLocationChosen === "no"
-      ) {
-        removeAllData();
-
-        filterPropertyType(data);
-      } else if (
-        propertyTypeChosen === "no" &&
-        propertyCategoryChosen === "yes" &&
-        propertyLocationChosen === "no"
-      ) {
-        removeAllData();
-        filteredCategory(data);
-      } else if (
-        propertyTypeChosen === "yes" &&
-        propertyCategoryChosen === "yes" &&
-        propertyLocationChosen === "no"
-      ) {
-        removeAllData();
-
-        for (var i = 0; i < lth; i++) {
-          if (
-            chosenCategoryArray.includes(data[i].property_category) &&
-            property_type == data[i].property_type
-          ) {
-            propertyData.value.push(data[i]);
-          }
-        }
-      } else if (
-        propertyTypeChosen === "no" &&
-        propertyCategoryChosen === "no" &&
-        propertyLocationChosen === "yes"
-      ) {
-        removeAllData();
-        filteredCity(data);
-        console.log("yeah");
-      } else if (
-        propertyTypeChosen === "yes" &&
-        propertyCategoryChosen === "no" &&
-        propertyLocationChosen === "yes"
-      ) {
-        removeAllData();
-        filterPropertyType(data);
-        filteredCity(propertyData);
-      } else if (propertyPriceChosen == "yes") {
-        removeAllData();
-        filteredPrice(data);
-      } else if (propertyAreaChosen == "yes") {
-        removeAllData();
-        filteredArea(data);
-      } else if (propertyRoomChosen == "yes") {
-        removeAllData();
-      } else {
-        removeAllData();
-        fetchAllData();
-      }
-    })
-    .catch((error) => console.error("Error:", error));
-  // end of fetch
-};
 </script>

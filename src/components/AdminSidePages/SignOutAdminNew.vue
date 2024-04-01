@@ -51,89 +51,89 @@
                 :height="30"
                 class="hover:text-white"
               />
-              <router-link
-                class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNew"
-                >Property Listing</router-link
-              >
-            </li>
-            <li class="flex">
-              <mdicon
-                name="TableLargePlus"
-                :width="30"
-                :height="30"
-                class="hover:text-white"
-              />
-              <router-link
-                class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewPropertyTable"
-                >Property Table</router-link
-              >
-            </li>
-            <li class="flex">
-              <mdicon
-                name="AccountMultiplePlusOutline"
-                :width="30"
-                :height="30"
-                class="hover:text-white"
-              />
-              <router-link
-                class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewAddAgent"
-                >Add Agent</router-link
-              >
-            </li>
-            <li class="flex">
-              <mdicon
-                name="TableEdit"
-                :width="30"
-                :height="30"
-                class="hover:text-white"
-              />
-              <router-link
-                class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewAgentsTable"
-                >Agent Table</router-link
-              >
-            </li>
-            <li class="flex">
-              <mdicon
-                name="ClipboardListOutline"
-                :width="30"
-                :height="30"
-                class="hover:text-white"
-              />
-              <router-link
-                class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewBlogListing"
-                >Blog Listing</router-link
-              >
-            </li>
-            <li class="flex">
-              <mdicon
-                name="TableAccount"
-                :width="30"
-                :height="30"
-                class="hover:text-white"
-              />
-              <router-link
-                class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewBlogTable"
-                >Blog Table</router-link
-              >
-            </li>
-            <li class="flex">
-              <mdicon
-                name="LoginVariant"
-                :width="30"
-                :height="30"
-                class="hover:text-white"
-              />
-              <router-link
-                class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewSignOut"
-                >Logout Account</router-link
-              >
+              <button
+              class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
+              @click="propertyListing"
+              >Property Listing</button
+            >
+          </li>
+          <li class="flex">
+            <mdicon
+              name="TableLargePlus"
+              :width="30"
+              :height="30"
+              class="hover:text-white"
+            />
+            <button
+            @click="propertyTable"
+              class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
+              >Property Table</button
+            >
+          </li>
+          <li class="flex">
+            <mdicon
+              name="AccountMultiplePlusOutline"
+              :width="30"
+              :height="30"
+              class="hover:text-white"
+            />
+            <button
+            @click="addAgent"
+              class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
+              >Add Agent</button
+            >
+          </li>
+          <li class="flex">
+            <mdicon
+              name="TableEdit"
+              :width="30"
+              :height="30"
+              class="hover:text-white"
+            />
+            <button
+            @click="agentTable"
+              class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
+              >Agent Table</button
+            >
+          </li>
+          <li class="flex">
+            <mdicon
+              name="ClipboardListOutline"
+              :width="30"
+              :height="30"
+              class="hover:text-white"
+            />
+            <button
+            @click="blogListing"
+              class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
+              >Blog Listing</button
+            >
+          </li>
+          <li class="flex">
+            <mdicon
+              name="TableAccount"
+              :width="30"
+              :height="30"
+              class="hover:text-white"
+            />
+            <button
+            @click="blogTable"
+              class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
+              >Blog Table</button
+            >
+          </li>
+          <li class="flex">
+            <mdicon
+              name="LoginVariant"
+              :width="30"
+              :height="30"
+              class="hover:text-white"
+            />
+            <button
+            @click="logout"
+              class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
+              >Logout Account</button
+            >
             </li>
           </ul>
         </aside>
@@ -180,17 +180,42 @@
       </div>
     </div>
   </div>
+  <AuthChecker/>
+
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import SideBarAdminNew from "../AdminSidePages/SideBarAdminNew.vue";
+
 import { ref } from "vue";
+import { useRouter} from "vue-router";
+
+
+
+
 const active = ref(0);
 const isSidebarVisible = ref(false);
+
+const router = useRouter();
+
 const toggleSidebar = () => {
   isSidebarVisible.value = !isSidebarVisible.value;
 };
-import { ref } from "vue";
-import router from "../router";
-import { useRoute } from "vue-router";
+
+defineProps({
+  propertyListing:Function,
+  propertyTable:Function,
+  addAgent:Function,
+  agentTable:Function,
+  blogListing:Function,
+  blogTable:Function,
+  logout:Function,
+});
+
+
+const logout = () => {
+  localStorage.clear();
+  router.push("/");
+}
+
 </script>

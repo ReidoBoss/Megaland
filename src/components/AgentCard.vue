@@ -2,9 +2,9 @@
   <div
     :class="{
       'max-w-sm bg-white border-gray-200 rounded-lg border-2 shadow-lg w-[370px] h-[500px] hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] hover:scale-[1.02]':
-        props.hoverable,
+        hoverable,
       'max-w-sm bg-white border-gray-200 rounded-lg border-2 shadow-lg w-[370px] h-[500px]':
-        !props.hoverable,
+        !hoverable,
     }"
   >
     <!--  -->
@@ -33,32 +33,43 @@
     <div class="flex flex-col items-center pb-10 px-10 text-center">
       <img
         class="w-32 h-32 mb-3 rounded-full shadow-lg"
-        src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
-        alt="Bonnie image"
+        :src="image"
+        alt="Agent Image"
       />
-      <h5 class="mb-1 text-2xl font-medium text-gray-900">Bonnie Green</h5>
-      <span class="text-lg font-medium text-gray-900">Visual Designer</span>
+      <h5 class="mb-1 text-2xl font-medium text-gray-900">{{name}}</h5>
+      <span class="text-lg font-medium text-gray-900">{{position}}</span>
       <p class="text-normal text-black-900 pt-2">
-        Life is an enigmatic journey, a pulsating adventure that commences with
-        the miraculous onset of birth. on a rollercoaster of experiences,
-        encountering joy, sorrow, and everything in between. ...
+        {{ description }}
       </p>
       <div class="flex w-1/2 mt-4 md:mt-6">
-        <router-link
-          to="/agentProfile"
+        <div
           class="bg-[#E67E23] h-9 w-full rounded-md text-white text-center font-normal text-md hover:bg-white hover:text-[#E67E23] hover:border-[#E67E23] border-[#E67E23] border-2 transition duration-300"
         >
-          <button class="text-center h-9 font-medium">View Profile</button>
-        </router-link>
+          <button @click="redirect" class="text-center h-9 font-medium">View Profile</button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
-import { defineProps } from "vue";
+<script setup>
+import { useRouter} from "vue-router";
+const router = useRouter();
 
 const props = defineProps({
+  image:String,
+  id: String,
+  name:String,
+  position:String,
+  description:String,
   hoverable: Boolean,
+  
 });
+
+
+const redirect =  () => {
+  router.push(`/agentProfile/${props.id}`);
+}
+
+
 </script>

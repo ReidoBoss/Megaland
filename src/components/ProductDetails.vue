@@ -4,7 +4,7 @@
     class="border-2 p-5 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70) mb-5"
   >
     <div class="text-center font-bold text-xl">
-      {{ property.property_name }}
+      {{ name }}
     </div>
     <div>
       <div
@@ -21,7 +21,7 @@
             <div class="hidden duration-200 ease-linear" data-carousel-item>
               <div class="absolute inset-0">
                 <img
-                  src="../assets/gal1.jpg"
+                  :src="main_image"
                   class="object-cover h-full w-full"
                   alt="..."
                 />
@@ -31,7 +31,7 @@
             <div class="hidden duration-200 ease-linear" data-carousel-item>
               <div class="absolute inset-0">
                 <img
-                  src="../assets/gal2.jpg"
+                  :src="extra1"
                   class="lg:object-cover h-full w-full"
                   alt="..."
                 />
@@ -44,7 +44,7 @@
             >
               <div class="absolute inset-0">
                 <img
-                  src="../assets/gal3.jpg"
+                  :src="extra2"
                   class="lg:object-cover h-full w-full"
                   alt="..."
                 />
@@ -54,22 +54,13 @@
             <div class="hidden duration-200 ease-linear" data-carousel-item>
               <div class="absolute inset-0">
                 <img
-                  src="../assets/gal2.jpg"
+                  :src="extra3"
                   class="w-full h-full lg:object-cover"
                   alt="..."
                 />
               </div>
             </div>
-            <!-- Item 5 -->
-            <div class="hidden duration-200 ease-linear" data-carousel-item>
-              <div class="absolute inset-0">
-                <img
-                  src="../assets/gal3.jpg"
-                  class="w-full h-full lg:object-cover"
-                  alt="..."
-                />
-              </div>
-            </div>
+
           </div>
         </div>
 
@@ -80,28 +71,28 @@
               <div class="">
                 <img
                   class="h-[90%] max-w-full rounded-lg"
-                  src="../assets/gal1.jpg"
+                  :src="main_image"
                   alt=""
                 />
               </div>
               <div>
                 <img
                   class="h-[90%] max-w-full rounded-lg"
-                  src="../assets/gal2.jpg"
+                  :src="extra1"
                   alt=""
                 />
               </div>
               <div>
                 <img
                   class="h-[90%] max-w-full rounded-lg"
-                  src="../assets/gal3.jpg"
+                  :src="extra2"
                   alt=""
                 />
               </div>
               <div>
                 <img
                   class="h-[90%] max-w-full rounded-lg"
-                  src="../assets/gal2.jpg"
+                  :src="extra3"
                   alt=""
                 />
               </div>
@@ -171,8 +162,8 @@
       <span class="text-[#E67E23] text-xl ml-3 font-bold">
         ₱
         {{
-          property.property_price
-            ? property.property_price.toLocaleString("en-US")
+          property_price
+            ? property_price.toLocaleString("en-US")
             : "N/A"
         }}
       </span>
@@ -191,11 +182,11 @@
     <div
       class="font-poppins font-bold lg:text-md md:text-md custom-sm:text-sm sm:text-xs lg:ml-5"
     >
-      Location:
+      Location: 
       <!-- Location Needs to be Fetched -->
       <span class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs font-500">
         <!-- {{ property.property_location }} -->
-        Tungkop Minglanilla
+        {{ local_area }}
       </span>
     </div>
 
@@ -211,19 +202,7 @@
           class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs font-500 text-justify"
         >
           <!-- {{ property.property_description }} -->
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-          perspiciatis dolores odio sed autem. Eum quia quae cum tenetur
-          quisquam, iusto delectus iure animi in sapiente, id recusandae aut
-          nostrum! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Obcaecati perspiciatis dolores odio sed autem. Eum quia quae cum
-          tenetur quisquam, iusto delectus iure animi in sapiente, id recusandae
-          aut nostrum! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Obcaecati perspiciatis dolores odio sed autem. Eum quia quae cum
-          tenetur quisquam, iusto delectus iure animi in sapiente, id recusandae
-          aut nostrum! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Obcaecati perspiciatis dolores odio sed autem. Eum quia quae cum
-          tenetur quisquam, iusto delectus iure animi in sapiente, id recusandae
-          aut nostrum!
+          {{ description }}
         </span>
       </div>
     </div>
@@ -251,7 +230,7 @@
               >
                 <!-- {{ property.property_city }} -->
 
-                Lapu-Lapu City
+                {{ local_area }}
               </span>
             </div>
 
@@ -273,7 +252,7 @@
               >
                 <!-- {{ property.property_city }} -->
 
-                Cebu City
+                {{ city }}
               </span>
             </div>
 
@@ -295,7 +274,7 @@
               >
                 <!-- {{ property.property_city }} -->
 
-                Philippines
+                {{ country }}
               </span>
             </div>
 
@@ -316,7 +295,7 @@
               >
                 <!-- {{ property.property_city }} -->
 
-                6000
+                {{ zipcode }}
               </span>
             </div>
 
@@ -337,7 +316,7 @@
               >
                 <!-- {{ property.property_city }} -->
 
-                University of Cebu-Main
+                {{ local_area }}, {{ city }}
               </span>
             </div>
 
@@ -373,7 +352,7 @@
               >
                 <!-- {{ property.bedroom }} -->
 
-                1
+                {{ bedroom }}
               </span>
               <mdicon
                 name="BedOutline"
@@ -396,7 +375,7 @@
               >
                 <!-- {{ property.bathroom}} -->
 
-                1
+                {{ bathroom }}
               </span>
               <mdicon
                 name="Shower"
@@ -419,7 +398,7 @@
               >
                 <!-- {{ property.andarea }} -->
 
-                36sqm
+                {{property_area}}sqm
               </span>
             </div>
           </div>
@@ -435,7 +414,7 @@
               >
                 <!-- {{ property.bedroom }} -->
 
-                0
+                {{ parking_space }}
               </span>
             </div>
           </div>
@@ -486,96 +465,215 @@
     <div class="md:p-2">
       <div class="flex">
         <div class="w-[95%] mx-auto flex flex-wrap items-center justify-center">
+
           <div
             class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%] my-[5%]"
+            v-if="attic!=0"
           >
-            <!-- {{ property.amenities-logo }} -->
-
             <mdicon
               name="Sprinkler"
               :width="30"
               :height="30"
               class="text-gray-700"
             />
-            <!-- {{ property.amenities-name }} -->
-            Sprinklers
+            Attic
           </div>
-          <!-- City needs to be Fetched Here -->
-
+          <!-- ----- -->
           <div
-            class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%]"
-          >
-            <!-- {{ property.amenities-logo }} -->
-
-            <mdicon
-              name="SignDirection"
-              :width="30"
-              :height="30"
-              class="text-gray-700"
-            />
-            <!-- {{ property.amenities-name }} -->
-            Recreation
-          </div>
-
-          <!-- Land Area Needs to be Fetched Here -->
+          class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%] my-[5%]"
+          v-if="balcony!=0"
+        >
+          <mdicon
+            name="Sprinkler"
+            :width="30"
+            :height="30"
+            class="text-gray-700"
+          />
+          Balcony
+        </div>
+          <!-- ----- -->
+                    <!-- ----- -->
+                    <div
+                    class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%] my-[5%]"
+                    v-if="deck!=0"
+                  >
+                    <mdicon
+                      name="Sprinkler"
+                      :width="30"
+                      :height="30"
+                      class="text-gray-700"
+                    />
+                    Deck
+                  </div>
+                    <!-- ----- -->
+          <!-- ----- -->
           <div
-            class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%]"
-          >
-            <!-- {{ property.amenities-logo }} -->
-
-            <mdicon
-              name="Sprinkler"
-              :width="30"
-              :height="30"
-              class="text-gray-700"
-            />
-            <!-- {{ property.amenities-name }} -->
-            Sprinklers
-          </div>
-          <!-- Zip Needs to be Fetched Here -->
+          class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%] my-[5%]"
+          v-if="fenced_yard!=0"
+        >
+          <mdicon
+            name="Sprinkler"
+            :width="30"
+            :height="30"
+            class="text-gray-700"
+          />
+          Fenced Yard
+        </div>
+          <!-- ----- -->
+                    <!-- ----- -->
+                    <div
+                    class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%] my-[5%]"
+                    v-if="frontyard!=0"
+                  >
+                    <mdicon
+                      name="Sprinkler"
+                      :width="30"
+                      :height="30"
+                      class="text-gray-700"
+                    />
+                    Front Yard
+                  </div>
+                    <!-- ----- -->
+                              <!-- ----- -->
           <div
-            class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%]"
-          >
-            <!-- {{ property.amenities-logo }} -->
-
-            <mdicon
-              name="Sprinkler"
-              :width="30"
-              :height="30"
-              class="text-gray-700"
-            />
-            <!-- {{ property.amenities-name }} -->
-            Sprinklers
-          </div>
-          <!-- Neighborhood Needs to be Fetched Here -->
+          class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%] my-[5%]"
+          v-if="gasheat!=0"
+        >
+          <mdicon
+            name="Sprinkler"
+            :width="30"
+            :height="30"
+            class="text-gray-700"
+          />
+          Gas Heat
+        </div>
+          <!-- ----- -->
+                    <!-- ----- -->
+                    <div
+                    class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%] my-[5%]"
+                    v-if="gym!=0"
+                  >
+                    <mdicon
+                      name="Sprinkler"
+                      :width="30"
+                      :height="30"
+                      class="text-gray-700"
+                    />
+                    Gym
+                  </div>
+                    <!-- ----- -->
+                              <!-- ----- -->
           <div
-            class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%]"
-          >
-            <!-- {{ property.amenities-logo }} -->
-
-            <mdicon
-              name="Sprinkler"
-              :width="30"
-              :height="30"
-              class="text-gray-700"
-            />
-            <!-- {{ property.amenities-name }} -->
-            Sprinklers
-          </div>
+          class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%] my-[5%]"
+          v-if="lake_view!=0"
+        >
+          <mdicon
+            name="Sprinkler"
+            :width="30"
+            :height="30"
+            class="text-gray-700"
+          />
+          Lake View
+        </div>
+          <!-- ----- -->
+                    <!-- ----- -->
+                    <div
+                    class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%] my-[5%]"
+                    v-if="pond!=0"
+                  >
+                    <mdicon
+                      name="Sprinkler"
+                      :width="30"
+                      :height="30"
+                      class="text-gray-700"
+                    />
+                    Pond
+                  </div>
+                    <!-- ----- -->
+                              <!-- ----- -->
           <div
-            class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%]"
-          >
-            <!-- {{ property.amenities-logo }} -->
-
-            <mdicon
-              name="Sprinkler"
-              :width="30"
-              :height="30"
-              class="text-gray-700"
-            />
-            <!-- {{ property.amenities-name }} -->
-            Sprinklers
-          </div>
+          class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%] my-[5%]"
+          v-if="pool!=0"
+        >
+          <mdicon
+            name="Sprinkler"
+            :width="30"
+            :height="30"
+            class="text-gray-700"
+          />
+          Pool
+        </div>
+          <!-- ----- -->
+                    <!-- ----- -->
+                    <div
+                    class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%] my-[5%]"
+                    v-if="recreation!=0"
+                  >
+                    <mdicon
+                      name="Sprinkler"
+                      :width="30"
+                      :height="30"
+                      class="text-gray-700"
+                    />
+                    Recreation
+                  </div>
+                    <!-- ----- -->
+                              <!-- ----- -->
+          <div
+          class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%] my-[5%]"
+          v-if="sprinklers!=0"
+        >
+          <mdicon
+            name="Sprinkler"
+            :width="30"
+            :height="30"
+            class="text-gray-700"
+          />
+          Sprinklers
+        </div>
+          <!-- ----- -->
+                    <!-- ----- -->
+                    <div
+                    class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%] my-[5%]"
+                    v-if="storage!=0"
+                  >
+                    <mdicon
+                      name="Sprinkler"
+                      :width="30"
+                      :height="30"
+                      class="text-gray-700"
+                    />
+                    Storage
+                  </div>
+                    <!-- ----- -->
+                              <!-- ----- -->
+          <div
+          class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%] my-[5%]"
+          v-if="washer!=0"
+        >
+          <mdicon
+            name="Sprinkler"
+            :width="30"
+            :height="30"
+            class="text-gray-700"
+          />
+          Washer
+        </div>
+          <!-- ----- -->
+                    <!-- ----- -->
+                    <div
+                    class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[33.3%] my-[5%]"
+                    v-if="wine_cellar!=0"
+                  >
+                    <mdicon
+                      name="Sprinkler"
+                      :width="30"
+                      :height="30"
+                      class="text-gray-700"
+                    />
+                    Wine Cellar
+                  </div>
+                    <!-- ----- -->
         </div>
       </div>
     </div>
@@ -592,7 +690,9 @@
     <div class="md:p-2">
       <div class="flex">
         <div class="w-[95%] mx-auto flex flex-wrap items-center justify-center">
+          <!-- ----- -->
           <div
+          v-if="airport!='undefined' "
             class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[50%] my-[5%]"
           >
             <!-- {{ property.amenities-logo }} -->
@@ -604,62 +704,131 @@
               class="text-gray-700"
             />
             <!-- {{ property.amenities-name }} -->
-            INDIANA AEROSPACE UNIVERSITY
+            {{ airport }}
           </div>
-          <!-- City needs to be Fetched Here -->
+          <!-- ----- -->
+                    <!-- ----- -->
+                    <div
+                    v-if="bus_stand!='undefined'"
+                      class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[50%] my-[5%]"
+                    >
+                      <!-- {{ property.amenities-logo }} -->
+          
+                      <mdicon
+                        name="Sprinkler"
+                        :width="30"
+                        :height="30"
+                        class="text-gray-700"
+                      />
+                      <!-- {{ property.amenities-name }} -->
+                      {{ bus_stand }}
+                    </div>
+                    <!-- ----- -->
+                    <div
+                    v-if="hospital!='undefined'"
+                      class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[50%] my-[5%]"
+                    >
+                      <!-- {{ property.amenities-logo }} -->
+          
+                      <mdicon
+                        name="Sprinkler"
+                        :width="30"
+                        :height="30"
+                        class="text-gray-700"
+                      />
+                      <!-- {{ property.amenities-name }} -->
+                      {{ hospital }}
+                    </div>
+                    <!-- ----- -->
+                    <div
+                    v-if="patroltank!='undefined'"
+                      class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[50%] my-[5%]"
+                    >
+                      <!-- {{ property.amenities-logo }} -->
+          
+                      <mdicon
+                        name="Sprinkler"
+                        :width="30"
+                        :height="30"
+                        class="text-gray-700"
+                      />
+                      <!-- {{ property.amenities-name }} -->
+                      {{ patroltank }}
+                    </div>
+                    <!-- ----- -->
+                    <div
+                    v-if="railway!='undefined'"
+                      class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[50%] my-[5%]"
+                    >
+                      <!-- {{ property.amenities-logo }} -->
+          
+                      <mdicon
+                        name="Sprinkler"
+                        :width="30"
+                        :height="30"
+                        class="text-gray-700"
+                      />
+                      <!-- {{ property.amenities-name }} -->
+                      {{ railway }}
+                    </div>
+                    <!-- ----- -->
+                    <div
+                    v-if="shopping!='undefined'"
+                      class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[50%] my-[5%]"
+                    >
+                      <!-- {{ property.amenities-logo }} -->
+          
+                      <mdicon
+                        name="Sprinkler"
+                        :width="30"
+                        :height="30"
+                        class="text-gray-700"
+                      />
+                      <!-- {{ property.amenities-name }} -->
+                      {{ shopping }}
+                    </div>
+                    <!-- ----- -->
+                    <div
+                    v-if=" universities!='undefined'"
+                      class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[50%] my-[5%]"
+                    >
+                      <!-- {{ property.amenities-logo }} -->
+          
+                      <mdicon
+                        name="Sprinkler"
+                        :width="30"
+                        :height="30"
+                        class="text-gray-700"
+                      />
+                      <!-- {{ property.amenities-name }} -->
+                      {{ universities }}
+                    </div>
+                    <!-- ----- -->
 
-          <div
-            class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[50%]"
-          >
-            <!-- {{ property.amenities-logo }} -->
+                    <div
+                    v-if="others!='undefined'"
+                      class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[50%] my-[5%]"
+                    >
+                      <!-- {{ property.amenities-logo }} -->
+          
+                      <mdicon
+                        name="Sprinkler"
+                        :width="30"
+                        :height="30"
+                        class="text-gray-700"
+                      />
+                      <!-- {{ property.amenities-name }} -->
+                      Notable Land Mark: {{ others }}
+                    </div>
+                    <!-- ----- -->
 
-            <mdicon
-              name="SignDirection"
-              :width="30"
-              :height="30"
-              class="text-gray-700"
-            />
-            <!-- {{ property.amenities-name }} -->
-            GAISANO GRAND MALL BASAK
-          </div>
-
-          <!-- Land Area Needs to be Fetched Here -->
-          <div
-            class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[50%]"
-          >
-            <!-- {{ property.amenities-logo }} -->
-
-            <mdicon
-              name="Sprinkler"
-              :width="30"
-              :height="30"
-              class="text-gray-700"
-            />
-            <!-- {{ property.amenities-name }} -->
-            MACTAN DOCTORS HOSPITAL
-          </div>
-          <!-- Zip Needs to be Fetched Here -->
-          <div
-            class="lg:text-md md:text-md custom-sm:text-sm sm:text-xs text-justify flex gap-2 justify-center items-center font-semibold w-[50%]"
-          >
-            <!-- {{ property.amenities-logo }} -->
-
-            <mdicon
-              name="Sprinkler"
-              :width="30"
-              :height="30"
-              class="text-gray-700"
-            />
-            <!-- {{ property.amenities-name }} -->
-            MACTAN INTERNATIONAL AIRPORT
-          </div>
           <!-- Neighborhood Needs to be Fetched Here -->
         </div>
       </div>
     </div>
   </div>
 </template>
-<script lang="ts" setup>
+<script setup>
 import { onMounted } from "vue";
 import { initFlowbite } from "flowbite";
 
@@ -667,127 +836,47 @@ import { initFlowbite } from "flowbite";
 onMounted(() => {
   initFlowbite();
 });
-interface PropType {
-  property: any;
-}
 
-defineProps<PropType>();
+
+defineProps({
+  name:String,
+  main_image:String,
+  extra1: String,
+  extra2: String,
+  extra3: String,
+  property_price: String,
+  local_area: String,
+  description: String,
+  city: String,
+  country: String,
+  zipcode: String,
+  bedroom: String,
+  bathroom: String,
+  property_area: String,
+  parking_space: String,
+  attic: Number,
+  balcony: Number,
+  deck: Number,
+  fenced_yard: Number,
+  frontyard: Number,
+  gasheat: Number,
+  gym: Number,
+  lake_view: Number,
+  pond: Number,
+  pool: Number,
+  recreation: Number,
+  sprinklers: Number,
+  storage: Number,
+  washer: Number,
+  wine_cellar: Number,
+  airport: String,
+  bus_stand: String,
+  hospital: String,
+  patroltank: String,
+  railway: String,
+  shopping: String,
+  universities: String,
+  others: String,
+});
+
 </script>
-
-<!-- <div class="border-2 m-2 p-1 font-medium">
-            City:
-            <span
-              class="text-base font-normal lg:text-md md:text-md custom-sm:text-xs sm:text-xs"
-            >
-              {{ property.property_city }}</span
-            >
-          </div> -->
-<!-- <div class="">
-            <div class="border-2 m-2 p-1 font-medium">
-              Zip:
-              <span
-                class="text-base font-normal lg:text-md md:text-md custom-sm:text-xs sm:text-xs"
-              >
-                {{ property.property_zipcode }}</span
-              >
-            </div>
-            <div class="border-2 m-2 p-1 font-medium">
-              State/Country:
-              <span
-                class="text-base font-normal lg:text-md md:text-md custom-sm:text-xs sm:text-xs"
-              >
-                {{ property.property_country }}
-              </span>
-            </div>
-          </div> -->
-
-<!-- Details -->
-<!-- <div
-    class="border-2 md:p-2 lg:p-2 custom-sm:mb-0 shadow-xl rounded-md shadow-[0_4px_4px_0px_rgba(0,0,0,0.70) md:mb-5 lg:mb-5"
-  >
-    <div class="font-semibold custom-sm:mx-[3%]">Details:</div>
-    <div class="p-3">
-      <div class="flex">
-        <div class="w-[50%]">
-          <div class="border-2 m-2 p-1 font-medium">
-            <mdicon
-              name="instagram"
-              :width="30"
-              :height="30"
-              class="hover:text-orange-500 mr-5"
-            />
-            Bedroom:
-            <span
-              class="text-base font-normal lg:text-md md:text-md custom-sm:text-xs sm:text-xs"
-            >
-              {{ property.property_bedroom }}</span
-            >
-          </div>
-          <div class="border-2 m-2 p-1 font-medium">
-            Bathroom:
-            <span
-              class="text-base font-normal lg:text-md md:text-md custom-sm:text-xs sm:text-xs"
-            >
-              {{ property.property_bathroom }}</span
-            >
-          </div>
-        </div>
-        <div class="w-[50%]">
-          <div class="border-2 m-2 p-1 font-medium">
-            Land Area:
-            <span
-              class="text-base font-normal lg:text-md md:text-md custom-sm:text-xs sm:text-xs"
-            >
-              {{ property.property_area }}</span
-            >
-          </div>
-          <div class="border-2 m-2 p-1 font-medium">
-            Parking Space:
-            <span
-              class="text-base font-normal lg:text-md md:text-md custom-sm:text-xs sm:text-xs"
-            >
-              {{ property.property_parking_space }}</span
-            >
-          </div>
-        </div>
-      </div>
-      <div class="flex">
-        <div class="border-2 mt-0 m-2 p-1 font-medium w-[50%]">
-          Built In: <span class="text-base font-normal"> 0</span>
-        </div>
-        <div class="border-2 mt-0 m-2 p-1 font-medium w-[50%]">
-          Property Status:
-          <span class="text-base font-normal">
-            {{ property.property_type }}</span
-          >
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-<!-- <div class="border-2 m-2 p-1 font-medium">
-            City:
-            <span
-              class="text-base font-normal lg:text-md md:text-md custom-sm:text-xs sm:text-xs"
-            >
-              {{ property.property_city }}</span
-            >
-          </div> -->
-<!-- <div class="">
-            <div class="border-2 m-2 p-1 font-medium">
-              Zip:
-              <span
-                class="text-base font-normal lg:text-md md:text-md custom-sm:text-xs sm:text-xs"
-              >
-                {{ property.property_zipcode }}</span
-              >
-            </div>
-            <div class="border-2 m-2 p-1 font-medium">
-              State/Country:
-              <span
-                class="text-base font-normal lg:text-md md:text-md custom-sm:text-xs sm:text-xs"
-              >
-                {{ property.property_country }}
-              </span>
-            </div>
-          </div> -->

@@ -16,7 +16,7 @@
       <li class="">
         <router-link
           class="hover-underline custom-sm:hidden sm:hidden md:hidden lg:block sm:text-base md:text-md lg:text-lg"
-          to="/properties/1"
+          to="/properties"
           >Properties</router-link
         >
       </li>

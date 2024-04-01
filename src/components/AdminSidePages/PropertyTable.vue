@@ -54,10 +54,10 @@
                 :height="30"
                 class="hover:text-white"
               />
-              <router-link
+              <button
+              @click="propertyListing"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNew"
-                >Property Listing</router-link
+                >Property Listing</button
               >
             </li>
             <li class="flex">
@@ -67,10 +67,10 @@
                 :height="30"
                 class="hover:text-white"
               />
-              <router-link
+              <button
+              @click="propertyTable"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewPropertyTable"
-                >Property Table</router-link
+                >Property Table</button
               >
             </li>
             <li class="flex">
@@ -80,10 +80,10 @@
                 :height="30"
                 class="hover:text-white"
               />
-              <router-link
+              <button
+              @click="addAgent"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewAddAgent"
-                >Add Agent</router-link
+                >Add Agent</button
               >
             </li>
             <li class="flex">
@@ -93,10 +93,10 @@
                 :height="30"
                 class="hover:text-white"
               />
-              <router-link
+              <button
+              @click="agentTable"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewAgentsTable"
-                >Agent Table</router-link
+                >Agent Table</button
               >
             </li>
             <li class="flex">
@@ -106,10 +106,10 @@
                 :height="30"
                 class="hover:text-white"
               />
-              <router-link
+              <button
+              @click="blogListing"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewBlogListing"
-                >Blog Listing</router-link
+                >Blog Listing</button
               >
             </li>
             <li class="flex">
@@ -119,10 +119,10 @@
                 :height="30"
                 class="hover:text-white"
               />
-              <router-link
+              <button
+              @click="blogTable"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewBlogTable"
-                >Blog Table</router-link
+                >Blog Table</button
               >
             </li>
             <li class="flex">
@@ -132,10 +132,10 @@
                 :height="30"
                 class="hover:text-white"
               />
-              <router-link
+              <button
+              @click="logout"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                to="/AdminNewSignOut"
-                >Logout Account</router-link
+                >Logout Account</button
               >
             </li>
           </ul>
@@ -331,18 +331,31 @@
       </div>
     </div>
   </div>
+
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import SideBarAdminNew from "../AdminSidePages/SideBarAdminNew.vue";
 import { ref } from "vue";
+
 const active = ref(0);
 const isSidebarVisible = ref(false);
+
 const toggleSidebar = () => {
   isSidebarVisible.value = !isSidebarVisible.value;
 };
-import { ref } from "vue";
-import router from "../router";
-import { useRoute } from "vue-router";
+
+defineProps({
+  propertyListing:Function,
+  propertyTable:Function,
+  addAgent:Function,
+  agentTable:Function,
+  blogListing:Function,
+  blogTable:Function,
+  logout:Function,
+});
+
+
+
+
 </script>
-./AdminSidePages/SideBarAdminNew.vue ../../router

@@ -55,10 +55,10 @@
               :height="30"
               class="hover:text-white"
             />
-            <router-link
+            <button
+            @click="propertyListing"
               class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-              to="/AdminNew"
-              >Property Listing</router-link
+              >Property Listing</button
             >
           </li>
           <li class="flex">
@@ -68,10 +68,10 @@
               :height="30"
               class="hover:text-white"
             />
-            <router-link
+            <button
+            @click="propertyTable"
               class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-              to="/AdminNewPropertyTable"
-              >Property Table</router-link
+              >Property Table</button
             >
           </li>
           <li class="flex">
@@ -81,10 +81,10 @@
               :height="30"
               class="hover:text-white"
             />
-            <router-link
+            <button
+            @click="addAgent"
               class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-              to="/AdminNewAddAgent"
-              >Add Agent</router-link
+              >Add Agent</button
             >
           </li>
           <li class="flex">
@@ -94,10 +94,10 @@
               :height="30"
               class="hover:text-white"
             />
-            <router-link
+            <button
+            @click="agentTable"
               class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-              to="/AdminNewAgentsTable"
-              >Agent Table</router-link
+              >Agent Table</button
             >
           </li>
           <li class="flex">
@@ -107,10 +107,10 @@
               :height="30"
               class="hover:text-white"
             />
-            <router-link
+            <button
+            @click="blogListing"
               class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-              to="/AdminNewBlogListing"
-              >Blog Listing</router-link
+              >Blog Listing</button
             >
           </li>
           <li class="flex">
@@ -120,10 +120,10 @@
               :height="30"
               class="hover:text-white"
             />
-            <router-link
+            <button
+            @click="blogTable"
               class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-              to="/AdminNewBlogTable"
-              >Blog Table</router-link
+              >Blog Table</button
             >
           </li>
           <li class="flex">
@@ -133,10 +133,10 @@
               :height="30"
               class="hover:text-white"
             />
-            <router-link
+            <button
+            @click="logout"
               class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-              to="/AdminNewSignOut"
-              >Logout Account</router-link
+              >Logout Account</button
             >
           </li>
         </ul>
@@ -157,7 +157,7 @@
             </div>
             <div class="flex bg-secondary w-[90%] h-[] rounded-lg mb-8 mx-auto">
               <div class="w-[80%] h-[80%] my-[5%] mx-auto">
-                <form @submit.prevent>
+                <div @submit.prevent>
                   <div class="grid grid-cols-1 gap-5 mt-4 sm:grid-cols-2">
                     <div class="flex justify-start items-start flex-col mt-5">
                       <label
@@ -166,6 +166,7 @@
                         >Agent Name:</label
                       >
                       <input
+                      v-model="agent_name"
                         id="agentname"
                         type="text"
                         class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
@@ -179,6 +180,7 @@
                         >Description:</label
                       >
                       <textarea
+                      v-model="description"
                         id="agentdesc"
                         type="textarea"
                         class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
@@ -192,6 +194,7 @@
                         >Position</label
                       >
                       <input
+                      v-model="position"
                         id="agentpos"
                         type="text"
                         class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
@@ -205,6 +208,7 @@
                         >Email</label
                       >
                       <input
+                      v-model="email"
                         id="agentemail"
                         type="email"
                         class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
@@ -218,6 +222,7 @@
                         >Address</label
                       >
                       <input
+                      v-model="address"
                         id="agentaddress"
                         type="text"
                         class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
@@ -231,6 +236,7 @@
                         >Contact</label
                       >
                       <input
+                      v-model="contact_number"
                         id="agentcontact"
                         type="number"
                         class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
@@ -244,6 +250,7 @@
                         >City</label
                       >
                       <input
+                      v-model="city"
                         id="agentcity"
                         type="text"
                         class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
@@ -257,6 +264,7 @@
                         >Country</label
                       >
                       <input
+                      v-model="country"
                         id="agentcountry"
                         type="text"
                         class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
@@ -270,6 +278,7 @@
                         >Region</label
                       >
                       <input
+                      v-model="region"
                         id="agentregion"
                         type="text"
                         class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
@@ -283,6 +292,7 @@
                         >Username</label
                       >
                       <input
+                      v-model="username"
                         id="agentusername"
                         type="text"
                         class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
@@ -296,6 +306,7 @@
                         >Password</label
                       >
                       <input
+                      v-model="password"
                         id="agentpassword"
                         type="password"
                         class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
@@ -309,6 +320,7 @@
                         >Facebook</label
                       >
                       <input
+                      v-model="facebook"
                         id="agentfb"
                         type="text"
                         class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
@@ -320,6 +332,7 @@
                         >X(Twitter)</label
                       >
                       <input
+                      v-model="x"
                         id="agentx"
                         type="text"
                         class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
@@ -333,6 +346,7 @@
                         >Instagram</label
                       >
                       <input
+                      v-model="instagram"
                         id="agentinsta"
                         type="text"
                         class="block w-full px-4 py-2 rounded-md text-gray-950 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
@@ -372,6 +386,7 @@
                                 name="agentimage"
                                 type="file"
                                 class="sr-only"
+                                @change="handleFileImage($event)"
                               />
                             </label>
                             <p class="pl-1 text-black">or drag and drop</p>
@@ -392,26 +407,119 @@
                       Save
                     </button>
                   </div>
-                </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+
   </div>
+
+
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import SideBarAdminNew from "../AdminSidePages/SideBarAdminNew.vue";
+import AuthChecker from "../AuthChecker.vue";
 import { ref } from "vue";
+import axios from "axios";
+defineProps({
+  propertyListing:Function,
+  propertyTable:Function,
+  addAgent:Function,
+  agentTable:Function,
+  blogListing:Function,
+  blogTable:Function,
+  logout:Function,
+});
+
+
+const username = ref();
+const password = ref();
+const image = ref();
+const agent_name = ref();
+const description = ref();
+const position = ref();
+const email = ref();
+const address = ref();
+const contact_number = ref();
+const city = ref();
+const country = ref();
+const region = ref();
+const facebook = ref();
+const x = ref();
+const instagram = ref();
+
+
+
+
+const submitAgent = async() => {
+  try{
+    const formData = new FormData();
+
+    formData.append("username",username.value);
+    formData.append("password",password.value);
+    formData.append("profile_picture",image.value);
+
+    formData.append("agent_name",agent_name.value);
+    formData.append("description",description.value);
+    formData.append("position",position.value);
+    formData.append("email",email.value);
+    formData.append("address",address.value);
+    formData.append("contact_number",contact_number.value);
+    formData.append("city",city.value);
+    formData.append("country",country.value);
+    formData.append("region",region.value);
+    formData.append("facebook",facebook.value);
+    formData.append("x",x.value);
+    formData.append("instagram",instagram.value);
+
+    await axios.post("http://localhost:8080/addAgent",formData,{
+      headers: {
+        "Content-Type" : "multipart/form-data",
+        },
+    });
+    alert("added!");
+    window.location.reload();
+  }
+  catch(error){
+    if(!image.value){
+      
+    }
+    console.log("Error:",error);
+  }
+}
+
+
+
+
+
+
+
+
+
+const handleFileImage = (event) => {
+  const file = (event.target.files || [])[0];
+  if (file) {
+    const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
+    if (!allowedTypes.includes(file.type)) {
+      console.log("Invalid file type. Please upload an image.");
+      return;
+    }
+
+    image.value = file;
+    console.log("File uploaded:", file.name);
+  }
+};
+
+
+
 const active = ref(0);
 const isSidebarVisible = ref(false);
 const toggleSidebar = () => {
   isSidebarVisible.value = !isSidebarVisible.value;
 };
-import { ref } from "vue";
-import router from "../router";
-import { useRoute } from "vue-router";
 </script>
-./AdminSidePages/SideBarAdminNew.vue ../../router

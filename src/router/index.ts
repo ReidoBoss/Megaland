@@ -7,7 +7,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import("../MainPages/Home.vue"),
   },
   {
-    path: "/properties/:page",
+    path: "/properties",
     name: "Properties",
     component: () => import("../MainPages/Properties.vue"),
   },
@@ -140,6 +140,12 @@ const routes: RouteRecordRaw[] = [
     name: "search",
     component: () => import("../MainPages/Search.vue"),
     meta: { hideNavAndFooter: false },
+  },
+
+  {
+    path: "/agentProfile/:id",
+    name: "agentProfile",
+    component: () => import("../MainPages/AgentProfile.vue"),
   },
 ];
 

@@ -6,7 +6,7 @@
       class="my-[5%] custom-sm:w-[40%] custom-sm:h-[40%] custom-sm:mx-auto relative lg:w-48 md:w-40 mx-auto -z-30"
     >
       <img
-        src="../assets/marivil.png"
+        :src="profile_picture"
         alt="img"
         class="lg:w-48 lg:h-48 md:w-35 custom-sm:w-51 md:h-30 border-4 border-white rounded-full object-cover relative z-10"
       />
@@ -16,11 +16,12 @@
     </div>
     <div class="lg:mt-7 md:mt-3 text-center text-[#454544]">
       <div class="text-center font-bold font-poppins lg:text-2xl md:text-lg">
-        Marivil Du
+        {{ name }}
       </div>
-      <div class="font-medium font-poppins">147 property</div>
+      <div class="font-medium font-poppins">{{property_number}} properties</div>
       <div class="flex justify-center items-center mt-5 text-white">
         <button
+        @click="redirect"
           class="custom-sm:px-[4%] bg-[#E67E23] h-9 lg:w-[225px] md:w-[200px] rounded-md text-white text-center font-semibold text-[20px] hover:bg-white hover:text-[#E67E23] hover:border-[#E67E23] border-[#E67E23] border-2 transition duration-300"
         >
           Contact
@@ -28,28 +29,55 @@
       </div>
       <div class="my-5 mx-auto">
         <div class="flex justify-center items-center">
-          <mdicon
+          <a :href="facebook">          
+            <mdicon
             name="facebook"
             :width="30"
             :height="30"
             class="hover:text-orange-500 mr-5"
-          />
+            />
+         </a>
+         <a :href="instagram">          
+
           <mdicon
             name="instagram"
             :width="30"
             :height="30"
             class="hover:text-orange-500 mr-5"
           />
+          </a>
+          <a :href="twitter">          
+
           <mdicon
             name="twitter"
             :width="30"
             :height="30"
             class="hover:text-orange-500 mr-5"
           />
+          </a>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script setup>
+import {useRouter} from "vue-router"
+const router=useRouter();
+
+const props = defineProps({
+id:String,
+profile_picture: String,
+name: String,
+property_number : String,
+facebook : String,
+twitter: String,
+instagram: String
+
+});
+
+const redirect =  () => {
+  router.push(`/agentProfile/${props.id}`);
+}
+
+</script>

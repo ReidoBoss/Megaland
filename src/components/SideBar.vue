@@ -315,7 +315,7 @@ const fetchAllData = () => {
         convertBinaryToDataURL(propertyData.value[i].image_data.data, i);
       }
     })
-    .catch((error) => console.error("Error:", error));
+    .catch((error) => console.error());
 };
 function convertBinaryToDataURL(binaryData: number[], index: number) {
   const blob = new Blob([new Uint8Array(binaryData)], { type: "image/png" });

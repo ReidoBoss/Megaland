@@ -122,11 +122,14 @@
       </li>
     </ul>
   </div>
+
 </template>
 
 <script setup lang="ts">
+
 import { ref, defineProps } from "vue";
 import { register } from "swiper/element/bundle";
+import AuthChecker from "../AuthChecker.vue";
 
 defineProps(["isVisible", "toggleSidebar"]);
 

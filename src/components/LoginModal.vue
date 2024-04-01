@@ -29,12 +29,13 @@
             </div>
             <!-- BODY -->
             <div class="p-3 md:p-5">
-              <form class="space-y-4" action="#">
+              <div class="space-y-4" action="#">
                 <div>
                   <label for="username" class="block mb-2 text-base font-medium"
                     >Username</label
                   >
                   <input
+                  v-model="username"
                     type="text"
                     name="text"
                     id="username"
@@ -48,6 +49,7 @@
                     >Password</label
                   >
                   <input
+                  v-model="password"
                     type="password"
                     name="password"
                     id="password"
@@ -69,18 +71,23 @@
                     <label for="remember" class="ms-2 text-sm font-medium"
                       >Remember me</label
                     >
+                    
                   </div>
                   <a href="#" class="text-sm text-blue-700 hover:underline"
                     >Forgot Password?</a
                   >
+                  
                 </div>
+                <p class="text-bold text-coolGray-600">
+                  {{ errorMessage }}
+                </p>
                 <button
-                  type="submit"
                   class="w-full text-white bg-[#E67E23] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-cente"
+                  @click="login"
                 >
                   Login
                 </button>
-              </form>
+              </div>
             </div>
           </div>
         </Transition>
@@ -91,7 +98,8 @@
 
 <script lang="ts" setup>
 import { XMarkIcon } from "@heroicons/vue/24/outline";
-
+import { ref , onMounted} from "vue";
+import { useRouter} from "vue-router"
 defineEmits(["close-modal"]);
 defineProps({
   modalActive: {
@@ -99,6 +107,66 @@ defineProps({
     default: false,
   },
 });
+
+onMounted(()=>{
+  
+});
+
+
+const router = useRouter();
+
+
+
+const username = ref();
+const password = ref();
+const errorMessage= ref();
+
+
+
+
+
+const login = async () => {
+
+  try{
+    const response = await fetch ('http://localhost:8080/getUsers');
+    const data = await response.json();
+
+    for(var i = 0 ; i < data.length ; i ++){
+      if(data[i].username==username.value){
+
+        if(data[i].password == password.value){
+
+          if(data[i].role=='admin')
+          {
+            localStorage.setItem('currentUser','admin');
+            localStorage.setItem('authCheck','true');
+            router.push("/adminNew");
+          }
+          else if(data[i].role =='agent'){
+            localStorage.setItem('currentUser','agent');
+            localStorage.setItem('authCheck','true');
+            router.push("/agentNew");
+          }
+        }
+        else{
+          errorMessage.value = "Wrong Credentials";
+        }
+      }
+      else{
+        errorMessage.value = "Wrong Credentials"
+      }
+    }
+
+  }
+  catch(error){
+    console.log("Error:" , error);
+  }
+}
+
+
+
+
+
 </script>
 
 <style scoped>
