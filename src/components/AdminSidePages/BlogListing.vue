@@ -535,6 +535,7 @@
                               >
                                 <span class="">Upload a file</span>
                                 <input
+                                  @change="handleFileImage"
                                   id="agentimage"
                                   name="agentimage"
                                   type="file"
@@ -552,7 +553,7 @@
                     </div>
                     <div class="flex justify-start items-start flex-col mt-6">
                       <button
-                        @click="submitAgent"
+                        @click="submitBlog"
                         class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-[#E67E23] rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600 mr-4"
                         id="saveAgent"
                       >
@@ -574,7 +575,7 @@
 import SideBarAdminNew from "../AdminSidePages/SideBarAdminNew.vue";
 import AuthChecker from "../AuthChecker.vue";
 import { ref, onMounted } from "vue";
-
+import axios from "axios";
 defineProps({
   propertyListing: Function,
   propertyTable: Function,
@@ -589,6 +590,74 @@ onMounted(() => {
   addLandmark();
   addHighlight();
 });
+const name = ref();
+const location = ref();
+const developer = ref();
+const details = ref();
+const description = ref();
+const broker = ref();
+const contact_phone = ref();
+const contact_telephone = ref();
+const email_address = ref();
+const key_tags = ref();
+const iframe = ref();
+const thumbnail = ref(null);
+
+const submitBlog = async () => {
+  try {
+    const formData = new FormData();
+
+    formData.append("name", name.value);
+    formData.append("location", location.value);
+    formData.append("developer", developer.value);
+    formData.append("details", details.value);
+    formData.append("description", description.value);
+    formData.append("broker", broker.value);
+    formData.append("contact_phone", contact_phone.value);
+    formData.append("contact_telephone", contact_telephone.value);
+    formData.append("email_address", email_address.value);
+    formData.append("key_tags", key_tags.value);
+    formData.append("iframe", iframe.value);
+    formData.append("thumbnail", thumbnail.value);
+
+    for (var i = 0; i < amenitiesCounter.value; i++) {
+      formData.append(
+        `amenities_${i + 1}`,
+        getAmenityValue(i) !== undefined && getAmenityValue(i) !== null
+          ? getAmenityValue(i)
+          : 0
+      );
+    }
+    for (var i = 0; i < highlightCounter.value; i++) {
+      formData.append(
+        `highlights_${i + 1}`,
+        getHighlightValue(i) !== undefined && getHighlightValue(i) !== null
+          ? getHighlightValue(i)
+          : 0
+      );
+    }
+    for (var i = 0; i < landmarkCounter.value; i++) {
+      formData.append(
+        `landmark_${i + 1}`,
+        getLandmarkValue(i) !== undefined && getLandmarkValue(i) !== null
+          ? getLandmarkValue(i)
+          : 0
+      );
+    }
+    console.log("FormData:");
+    for (var pair of formData.entries()) {
+      console.log(pair[0] + ": " + pair[1]);
+    }
+    await axios.post("http://localhost:8080/addBlog", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    alert("added!");
+  } catch (error) {
+    console.log("Error: ", error);
+  }
+};
 
 //dynamic amenities up to 16
 const amenities = ref([]);
@@ -638,7 +707,7 @@ const getHighlightValue = (id) => {
   return highlight.value[id].id;
 };
 
-//dynamic landmark up to 5
+//dynamic landmark up to 16
 
 const landmark = ref([]);
 const landmarkCounter = ref(0);
