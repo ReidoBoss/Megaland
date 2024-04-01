@@ -125,6 +125,10 @@
     <div
       class="flex flex-wrap mt-2 h-full md:mx-auto md:w-[100%] lg:w-[84%] custom-sm:gap-3 custom-sm:mx-auto gap-y-9 md:gap-y-9 md:gap-5 justify-evenly"
     >
+    <Loading
+    v-if="properties.length === 0"
+    />
+    
       <Products
         class=""
         v-for="(property, index) in properties"
@@ -201,6 +205,8 @@
 import { register } from "swiper/element/bundle";
 import Accordion from "../components/Accordion.vue";
 import Products from "../components/Products.vue";
+import Loading from "../components/Loading.vue";
+
 import { NewspaperIcon } from "@heroicons/vue/24/outline";
 import AgentCard from "../components/AgentCard.vue";
 import { ref, onMounted } from "vue";
@@ -241,7 +247,7 @@ const get6Properties = async () =>{
 
       property_price: propertyData[0].property_price,
       property_category: propertyData[0].category,
-      property_type: propertyData[0].property_type,
+      property_type: propertyData[0].property_type.toUpperCase(),
       property_area: propertyAddress[0].property_area,
       property_bedroom: propertyAddress[0].bedroom,
       property_bathroom: propertyAddress[0].bathroom,

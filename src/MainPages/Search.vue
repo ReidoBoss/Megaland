@@ -5,9 +5,8 @@
     style="text-align: center; margin-top: 20vh; color: #ffa500"
   >
     <p style="font-size: 80px; width: 60%; margin: 0 auto">
-      No products available for <br />"{{ searched }}"
+      No products available for <br />""
     </p>
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
   </div>
   <!-- Render products if propertyData is not empty -->
   <div class="flex flex-wrap mt-2 h-full w-[100%] gap-y-9 justify-evenly">

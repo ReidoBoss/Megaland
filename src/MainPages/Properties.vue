@@ -102,6 +102,9 @@
         </div>
         <br />
         <div class="flex flex-wrap justify-evenly gap-y-9 md:gap-y-5 lg:gap-x-9">
+          <Loading
+          v-if="properties.length === 0"
+          />
           <Products
             v-for="(property, index) in properties"
             :key="index"
@@ -146,6 +149,7 @@
 import Accordion from "../components/Accordion.vue";
 import Products from "../components/Products.vue";
 import Pagination from "../components/Pagination.vue";
+import Loading from "../components/Loading.vue";
 import { BuildingLibraryIcon } from "@heroicons/vue/24/outline";
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
@@ -184,7 +188,7 @@ const getProperties = async (index,loopCount) =>{
 
         property_price: propertyData[0].property_price,
         property_category: propertyData[0].category,
-        property_type: propertyData[0].property_type,
+        property_type: propertyData[0].property_type.toUpperCase(),
         property_area: propertyAddress[0].property_area,
         property_bedroom: propertyAddress[0].bedroom,
         property_bathroom: propertyAddress[0].bathroom,
