@@ -73,50 +73,24 @@
           />
         </div>
       </div>
-      <BlogDetails
-        class="lg:mx-3 font-poppins font-500 custom-sm:text-sm sm:text-sm md:text-md lg:text-md"
-        title="Be a Homeowner at Woodway Townhomes 2 and enjoy the benefits and
-                amenities we got to offer"
-        location="Location: Brgy. Pooc, Talisay City"
-        developer="Developed by: Brickland Property
-                Venture Corp."
-        housedetails="(Single Attached- Mirror
-                Design) Details Floor Area: 123 sq.m. +/- Lot Area: 92-101 sq.m."
-        amenities="
-⭐4 bedrooms 
-⭐3 toilet & bath 
-⭐living area/ dining area
-⭐kitchen area (with soft close kitchen cabinets with overhead)
-⭐provision for extra storage room under stairs 
-⭐balcony 
-⭐w/covered car park 
-⭐ service area with own laundry tub 
 
-✔high quality w/ beautifully designed finishes 
-✔ high ceiling with big windows 
-✔ all LED lights 
-✔ concrete wall partitions 
-✔provision for spacious garden 
-✔Upscale private subdivision along Brgy road
-✔24 hr security w/gated perimeter fence 
-✔clubhouse amenities
-✔parks & playground 
-✔basketball court 
-✔flood free zone 
-✔low density community FEW UNITS LEFT! BEST INVESTMENT TO MAKE! 
-  what are you waiting for?"
-        name="Mrs. Marivil Du"
-        contact=" ☎️09773824416 (Globe) 
-  ☎️ 254-1640(Landline) 
-               "
-        email="marivildu75@gmail.com"
-        tags="#houseandlotforsaleincebu
-                #houseandlotforsaleintalisaycitycebu #woodwaytownhomes2
-                #realestate #BestInvestment #propertyinvesting #megalandrealty
-                #cebuanarealestatebroker #ceburealestatebroker
-                #realestatebrokerphilippines"
-      />
-
+    <BlogDetails
+    :iframe="iframe"
+    :developer="developer"
+    :title="title"
+    :description="description"
+    :location="location"
+    :details="details"
+    :broker="broker"
+    :contact_phone="contact_phone"
+    :contact_telephone="contact_telephone"
+    :email_address="email"
+    :key_tags="key_tags"
+    :amenities="amenities"
+    :landmarks="landmarks"
+    :highlights="highlights"
+    />
+      
       <div
         class="lg:w-[28%] md:w-[100%] lg:mr-6 custom-sm:hidden sm:hidden md:block lg:block"
       >
@@ -124,59 +98,13 @@
           class="lg:w-full lg:h-[480px] overflow-auto bg-white border-2 rounded-md shadow-xl lg:p-5 md:p-2 md:ml-2 lg:ml-5 mb-5"
         >
           <Blog
-            youtubeUrl="https://www.youtube.com/watch?v=2v741kHvzbY"
-            thumbnailUrl="../assets/images/Youtube-Images/image1.png"
-            description="3 LEVEL HOUSE WITH ROOF DECK AND POOL IN VISTA GRANDE TALISAY CEBU PHILIPPINES"
-            name="Marivil Du"
+          v-for="(blog, index) in allBlogs"
+            @click="currentBlog(blog.id)"
+            :thumbnailUrl="blog.thumbnail"
+            :description="blog.name"
+            :name="blog.broker"
           />
-          <Blog
-            youtubeUrl="https://www.youtube.com/watch?v=2v741kHvzbY"
-            thumbnailUrl="../assets/images/Youtube-Images/image1.png"
-            description="Biggest 5 Star Beach Resort in Panglao Bohol Hennan Resort Alona, Man Made Forest, Baclayon Church"
-            name="Marivil Du"
-          />
-          <Blog
-            youtubeUrl="https://www.youtube.com/watch?v=2v741kHvzbY"
-            thumbnailUrl="../assets/images/Youtube-Images/image1.png"
-            description="FOREIGNERS CAN OWN THIS HOUSE & LOT l CONDOMINIUM TITLE l CITY HOMES MINGLANILLA CEBU PHILIPPINES"
-            name="Marivil Du"
-          />
-          <Blog
-            youtubeUrl="https://www.youtube.com/watch?v=2v741kHvzbY"
-            thumbnailUrl="../assets/images/Youtube-Images/image1.png"
-            description="REAL ESTATE BROKER IN CEBU l CONDO FOR RENT l MARIVIL DU"
-            name="Marivil Du"
-          />
-          <Blog
-            youtubeUrl="https://www.youtube.com/watch?v=2v741kHvzbY"
-            thumbnailUrl="../assets/images/Youtube-Images/image1.png"
-            description="REAL ESTATE BROKER IN CEBU 1 CONDO FOR RENT l MARIVIL DU"
-            name="Marivil Du"
-          />
-          <Blog
-            youtubeUrl="https://www.youtube.com/watch?v=2v741kHvzbY"
-            thumbnailUrl="../assets/images/Youtube-Images/image1.png"
-            description="3 LEVEL HOUSE WITH ROOF DECK AND POOL IN VISTA GRANDE TALISAY CEBU PHILIPPINES"
-            name="Marivil Du"
-          />
-          <Blog
-            youtubeUrl="https://www.youtube.com/watch?v=2v741kHvzbY"
-            thumbnailUrl="../assets/images/Youtube-Images/image1.png"
-            description="REAL ESTATE BROKER IN CEBU 1 CONDO FOR RENT l MARIVIL DU"
-            name="Marivil Du"
-          />
-          <Blog
-            youtubeUrl="https://www.youtube.com/watch?v=2v741kHvzbY"
-            thumbnailUrl="../assets/images/Youtube-Images/image1.png"
-            description="REAL ESTATE BROKER IN CEBU l CONDO FOR RENT l MARIVIL DU"
-            name="Marivil Du"
-          />
-          <Blog
-            youtubeUrl="https://www.youtube.com/watch?v=2v741kHvzbY"
-            thumbnailUrl="../assets/images/Youtube-Images/image1.png"
-            description="REAL ESTATE BROKER IN CEBU l CONDO FOR RENT l MARIVIL DU"
-            name="Marivil Du"
-          />
+
         </div>
         <div></div>
         <div>
@@ -236,7 +164,7 @@ There's no easy way to break somebody's heart"
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import Accordion from "../components/Accordion.vue";
 import {
   NewspaperIcon,
@@ -246,6 +174,167 @@ import {
 import Blog from "../components/Blog.vue";
 import Comment from "../components/Comment.vue";
 import BlogDetails from "../components/BlogDetails.vue";
+import { ref, onMounted, computed } from "vue";
+
+onMounted(()=>{
+  recommendedBlogs();
+});
+
+
+
+
+const iframe = ref();
+const name = ref();
+const title = ref();
+const developer = ref();
+const details = ref();
+const location = ref();
+const description = ref();
+const broker = ref();
+const contact_phone = ref();
+const contact_telephone = ref();
+const email = ref();
+const key_tags = ref();
+const amenities = ref([]);
+const landmarks = ref([]);
+const highlights = ref([]);
+
+const currentBlog = async (id) => {
+  const blog = await getBlog(id);
+  iframe.value = blog.iframe;
+  title.value = blog.name;
+  developer.value = blog.developer;
+  location.value = blog.location;
+  details.value = blog.details;
+  description.value = blog.description;
+  broker.value = blog.broker;
+  contact_phone.value = blog.contact_phone;
+  contact_telephone.value = blog.contact_telephone;
+  email.value = blog.email_address;
+  key_tags.value = blog.key_tags;
+  
+  amenities.value = await getAmenities(id);
+  landmarks.value = await getLandmarks(id);
+  highlights.value = await getHighlights(id);
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+}
+
+const nuller = () => {
+  iframe.value = null;
+  title.value = null;
+  developer.value = null;
+  location.value = null;
+  details.value = null;
+  description.value = null;
+  broker.value = null;
+  contact_phone.value = null;
+  contact_telephone.value = null;
+  email.value = null;
+  key_tags.value = null;
+  amenities.value = null;
+  landmarks.value = null;
+  highlights.value = null;
+}
+
+
+
+
+
+
+const allBlogs = ref([]);
+
+const recommendedBlogs = async () => {
+  const blogs = await getBlogs();// all blogs
+  for(var i=0 ; i < blogs.length;i++){
+
+
+    const blogID = blogs[i].blog_id;
+    const blog = await getBlog(blogID);
+    const image = await getBlogImage(blogID)
+    if(i == 0){
+       currentBlog(blogID)
+    };
+    allBlogs.value.push({
+      id:blogID,
+      thumbnail: await convertBlob(image),
+      name: blog.name,
+      broker: blog.broker
+    });
+  }
+}
+
+
+
+const getBlogs = async() =>{
+  const response = await fetch('http://localhost:8080/getBlogs');
+  const data = await response.json();
+  return data;
+}
+
+const getBlog = async(id) =>{
+  const response = await fetch(`http://localhost:8080/getBlogByID/${id}`);
+  const data = await response.json();
+  return data[0];
+}
+
+const getBlogImage = async(id) =>{
+  const response = await fetch(`http://localhost:8080/getBlogImageByID/${id}`);
+  const data = await response.json();
+  return data[0].thumbnail.data;
+}
+
+const getAmenities = async(id) =>{
+  const response = await fetch(`http://localhost:8080/getAmenitiesByBlogID/${id}`);
+  const data = await response.json();
+  return data[0];
+}
+
+const getHighlights = async(id) =>{
+  const response = await fetch(`http://localhost:8080/getHighlightsByBlogID/${id}`);
+  const data = await response.json();
+  return data[0];
+}
+
+const getLandmarks = async(id) =>{
+  const response = await fetch(`http://localhost:8080/getLandmarksByBlogID/${id}`);
+  const data = await response.json();
+  return data[0];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const convertBlob = (image) =>{
+  return new Promise((resolve,reject)=>{
+    if(image){
+    const blob = new Blob([new Uint8Array(image)], { type: 'image/jpeg' }); 
+    const reader = new FileReader();
+    reader.readAsDataURL(blob);
+        reader.onloadend = () => {
+          const dataURL = reader.result;
+          resolve (dataURL);
+        }
+    }
+  });
+}
+
+
+
+
+
+
 </script>
 
 <style>

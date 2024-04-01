@@ -7,15 +7,8 @@
         <div
           class="custom-sm:mb-5 custom-sm:mx-auto custom-sm:w-[300px] sm:mb-5 sm:w-[330px] md:w-[100%] lg:w-[80%] lg:ml-[-9%]"
         >
-          <iframe
-            class="md:w-[400px] md:h-[250px] md:mb-5 lg:w-[700px] lg:h-[390px] custom-sm:w-[300px] sm:w-[330px] custom-sm:h-[200px]"
-            butttom="hidden"
-            src="https://www.youtube.com/embed/8GAmyQqh_Kc?si=tFIxsWVFER6dBU2V"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
+        <div v-html="iframe"></div>
+
         </div>
 
         <div class="flex-col flex">
@@ -33,24 +26,50 @@
               {{ developer }}<br /><br />
 
               <strong class="font-bold font-poppins">Details:</strong>
-              {{ housedetails }}<br /><br />
-
+              {{ details }}<br /><br />
               <div class="whitespace-break-spaces font-poppins">
-                <strong>Amenities:</strong> {{ amenities }}<br /><br />
+                <strong>Description:</strong> {{ description }}<br /><br />
               </div>
 
-              <strong class="font-bold font-poppins">Broker:</strong> {{ name
+              <div class="whitespace-break-spaces font-poppins">
+                <strong>Amenities:</strong> 
+                <div v-for="(amenity, index) in amenities" :key="index" >
+                  <div v-if="!amenity==''">⭐{{ amenity }}</div>               
+                </div>
+                <br /><br />
+              </div>
+
+              <div class="whitespace-break-spaces font-poppins">
+                <strong>Landmarks:</strong> 
+                <div v-for="(landmark, index) in landmarks" :key="index" >
+                  <div v-if="!landmark==''">⭐{{ landmark }}</div>               
+                </div>
+                <br /><br />
+              </div>
+
+              <div class="whitespace-break-spaces font-poppins">
+                <strong>Highlight:</strong> 
+                <div v-for="(highlight, index) in highlights" :key="index" >
+                  <div v-if="!highlight==''">⭐{{ highlight }}</div>               
+                </div>
+                <br /><br />
+              </div>
+              
+              
+
+
+              <strong class="font-bold font-poppins">Broker:</strong> {{ broker
               }}<br /><br />
 
               <strong class="font-bold mb-10 font-poppins"
                 >Contact Info:</strong
               >
-              {{ contact }}<br /><br />
+              ☎️{{ contact_phone }}☎️{{contact_telephone}}<br /><br />
 
               <strong class="font-400 font-poppins">Email Address:</strong>
-              {{ email }}<br /><br />
+              {{ email_address }}<br /><br />
 
-              <strong class="font-400 font-poppins">Key Tags:</strong> {{ tags
+              <strong class="font-400 font-poppins">Key Tags:</strong> {{ key_tags
               }}<br /><br />
             </div>
           </div>
@@ -59,17 +78,22 @@
     </div>
   </div>
 </template>
-<script lang="ts" setup>
-interface BlogDescriptions {
-  title: string;
-  location: string;
-  developer: string;
-  amenities: string;
-  housedetails: string;
-  name: string;
-  contact: string;
-  email: string;
-  tags: string;
-}
-defineProps<BlogDescriptions>();
+<script setup>
+defineProps({
+  iframe:String, 
+  developer: String,
+  description: String,
+  title: String,
+  location: String,
+  amenities: Array,
+  landmarks: Array,
+  highlights: Array,
+  details: String,
+  broker: String,
+  contact_phone: String,
+  contact_telephone: String,
+  email_address: String,
+  key_tags: String,
+});
+
 </script>

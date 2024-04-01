@@ -2,10 +2,12 @@
   <div
     class="w-[100%] mb-3 flex h-[100px] bg-white p-3 border-2 rounded-md shadow-xl hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] hover:scale-[1.02] hover:text-blue-600"
   >
-    <a :href="youtubeUrl" target="_blank" class="w-full flex">
+  <button>
+
+    <a target="_blank" class="w-full flex">
       <div class="md:w-[40%] md:h-[50px]">
         <img
-          src="src/assets/images/Youtube-Images/image1.png"
+          :src="thumbnailUrl"
           alt="YouTube Thumbnail"
           width="130"
           height="90"
@@ -23,16 +25,18 @@
         </div>
       </div>
     </a>
+  </button>
+
   </div>
+
 </template>
 
-<script lang="ts" setup>
-interface BlogType {
-  description: string;
-  name: string;
-  youtubeUrl: string;
-  thumbnailUrl: string;
-}
-
-defineProps<BlogType>();
+<script setup>
+import {useRouter} from "vue-router"
+const router=useRouter();
+const props = defineProps({
+  description: String,
+  name: String,
+  thumbnailUrl: String,
+});
 </script>
