@@ -232,7 +232,15 @@
                   </tr>
                 </thead>
                 <tbody class="font-semibold text-sm">
-                  <tr class="bg-white border-b">
+                  <tr  v-for="(property, index) in properties"
+                  :key="index" 
+                  :property_id="property.property_id"
+                  :image="property.imageUrl || ''"
+                  :name="property.property_name"
+                  :price="property.property_price"
+                  :type="property.property_type"
+
+                  class="bg-white border-b">
                     <th
                       scope="row"
                       class="px-2 py-6 font-medium text-gray-900 whitespace-nowrap flex justify-center items-center"
@@ -246,83 +254,26 @@
                         />
                       </div>
                     </th>
+                    <!-- START TABLE  -->
                     <td class="custom-sm:w-[20%] custom-sm:h-[20%] md:w-[10%]">
                       <img
                         class="md:w-[80%] lg:w-[80%] custom-sm:w-[80%] mx-auto my-2"
-                        src="src/assets/images/Youtube-Images/image1.png"
+                        :src="property.imageUrl"
                       />
                     </td>
-                    <td class="px-6">DANARRA SOUTH</td>
+                    <td class="px-6">{{property.property_name}}</td>
 
-                    <td class="px-6 py-4">Buy</td>
-                    <td class="px-6 py-4">7094018</td>
+                    <td class="px-6 py-4">{{property.property_type}}</td>
+                    <td class="px-6 py-4">{{property.property_price}}</td>
                     <td
                       class="px-6 py-4 text-blue-600 font bold cursor-pointer"
                     >
                       Edit
                     </td>
                   </tr>
+                  <!-- END TABLE -->
 
-                  <tr class="bg-white border-b">
-                    <th
-                      scope="row"
-                      class="px-2 py-6 font-medium text-gray-900 whitespace-nowrap flex justify-center items-center"
-                    >
-                      <div class="flex items-center justify-center">
-                        <input
-                          id="default-checkbox"
-                          type="checkbox"
-                          value=""
-                          class="w-5 h-5 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary"
-                        />
-                      </div>
-                    </th>
-                    <td class="custom-sm:w-[20%] custom-sm:h-[20%] md:w-[10%]">
-                      <img
-                        class="md:w-[80%] lg:w-[80%] custom-sm:w-[80%] mx-auto my-2"
-                        src="src/assets/images/Youtube-Images/image1.png"
-                      />
-                    </td>
-                    <td class="px-6">PASEO JULIO</td>
-
-                    <td class="px-6 py-4">Buy</td>
-                    <td class="px-6 py-4">7094018</td>
-                    <td
-                      class="px-6 py-4 text-blue-600 font bold cursor-pointer"
-                    >
-                      Edit
-                    </td>
-                  </tr>
-                  <tr class="bg-white border-b">
-                    <th
-                      scope="row"
-                      class="px-2 py-6 font-medium text-gray-900 whitespace-nowrap flex justify-center items-center"
-                    >
-                      <div class="flex items-center justify-center">
-                        <input
-                          id="default-checkbox"
-                          type="checkbox"
-                          value=""
-                          class="w-5 h-5 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary"
-                        />
-                      </div>
-                    </th>
-                    <td class="custom-sm:w-[20%] custom-sm:h-[20%] md:w-[10%]">
-                      <img
-                        class="md:w-[80%] lg:w-[80%] custom-sm:w-[80%] mx-auto my-2"
-                        src="src/assets/images/Youtube-Images/image1.png"
-                      />
-                    </td>
-                    <td class="px-6">PARKVILLE BACOLOD BY SMDC</td>
-
-                    <td class="px-6 py-4">Buy</td>
-                    <td class="px-6 py-4">7094018</td>
-                    <td
-                      class="px-6 py-4 text-blue-600 font bold cursor-pointer"
-                    >
-                      Edit
-                    </td>
-                  </tr>
+                
                 </tbody>
               </table>
             </div>
@@ -336,15 +287,7 @@
 
 <script setup>
 import SideBarAdminNew from "../AdminSidePages/SideBarAdminNew.vue";
-import { ref } from "vue";
-
-const active = ref(0);
-const isSidebarVisible = ref(false);
-
-const toggleSidebar = () => {
-  isSidebarVisible.value = !isSidebarVisible.value;
-};
-
+import { ref , onMounted} from "vue";
 defineProps({
   propertyListing:Function,
   propertyTable:Function,
@@ -354,6 +297,124 @@ defineProps({
   blogTable:Function,
   logout:Function,
 });
+
+
+onMounted(()=>{
+  getAllPropertyID();
+});
+
+const properties = ref([]);
+
+
+
+const getAllPropertyID = async () =>{
+  properties.value = [];
+  try{
+    const response = await fetch('http://localhost:8080/getAllPropertyID');
+    const data = await response.json();
+
+    for (var i = 0; i < data.length; i++) {
+      try {
+        var id = data[i].property_id;
+
+        const propertyGenData = await general_data(id);
+        const propertyData = await property_data(id);
+        const propertyImage = await property_image(id);
+        const imageData = propertyImage[0].main_image.data;
+
+        properties.value.push({
+          property_id: id,
+          property_name: propertyGenData[0].name,
+          imageUrl: await convertBlob(imageData),
+          property_price: `₱${propertyData[0].property_price.toLocaleString()}`, // Format property_price with commas
+          property_type: propertyData[0].property_type.toUpperCase(),
+
+        });
+      }
+      catch(error){
+        console.log(error);
+      }
+    }
+    
+
+
+  }
+  catch(error){
+    console.log("Error: ", error);
+  }
+}
+
+
+const property_image = async (i) =>{
+  try {
+    const response = await fetch(`http://localhost:8080/getPropertyImage/${i}`)
+    const data = await response.json();
+    return data;
+  }
+  catch(error){
+    console.log("Error: ",error);
+  }
+}
+
+
+const general_data = async (i) =>{
+  try {
+    const response = await fetch(`http://localhost:8080/getGeneralData/${i}`)
+    const data = await response.json();
+    return data;
+  }
+  catch(error){
+    console.log("Error: ",error);
+  }
+}
+
+const property_data = async (i) =>{
+  try {
+    const response = await fetch(`http://localhost:8080/getPropertyData/${i}`)
+    const data = await response.json();
+    return data;
+  }
+  catch(error){
+    console.log("Error: ",error);
+  }
+}
+
+
+
+const convertBlob = (image) =>{
+
+return new Promise((resolve,reject)=>{
+  if(image){
+  const blob = new Blob([new Uint8Array(image)], { type: 'image/jpeg' }); 
+  const reader = new FileReader();
+  reader.readAsDataURL(blob);
+      reader.onloadend = () => {
+        const dataURL = reader.result;
+        resolve (dataURL);
+      }
+  }
+});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const active = ref(0);
+const isSidebarVisible = ref(false);
+const toggleSidebar = () => {
+  isSidebarVisible.value = !isSidebarVisible.value;
+};
+
 
 
 

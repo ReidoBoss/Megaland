@@ -129,7 +129,7 @@
     v-if="properties.length === 0"
     />
     
-      <Products
+      <Products v-else
         class=""
         v-for="(property, index) in properties"
         :property_id="property.property_id"

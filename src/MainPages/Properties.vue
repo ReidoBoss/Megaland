@@ -168,10 +168,12 @@ const getProperties = async (index,loopCount) =>{
 
   properties.value= [];
   
-  const response = await fetch ('http://localhost:8080/getAllPropertyID');
-  const data = await response.json();
+
   for (var i = index; i < index + loopCount; i++) {
     try {
+      const response = await fetch ('http://localhost:8080/getAllPropertyID');
+      const data = await response.json();
+
       var id = data[i].property_id;
       const propertyGenData = await general_data(id);
       const propertyData = await property_data(id);

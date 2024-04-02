@@ -235,7 +235,14 @@
                     </tr>
                   </thead>
                   <tbody class="font-semibold text-sm">
-                    <tr class="bg-white border-b">
+                    <tr 
+                    v-for="(agent, index) in agents"
+                    :key="index"
+                    :name="agent.name"
+                    :image="agent.image"
+                    :email="agent.email"
+                    :contact_number="agent.contact_number"
+                    class="bg-white border-b">
                       <th
                         scope="row"
                         class="px-2 py-6 font-medium text-gray-900 whitespace-nowrap flex justify-center items-center"
@@ -254,13 +261,13 @@
                       >
                         <img
                           class="md:w-[80%] lg:w-[80%] custom-sm:w-[80%] mx-auto my-2"
-                          src="src/assets/marivil.png"
+                          :src="agent.image"
                         />
                       </td>
-                      <td class="px-6">Marivil Du</td>
+                      <td class="px-6">{{agent.name}}</td>
 
-                      <td class="px-6 py-4">69/69/69</td>
-                      <td class="px-6 py-4">marivildu@gmail.com</td>
+                      <td class="px-6 py-4">{{agent.contact_number}}</td>
+                      <td class="px-6 py-4">{{agent.email}}</td>
                       <td
                         class="px-6 py-4 text-blue-600 font bold cursor-pointer"
                       >
@@ -268,70 +275,7 @@
                       </td>
                     </tr>
 
-                    <tr class="bg-white border-b">
-                      <th
-                        scope="row"
-                        class="px-2 py-6 font-medium text-gray-900 whitespace-nowrap flex justify-center items-center"
-                      >
-                        <div class="flex items-center justify-center">
-                          <input
-                            id="default-checkbox"
-                            type="checkbox"
-                            value=""
-                            class="w-5 h-5 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary"
-                          />
-                        </div>
-                      </th>
-                      <td
-                        class="custom-sm:w-[20%] custom-sm:h-[20%] md:w-[10%]"
-                      >
-                        <img
-                          class="md:w-[80%] lg:w-[80%] custom-sm:w-[80%] mx-auto my-2"
-                          src="src/assets/marivil.png"
-                        />
-                      </td>
-                      <td class="px-6">Marivil Du</td>
-
-                      <td class="px-6 py-4">69/69/69</td>
-                      <td class="px-6 py-4">marivildu@gmail.com</td>
-                      <td
-                        class="px-6 py-4 text-blue-600 font bold cursor-pointer"
-                      >
-                        Edit
-                      </td>
-                    </tr>
-                    <tr class="bg-white border-b">
-                      <th
-                        scope="row"
-                        class="px-2 py-6 font-medium text-gray-900 whitespace-nowrap flex justify-center items-center"
-                      >
-                        <div class="flex items-center justify-center">
-                          <input
-                            id="default-checkbox"
-                            type="checkbox"
-                            value=""
-                            class="w-5 h-5 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary"
-                          />
-                        </div>
-                      </th>
-                      <td
-                        class="custom-sm:w-[20%] custom-sm:h-[20%] md:w-[10%]"
-                      >
-                        <img
-                          src="src/assets/marivil.png"
-                          class="md:w-[80%] lg:w-[80%] custom-sm:w-[80%] mx-auto my-2"
-                        />
-                      </td>
-                      <td class="px-6">Marivil Du</td>
-
-                      <td class="px-6 py-4">69/69/69</td>
-                      <td class="px-6 py-4">marivildu@gmail.com</td>
-                      <td
-                        class="px-6 py-4 text-blue-600 font bold cursor-pointer"
-                      >
-                        Edit
-                      </td>
-                    </tr>
+                   
                   </tbody>
                 </table>
               </div>
@@ -343,18 +287,9 @@
   </div>
 
 </template>
-<script lang="ts" setup>
+<script setup>
 import SideBarAdminNew from "../AdminSidePages/SideBarAdminNew.vue";
-import AuthChecker from "../AuthChecker.vue";
-import { ref } from "vue";
-const active = ref(0);
-const isSidebarVisible = ref(false);
-const toggleSidebar = () => {
-  isSidebarVisible.value = !isSidebarVisible.value;
-};
-
-
-
+import { ref ,onMounted} from "vue";
 defineProps({
   propertyListing:Function,
   propertyTable:Function,
@@ -364,6 +299,62 @@ defineProps({
   blogTable:Function,
   logout:Function,
 });
+
+onMounted(()=>{
+  getAgents();
+});
+
+
+const agents = ref([]);//array of agents
+const getAgents = async () =>{
+  const response = await fetch('http://localhost:8080/getAgents');
+  const data = await response.json();
+
+  
+
+  for(var i= 0 ; i < data.length ; i ++){
+    var image = await getAgentImageByID(data[i].agent_id);
+    agents.value.push({
+      id: data[i].agent_id,
+      image: await convertBlob(image),
+      name: data[i].agent_name,
+      email:data[i].email,
+      contact_number: data[i].contact_number
+    });
+  }
+
+}
+const getAgentImageByID = async(id)=>{
+  const response = await fetch(`http://localhost:8080/getAgentByID/${id}`);
+  const data = await response.json();
+
+  return data[0].profile_picture.data;
+}
+
+
+
+
+
+const active = ref(0);
+const isSidebarVisible = ref(false);
+const toggleSidebar = () => {
+  isSidebarVisible.value = !isSidebarVisible.value;
+};
+
+const convertBlob = (image) =>{
+
+return new Promise((resolve,reject)=>{
+  if(image){
+  const blob = new Blob([new Uint8Array(image)], { type: 'image/jpeg' }); 
+  const reader = new FileReader();
+  reader.readAsDataURL(blob);
+      reader.onloadend = () => {
+        const dataURL = reader.result;
+        resolve (dataURL);
+      }
+  }
+});
+}
 
 
 
