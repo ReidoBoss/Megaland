@@ -91,6 +91,7 @@
       />
       <Accordion
         title="Area"
+        class=""
         :content="[
           { type: 'text', data: 'Square Meter ' },
           { type: 'range', data: 'Cebu' },
@@ -178,25 +179,22 @@
       disableOnInteraction="false"
       class="w-full flex p-[50px]"
     >
-
-
-
-      <swiper-slide 
-      v-for="(agent, index) in agents"
-      :key="index"
-      class="bg-center bg-cover w-[370px] h-[500px]">
+      <swiper-slide
+        v-for="(agent, index) in agents"
+        :key="index"
+        class="bg-center bg-cover w-[370px] h-[500px]"
+      >
         <div class="block w-full">
-          <AgentCard 
-
-          :image="agent.image"
-          :id="agent.id"
-          :name="agent.name"
-          :position="agent.position"
-          :description="agent.description"
-          :hoverable="false" />
+          <AgentCard
+            :image="agent.image"
+            :id="agent.id"
+            :name="agent.name"
+            :position="agent.position"
+            :description="agent.description"
+            :hoverable="false"
+          />
         </div>
       </swiper-slide>
-
     </swiper-container>
   </div>
 </template>
@@ -214,8 +212,7 @@ import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
 
-
-onMounted(()=>{
+onMounted(() => {
   register();
   get6Properties();
   getAgents();
@@ -223,28 +220,36 @@ onMounted(()=>{
 
 const properties = ref([]);
 
-
 // START OF PROPERTIES FETCH
-const get6Properties = async () =>{
-  const response = await fetch ('http://localhost:8080/getAllPropertyID');
+const get6Properties = async () => {
+  const response = await fetch("http://localhost:8080/getAllPropertyID");
   const data = await response.json();
 
   for (var i = 0; i < data.length; i++) {
-  try {
-    var id = data[i].property_id;
-    const propertyGenData = await general_data(id);
-    const propertyData = await property_data(id);
-    const propertyAddress = await property_address(id);
-    const propertyLandmark = await property_landmark(id);
-    const propertyImage = await property_image(id);
-    const imageData = propertyImage[0].main_image.data;
+    try {
+      var id = data[i].property_id;
+      const propertyGenData = await general_data(id);
+      const propertyData = await property_data(id);
+      const propertyAddress = await property_address(id);
+      const propertyLandmark = await property_landmark(id);
+      const propertyImage = await property_image(id);
+      const imageData = propertyImage[0].main_image.data;
 
+      properties.value.push({
+        property_id: id,
+        property_name: propertyGenData[0].name,
+        imageUrl: await convertBlob(imageData),
 
-    properties.value.push({
-      property_id: id,
-      property_name: propertyGenData[0].name,
-      imageUrl: await convertBlob(imageData),
+        property_price: propertyData[0].property_price,
+        property_category: propertyData[0].category,
+        property_type: propertyData[0].property_type,
+        property_area: propertyAddress[0].property_area,
+        property_bedroom: propertyAddress[0].bedroom,
+        property_bathroom: propertyAddress[0].bathroom,
+        property_local_area: propertyAddress[0].local_area,
+        property_city: propertyAddress[0].city,
 
+<<<<<<< Updated upstream
       property_price: propertyData[0].property_price,
       property_category: propertyData[0].category,
       property_type: propertyData[0].property_type.toUpperCase(),
@@ -262,78 +267,83 @@ const get6Properties = async () =>{
       property_shopping: propertyLandmark[0].shopping ? 1 : 0,
       property_universities: propertyLandmark[0].universities ? 1 : 0,
     });
+=======
+        property_airport: propertyLandmark[0].airport ? 1 : 0,
+        property_busstand: propertyLandmark[0].bus_stand ? 1 : 0,
+        property_hospital: propertyLandmark[0].hospital ? 1 : 0,
+        property_patroltank: propertyLandmark[0].patroltank ? 1 : 0,
+        property_railway: propertyLandmark[0].railway ? 1 : 0,
+        property_shopping: propertyLandmark[0].shopping ? 1 : 0,
+        property_universities: propertyLandmark[0].universities ? 1 : 0,
+      });
+>>>>>>> Stashed changes
 
-    if (i + 1 == 6) {
-      break;
+      if (i + 1 == 6) {
+        break;
+      }
+    } catch (error) {
+      console.error("Error processing property:", error);
     }
-  } catch (error) {
-    console.error("Error processing property:", error);
   }
-}
-
-
 };
 
-const general_data = async (i) =>{
+const general_data = async (i) => {
   try {
-    const response = await fetch(`http://localhost:8080/getGeneralData/${i}`)
+    const response = await fetch(`http://localhost:8080/getGeneralData/${i}`);
     const data = await response.json();
     return data;
+  } catch (error) {
+    console.log("Error: ", error);
   }
-  catch(error){
-    console.log("Error: ",error);
-  }
-}
-const property_image = async (i) =>{
+};
+const property_image = async (i) => {
   try {
-    const response = await fetch(`http://localhost:8080/getPropertyImage/${i}`)
+    const response = await fetch(`http://localhost:8080/getPropertyImage/${i}`);
     const data = await response.json();
     return data;
+  } catch (error) {
+    console.log("Error: ", error);
   }
-  catch(error){
-    console.log("Error: ",error);
-  }
-}
-const property_data = async (i) =>{
+};
+const property_data = async (i) => {
   try {
-    const response = await fetch(`http://localhost:8080/getPropertyData/${i}`)
+    const response = await fetch(`http://localhost:8080/getPropertyData/${i}`);
     const data = await response.json();
     return data;
+  } catch (error) {
+    console.log("Error: ", error);
   }
-  catch(error){
-    console.log("Error: ",error);
-  }
-}
-const property_address = async (i) =>{
+};
+const property_address = async (i) => {
   try {
-    const response = await fetch(`http://localhost:8080/getPropertyAddress/${i}`)
+    const response = await fetch(
+      `http://localhost:8080/getPropertyAddress/${i}`
+    );
     const data = await response.json();
     return data;
+  } catch (error) {
+    console.log("Error: ", error);
   }
-  catch(error){
-    console.log("Error: ",error);
-  }
-}
+};
 
-const property_landmark = async (i) =>{
+const property_landmark = async (i) => {
   try {
-    const response = await fetch(`http://localhost:8080/getPropertyLandMark/${i}`)
+    const response = await fetch(
+      `http://localhost:8080/getPropertyLandMark/${i}`
+    );
     const data = await response.json();
     return data;
+  } catch (error) {
+    console.log("Error: ", error);
   }
-  catch(error){
-    console.log("Error: ",error);
-  }
-}
+};
 //START OF AGENT FETCH
-const agents = ref([]);//array of agents
-const getAgents = async () =>{
-  const response = await fetch('http://localhost:8080/getAgents');
+const agents = ref([]); //array of agents
+const getAgents = async () => {
+  const response = await fetch("http://localhost:8080/getAgents");
   const data = await response.json();
 
-  
-
-  for(var i= 0 ; i < data.length ; i ++){
+  for (var i = 0; i < data.length; i++) {
     var image = await getAgentImageByID(data[i].agent_id);
     agents.value.push({
       id: data[i].agent_id,
@@ -343,31 +353,25 @@ const getAgents = async () =>{
       description: data[i].description,
     });
   }
-}
-const getAgentImageByID = async(id)=>{
+};
+const getAgentImageByID = async (id) => {
   const response = await fetch(`http://localhost:8080/getAgentByID/${id}`);
   const data = await response.json();
 
   return data[0].profile_picture.data;
-}
+};
 
-
-const convertBlob = (image) =>{
-
-return new Promise((resolve,reject)=>{
-  if(image){
-  const blob = new Blob([new Uint8Array(image)], { type: 'image/jpeg' }); 
-  const reader = new FileReader();
-  reader.readAsDataURL(blob);
+const convertBlob = (image) => {
+  return new Promise((resolve, reject) => {
+    if (image) {
+      const blob = new Blob([new Uint8Array(image)], { type: "image/jpeg" });
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
       reader.onloadend = () => {
         const dataURL = reader.result;
-        resolve (dataURL);
-      }
-  }
-});
-}
-
-
-
-
+        resolve(dataURL);
+      };
+    }
+  });
+};
 </script>
