@@ -22,7 +22,7 @@
       <!-- Accordion content -->
       <div
         v-if="isActive"
-        class="custom-sm:text-[#fefefe] sm:text-[#fefefe] md:text-[#fefefe] lg:text-[#334054] font-bold font-poppins pl-4 pt-2"
+        class="custom-sm:text-[#fefefe] sm:text-[#fefefe] md:text-[#fefefe] lg:text-[#334054] font-500 font-poppins pl-4 pt-2"
       >
         <div
           class="flex"
@@ -34,7 +34,7 @@
           <!-- if type is text -->
           <div v-if="item.type === 'text'">
             <input
-              class="w-44 h-6 mb-2 border-[#454544] border focus:outline-none pl-3"
+              class="w-44 h-6 mb-2 border-[#454544] border focus:outline-none pl-3 font-500"
               type="text"
               name="cb1"
               id="textInput"
@@ -66,7 +66,7 @@
           <!-- if type is dialogbox -->
           <div v-if="item.type === 'dialog'">
             <select
-              class="w-44 h-6 mr-2 mb-2 border-[#454544] border focus:outline-none pl-3"
+              class="w-44 h-6 mr-2 mb-2 border-[#454544] border font-500 focus:outline-none pl-3"
               name=""
               id=""
             >

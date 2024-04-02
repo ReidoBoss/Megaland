@@ -1,5 +1,7 @@
 <template>
-  <div class="flex items-center gap-4">
+  <div
+    class="flex items-center justify-center lg:gap-4 md:gap-4 custom-sm:gap-0 custom-sm:ml-[-4%] custom-sm:w-[90%]"
+  >
     <button
       :disabled="currentPage == 1"
       class="flex items-center gap-2 px-6 py-3 text-sm font-bold text-center text-orange-500 uppercase align-middle transition-all rounded-lg select-none hover:bg-orange-100 active:bg-orange-200 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
@@ -24,14 +26,16 @@
       Previous
     </button>
     <div class="flex items-center gap-2">
-      <button 
+      <button
         @click="changePage(page.i)"
-        v-for="(page,index) in pages"
+        v-for="(page, index) in pages"
         :key="index"
         :i="page.i"
         :class="{
-          'relative h-10 max-h-[40px] w-10 max-w-[40px] select-none rounded-lg bg-orange-500 text-center align-middle text-sm font-bold uppercase text-white shadow-md shadow-orange-100 transition-all hover:shadow-lg hover:shadow-orange-200 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none': page.i === currentPage,
-          'relative h-10 max-h-[40px] w-10 max-w-[40px] select-none rounded-lg text-center align-middle text-sm font-bold uppercase text-gray-900 transition-all hover:bg-orange-100 active:bg-orange-200 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none': page.i !== currentPage
+          'relative h-10 max-h-[40px] w-10 max-w-[40px] select-none rounded-lg bg-orange-500 text-center align-middle text-sm font-bold uppercase text-white shadow-md shadow-orange-100 transition-all hover:shadow-lg hover:shadow-orange-200 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none':
+            page.i === currentPage,
+          'relative h-10 max-h-[40px] w-10 max-w-[40px] select-none rounded-lg text-center align-middle text-sm font-bold uppercase text-gray-900 transition-all hover:bg-orange-100 active:bg-orange-200 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none':
+            page.i !== currentPage,
         }"
         type="button"
       >
@@ -68,18 +72,15 @@
   </div>
 </template>
 
-
 <script setup>
-import {ref,onMounted} from "vue";
+import { ref, onMounted } from "vue";
 defineProps({
   postCount: Number,
   currentPage: Number,
-  totalPage:Number,
-  pages:Array,
-  next:Function,
-  previous:Function,
-  changePage:Function,
-})
-
-
+  totalPage: Number,
+  pages: Array,
+  next: Function,
+  previous: Function,
+  changePage: Function,
+});
 </script>
