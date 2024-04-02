@@ -5,10 +5,9 @@
     <div class="">
       <div class="flex flex-col justify-center md:items-center mt-3">
         <div
-          class="custom-sm:mb-5 custom-sm:mx-auto custom-sm:w-[300px] sm:mb-5 sm:w-[330px] md:w-[100%] lg:w-[80%] lg:ml-[-9%]"
+          class="custom-sm:mb-5 custom-sm:mx-auto custom-sm:w-[300px] sm:mb-5 sm:w-[330px] md:w-[100%] lg:w-[100%] mx-auto lg:ml-[-9%]"
         >
-        <div v-html="iframe"></div>
-
+          <div class="" v-html="iframe"></div>
         </div>
 
         <div class="flex-col flex">
@@ -32,31 +31,28 @@
               </div>
 
               <div class="whitespace-break-spaces font-poppins">
-                <strong>Amenities:</strong> 
-                <div v-for="(amenity, index) in amenities" :key="index" >
-                  <div v-if="!amenity==''">⭐{{ amenity }}</div>               
+                <strong>Amenities:</strong>
+                <div v-for="(amenity, index) in amenities" :key="index">
+                  <div v-if="!amenity == ''">⭐{{ amenity }}</div>
                 </div>
                 <br /><br />
               </div>
 
               <div class="whitespace-break-spaces font-poppins">
-                <strong>Landmarks:</strong> 
-                <div v-for="(landmark, index) in landmarks" :key="index" >
-                  <div v-if="!landmark==''">⭐{{ landmark }}</div>               
+                <strong>Landmarks:</strong>
+                <div v-for="(landmark, index) in landmarks" :key="index">
+                  <div v-if="!landmark == ''">⭐{{ landmark }}</div>
                 </div>
                 <br /><br />
               </div>
 
               <div class="whitespace-break-spaces font-poppins">
-                <strong>Highlight:</strong> 
-                <div v-for="(highlight, index) in highlights" :key="index" >
-                  <div v-if="!highlight==''">⭐{{ highlight }}</div>               
+                <strong>Highlight:</strong>
+                <div v-for="(highlight, index) in highlights" :key="index">
+                  <div v-if="!highlight == ''">⭐{{ highlight }}</div>
                 </div>
                 <br /><br />
               </div>
-              
-              
-
 
               <strong class="font-bold font-poppins">Broker:</strong> {{ broker
               }}<br /><br />
@@ -64,13 +60,13 @@
               <strong class="font-bold mb-10 font-poppins"
                 >Contact Info:</strong
               >
-              ☎️{{ contact_phone }}☎️{{contact_telephone}}<br /><br />
+              ☎️{{ contact_phone }}☎️{{ contact_telephone }}<br /><br />
 
               <strong class="font-400 font-poppins">Email Address:</strong>
               {{ email_address }}<br /><br />
 
-              <strong class="font-400 font-poppins">Key Tags:</strong> {{ key_tags
-              }}<br /><br />
+              <strong class="font-400 font-poppins">Key Tags:</strong>
+              {{ key_tags }}<br /><br />
             </div>
           </div>
         </div>
@@ -80,7 +76,7 @@
 </template>
 <script setup>
 defineProps({
-  iframe:String, 
+  iframe: String,
   developer: String,
   description: String,
   title: String,
@@ -95,5 +91,4 @@ defineProps({
   email_address: String,
   key_tags: String,
 });
-
 </script>

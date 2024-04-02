@@ -1,6 +1,6 @@
 <template>
   <div
-    class="md:w-[340px] custom-sm:w-[310px] sm:w-[300px] lg:w-[380px] lg:h-[550px] break-words relative flex flex-col justify-between space-y-1 w-[380px] h-[550px] bg-white p-5 border-2 rounded-md shadow-xl hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] hover:scale-[1.02]"
+    class="md:w-[340px] custom-sm:w-[330px] sm:w-[300px] lg:w-[380px] lg:h-[550px] break-words relative flex flex-col justify-between space-y-1 w-[380px] h-[550px] bg-white p-5 border-2 rounded-md shadow-xl hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] hover:scale-[1.02]"
   >
     <div class="absolute transform rotate-90 left-auto -right-3 text-center">
       <BookmarkIcon class="text-[#E67E23] h-28 w-24" />
@@ -53,7 +53,7 @@
       <!-- name -->
       <div class="m-1">
         <p
-          class="text-[#454544] font-bold custom-sm:text-sm text-center md:text-md sm:text-md lg:text-md"
+          class="text-[#454544] font-bold custom-sm:text-md text-center md:text-md sm:text-md lg:text-md"
         >
           {{ name }}
         </p>

@@ -7,7 +7,7 @@
     </div>
 
     <div
-      class="flex w-[84%] text-lg pl-5 font-poppins font-bold md:text-md lg:text-lg custom-sm:text-hidden sm:text-hidden custom-sm:mt-[8%]"
+      class="flex w-[84%] text-lg pl-5 font-poppins font-bold md:text-md lg:text-lg custom-sm:text-hidden sm:text-hidden custom-sm:mt-[8%] md:mt-[5%] lg:mt-[0%]"
     >
       Properties <BuildingLibraryIcon class="h-[26px] w-[26px] ml-1" />
     </div>
@@ -86,8 +86,9 @@
         </button>
       </div>
       <!-- Latest Sale -->
+
       <div
-        class="text-yellow flex flex-wrap mt-2 h-full md:mx-auto md:w-[100%] lg:w-[84%] custom-sm:gap-3 custom-sm:mx-auto gap-y-9 md:gap-y-9 md:gap-5 justify-center custom-sm:my-6"
+        class="text-yellow flex flex-wrap lg:mt-2 md:mt-2 custom-sm:mt-0 h-full md:mx-auto md:w-[100%] lg:w-[84%] custom-sm:gap-3 custom-sm:mx-auto gap-y-9 md:gap-y-9 md:gap-5 justify-center custom-sm:my-6"
       >
         <div
           class="flex justify-center items-center custom-sm:my-5 custom-sm:w-[20%]"
@@ -103,16 +104,10 @@
           />
         </div>
         <br />
-<<<<<<< Updated upstream
-        <div class="flex flex-wrap justify-evenly gap-y-9 md:gap-y-5 lg:gap-x-9">
-          <Loading
-          v-if="properties.length === 0"
-          />
-=======
         <div
           class="flex flex-wrap justify-evenly gap-y-9 md:gap-y-5 lg:gap-x-9"
         >
->>>>>>> Stashed changes
+          <Loading v-if="properties.length === 0" />
           <Products
             v-for="(property, index) in properties"
             :key="index"
