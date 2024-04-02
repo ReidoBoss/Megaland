@@ -74,37 +74,36 @@
         </div>
       </div>
 
-    <BlogDetails
-    :iframe="iframe"
-    :developer="developer"
-    :title="title"
-    :description="description"
-    :location="location"
-    :details="details"
-    :broker="broker"
-    :contact_phone="contact_phone"
-    :contact_telephone="contact_telephone"
-    :email_address="email"
-    :key_tags="key_tags"
-    :amenities="amenities"
-    :landmarks="landmarks"
-    :highlights="highlights"
-    />
-      
+      <BlogDetails
+        :iframe="iframe"
+        :developer="developer"
+        :title="title"
+        :description="description"
+        :location="location"
+        :details="details"
+        :broker="broker"
+        :contact_phone="contact_phone"
+        :contact_telephone="contact_telephone"
+        :email_address="email"
+        :key_tags="key_tags"
+        :amenities="amenities"
+        :landmarks="landmarks"
+        :highlights="highlights"
+      />
+
       <div
-        class="lg:w-[28%] md:w-[100%] lg:mr-6 custom-sm:hidden sm:hidden md:block lg:block"
+        class="lg:w-[25%] md:w-[100%] lg:mr-6 custom-sm:hidden sm:hidden md:block lg:block"
       >
         <div
           class="lg:w-full lg:h-[480px] overflow-auto bg-white border-2 rounded-md shadow-xl lg:p-5 md:p-2 md:ml-2 lg:ml-5 mb-5"
         >
           <Blog
-          v-for="(blog, index) in allBlogs"
+            v-for="(blog, index) in allBlogs"
             @click="currentBlog(blog.id)"
             :thumbnailUrl="blog.thumbnail"
             :description="blog.name"
             :name="blog.broker"
           />
-
         </div>
         <div></div>
         <div>
@@ -176,12 +175,9 @@ import Comment from "../components/Comment.vue";
 import BlogDetails from "../components/BlogDetails.vue";
 import { ref, onMounted, computed } from "vue";
 
-onMounted(()=>{
+onMounted(() => {
   recommendedBlogs();
 });
-
-
-
 
 const iframe = ref();
 const name = ref();
@@ -212,13 +208,12 @@ const currentBlog = async (id) => {
   contact_telephone.value = blog.contact_telephone;
   email.value = blog.email_address;
   key_tags.value = blog.key_tags;
-  
+
   amenities.value = await getAmenities(id);
   landmarks.value = await getLandmarks(id);
   highlights.value = await getHighlights(id);
   window.scrollTo({ top: 0, behavior: "smooth" });
-
-}
+};
 
 const nuller = () => {
   iframe.value = null;
@@ -235,106 +230,83 @@ const nuller = () => {
   amenities.value = null;
   landmarks.value = null;
   highlights.value = null;
-}
-
-
-
-
-
+};
 
 const allBlogs = ref([]);
 
 const recommendedBlogs = async () => {
-  const blogs = await getBlogs();// all blogs
-  for(var i=0 ; i < blogs.length;i++){
-
-
+  const blogs = await getBlogs(); // all blogs
+  for (var i = 0; i < blogs.length; i++) {
     const blogID = blogs[i].blog_id;
     const blog = await getBlog(blogID);
-    const image = await getBlogImage(blogID)
-    if(i == 0){
-       currentBlog(blogID)
-    };
+    const image = await getBlogImage(blogID);
+    if (i == 0) {
+      currentBlog(blogID);
+    }
     allBlogs.value.push({
-      id:blogID,
+      id: blogID,
       thumbnail: await convertBlob(image),
       name: blog.name,
-      broker: blog.broker
+      broker: blog.broker,
     });
   }
-}
+};
 
-
-
-const getBlogs = async() =>{
-  const response = await fetch('http://localhost:8080/getBlogs');
+const getBlogs = async () => {
+  const response = await fetch("http://localhost:8080/getBlogs");
   const data = await response.json();
   return data;
-}
+};
 
-const getBlog = async(id) =>{
+const getBlog = async (id) => {
   const response = await fetch(`http://localhost:8080/getBlogByID/${id}`);
   const data = await response.json();
   return data[0];
-}
+};
 
-const getBlogImage = async(id) =>{
+const getBlogImage = async (id) => {
   const response = await fetch(`http://localhost:8080/getBlogImageByID/${id}`);
   const data = await response.json();
   return data[0].thumbnail.data;
-}
+};
 
-const getAmenities = async(id) =>{
-  const response = await fetch(`http://localhost:8080/getAmenitiesByBlogID/${id}`);
+const getAmenities = async (id) => {
+  const response = await fetch(
+    `http://localhost:8080/getAmenitiesByBlogID/${id}`
+  );
   const data = await response.json();
   return data[0];
-}
+};
 
-const getHighlights = async(id) =>{
-  const response = await fetch(`http://localhost:8080/getHighlightsByBlogID/${id}`);
+const getHighlights = async (id) => {
+  const response = await fetch(
+    `http://localhost:8080/getHighlightsByBlogID/${id}`
+  );
   const data = await response.json();
   return data[0];
-}
+};
 
-const getLandmarks = async(id) =>{
-  const response = await fetch(`http://localhost:8080/getLandmarksByBlogID/${id}`);
+const getLandmarks = async (id) => {
+  const response = await fetch(
+    `http://localhost:8080/getLandmarksByBlogID/${id}`
+  );
   const data = await response.json();
   return data[0];
-}
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const convertBlob = (image) =>{
-  return new Promise((resolve,reject)=>{
-    if(image){
-    const blob = new Blob([new Uint8Array(image)], { type: 'image/jpeg' }); 
-    const reader = new FileReader();
-    reader.readAsDataURL(blob);
-        reader.onloadend = () => {
-          const dataURL = reader.result;
-          resolve (dataURL);
-        }
+const convertBlob = (image) => {
+  return new Promise((resolve, reject) => {
+    if (image) {
+      const blob = new Blob([new Uint8Array(image)], { type: "image/jpeg" });
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
+      reader.onloadend = () => {
+        const dataURL = reader.result;
+        resolve(dataURL);
+      };
     }
   });
-}
-
-
-
-
-
-
+};
 </script>
 
 <style>

@@ -172,7 +172,7 @@ const getProperties = async (index, loopCount) => {
 const getProperties = async (index,loopCount) =>{
 
   properties.value= [];
-  
+
 
 =======
   const response = await fetch("http://localhost:8080/getAllPropertyID");

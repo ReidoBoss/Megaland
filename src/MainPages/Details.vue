@@ -78,64 +78,61 @@
       >
         <div class="custom-sm:block sm:block md:block lg:hidden">
           <BlogOwner
-          :id="agent_id" 
-          :name="agent_name"
-          :property_number="agent_numberOfProperty"
-          :profile_picture="agent_profile"
-          :facebook="agent_fb"
-          :instagram="agent_instagram"
-          :twitter="agent_x"
+            :id="agent_id"
+            :name="agent_name"
+            :property_number="agent_numberOfProperty"
+            :profile_picture="agent_profile"
+            :facebook="agent_fb"
+            :instagram="agent_instagram"
+            :twitter="agent_x"
           />
         </div>
         <div
           class="lg:w-[90%] md:w-[100%] custom-sm:w-[100%] sm:w-[100%] custom-sm:my-[6%] flex-col lg:ml-6 mt-[3%]"
-        >
-        </div>
+        ></div>
         <div
           class="lg:w-[90%] md:w-[100%] custom-sm:w-[100%] sm:w-[100%] custom-sm:my-[6%] flex-col lg:ml-6"
         >
-        <ProductDetails 
-        :name="name"
-        :property_price="property_price"
-        :local_area="local_area"
-        :description="description"
-        :city="city"
-        :country="country"
-        :zipcode="zipcode"
-        :bedroom="bedroom"
-        :bathroom="bathroom"
-        :property_area="property_area"
-        :parking_space="parking_space"
-        :attic="attic"
-        :balcony="balcony"
-        :deck="deck"
-        :fenced_yard="fenced_yard"
-        :frontyard="frontyard"
-        :gasheat="gasheat"
-        :gym="gym"
-        :lake_view="lake_view"
-        :pond="pond"
-        :pool="pool"
-        :recreation="recreation"
-        :sprinklers="sprinklers"
-        :storage="storage"
-        :washer="washer"
-        :wine_cellar="wine_cellar"
-        :airport="airport"
-        :bus_stand="bus_stand"
-        :hospital="hospital"
-        :patroltank="patroltank"
-        :railway="railway"
-        :shopping="shopping"
-        :universities="universities"
-        :others="others"
-
-        :main_image="main_image"
-        :extra1="extra1"
-        :extra2="extra2"
-        :extra3="extra3"
-
-      />
+          <ProductDetails
+            :name="name"
+            :property_price="property_price"
+            :local_area="local_area"
+            :description="description"
+            :city="city"
+            :country="country"
+            :zipcode="zipcode"
+            :bedroom="bedroom"
+            :bathroom="bathroom"
+            :property_area="property_area"
+            :parking_space="parking_space"
+            :attic="attic"
+            :balcony="balcony"
+            :deck="deck"
+            :fenced_yard="fenced_yard"
+            :frontyard="frontyard"
+            :gasheat="gasheat"
+            :gym="gym"
+            :lake_view="lake_view"
+            :pond="pond"
+            :pool="pool"
+            :recreation="recreation"
+            :sprinklers="sprinklers"
+            :storage="storage"
+            :washer="washer"
+            :wine_cellar="wine_cellar"
+            :airport="airport"
+            :bus_stand="bus_stand"
+            :hospital="hospital"
+            :patroltank="patroltank"
+            :railway="railway"
+            :shopping="shopping"
+            :universities="universities"
+            :others="others"
+            :main_image="main_image"
+            :extra1="extra1"
+            :extra2="extra2"
+            :extra3="extra3"
+          />
         </div>
       </div>
 
@@ -144,9 +141,9 @@
       >
         <!--Blog Owner -->
         <BlogOwner
-        :profile_picture="agent_profile"
-        :name="agent_name"
-        :property_number="agent_numberOfProperty"
+          :profile_picture="agent_profile"
+          :name="agent_name"
+          :property_number="agent_numberOfProperty"
         />
       </div>
     </div>
@@ -162,8 +159,7 @@
       <div
         class="custom-sm:w-[100%] rounded-md mx-auto flex items-center justify-center"
       >
-      <div v-html="iframeSrc"></div>
-
+        <div v-html="iframeSrc"></div>
       </div>
     </div>
     <div>
@@ -218,24 +214,24 @@ import BlogOwner from "../components/BlogOwner.vue";
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 
-onMounted(()=>{
+onMounted(() => {
   get_property_details();
 });
 
 const route = useRoute();
 
 const id = route.params.id;
-const name = ref('');
-const property_price = ref('');
-const local_area = ref('');
-const description = ref('');
-const city = ref('');
-const country = ref('');
-const zipcode = ref('');
-const bedroom = ref('');
-const bathroom = ref('');
-const property_area = ref('');
-const parking_space = ref('');
+const name = ref("");
+const property_price = ref("");
+const local_area = ref("");
+const description = ref("");
+const city = ref("");
+const country = ref("");
+const zipcode = ref("");
+const bedroom = ref("");
+const bathroom = ref("");
+const property_area = ref("");
+const parking_space = ref("");
 const attic = ref(0);
 const balcony = ref(0);
 const deck = ref(0);
@@ -251,15 +247,14 @@ const sprinklers = ref(0);
 const storage = ref(0);
 const washer = ref(0);
 const wine_cellar = ref(0);
-const airport = ref('');
-const bus_stand = ref('');
-const hospital = ref('');
-const patroltank = ref('');
-const railway = ref('');
-const shopping = ref('');
-const universities = ref('');
-const others = ref('');
-
+const airport = ref("");
+const bus_stand = ref("");
+const hospital = ref("");
+const patroltank = ref("");
+const railway = ref("");
+const shopping = ref("");
+const universities = ref("");
+const others = ref("");
 
 const main_image = ref(null);
 const extra1 = ref(null);
@@ -276,188 +271,167 @@ const agent_fb = ref();
 const agent_instagram = ref();
 const agent_x = ref();
 
-
 const get_property_details = async () => {
-  try{
-    
-  const general = await general_data(id);
-  const property_data = await propertyData(id);
-  const image = await property_image(id);
-  const address = await property_address(id);
-  const amenities = await property_amenities(id);
-  const landmark = await property_landmark(id);
-
-  const mainImage = image[0].main_image.data;
-  const extra_image1 = image[0].extra1.data;
-  const extra_image2 = image[0].extra2.data;
-  const extra_image3 = image[0].extra3.data;
-  name.value=general[0].name;
-
-  property_price.value = property_data[0].property_price;
-  local_area.value = address[0].local_area;
-  description.value = general[0].description;
-  city.value = address[0].city;
-  country.value = address[0].country;
-  zipcode.value = address[0].zipcode;
-  bedroom.value = address[0].bedroom;
-  bathroom.value = address[0].bathroom;
-  property_area.value = address[0].property_area;
-  parking_space.value = address[0].parking_space;
-
-  attic.value = amenities[0].attic;
-  balcony.value = amenities[0].balcony;
-  deck.value = amenities[0].deck;
-  fenced_yard.value = amenities[0].fenced_yard;
-  frontyard.value = amenities[0].frontyard;
-  gasheat.value = amenities[0].gasheat;
-  gym.value = amenities[0].gym;
-  lake_view.value = amenities[0].lake_view;
-  pond.value = amenities[0].pond;
-  pool.value = amenities[0].pool;
-  recreation.value = amenities[0].recreation;
-  sprinklers.value = amenities[0].sprinklers;
-  storage.value = amenities[0].storage;
-  washer.value = amenities[0].washer;
-  wine_cellar.value = amenities[0].wine_cellar;
-
-  airport.value = landmark[0].airport;
-  bus_stand.value = landmark[0].bus_stand;
-  hospital.value = landmark[0].hospital;
-  patroltank.value = landmark[0].patroltank;
-  railway.value = landmark[0].railway;
-  shopping.value = landmark[0].shopping;
-  universities.value = landmark[0].universities;
-  others.value = landmark[0].others;
-
-  iframeSrc.value = property_data[0].iframe;
-  
-  main_image.value= await convert(mainImage);
-  extra1.value= await convert(extra_image1);
-  extra2.value= await convert(extra_image2);
-  extra3.value= await convert(extra_image3);
-
-
-
-  agent_id.value = property_data[0].agent_id;
-  console.log(agent_id.value)
-  var agentData = await get_agent_details (agent_id.value);
-  var agentUserID = agentData[0].user_id;
-  agent_fb.value = agentData[0].facebook;
-  agent_instagram.value = agentData[0].instagram;
-  agent_x.value = agentData[0].x;
-  console.log(agent_fb.value)
-
-  agent_name.value = agentData[0].agent_name;
-  agent_numberOfProperty.value = agentData[0].total_property;
-  var agentImage = agentData[0].profile_picture.data;
-  agent_profile.value = await convert(agentImage);
-  
-}
-  catch(error){
-    console.log("Error: ",error);
-  }
-
-
-}
-
-
-
-
-const general_data = async (i) =>{
   try {
-    const response = await fetch(`http://localhost:8080/getGeneralData/${i}`)
+    const general = await general_data(id);
+    const property_data = await propertyData(id);
+    const image = await property_image(id);
+    const address = await property_address(id);
+    const amenities = await property_amenities(id);
+    const landmark = await property_landmark(id);
+
+    const mainImage = image[0].main_image.data;
+    const extra_image1 = image[0].extra1.data;
+    const extra_image2 = image[0].extra2.data;
+    const extra_image3 = image[0].extra3.data;
+    name.value = general[0].name;
+
+    property_price.value = property_data[0].property_price;
+    local_area.value = address[0].local_area;
+    description.value = general[0].description;
+    city.value = address[0].city;
+    country.value = address[0].country;
+    zipcode.value = address[0].zipcode;
+    bedroom.value = address[0].bedroom;
+    bathroom.value = address[0].bathroom;
+    property_area.value = address[0].property_area;
+    parking_space.value = address[0].parking_space;
+
+    attic.value = amenities[0].attic;
+    balcony.value = amenities[0].balcony;
+    deck.value = amenities[0].deck;
+    fenced_yard.value = amenities[0].fenced_yard;
+    frontyard.value = amenities[0].frontyard;
+    gasheat.value = amenities[0].gasheat;
+    gym.value = amenities[0].gym;
+    lake_view.value = amenities[0].lake_view;
+    pond.value = amenities[0].pond;
+    pool.value = amenities[0].pool;
+    recreation.value = amenities[0].recreation;
+    sprinklers.value = amenities[0].sprinklers;
+    storage.value = amenities[0].storage;
+    washer.value = amenities[0].washer;
+    wine_cellar.value = amenities[0].wine_cellar;
+
+    airport.value = landmark[0].airport;
+    bus_stand.value = landmark[0].bus_stand;
+    hospital.value = landmark[0].hospital;
+    patroltank.value = landmark[0].patroltank;
+    railway.value = landmark[0].railway;
+    shopping.value = landmark[0].shopping;
+    universities.value = landmark[0].universities;
+    others.value = landmark[0].others;
+
+    iframeSrc.value = property_data[0].iframe;
+
+    main_image.value = await convert(mainImage);
+    extra1.value = await convert(extra_image1);
+    extra2.value = await convert(extra_image2);
+    extra3.value = await convert(extra_image3);
+
+    agent_id.value = property_data[0].agent_id;
+    console.log(agent_id.value);
+    var agentData = await get_agent_details(agent_id.value);
+    var agentUserID = agentData[0].user_id;
+    agent_fb.value = agentData[0].facebook;
+    agent_instagram.value = agentData[0].instagram;
+    agent_x.value = agentData[0].x;
+    console.log(agent_fb.value);
+
+    agent_name.value = agentData[0].agent_name;
+    agent_numberOfProperty.value = agentData[0].total_property;
+    var agentImage = agentData[0].profile_picture.data;
+    agent_profile.value = await convert(agentImage);
+  } catch (error) {
+    console.log("Error: ", error);
+  }
+};
+
+const general_data = async (i) => {
+  try {
+    const response = await fetch(`http://localhost:8080/getGeneralData/${i}`);
     const data = await response.json();
     return data;
+  } catch (error) {
+    console.log("Error: ", error);
   }
-  catch(error){
-    console.log("Error: ",error);
-  }
-}
-const property_image = async (i) =>{
+};
+const property_image = async (i) => {
   try {
-    const response = await fetch(`http://localhost:8080/getPropertyImage/${i}`)
+    const response = await fetch(`http://localhost:8080/getPropertyImage/${i}`);
     const data = await response.json();
     return data;
+  } catch (error) {
+    console.log("Error: ", error);
   }
-  catch(error){
-    console.log("Error: ",error);
-  }
-}
-const propertyData = async (i) =>{
+};
+const propertyData = async (i) => {
   try {
-    const response = await fetch(`http://localhost:8080/getPropertyData/${i}`)
+    const response = await fetch(`http://localhost:8080/getPropertyData/${i}`);
     const data = await response.json();
     return data;
+  } catch (error) {
+    console.log("Error: ", error);
   }
-  catch(error){
-    console.log("Error: ",error);
-  }
-}
-const property_address = async (i) =>{
+};
+const property_address = async (i) => {
   try {
-    const response = await fetch(`http://localhost:8080/getPropertyAddress/${i}`)
+    const response = await fetch(
+      `http://localhost:8080/getPropertyAddress/${i}`
+    );
     const data = await response.json();
     return data;
+  } catch (error) {
+    console.log("Error: ", error);
   }
-  catch(error){
-    console.log("Error: ",error);
-  }
-}
+};
 
-const property_amenities = async (i) =>{
+const property_amenities = async (i) => {
   try {
-    const response = await fetch(`http://localhost:8080/getPropertyAmenities/${i}`)
+    const response = await fetch(
+      `http://localhost:8080/getPropertyAmenities/${i}`
+    );
     const data = await response.json();
     return data;
+  } catch (error) {
+    console.log("Error: ", error);
   }
-  catch(error){
-    console.log("Error: ",error);
-  }
-}
+};
 
-const property_landmark = async (i) =>{
+const property_landmark = async (i) => {
   try {
-    const response = await fetch(`http://localhost:8080/getPropertyLandMark/${i}`)
+    const response = await fetch(
+      `http://localhost:8080/getPropertyLandMark/${i}`
+    );
     const data = await response.json();
     return data;
+  } catch (error) {
+    console.log("Error: ", error);
   }
-  catch(error){
-    console.log("Error: ",error);
-  }
-}
+};
 
-const get_agent_details = async (id) =>{
+const get_agent_details = async (id) => {
   const response = await fetch(`http://localhost:8080/getAgentByID/${id}`);
   const data = await response.json();
   return data;
-}
-const get_agent_profile = async (id) =>{
+};
+const get_agent_profile = async (id) => {
   const response = await fetch(`http://localhost:8080/getUserImage/${id}`);
   const data = await response.json();
   return data;
-}
+};
 
-
-const convert = (image) =>{
-
-  return new Promise((resolve,reject)=>{
-    if(image){
-    const blob = new Blob([new Uint8Array(image)], { type: 'image/jpeg' }); 
-    const reader = new FileReader();
-    reader.readAsDataURL(blob);
-        reader.onloadend = () => {
-          const dataURL = reader.result;
-          resolve (dataURL);
-        }
+const convert = (image) => {
+  return new Promise((resolve, reject) => {
+    if (image) {
+      const blob = new Blob([new Uint8Array(image)], { type: "image/jpeg" });
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
+      reader.onloadend = () => {
+        const dataURL = reader.result;
+        resolve(dataURL);
+      };
     }
   });
-}
-
-
-
-
-
-
-
+};
 </script>
-
