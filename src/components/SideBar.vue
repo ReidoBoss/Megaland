@@ -64,7 +64,7 @@
         />
         <router-link
           class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-          to="/properties/1"
+          to="/properties/"
           >Properties</router-link
         >
       </li>
@@ -110,19 +110,7 @@
           >Contact Us</router-link
         >
       </li>
-      <li class="flex">
-        <mdicon
-          name="ClipboardListOutline"
-          :width="30"
-          :height="30"
-          class="hover:text-white"
-        />
-        <router-link
-          class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-          to="/listProperty"
-          >Property Listing</router-link
-        >
-      </li>
+
       <li class="flex">
         <mdicon
           name="LogoutVariant"
