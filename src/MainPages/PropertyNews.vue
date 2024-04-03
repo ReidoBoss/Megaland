@@ -99,9 +99,9 @@
         >
           <span class="flex-row w-[200px] flex my-3 ml-2"
             ><h3 class="flex">
-              More Blogs
+              Related Blogs
               <mdicon
-                class="flex absolute ml-[28%] flex-row"
+                class="flex absolute ml-[35%] flex-row text-semibold"
                 name="post-outline"
                 :width="26"
                 :height="26"
