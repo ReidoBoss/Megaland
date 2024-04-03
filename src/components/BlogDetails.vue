@@ -13,7 +13,7 @@
         </div>
 
         <div class="flex-col w-[90%]">
-          <div class="font-sans">
+          <div class="font-sans lg:ml-[-3%] md:ml-[-5%]">
             <strong class="font-bold font-poppins lg:text-2xl lg:text-center">{{
               title
             }}</strong
@@ -92,21 +92,144 @@ defineProps({
 </script>
 
 <style>
-.iframe-container {
-  width: 100%; /* Customize as needed */
-  height: 100%;
-  margin-left: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media (min-width: 300px) and (max-width: 400px) {
+  /* CSS styles for extra custom-small screens */
+  .iframe-container {
+    width: 100%; /* Customize as needed */
+    height: 100%;
+    margin-left: -4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .iframe-container iframe {
+    width: 300px;
+    height: 280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
-.iframe-container iframe {
-  width: 750px;
-  height: 500px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media (min-width: 400px) and (max-width: 640px) {
+  /* CSS styles for custom-small screens */
+  .iframe-container {
+    width: 100%; /* Customize as needed */
+    height: 100%;
+    margin-left: -1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .iframe-container iframe {
+    width: 330px;
+    height: 280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  /* CSS styles for small screens */
+  .iframe-container {
+    width: 100%; /* Customize as needed */
+    height: 100%;
+    margin-left: -1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .iframe-container iframe {
+    width: 350px;
+    height: 300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* CSS styles for medium screens */
+  .iframe-container {
+    width: 100%; /* Customize as needed */
+    height: 100%;
+    margin-left: -1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .iframe-container iframe {
+    width: 400px;
+    height: 350px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  /* CSS styles for large screens */
+  .iframe-container {
+    width: 100%; /* Customize as needed */
+    height: 100%;
+    margin-left: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .iframe-container iframe {
+    width: 500px;
+    height: 400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* Extra-large screens */
+@media (min-width: 1280px) and (max-width: 1535px) {
+  /* CSS styles for extra-large screens */
+  .iframe-container {
+    width: 100%; /* Customize as needed */
+    height: 100%;
+    margin-left: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .iframe-container iframe {
+    width: 620px;
+    height: 450px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1536px) {
+  /* CSS styles for extra-large screens */
+  .iframe-container {
+    width: 100%; /* Customize as needed */
+    height: 100%;
+    margin-left: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .iframe-container iframe {
+    width: 760px;
+    height: 500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>

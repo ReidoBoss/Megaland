@@ -167,188 +167,185 @@ const properties = ref([]);
 const getProperties = async (index, loopCount) => {
   properties.value = [];
 
-<<<<<<< HEAD
+  const getProperties = async (index, loopCount) => {
+    properties.value = [];
 
-const getProperties = async (index,loopCount) =>{
+    for (var i = index; i < index + loopCount; i++) {
+      try {
+        const response = await fetch("http://localhost:8080/getAllPropertyID");
+        const data = await response.json();
 
-  properties.value= [];
+        var id = data[i].property_id;
+        const propertyGenData = await general_data(id);
+        const propertyData = await property_data(id);
+        const propertyAddress = await property_address(id);
+        const propertyLandmark = await property_landmark(id);
+        const propertyImage = await property_image(id);
+        const imageData = propertyImage[0].main_image.data;
 
+        properties.value.push({
+          property_id: id,
+          property_name: propertyGenData[0].name,
+          imageUrl: await convertBlob(imageData),
 
-=======
-  const response = await fetch("http://localhost:8080/getAllPropertyID");
-  const data = await response.json();
->>>>>>> 1c5aee8d12d9d31f2227b9dcbab344180a79d9ac
-  for (var i = index; i < index + loopCount; i++) {
+          property_price: propertyData[0].property_price,
+          property_category: propertyData[0].category,
+          property_type: propertyData[0].property_type.toUpperCase(),
+          property_area: propertyAddress[0].property_area,
+          property_bedroom: propertyAddress[0].bedroom,
+          property_bathroom: propertyAddress[0].bathroom,
+          property_local_area: propertyAddress[0].local_area,
+          property_city: propertyAddress[0].city,
+
+          property_airport: propertyLandmark[0].airport ? 1 : 0,
+          property_busstand: propertyLandmark[0].bus_stand ? 1 : 0,
+          property_hospital: propertyLandmark[0].hospital ? 1 : 0,
+          property_patroltank: propertyLandmark[0].patroltank ? 1 : 0,
+          property_railway: propertyLandmark[0].railway ? 1 : 0,
+          property_shopping: propertyLandmark[0].shopping ? 1 : 0,
+          property_universities: propertyLandmark[0].universities ? 1 : 0,
+        });
+      } catch (error) {
+        console.error("Error processing property:", error);
+      }
+    }
+  };
+
+  const general_data = async (i) => {
     try {
-      const response = await fetch ('http://localhost:8080/getAllPropertyID');
+      const response = await fetch(`http://localhost:8080/getGeneralData/${i}`);
       const data = await response.json();
-
-      var id = data[i].property_id;
-      const propertyGenData = await general_data(id);
-      const propertyData = await property_data(id);
-      const propertyAddress = await property_address(id);
-      const propertyLandmark = await property_landmark(id);
-      const propertyImage = await property_image(id);
-      const imageData = propertyImage[0].main_image.data;
-
-      properties.value.push({
-        property_id: id,
-        property_name: propertyGenData[0].name,
-        imageUrl: await convertBlob(imageData),
-
-        property_price: propertyData[0].property_price,
-        property_category: propertyData[0].category,
-        property_type: propertyData[0].property_type.toUpperCase(),
-        property_area: propertyAddress[0].property_area,
-        property_bedroom: propertyAddress[0].bedroom,
-        property_bathroom: propertyAddress[0].bathroom,
-        property_local_area: propertyAddress[0].local_area,
-        property_city: propertyAddress[0].city,
-
-        property_airport: propertyLandmark[0].airport ? 1 : 0,
-        property_busstand: propertyLandmark[0].bus_stand ? 1 : 0,
-        property_hospital: propertyLandmark[0].hospital ? 1 : 0,
-        property_patroltank: propertyLandmark[0].patroltank ? 1 : 0,
-        property_railway: propertyLandmark[0].railway ? 1 : 0,
-        property_shopping: propertyLandmark[0].shopping ? 1 : 0,
-        property_universities: propertyLandmark[0].universities ? 1 : 0,
-      });
+      return data;
     } catch (error) {
-      console.error("Error processing property:", error);
+      console.log("Error: ", error);
     }
-  }
-};
-
-const general_data = async (i) => {
-  try {
-    const response = await fetch(`http://localhost:8080/getGeneralData/${i}`);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.log("Error: ", error);
-  }
-};
-const property_image = async (i) => {
-  try {
-    const response = await fetch(`http://localhost:8080/getPropertyImage/${i}`);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.log("Error: ", error);
-  }
-};
-const property_data = async (i) => {
-  try {
-    const response = await fetch(`http://localhost:8080/getPropertyData/${i}`);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.log("Error: ", error);
-  }
-};
-const property_address = async (i) => {
-  try {
-    const response = await fetch(
-      `http://localhost:8080/getPropertyAddress/${i}`
-    );
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.log("Error: ", error);
-  }
-};
-
-const property_landmark = async (i) => {
-  try {
-    const response = await fetch(
-      `http://localhost:8080/getPropertyLandMark/${i}`
-    );
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.log("Error: ", error);
-  }
-};
-
-const convertBlob = (image) => {
-  return new Promise((resolve, reject) => {
-    if (image) {
-      const blob = new Blob([new Uint8Array(image)], { type: "image/jpeg" });
-      const reader = new FileReader();
-      reader.readAsDataURL(blob);
-      reader.onloadend = () => {
-        const dataURL = reader.result;
-        resolve(dataURL);
-      };
+  };
+  const property_image = async (i) => {
+    try {
+      const response = await fetch(
+        `http://localhost:8080/getPropertyImage/${i}`
+      );
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.log("Error: ", error);
     }
-  });
-};
+  };
+  const property_data = async (i) => {
+    try {
+      const response = await fetch(
+        `http://localhost:8080/getPropertyData/${i}`
+      );
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.log("Error: ", error);
+    }
+  };
+  const property_address = async (i) => {
+    try {
+      const response = await fetch(
+        `http://localhost:8080/getPropertyAddress/${i}`
+      );
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.log("Error: ", error);
+    }
+  };
 
-//------------------------ Start Pagination ------------------------
+  const property_landmark = async (i) => {
+    try {
+      const response = await fetch(
+        `http://localhost:8080/getPropertyLandMark/${i}`
+      );
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.log("Error: ", error);
+    }
+  };
 
-const postCount = ref(0);
-const currentPage = ref(1);
-const totalPage = ref(0);
-const pages = ref([]);
-
-const getPostCount = async () => {
-  const response = await fetch(`http://localhost:8080/getAllPropertyID`);
-  const data = await response.json();
-
-  totalPage.value = Math.ceil(data.length / 9);
-  for (var i = 1; i <= totalPage.value; i++) {
-    pages.value.push({
-      i: i,
+  const convertBlob = (image) => {
+    return new Promise((resolve, reject) => {
+      if (image) {
+        const blob = new Blob([new Uint8Array(image)], { type: "image/jpeg" });
+        const reader = new FileReader();
+        reader.readAsDataURL(blob);
+        reader.onloadend = () => {
+          const dataURL = reader.result;
+          resolve(dataURL);
+        };
+      }
     });
-  }
-};
+  };
 
-const totalPostVal = ref();
-const totalPost = async () => {
-  totalPostVal.value = 0;
-  const response = await fetch(`http://localhost:8080/getAllPropertyID`);
-  const data = await response.json();
-  for (var i = 0; i < data.length; i++) {
-    totalPostVal.value++;
-  }
-  return totalPostVal.value;
-};
+  //------------------------ Start Pagination ------------------------
 
-const changePage = async (i) => {
-  currentPage.value = i;
-  const postCount = await totalPost();
+  const postCount = ref(0);
+  const currentPage = ref(1);
+  const totalPage = ref(0);
+  const pages = ref([]);
 
-  var temp = currentPage.value * 9;
-  temp = temp - postCount;
-  let loopCount = 9 - temp;
-  if (loopCount > 9) {
-    loopCount = 9;
-  }
-  var loopIndex = (currentPage.value - 1) * 9 + 1;
-  getProperties(loopIndex - 1, loopCount);
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
+  const getPostCount = async () => {
+    const response = await fetch(`http://localhost:8080/getAllPropertyID`);
+    const data = await response.json();
 
-const next = () => {
-  if (currentPage.value != totalPage.value) {
-    currentPage.value++;
-  }
-  var i = currentPage.value;
-  changePage(i);
-};
-const previous = () => {
-  if (currentPage.value != 1) {
-    currentPage.value--;
-  }
-  var i = currentPage.value;
-  changePage(i);
-};
+    totalPage.value = Math.ceil(data.length / 9);
+    for (var i = 1; i <= totalPage.value; i++) {
+      pages.value.push({
+        i: i,
+      });
+    }
+  };
 
-const landingPage = () => {
-  currentPage.value = 1;
-  var i = currentPage.value;
-  changePage(i);
-};
+  const totalPostVal = ref();
+  const totalPost = async () => {
+    totalPostVal.value = 0;
+    const response = await fetch(`http://localhost:8080/getAllPropertyID`);
+    const data = await response.json();
+    for (var i = 0; i < data.length; i++) {
+      totalPostVal.value++;
+    }
+    return totalPostVal.value;
+  };
 
-//------------------------ End Pagination ------------------------
+  const changePage = async (i) => {
+    currentPage.value = i;
+    const postCount = await totalPost();
+
+    var temp = currentPage.value * 9;
+    temp = temp - postCount;
+    let loopCount = 9 - temp;
+    if (loopCount > 9) {
+      loopCount = 9;
+    }
+    var loopIndex = (currentPage.value - 1) * 9 + 1;
+    getProperties(loopIndex - 1, loopCount);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const next = () => {
+    if (currentPage.value != totalPage.value) {
+      currentPage.value++;
+    }
+    var i = currentPage.value;
+    changePage(i);
+  };
+  const previous = () => {
+    if (currentPage.value != 1) {
+      currentPage.value--;
+    }
+    var i = currentPage.value;
+    changePage(i);
+  };
+
+  const landingPage = () => {
+    currentPage.value = 1;
+    var i = currentPage.value;
+    changePage(i);
+  };
+
+  //------------------------ End Pagination ------------------------
+};
 </script>

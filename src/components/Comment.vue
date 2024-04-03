@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex lg:w-full overflow-auto bg-white border-2 rounded-md shadow-xl md:p-2 md:ml-3 md:mb-3 lg:p-3 lg:ml-5 lg:mb-1.5"
+    class="flex lg:w-full overflow-auto bg-white border-2 rounded-md shadow-xl md:p-2 md:ml-3 md:mb-3 lg:p-3 lg:ml-5 lg:mb-1.5 mt-3 py-2 px-2"
   >
     <div class="">
       <div
