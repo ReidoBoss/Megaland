@@ -89,15 +89,17 @@
       <div
         class="text-yellow flex flex-wrap mt-2 h-full md:mx-auto md:w-[100%] lg:w-[84%] custom-sm:gap-3 custom-sm:mx-auto gap-y-9 md:gap-y-9 md:gap-5 justify-center custom-sm:my-6"
       >
-        <div class="flex justify-center items-center custom-sm:my-5">
+        <div
+          class="flex justify-center items-center custom-sm:my-5 custom-sm:w-[20%]"
+        >
           <Pagination
-          :postCount="postCount"
-          :currentPage="currentPage" 
-          :totalPage="totalPage"
-          :pages="pages"
-          :next="next"
-          :previous="previous"
-          :changePage="changePage"
+            :postCount="postCount"
+            :currentPage="currentPage"
+            :totalPage="totalPage"
+            :pages="pages"
+            :next="next"
+            :previous="previous"
+            :changePage="changePage"
           />
         </div>
         <br />
@@ -106,7 +108,6 @@
           v-if="properties.length === 0"
           />
           <Products
-          v-else
             v-for="(property, index) in properties"
             :key="index"
             :property_id="property.property_id"
@@ -132,13 +133,13 @@
         </div>
         <div class="flex justify-center items-center my-10">
           <Pagination
-          :postCount="postCount"
-          :currentPage="currentPage" 
-          :totalPage="totalPage"
-          :pages="pages"
-          :next="next"
-          :previous="previous"
-          :changePage="changePage"
+            :postCount="postCount"
+            :currentPage="currentPage"
+            :totalPage="totalPage"
+            :pages="pages"
+            :next="next"
+            :previous="previous"
+            :changePage="changePage"
           />
         </div>
       </div>
@@ -155,8 +156,7 @@ import { BuildingLibraryIcon } from "@heroicons/vue/24/outline";
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 
-
-onMounted(()=>{
+onMounted(() => {
   getPostCount();
   landingPage();
 });
@@ -165,14 +165,19 @@ const properties = ref([]);
 
 
 
+
 const getProperties = async (index,loopCount) =>{
 
   properties.value= [];
   
-  const response = await fetch ('http://localhost:8080/getAllPropertyID');
+
+  const response = await fetch("http://localhost:8080/getAllPropertyID");
   const data = await response.json();
   for (var i = index; i < index + loopCount; i++) {
     try {
+      const response = await fetch ('http://localhost:8080/getAllPropertyID');
+      const data = await response.json();
+
       var id = data[i].property_id;
       const propertyGenData = await general_data(id);
       const propertyData = await property_data(id);
@@ -181,7 +186,6 @@ const getProperties = async (index,loopCount) =>{
       const propertyImage = await property_image(id);
       const imageData = propertyImage[0].main_image.data;
 
-
       properties.value.push({
         property_id: id,
         property_name: propertyGenData[0].name,
@@ -189,13 +193,13 @@ const getProperties = async (index,loopCount) =>{
 
         property_price: propertyData[0].property_price,
         property_category: propertyData[0].category,
-        property_type: propertyData[0].property_type,
+        property_type: propertyData[0].property_type.toUpperCase(),
         property_area: propertyAddress[0].property_area,
         property_bedroom: propertyAddress[0].bedroom,
         property_bathroom: propertyAddress[0].bathroom,
         property_local_area: propertyAddress[0].local_area,
         property_city: propertyAddress[0].city,
-        
+
         property_airport: propertyLandmark[0].airport ? 1 : 0,
         property_busstand: propertyLandmark[0].bus_stand ? 1 : 0,
         property_hospital: propertyLandmark[0].hospital ? 1 : 0,
@@ -204,124 +208,106 @@ const getProperties = async (index,loopCount) =>{
         property_shopping: propertyLandmark[0].shopping ? 1 : 0,
         property_universities: propertyLandmark[0].universities ? 1 : 0,
       });
-
-
-    } 
-    catch (error) {
+    } catch (error) {
       console.error("Error processing property:", error);
     }
   }
-
-
 };
 
-const general_data = async (i) =>{
+const general_data = async (i) => {
   try {
-    const response = await fetch(`http://localhost:8080/getGeneralData/${i}`)
+    const response = await fetch(`http://localhost:8080/getGeneralData/${i}`);
     const data = await response.json();
     return data;
+  } catch (error) {
+    console.log("Error: ", error);
   }
-  catch(error){
-    console.log("Error: ",error);
-  }
-}
-const property_image = async (i) =>{
+};
+const property_image = async (i) => {
   try {
-    const response = await fetch(`http://localhost:8080/getPropertyImage/${i}`)
+    const response = await fetch(`http://localhost:8080/getPropertyImage/${i}`);
     const data = await response.json();
     return data;
+  } catch (error) {
+    console.log("Error: ", error);
   }
-  catch(error){
-    console.log("Error: ",error);
-  }
-}
-const property_data = async (i) =>{
+};
+const property_data = async (i) => {
   try {
-    const response = await fetch(`http://localhost:8080/getPropertyData/${i}`)
+    const response = await fetch(`http://localhost:8080/getPropertyData/${i}`);
     const data = await response.json();
     return data;
+  } catch (error) {
+    console.log("Error: ", error);
   }
-  catch(error){
-    console.log("Error: ",error);
-  }
-}
-const property_address = async (i) =>{
+};
+const property_address = async (i) => {
   try {
-    const response = await fetch(`http://localhost:8080/getPropertyAddress/${i}`)
+    const response = await fetch(
+      `http://localhost:8080/getPropertyAddress/${i}`
+    );
     const data = await response.json();
     return data;
+  } catch (error) {
+    console.log("Error: ", error);
   }
-  catch(error){
-    console.log("Error: ",error);
-  }
-}
+};
 
-const property_landmark = async (i) =>{
+const property_landmark = async (i) => {
   try {
-    const response = await fetch(`http://localhost:8080/getPropertyLandMark/${i}`)
+    const response = await fetch(
+      `http://localhost:8080/getPropertyLandMark/${i}`
+    );
     const data = await response.json();
     return data;
+  } catch (error) {
+    console.log("Error: ", error);
   }
-  catch(error){
-    console.log("Error: ",error);
-  }
-}
+};
 
-
-const convertBlob = (image) =>{
-
-  return new Promise((resolve,reject)=>{
-    if(image){
-    const blob = new Blob([new Uint8Array(image)], { type: 'image/jpeg' }); 
-    const reader = new FileReader();
-    reader.readAsDataURL(blob);
-        reader.onloadend = () => {
-          const dataURL = reader.result;
-          resolve (dataURL);
-        }
+const convertBlob = (image) => {
+  return new Promise((resolve, reject) => {
+    if (image) {
+      const blob = new Blob([new Uint8Array(image)], { type: "image/jpeg" });
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
+      reader.onloadend = () => {
+        const dataURL = reader.result;
+        resolve(dataURL);
+      };
     }
   });
-}
+};
 
 //------------------------ Start Pagination ------------------------
 
 const postCount = ref(0);
 const currentPage = ref(1);
-const totalPage= ref(0);
+const totalPage = ref(0);
 const pages = ref([]);
 
-
-
-
 const getPostCount = async () => {
-
   const response = await fetch(`http://localhost:8080/getAllPropertyID`);
   const data = await response.json();
 
   totalPage.value = Math.ceil(data.length / 9);
-  for(var i = 1; i<=totalPage.value;i++){
+  for (var i = 1; i <= totalPage.value; i++) {
     pages.value.push({
-      i:i
-    })
-
-
+      i: i,
+    });
   }
-}
+};
 
 const totalPostVal = ref();
-const totalPost= async()=> {
-  totalPostVal.value= 0;
+const totalPost = async () => {
+  totalPostVal.value = 0;
   const response = await fetch(`http://localhost:8080/getAllPropertyID`);
   const data = await response.json();
-  for(var i = 0; i < data.length;i++){
+  for (var i = 0; i < data.length; i++) {
     totalPostVal.value++;
-
   }
   return totalPostVal.value;
-
-}
-
-
+};
 
 const changePage = async (i) => {
   currentPage.value = i;
@@ -333,37 +319,31 @@ const changePage = async (i) => {
   if (loopCount > 9) {
     loopCount = 9;
   }
-  var loopIndex = (currentPage.value-1)*9+1;
-  getProperties(loopIndex-1,loopCount);
+  var loopIndex = (currentPage.value - 1) * 9 + 1;
+  getProperties(loopIndex - 1, loopCount);
   window.scrollTo({ top: 0, behavior: "smooth" });
-
 };
 
-
-const next = () =>{
-  if(currentPage.value != totalPage.value){
-    currentPage.value++
+const next = () => {
+  if (currentPage.value != totalPage.value) {
+    currentPage.value++;
   }
   var i = currentPage.value;
   changePage(i);
-}
-const previous = () =>{
-  if(currentPage.value != 1){
+};
+const previous = () => {
+  if (currentPage.value != 1) {
     currentPage.value--;
   }
   var i = currentPage.value;
   changePage(i);
-}
+};
 
 const landingPage = () => {
-  currentPage.value=1;
+  currentPage.value = 1;
   var i = currentPage.value;
   changePage(i);
-}
+};
 
 //------------------------ End Pagination ------------------------
-
-
-
-
 </script>
