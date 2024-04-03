@@ -7,7 +7,7 @@
     </div>
 
     <div
-      class="flex w-[84%] text-lg pl-5 font-poppins font-bold md:text-md lg:text-lg custom-sm:text-hidden sm:text-hidden custom-sm:mt-[8%] md:mt-[5%] lg:mt-[0%]"
+      class="flex w-[84%] text-lg pl-5 font-poppins font-bold md:text-md lg:text-lg custom-sm:text-hidden sm:text-hidden custom-sm:mt-[8%]"
     >
       Properties <BuildingLibraryIcon class="h-[26px] w-[26px] ml-1" />
     </div>
@@ -86,9 +86,8 @@
         </button>
       </div>
       <!-- Latest Sale -->
-
       <div
-        class="text-yellow flex flex-wrap lg:mt-2 md:mt-2 custom-sm:mt-0 h-full md:mx-auto md:w-[100%] lg:w-[84%] custom-sm:gap-3 custom-sm:mx-auto gap-y-9 md:gap-y-9 md:gap-5 justify-center custom-sm:my-6"
+        class="text-yellow flex flex-wrap mt-2 h-full md:mx-auto md:w-[100%] lg:w-[84%] custom-sm:gap-3 custom-sm:mx-auto gap-y-9 md:gap-y-9 md:gap-5 justify-center custom-sm:my-6"
       >
         <div
           class="flex justify-center items-center custom-sm:my-5 custom-sm:w-[20%]"
@@ -104,10 +103,10 @@
           />
         </div>
         <br />
-        <div
-          class="flex flex-wrap justify-evenly gap-y-9 md:gap-y-5 lg:gap-x-9"
-        >
-          <Loading v-if="properties.length === 0" />
+        <div class="flex flex-wrap justify-evenly gap-y-9 md:gap-y-5 lg:gap-x-9">
+          <Loading
+          v-if="properties.length === 0"
+          />
           <Products
             v-for="(property, index) in properties"
             :key="index"
@@ -164,188 +163,187 @@ onMounted(() => {
 
 const properties = ref([]);
 
-const getProperties = async (index, loopCount) => {
-  properties.value = [];
 
-  const getProperties = async (index, loopCount) => {
-    properties.value = [];
 
-    for (var i = index; i < index + loopCount; i++) {
-      try {
-        const response = await fetch("http://localhost:8080/getAllPropertyID");
-        const data = await response.json();
 
-        var id = data[i].property_id;
-        const propertyGenData = await general_data(id);
-        const propertyData = await property_data(id);
-        const propertyAddress = await property_address(id);
-        const propertyLandmark = await property_landmark(id);
-        const propertyImage = await property_image(id);
-        const imageData = propertyImage[0].main_image.data;
+const getProperties = async (index,loopCount) =>{
 
-        properties.value.push({
-          property_id: id,
-          property_name: propertyGenData[0].name,
-          imageUrl: await convertBlob(imageData),
+  properties.value= [];
+  
 
-          property_price: propertyData[0].property_price,
-          property_category: propertyData[0].category,
-          property_type: propertyData[0].property_type.toUpperCase(),
-          property_area: propertyAddress[0].property_area,
-          property_bedroom: propertyAddress[0].bedroom,
-          property_bathroom: propertyAddress[0].bathroom,
-          property_local_area: propertyAddress[0].local_area,
-          property_city: propertyAddress[0].city,
-
-          property_airport: propertyLandmark[0].airport ? 1 : 0,
-          property_busstand: propertyLandmark[0].bus_stand ? 1 : 0,
-          property_hospital: propertyLandmark[0].hospital ? 1 : 0,
-          property_patroltank: propertyLandmark[0].patroltank ? 1 : 0,
-          property_railway: propertyLandmark[0].railway ? 1 : 0,
-          property_shopping: propertyLandmark[0].shopping ? 1 : 0,
-          property_universities: propertyLandmark[0].universities ? 1 : 0,
-        });
-      } catch (error) {
-        console.error("Error processing property:", error);
-      }
-    }
-  };
-
-  const general_data = async (i) => {
+  const response = await fetch("http://localhost:8080/getAllPropertyID");
+  const data = await response.json();
+  for (var i = index; i < index + loopCount; i++) {
     try {
-      const response = await fetch(`http://localhost:8080/getGeneralData/${i}`);
+      const response = await fetch ('http://localhost:8080/getAllPropertyID');
       const data = await response.json();
-      return data;
-    } catch (error) {
-      console.log("Error: ", error);
-    }
-  };
-  const property_image = async (i) => {
-    try {
-      const response = await fetch(
-        `http://localhost:8080/getPropertyImage/${i}`
-      );
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.log("Error: ", error);
-    }
-  };
-  const property_data = async (i) => {
-    try {
-      const response = await fetch(
-        `http://localhost:8080/getPropertyData/${i}`
-      );
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.log("Error: ", error);
-    }
-  };
-  const property_address = async (i) => {
-    try {
-      const response = await fetch(
-        `http://localhost:8080/getPropertyAddress/${i}`
-      );
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.log("Error: ", error);
-    }
-  };
 
-  const property_landmark = async (i) => {
-    try {
-      const response = await fetch(
-        `http://localhost:8080/getPropertyLandMark/${i}`
-      );
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.log("Error: ", error);
-    }
-  };
+      var id = data[i].property_id;
+      const propertyGenData = await general_data(id);
+      const propertyData = await property_data(id);
+      const propertyAddress = await property_address(id);
+      const propertyLandmark = await property_landmark(id);
+      const propertyImage = await property_image(id);
+      const imageData = propertyImage[0].main_image.data;
 
-  const convertBlob = (image) => {
-    return new Promise((resolve, reject) => {
-      if (image) {
-        const blob = new Blob([new Uint8Array(image)], { type: "image/jpeg" });
-        const reader = new FileReader();
-        reader.readAsDataURL(blob);
-        reader.onloadend = () => {
-          const dataURL = reader.result;
-          resolve(dataURL);
-        };
-      }
-    });
-  };
+      properties.value.push({
+        property_id: id,
+        property_name: propertyGenData[0].name,
+        imageUrl: await convertBlob(imageData),
 
-  //------------------------ Start Pagination ------------------------
+        property_price: propertyData[0].property_price,
+        property_category: propertyData[0].category,
+        property_type: propertyData[0].property_type.toUpperCase(),
+        property_area: propertyAddress[0].property_area,
+        property_bedroom: propertyAddress[0].bedroom,
+        property_bathroom: propertyAddress[0].bathroom,
+        property_local_area: propertyAddress[0].local_area,
+        property_city: propertyAddress[0].city,
 
-  const postCount = ref(0);
-  const currentPage = ref(1);
-  const totalPage = ref(0);
-  const pages = ref([]);
-
-  const getPostCount = async () => {
-    const response = await fetch(`http://localhost:8080/getAllPropertyID`);
-    const data = await response.json();
-
-    totalPage.value = Math.ceil(data.length / 9);
-    for (var i = 1; i <= totalPage.value; i++) {
-      pages.value.push({
-        i: i,
+        property_airport: propertyLandmark[0].airport ? 1 : 0,
+        property_busstand: propertyLandmark[0].bus_stand ? 1 : 0,
+        property_hospital: propertyLandmark[0].hospital ? 1 : 0,
+        property_patroltank: propertyLandmark[0].patroltank ? 1 : 0,
+        property_railway: propertyLandmark[0].railway ? 1 : 0,
+        property_shopping: propertyLandmark[0].shopping ? 1 : 0,
+        property_universities: propertyLandmark[0].universities ? 1 : 0,
       });
+    } catch (error) {
+      console.error("Error processing property:", error);
     }
-  };
-
-  const totalPostVal = ref();
-  const totalPost = async () => {
-    totalPostVal.value = 0;
-    const response = await fetch(`http://localhost:8080/getAllPropertyID`);
-    const data = await response.json();
-    for (var i = 0; i < data.length; i++) {
-      totalPostVal.value++;
-    }
-    return totalPostVal.value;
-  };
-
-  const changePage = async (i) => {
-    currentPage.value = i;
-    const postCount = await totalPost();
-
-    var temp = currentPage.value * 9;
-    temp = temp - postCount;
-    let loopCount = 9 - temp;
-    if (loopCount > 9) {
-      loopCount = 9;
-    }
-    var loopIndex = (currentPage.value - 1) * 9 + 1;
-    getProperties(loopIndex - 1, loopCount);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const next = () => {
-    if (currentPage.value != totalPage.value) {
-      currentPage.value++;
-    }
-    var i = currentPage.value;
-    changePage(i);
-  };
-  const previous = () => {
-    if (currentPage.value != 1) {
-      currentPage.value--;
-    }
-    var i = currentPage.value;
-    changePage(i);
-  };
-
-  const landingPage = () => {
-    currentPage.value = 1;
-    var i = currentPage.value;
-    changePage(i);
-  };
-
-  //------------------------ End Pagination ------------------------
+  }
 };
+
+const general_data = async (i) => {
+  try {
+    const response = await fetch(`http://localhost:8080/getGeneralData/${i}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log("Error: ", error);
+  }
+};
+const property_image = async (i) => {
+  try {
+    const response = await fetch(`http://localhost:8080/getPropertyImage/${i}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log("Error: ", error);
+  }
+};
+const property_data = async (i) => {
+  try {
+    const response = await fetch(`http://localhost:8080/getPropertyData/${i}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log("Error: ", error);
+  }
+};
+const property_address = async (i) => {
+  try {
+    const response = await fetch(
+      `http://localhost:8080/getPropertyAddress/${i}`
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log("Error: ", error);
+  }
+};
+
+const property_landmark = async (i) => {
+  try {
+    const response = await fetch(
+      `http://localhost:8080/getPropertyLandMark/${i}`
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log("Error: ", error);
+  }
+};
+
+const convertBlob = (image) => {
+  return new Promise((resolve, reject) => {
+    if (image) {
+      const blob = new Blob([new Uint8Array(image)], { type: "image/jpeg" });
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
+      reader.onloadend = () => {
+        const dataURL = reader.result;
+        resolve(dataURL);
+      };
+    }
+  });
+};
+
+//------------------------ Start Pagination ------------------------
+
+const postCount = ref(0);
+const currentPage = ref(1);
+const totalPage = ref(0);
+const pages = ref([]);
+
+const getPostCount = async () => {
+  const response = await fetch(`http://localhost:8080/getAllPropertyID`);
+  const data = await response.json();
+
+  totalPage.value = Math.ceil(data.length / 9);
+  for (var i = 1; i <= totalPage.value; i++) {
+    pages.value.push({
+      i: i,
+    });
+  }
+};
+
+const totalPostVal = ref();
+const totalPost = async () => {
+  totalPostVal.value = 0;
+  const response = await fetch(`http://localhost:8080/getAllPropertyID`);
+  const data = await response.json();
+  for (var i = 0; i < data.length; i++) {
+    totalPostVal.value++;
+  }
+  return totalPostVal.value;
+};
+
+const changePage = async (i) => {
+  currentPage.value = i;
+  const postCount = await totalPost();
+
+  var temp = currentPage.value * 9;
+  temp = temp - postCount;
+  let loopCount = 9 - temp;
+  if (loopCount > 9) {
+    loopCount = 9;
+  }
+  var loopIndex = (currentPage.value - 1) * 9 + 1;
+  getProperties(loopIndex - 1, loopCount);
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
+const next = () => {
+  if (currentPage.value != totalPage.value) {
+    currentPage.value++;
+  }
+  var i = currentPage.value;
+  changePage(i);
+};
+const previous = () => {
+  if (currentPage.value != 1) {
+    currentPage.value--;
+  }
+  var i = currentPage.value;
+  changePage(i);
+};
+
+const landingPage = () => {
+  currentPage.value = 1;
+  var i = currentPage.value;
+  changePage(i);
+};
+
+//------------------------ End Pagination ------------------------
 </script>
