@@ -4,7 +4,7 @@
   >
     <div class="h-full w-full">
       <div class="rounded-2xl overflow-hidden relative h-full w-full">
-        <img :src="img" class="h-auto rounded-lg object-cover" />
+        <img :src="img" class="h-auto rounded-lg object-fill" />
       </div>
     </div>
   </div>

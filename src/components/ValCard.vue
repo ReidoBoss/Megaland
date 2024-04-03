@@ -6,19 +6,22 @@
     <p class="font-normal mr-3 ml-3 text-white text-justify">{{ desc }}</p>
   </div> -->
 
-  <div class="max-w-sm bg-white rounded-lg">
-    <a href="#">
-      <img class="rounded-t-lg" :src="imgSrc" alt="" />
-    </a>
-    <div class="p-5">
+  <div
+    class="max-w-sm bg-white rounded-lg custom-sm:w-[95%] custom-sm:flex custom-sm:mx-auto md:w-[45%] md:flex md:justify-center"
+  >
+    <div class="py-5 mx-auto">
+      <a href="#">
+        <img class="rounded-t-lg" :src="imgSrc" alt="" />
+      </a>
+
       <a href="#">
         <h5
-          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
+          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center custom-sm:text-dm font-poppins mt-5"
         >
           {{ header }}
         </h5>
       </a>
-      <p class="mb-3 font-normal text-gray-700">
+      <p class="font-normal text-gray-700 text-justify custom-sm:text-sm">
         {{ desc }}
       </p>
     </div>

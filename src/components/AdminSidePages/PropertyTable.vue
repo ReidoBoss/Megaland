@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full">
+  <div class="h-screen">
     <nav
       class="border-gray-200 dark:bg-gray-900 py-5 items-center justify-center flex mx-auto"
     >
@@ -55,10 +55,11 @@
                 class="hover:text-white"
               />
               <button
-              @click="propertyListing"
+                @click="propertyListing"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                >Property Listing</button
               >
+                Property Listing
+              </button>
             </li>
             <li class="flex">
               <mdicon
@@ -68,10 +69,11 @@
                 class="hover:text-white"
               />
               <button
-              @click="propertyTable"
+                @click="propertyTable"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                >Property Table</button
               >
+                Property Table
+              </button>
             </li>
             <li class="flex">
               <mdicon
@@ -81,10 +83,11 @@
                 class="hover:text-white"
               />
               <button
-              @click="addAgent"
+                @click="addAgent"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                >Add Agent</button
               >
+                Add Agent
+              </button>
             </li>
             <li class="flex">
               <mdicon
@@ -94,10 +97,11 @@
                 class="hover:text-white"
               />
               <button
-              @click="agentTable"
+                @click="agentTable"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                >Agent Table</button
               >
+                Agent Table
+              </button>
             </li>
             <li class="flex">
               <mdicon
@@ -107,10 +111,11 @@
                 class="hover:text-white"
               />
               <button
-              @click="blogListing"
+                @click="blogListing"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                >Blog Listing</button
               >
+                Blog Listing
+              </button>
             </li>
             <li class="flex">
               <mdicon
@@ -120,10 +125,11 @@
                 class="hover:text-white"
               />
               <button
-              @click="blogTable"
+                @click="blogTable"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                >Blog Table</button
               >
+                Blog Table
+              </button>
             </li>
             <li class="flex">
               <mdicon
@@ -133,19 +139,20 @@
                 class="hover:text-white"
               />
               <button
-              @click="logout"
+                @click="logout"
                 class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                >Logout Account</button
               >
+                Logout Account
+              </button>
             </li>
           </ul>
         </aside>
 
         <div
-          class="custom-sm:w-[90%] custom-sm:h-[750px] md:w-[80%] mx-auto lg:w-[80%] md:h-[750px] md:mt-[10%] lg:mt-[5%]"
+          class="custom-sm:w-[90%] custom-sm:h-[750px] md:w-[90%] mx-auto lg:w-[80%] md:h-[750px] md:mt-[5%] lg:mt-[1%]"
         >
           <div
-            class="custom-sm:w-[100%] md:w-[90%] mt-[5%] border-2 rounded-lg px-5 py-5 bg-white mx-auto"
+            class="custom-sm:w-[100%] md:w-[100%] lg:w-[90%] mt-[5%] border-2 rounded-lg px-5 py-5 bg-white mx-auto"
           >
             <div class="flex justify-start items-center">
               <mdicon
@@ -215,32 +222,36 @@
             </div>
           </div>
 
-          <div class="rounded-lg mx-auto lg:w-[100%]">
+          <div
+            class="rounded-lg mx-auto lg:w-[100%] lg:h-[450px] custom-sm:w-[100%] custom-sm:h-[330px] md:h-[500px] md:w-[100%] lg:mt-20 md:mt-20 custom-sm:mt-10"
+          >
             <div
-              class="relative overflow-x-auto my-[5%] lg:w-[90%] lg:mx-auto lg:my-[8%] md:w-[90%] md:my-[5%] mx-auto rounded-lg custom-sm:mt-[8%]"
+              class="relative overflow-x-auto my-[5%] lg:w-[90%] lg:h-[100%] lg:mx-auto lg:my-[8%] custom-sm:w-[100%] custom-sm:h-[110%] md:w-[100%] md:h-[100%] md:my-[0%] mx-auto rounded-lg custom-sm:mt-[8%]"
             >
-              <table class="text-left rtl:text-right">
-                <thead class="text-[8.5px] uppercase bg-gray-200">
-                  <tr class="text-xs">
+              <table class="text-left rtl:text-right overflow-y-auto">
+                <thead
+                  class="text-[8.5px] uppercase bg-gray-200 sticky top-0 z-10"
+                >
+                  <tr class="lg:text-lg md:text-sm">
                     <th scope="col" class="py-3"></th>
                     <th scope="col" class="px-6 py-3">Images</th>
                     <th scope="col" class="px-12 py-3">Name</th>
                     <th scope="col" class="px-6 py-3">Property Status</th>
                     <th scope="col" class="px-6 py-3">Price</th>
-
                     <th scope="col" class="px-6 py-3">Action</th>
                   </tr>
                 </thead>
                 <tbody class="font-semibold text-sm">
-                  <tr  v-for="(property, index) in properties"
-                  :key="index" 
-                  :property_id="property.property_id"
-                  :image="property.imageUrl || ''"
-                  :name="property.property_name"
-                  :price="property.property_price"
-                  :type="property.property_type"
-
-                  class="bg-white border-b">
+                  <tr
+                    v-for="(property, index) in properties"
+                    :key="index"
+                    :property_id="property.property_id"
+                    :image="property.imageUrl || ''"
+                    :name="property.property_name"
+                    :price="property.property_price"
+                    :type="property.property_type"
+                    class="bg-white border-b"
+                  >
                     <th
                       scope="row"
                       class="px-2 py-6 font-medium text-gray-900 whitespace-nowrap flex justify-center items-center"
@@ -261,19 +272,17 @@
                         :src="property.imageUrl"
                       />
                     </td>
-                    <td class="px-6">{{property.property_name}}</td>
+                    <td class="px-6">{{ property.property_name }}</td>
 
-                    <td class="px-6 py-4">{{property.property_type}}</td>
-                    <td class="px-6 py-4">{{property.property_price}}</td>
+                    <td class="px-6 py-4">{{ property.property_type }}</td>
+                    <td class="px-6 py-4">{{ property.property_price }}</td>
                     <td
-                      class="px-6 py-4 text-blue-600 font bold cursor-pointer"
+                      class="px-6 py-4 text-blue-600 font bold cursor-pointer text-center"
                     >
                       Edit
                     </td>
                   </tr>
                   <!-- END TABLE -->
-
-                
                 </tbody>
               </table>
             </div>
@@ -282,35 +291,31 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script setup>
 import SideBarAdminNew from "../AdminSidePages/SideBarAdminNew.vue";
-import { ref , onMounted} from "vue";
+import { ref, onMounted } from "vue";
 defineProps({
-  propertyListing:Function,
-  propertyTable:Function,
-  addAgent:Function,
-  agentTable:Function,
-  blogListing:Function,
-  blogTable:Function,
-  logout:Function,
+  propertyListing: Function,
+  propertyTable: Function,
+  addAgent: Function,
+  agentTable: Function,
+  blogListing: Function,
+  blogTable: Function,
+  logout: Function,
 });
 
-
-onMounted(()=>{
+onMounted(() => {
   getAllPropertyID();
 });
 
 const properties = ref([]);
 
-
-
-const getAllPropertyID = async () =>{
+const getAllPropertyID = async () => {
   properties.value = [];
-  try{
-    const response = await fetch('http://localhost:8080/getAllPropertyID');
+  try {
+    const response = await fetch("http://localhost:8080/getAllPropertyID");
     const data = await response.json();
 
     for (var i = 0; i < data.length; i++) {
@@ -328,95 +333,63 @@ const getAllPropertyID = async () =>{
           imageUrl: await convertBlob(imageData),
           property_price: `₱${propertyData[0].property_price.toLocaleString()}`, // Format property_price with commas
           property_type: propertyData[0].property_type.toUpperCase(),
-
         });
-      }
-      catch(error){
+      } catch (error) {
         console.log(error);
       }
     }
-    
-
-
-  }
-  catch(error){
+  } catch (error) {
     console.log("Error: ", error);
   }
-}
+};
 
-
-const property_image = async (i) =>{
+const property_image = async (i) => {
   try {
-    const response = await fetch(`http://localhost:8080/getPropertyImage/${i}`)
+    const response = await fetch(`http://localhost:8080/getPropertyImage/${i}`);
     const data = await response.json();
     return data;
+  } catch (error) {
+    console.log("Error: ", error);
   }
-  catch(error){
-    console.log("Error: ",error);
-  }
-}
+};
 
-
-const general_data = async (i) =>{
+const general_data = async (i) => {
   try {
-    const response = await fetch(`http://localhost:8080/getGeneralData/${i}`)
+    const response = await fetch(`http://localhost:8080/getGeneralData/${i}`);
     const data = await response.json();
     return data;
+  } catch (error) {
+    console.log("Error: ", error);
   }
-  catch(error){
-    console.log("Error: ",error);
-  }
-}
+};
 
-const property_data = async (i) =>{
+const property_data = async (i) => {
   try {
-    const response = await fetch(`http://localhost:8080/getPropertyData/${i}`)
+    const response = await fetch(`http://localhost:8080/getPropertyData/${i}`);
     const data = await response.json();
     return data;
+  } catch (error) {
+    console.log("Error: ", error);
   }
-  catch(error){
-    console.log("Error: ",error);
-  }
-}
+};
 
-
-
-const convertBlob = (image) =>{
-
-return new Promise((resolve,reject)=>{
-  if(image){
-  const blob = new Blob([new Uint8Array(image)], { type: 'image/jpeg' }); 
-  const reader = new FileReader();
-  reader.readAsDataURL(blob);
+const convertBlob = (image) => {
+  return new Promise((resolve, reject) => {
+    if (image) {
+      const blob = new Blob([new Uint8Array(image)], { type: "image/jpeg" });
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
       reader.onloadend = () => {
         const dataURL = reader.result;
-        resolve (dataURL);
-      }
-  }
-});
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+        resolve(dataURL);
+      };
+    }
+  });
+};
 
 const active = ref(0);
 const isSidebarVisible = ref(false);
 const toggleSidebar = () => {
   isSidebarVisible.value = !isSidebarVisible.value;
 };
-
-
-
-
-
 </script>

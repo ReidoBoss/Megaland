@@ -1,9 +1,9 @@
 <template>
   <div
     :class="{
-      'max-w-sm bg-white border-gray-200 rounded-lg border-2 shadow-lg w-[370px] h-[500px] hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] hover:scale-[1.02]':
+      ' bg-white border-gray-200 rounded-lg border-2 shadow-lg w-[370px] h-[500px] custom-sm:w-[300px] custom-sm:h-[500px] hover:shadow-[0_4px_4px_0px_rgba(0,0,0,0.70)] hover:scale-[1.02]':
         hoverable,
-      'max-w-sm bg-white border-gray-200 rounded-lg border-2 shadow-lg w-[370px] h-[500px]':
+      ' bg-white border-gray-200 rounded-lg border-2 shadow-lg w-[370px] h-[500px] custom-sm:w-[300px] custom-sm:h-[440px]  custom-sm:mt-8 custom-sm:mx-auto':
         !hoverable,
     }"
   >
@@ -36,8 +36,8 @@
         :src="image"
         alt="Agent Image"
       />
-      <h5 class="mb-1 text-2xl font-medium text-gray-900">{{name}}</h5>
-      <span class="text-lg font-medium text-gray-900">{{position}}</span>
+      <h5 class="mb-1 text-2xl font-medium text-gray-900">{{ name }}</h5>
+      <span class="text-lg font-medium text-gray-900">{{ position }}</span>
       <p class="text-normal text-black-900 pt-2">
         {{ description }}
       </p>
@@ -45,7 +45,9 @@
         <div
           class="bg-[#E67E23] h-9 w-full rounded-md text-white text-center font-normal text-md hover:bg-white hover:text-[#E67E23] hover:border-[#E67E23] border-[#E67E23] border-2 transition duration-300"
         >
-          <button @click="redirect" class="text-center h-9 font-medium">View Profile</button>
+          <button @click="redirect" class="text-center h-9 font-medium">
+            View Profile
+          </button>
         </div>
       </div>
     </div>
@@ -53,23 +55,19 @@
 </template>
 
 <script setup>
-import { useRouter} from "vue-router";
+import { useRouter } from "vue-router";
 const router = useRouter();
 
 const props = defineProps({
-  image:String,
+  image: String,
   id: String,
-  name:String,
-  position:String,
-  description:String,
+  name: String,
+  position: String,
+  description: String,
   hoverable: Boolean,
-  
 });
 
-
-const redirect =  () => {
+const redirect = () => {
   router.push(`/agentProfile/${props.id}`);
-}
-
-
+};
 </script>

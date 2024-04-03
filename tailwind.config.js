@@ -15,7 +15,7 @@ export default {
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
-      },
+      }, 
       fontWeight: {
         500: 500,
         300: 300,

@@ -3,10 +3,10 @@
     <div class="lg:block w-[100%] h-[100%] sticky top-0 bg-[#e9d8c5]">
       <div class="flex flex-row row-span-2">
         <div
-          class="custom-sm:w-[90%] custom-sm:h-[750px] md:w-[80%] mx-auto lg:w-[80%] md:h-[750px] md:mt-[10%] lg:mt-[5%] bg-[#e9d8c5]"
+          class="custom-sm:w-[90%] custom-sm:h-[830px] md:w-[90%] mx-auto lg:w-[80%] md:h-[900px] md:mt-[10%] lg:mt-[5%] bg-[#e9d8c5]"
         >
           <div
-            class="custom-sm:w-[100%] md:w-[90%] mt-[5%] border-2 rounded-lg px-5 py-5 bg-white mx-auto"
+            class="custom-sm:w-[100%] md:w-[100%] lg:w-[90%] mt-[5%] border-2 rounded-lg px-5 py-5 bg-white mx-auto"
           >
             <div class="flex justify-start items-center">
               <mdicon
@@ -76,13 +76,17 @@
             </div>
           </div>
 
-          <div class="rounded-lg mx-auto lg:w-[100%]">
+          <div
+            class="rounded-lg mx-auto lg:w-[100%] lg:h-[450px] custom-sm:w-[100%] custom-sm:h-[330px] md:h-[500px] md:w-[100%] lg:mt-20 md:mt-20 custom-sm:mt-10"
+          >
             <div
-              class="relative overflow-x-auto my-[5%] lg:w-[90%] lg:mx-auto lg:my-[8%] md:w-[90%] md:my-[5%] mx-auto rounded-lg custom-sm:mt-[8%]"
+              class="relative overflow-x-auto my-[5%] lg:w-[90%] lg:h-[100%] lg:mx-auto lg:my-[8%] custom-sm:w-[100%] custom-sm:h-[110%] md:w-[100%] md:h-[100%] md:my-[0%] mx-auto rounded-lg custom-sm:mt-[8%]"
             >
-              <table class="text-left rtl:text-right">
-                <thead class="text-[8.5px] uppercase bg-gray-200">
-                  <tr class="text-xs">
+              <table class="text-left rtl:text-right overflow-y-auto">
+                <thead
+                  class="text-[8.5px] uppercase bg-gray-200 sticky top-0 z-10"
+                >
+                  <tr class="lg:text-lg md:text-sm">
                     <th scope="col" class="py-3"></th>
                     <th scope="col" class="px-6 py-3">Images</th>
                     <th scope="col" class="px-12 py-3">Name</th>

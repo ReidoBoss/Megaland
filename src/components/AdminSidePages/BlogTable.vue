@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full bg-[#e9d8c5]">
+  <div class="h-screen bg-[#e9d8c5]">
     <div class="bg-[#e9d8c5]">
       <nav
         class="border-gray-200 dark:bg-gray-900 py-5 items-center justify-center flex mx-auto"
@@ -57,96 +57,103 @@
                 class="hover:text-white"
               />
               <button
-              class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-              @click="propertyListing"
-              >Property Listing</button
-            >
-          </li>
-          <li class="flex">
-            <mdicon
-              name="TableLargePlus"
-              :width="30"
-              :height="30"
-              class="hover:text-white"
-            />
-            <button
-            @click="propertyTable"
-              class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-              >Property Table</button
-            >
-          </li>
-          <li class="flex">
-            <mdicon
-              name="AccountMultiplePlusOutline"
-              :width="30"
-              :height="30"
-              class="hover:text-white"
-            />
-            <button
-            @click="addAgent"
-              class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-              >Add Agent</button
-            >
-          </li>
-          <li class="flex">
-            <mdicon
-              name="TableEdit"
-              :width="30"
-              :height="30"
-              class="hover:text-white"
-            />
-            <button
-            @click="agentTable"
-              class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-              >Agent Table</button
-            >
-          </li>
-          <li class="flex">
-            <mdicon
-              name="ClipboardListOutline"
-              :width="30"
-              :height="30"
-              class="hover:text-white"
-            />
-            <button
-            @click="blogListing"
-              class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-              >Blog Listing</button
-            >
-          </li>
-          <li class="flex">
-            <mdicon
-              name="TableAccount"
-              :width="30"
-              :height="30"
-              class="hover:text-white"
-            />
-            <button
-            @click="blogTable"
-              class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-              >Blog Table</button
-            >
-          </li>
-          <li class="flex">
-            <mdicon
-              name="LoginVariant"
-              :width="30"
-              :height="30"
-              class="hover:text-white"
-            />
-            <button
-            @click="logout"
-              class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-              >Logout Account</button
-            >
+                class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
+                @click="propertyListing"
+              >
+                Property Listing
+              </button>
+            </li>
+            <li class="flex">
+              <mdicon
+                name="TableLargePlus"
+                :width="30"
+                :height="30"
+                class="hover:text-white"
+              />
+              <button
+                @click="propertyTable"
+                class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
+              >
+                Property Table
+              </button>
+            </li>
+            <li class="flex">
+              <mdicon
+                name="AccountMultiplePlusOutline"
+                :width="30"
+                :height="30"
+                class="hover:text-white"
+              />
+              <button
+                @click="addAgent"
+                class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
+              >
+                Add Agent
+              </button>
+            </li>
+            <li class="flex">
+              <mdicon
+                name="TableEdit"
+                :width="30"
+                :height="30"
+                class="hover:text-white"
+              />
+              <button
+                @click="agentTable"
+                class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
+              >
+                Agent Table
+              </button>
+            </li>
+            <li class="flex">
+              <mdicon
+                name="ClipboardListOutline"
+                :width="30"
+                :height="30"
+                class="hover:text-white"
+              />
+              <button
+                @click="blogListing"
+                class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
+              >
+                Blog Listing
+              </button>
+            </li>
+            <li class="flex">
+              <mdicon
+                name="TableAccount"
+                :width="30"
+                :height="30"
+                class="hover:text-white"
+              />
+              <button
+                @click="blogTable"
+                class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
+              >
+                Blog Table
+              </button>
+            </li>
+            <li class="flex">
+              <mdicon
+                name="LoginVariant"
+                :width="30"
+                :height="30"
+                class="hover:text-white"
+              />
+              <button
+                @click="logout"
+                class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
+              >
+                Logout Account
+              </button>
             </li>
           </ul>
         </aside>
         <div
-          class="custom-sm:w-[90%] custom-sm:h-[750px] md:w-[80%] mx-auto lg:w-[80%] md:h-[750px] md:mt-[10%] lg:mt-[5%]"
+          class="custom-sm:w-[90%] custom-sm:h-[750px] md:w-[90%] mx-auto lg:w-[80%] md:h-[750px] md:mt-[5%] lg:mt-[1%]"
         >
           <div
-            class="custom-sm:w-[100%] md:w-[90%] mt-[5%] border-2 rounded-lg px-5 py-5 bg-white mx-auto"
+            class="custom-sm:w-[100%] md:w-[100%] lg:w-[90%] mt-[5%] border-2 rounded-lg px-5 py-5 bg-white mx-auto"
           >
             <div class="flex justify-start items-center">
               <mdicon
@@ -216,13 +223,17 @@
             </div>
           </div>
 
-          <div class="rounded-lg mx-auto lg:w-[100%]">
+          <div
+            class="rounded-lg mx-auto lg:w-[100%] lg:h-[450px] custom-sm:w-[100%] custom-sm:h-[330px] md:h-[500px] md:w-[100%] lg:mt-20 md:mt-20 custom-sm:mt-10"
+          >
             <div
-              class="relative overflow-x-auto my-[5%] lg:w-[90%] lg:mx-auto lg:my-[8%] md:w-[90%] md:my-[5%] mx-auto rounded-lg custom-sm:mt-[8%]"
+              class="relative overflow-x-auto my-[5%] lg:w-[90%] lg:h-[100%] lg:mx-auto lg:my-[8%] custom-sm:w-[100%] custom-sm:h-[110%] md:w-[100%] md:h-[100%] md:my-[0%] mx-auto rounded-lg custom-sm:mt-[8%]"
             >
               <table class="text-left rtl:text-right">
-                <thead class="text-[8.5px] uppercase bg-gray-200">
-                  <tr class="text-xs">
+                <thead
+                  class="text-[8.5px] uppercase bg-gray-200 sticky top-0 z-10"
+                >
+                  <tr class="lg:text-lg md:text-sm">
                     <th scope="col" class="py-3"></th>
                     <th scope="col" class="px-6 py-3">Images</th>
                     <th scope="col" class="px-12 py-3">Agent Name</th>
@@ -234,12 +245,13 @@
                 </thead>
                 <tbody class="font-semibold text-sm">
                   <tr
-                  v-for="(blog, index) in allBlogs"
-                  :key="index" 
-                  :broker="blog.broker"
-                  :name="blog.name"
-                  :developer="blog.developer"
-                  class="bg-white border-2">
+                    v-for="(blog, index) in allBlogs"
+                    :key="index"
+                    :broker="blog.broker"
+                    :name="blog.name"
+                    :developer="blog.developer"
+                    class="bg-white border-2"
+                  >
                     <th
                       scope="row"
                       class="px-2 py-6 font-medium text-gray-900 whitespace-nowrap flex justify-center items-center"
@@ -259,17 +271,16 @@
                         src="src/assets/images/Youtube-Images/image1.png"
                       />
                     </td>
-                    <td class="px-6">{{blog.broker}}</td>
-                    <td class="px-6">{{blog.name}}</td>
+                    <td class="px-6">{{ blog.broker }}</td>
+                    <td class="px-6">{{ blog.name }}</td>
 
-                    <td class="px-6 py-4">{{blog.developer}}</td>
+                    <td class="px-6 py-4">{{ blog.developer }}</td>
                     <td
                       class="px-6 py-4 text-blue-600 font bold cursor-pointer"
                     >
                       Edit
                     </td>
                   </tr>
-
                 </tbody>
               </table>
             </div>
@@ -278,80 +289,74 @@
       </div>
     </div>
   </div>
-
 </template>
 <script setup>
 import SideBarAdminNew from "../AdminSidePages/SideBarAdminNew.vue";
-import { ref ,onMounted} from "vue";
+import { ref, onMounted } from "vue";
 
-onMounted(()=>{
-  allBlog()
+onMounted(() => {
+  allBlog();
 });
 defineProps({
-  propertyListing:Function,
-  propertyTable:Function,
-  addAgent:Function,
-  agentTable:Function,
-  blogListing:Function,
-  blogTable:Function,
-  logout:Function,
+  propertyListing: Function,
+  propertyTable: Function,
+  addAgent: Function,
+  agentTable: Function,
+  blogListing: Function,
+  blogTable: Function,
+  logout: Function,
 });
 
 const allBlogs = ref([]);
 
-const allBlog = async()=>{
-  const blogs = await getBlogs();// all blogs
-  for(var i=0 ; i < blogs.length;i++){
-
-
+const allBlog = async () => {
+  const blogs = await getBlogs(); // all blogs
+  for (var i = 0; i < blogs.length; i++) {
     const blogID = blogs[i].blog_id;
     const blog = await getBlog(blogID);
-    const image = await getBlogImage(blogID)
+    const image = await getBlogImage(blogID);
 
     allBlogs.value.push({
-      id:blogID,
+      id: blogID,
       thumbnail: await convertBlob(image),
       name: blog.name,
       developer: blog.developer,
-      broker: blog.broker
+      broker: blog.broker,
     });
   }
-}
+};
 
-const getBlogs = async() =>{
-  const response = await fetch('http://localhost:8080/getBlogs');
+const getBlogs = async () => {
+  const response = await fetch("http://localhost:8080/getBlogs");
   const data = await response.json();
   return data;
-}
+};
 
-const getBlog = async(id) =>{
+const getBlog = async (id) => {
   const response = await fetch(`http://localhost:8080/getBlogByID/${id}`);
   const data = await response.json();
   return data[0];
-}
+};
 
-const getBlogImage = async(id) =>{
+const getBlogImage = async (id) => {
   const response = await fetch(`http://localhost:8080/getBlogImageByID/${id}`);
   const data = await response.json();
   return data[0].thumbnail.data;
-}
+};
 
-
-const convertBlob = (image) =>{
-  return new Promise((resolve,reject)=>{
-    if(image){
-    const blob = new Blob([new Uint8Array(image)], { type: 'image/jpeg' }); 
-    const reader = new FileReader();
-    reader.readAsDataURL(blob);
-        reader.onloadend = () => {
-          const dataURL = reader.result;
-          resolve (dataURL);
-        }
+const convertBlob = (image) => {
+  return new Promise((resolve, reject) => {
+    if (image) {
+      const blob = new Blob([new Uint8Array(image)], { type: "image/jpeg" });
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
+      reader.onloadend = () => {
+        const dataURL = reader.result;
+        resolve(dataURL);
+      };
     }
   });
-}
-
-
+};
 
 const active = ref(0);
 const isSidebarVisible = ref(false);
