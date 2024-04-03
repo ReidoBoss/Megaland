@@ -249,7 +249,6 @@ const get6Properties = async () => {
         property_local_area: propertyAddress[0].local_area,
         property_city: propertyAddress[0].city,
 
-<<<<<<< Updated upstream
       property_price: propertyData[0].property_price,
       property_category: propertyData[0].category,
       property_type: propertyData[0].property_type.toUpperCase(),
@@ -267,16 +266,6 @@ const get6Properties = async () => {
       property_shopping: propertyLandmark[0].shopping ? 1 : 0,
       property_universities: propertyLandmark[0].universities ? 1 : 0,
     });
-=======
-        property_airport: propertyLandmark[0].airport ? 1 : 0,
-        property_busstand: propertyLandmark[0].bus_stand ? 1 : 0,
-        property_hospital: propertyLandmark[0].hospital ? 1 : 0,
-        property_patroltank: propertyLandmark[0].patroltank ? 1 : 0,
-        property_railway: propertyLandmark[0].railway ? 1 : 0,
-        property_shopping: propertyLandmark[0].shopping ? 1 : 0,
-        property_universities: propertyLandmark[0].universities ? 1 : 0,
-      });
->>>>>>> Stashed changes
 
       if (i + 1 == 6) {
         break;
