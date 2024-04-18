@@ -126,7 +126,7 @@ onMounted(()=>{
 //START OF AGENT FETCH
 const agents = ref([]);//array of agents
 const getAgents = async () =>{
-  const response = await fetch('http://localhost:8080/getAgents');
+  const response = await fetch('https://backend-n4gs.onrender.com//getAgents');
   const data = await response.json();
 
   
@@ -144,7 +144,7 @@ const getAgents = async () =>{
   }
 }
 const getAgentImageByID = async(id)=>{
-  const response = await fetch(`http://localhost:8080/getAgentByID/${id}`);
+  const response = await fetch(`https://backend-n4gs.onrender.com//getAgentByID/${id}`);
   const data = await response.json();
 
   return data[0].profile_picture.data;

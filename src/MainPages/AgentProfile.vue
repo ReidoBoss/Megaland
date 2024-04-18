@@ -151,7 +151,7 @@ const city = ref();
 const country = ref();
 
 const getAgent = async ()=> {
-  const response = await fetch(`http://localhost:8080/getAgentByID/${id}`);
+  const response = await fetch(`https://backend-n4gs.onrender.com//getAgentByID/${id}`);
   const data = await response.json();
 
   image.value = await convertBlob(data[0].profile_picture.data);

@@ -171,11 +171,11 @@ const getProperties = async (index,loopCount) =>{
   properties.value= [];
   
 
-  const response = await fetch("http://localhost:8080/getAllPropertyID");
+  const response = await fetch("https://backend-n4gs.onrender.com//getAllPropertyID");
   const data = await response.json();
   for (var i = index; i < index + loopCount; i++) {
     try {
-      const response = await fetch ('http://localhost:8080/getAllPropertyID');
+      const response = await fetch ('https://backend-n4gs.onrender.com//getAllPropertyID');
       const data = await response.json();
 
       var id = data[i].property_id;
@@ -216,7 +216,7 @@ const getProperties = async (index,loopCount) =>{
 
 const general_data = async (i) => {
   try {
-    const response = await fetch(`http://localhost:8080/getGeneralData/${i}`);
+    const response = await fetch(`https://backend-n4gs.onrender.com//getGeneralData/${i}`);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -225,7 +225,7 @@ const general_data = async (i) => {
 };
 const property_image = async (i) => {
   try {
-    const response = await fetch(`http://localhost:8080/getPropertyImage/${i}`);
+    const response = await fetch(`https://backend-n4gs.onrender.com//getPropertyImage/${i}`);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -234,7 +234,7 @@ const property_image = async (i) => {
 };
 const property_data = async (i) => {
   try {
-    const response = await fetch(`http://localhost:8080/getPropertyData/${i}`);
+    const response = await fetch(`https://backend-n4gs.onrender.com//getPropertyData/${i}`);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -244,7 +244,7 @@ const property_data = async (i) => {
 const property_address = async (i) => {
   try {
     const response = await fetch(
-      `http://localhost:8080/getPropertyAddress/${i}`
+      `https://backend-n4gs.onrender.com//getPropertyAddress/${i}`
     );
     const data = await response.json();
     return data;
@@ -256,7 +256,7 @@ const property_address = async (i) => {
 const property_landmark = async (i) => {
   try {
     const response = await fetch(
-      `http://localhost:8080/getPropertyLandMark/${i}`
+      `https://backend-n4gs.onrender.com//getPropertyLandMark/${i}`
     );
     const data = await response.json();
     return data;
@@ -287,7 +287,7 @@ const totalPage = ref(0);
 const pages = ref([]);
 
 const getPostCount = async () => {
-  const response = await fetch(`http://localhost:8080/getAllPropertyID`);
+  const response = await fetch(`https://backend-n4gs.onrender.com//getAllPropertyID`);
   const data = await response.json();
 
   totalPage.value = Math.ceil(data.length / 9);
@@ -301,7 +301,7 @@ const getPostCount = async () => {
 const totalPostVal = ref();
 const totalPost = async () => {
   totalPostVal.value = 0;
-  const response = await fetch(`http://localhost:8080/getAllPropertyID`);
+  const response = await fetch(`https://backend-n4gs.onrender.com//getAllPropertyID`);
   const data = await response.json();
   for (var i = 0; i < data.length; i++) {
     totalPostVal.value++;

@@ -273,26 +273,26 @@ const recommendedBlogs = async () => {
 };
 
 const getBlogs = async () => {
-  const response = await fetch("http://localhost:8080/getBlogs");
+  const response = await fetch("https://backend-n4gs.onrender.com//getBlogs");
   const data = await response.json();
   return data;
 };
 
 const getBlog = async (id) => {
-  const response = await fetch(`http://localhost:8080/getBlogByID/${id}`);
+  const response = await fetch(`https://backend-n4gs.onrender.com//getBlogByID/${id}`);
   const data = await response.json();
   return data[0];
 };
 
 const getBlogImage = async (id) => {
-  const response = await fetch(`http://localhost:8080/getBlogImageByID/${id}`);
+  const response = await fetch(`https://backend-n4gs.onrender.com//getBlogImageByID/${id}`);
   const data = await response.json();
   return data[0].thumbnail.data;
 };
 
 const getAmenities = async (id) => {
   const response = await fetch(
-    `http://localhost:8080/getAmenitiesByBlogID/${id}`
+    `https://backend-n4gs.onrender.com//getAmenitiesByBlogID/${id}`
   );
   const data = await response.json();
   return data[0];
@@ -300,7 +300,7 @@ const getAmenities = async (id) => {
 
 const getHighlights = async (id) => {
   const response = await fetch(
-    `http://localhost:8080/getHighlightsByBlogID/${id}`
+    `https://backend-n4gs.onrender.com//getHighlightsByBlogID/${id}`
   );
   const data = await response.json();
   return data[0];
@@ -308,7 +308,7 @@ const getHighlights = async (id) => {
 
 const getLandmarks = async (id) => {
   const response = await fetch(
-    `http://localhost:8080/getLandmarksByBlogID/${id}`
+    `https://backend-n4gs.onrender.com//getLandmarksByBlogID/${id}`
   );
   const data = await response.json();
   return data[0];
