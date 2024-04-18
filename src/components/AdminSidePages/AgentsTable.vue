@@ -56,10 +56,11 @@
                   class="hover:text-white"
                 />
                 <button
-                @click="propertyListing"
+                  @click="propertyListing"
                   class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                  >Property Listing</button
                 >
+                  Property Listing
+                </button>
               </li>
               <li class="flex">
                 <mdicon
@@ -69,10 +70,11 @@
                   class="hover:text-white"
                 />
                 <button
-                @click="propertyTable"
+                  @click="propertyTable"
                   class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                  >Property Table</button
                 >
+                  Property Table
+                </button>
               </li>
               <li class="flex">
                 <mdicon
@@ -82,10 +84,11 @@
                   class="hover:text-white"
                 />
                 <button
-                @click="addAgent"
+                  @click="addAgent"
                   class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                  >Add Agent</button
                 >
+                  Add Agent
+                </button>
               </li>
               <li class="flex">
                 <mdicon
@@ -95,10 +98,11 @@
                   class="hover:text-white"
                 />
                 <button
-                @click="agentTable"
+                  @click="agentTable"
                   class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                  >Agent Table</button
                 >
+                  Agent Table
+                </button>
               </li>
               <li class="flex">
                 <mdicon
@@ -108,10 +112,11 @@
                   class="hover:text-white"
                 />
                 <button
-                @click="blogListing"
+                  @click="blogListing"
                   class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                  >Blog Listing</button
                 >
+                  Blog Listing
+                </button>
               </li>
               <li class="flex">
                 <mdicon
@@ -121,10 +126,11 @@
                   class="hover:text-white"
                 />
                 <button
-                @click="blogTable"
+                  @click="blogTable"
                   class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                  >Blog Table</button
                 >
+                  Blog Table
+                </button>
               </li>
               <li class="flex">
                 <mdicon
@@ -134,10 +140,11 @@
                   class="hover:text-white"
                 />
                 <button
-                @click="logout"
+                  @click="logout"
                   class="hover-underline text-white font-poppins font-bold custom-sm:mt-1 sm:mt-1 sm:ml-4 custom-sm:ml-4"
-                  >Logout Account</button
                 >
+                  Logout Account
+                </button>
               </li>
             </ul>
           </aside>
@@ -235,14 +242,15 @@
                     </tr>
                   </thead>
                   <tbody class="font-semibold text-sm">
-                    <tr 
-                    v-for="(agent, index) in agents"
-                    :key="index"
-                    :name="agent.name"
-                    :image="agent.image"
-                    :email="agent.email"
-                    :contact_number="agent.contact_number"
-                    class="bg-white border-b">
+                    <tr
+                      v-for="(agent, index) in agents"
+                      :key="index"
+                      :name="agent.name"
+                      :image="agent.image"
+                      :email="agent.email"
+                      :contact_number="agent.contact_number"
+                      class="bg-white border-b"
+                    >
                       <th
                         scope="row"
                         class="px-2 py-6 font-medium text-gray-900 whitespace-nowrap flex justify-center items-center"
@@ -264,18 +272,16 @@
                           :src="agent.image"
                         />
                       </td>
-                      <td class="px-6">{{agent.name}}</td>
+                      <td class="px-6">{{ agent.name }}</td>
 
-                      <td class="px-6 py-4">{{agent.contact_number}}</td>
-                      <td class="px-6 py-4">{{agent.email}}</td>
+                      <td class="px-6 py-4">{{ agent.contact_number }}</td>
+                      <td class="px-6 py-4">{{ agent.email }}</td>
                       <td
                         class="px-6 py-4 text-blue-600 font bold cursor-pointer"
                       >
                         Edit
                       </td>
                     </tr>
-
-                   
                   </tbody>
                 </table>
               </div>
@@ -285,55 +291,48 @@
       </div>
     </div>
   </div>
-
 </template>
 <script setup>
 import SideBarAdminNew from "../AdminSidePages/SideBarAdminNew.vue";
-import { ref ,onMounted} from "vue";
+import { ref, onMounted } from "vue";
 defineProps({
-  propertyListing:Function,
-  propertyTable:Function,
-  addAgent:Function,
-  agentTable:Function,
-  blogListing:Function,
-  blogTable:Function,
-  logout:Function,
+  propertyListing: Function,
+  propertyTable: Function,
+  addAgent: Function,
+  agentTable: Function,
+  blogListing: Function,
+  blogTable: Function,
+  logout: Function,
 });
 
-onMounted(()=>{
+onMounted(() => {
   getAgents();
 });
 
-
-const agents = ref([]);//array of agents
-const getAgents = async () =>{
-  const response = await fetch('https://megaland-backend.vercel.app/getAgents');
+const agents = ref([]); //array of agents
+const getAgents = async () => {
+  const response = await fetch("https://megaland-backend.vercel.app/getAgents");
   const data = await response.json();
 
-  
-
-  for(var i= 0 ; i < data.length ; i ++){
+  for (var i = 0; i < data.length; i++) {
     var image = await getAgentImageByID(data[i].agent_id);
     agents.value.push({
       id: data[i].agent_id,
       image: await convertBlob(image),
       name: data[i].agent_name,
-      email:data[i].email,
-      contact_number: data[i].contact_number
+      email: data[i].email,
+      contact_number: data[i].contact_number,
     });
   }
-
-}
-const getAgentImageByID = async(id)=>{
-  const response = await fetch(`https://megaland-backend.vercel.app/getAgentByID/${id}`);
+};
+const getAgentImageByID = async (id) => {
+  const response = await fetch(
+    `https://megaland-backend.vercel.app/getAgentByID/${id}`
+  );
   const data = await response.json();
 
   return data[0].profile_picture.data;
-}
-
-
-
-
+};
 
 const active = ref(0);
 const isSidebarVisible = ref(false);
@@ -341,23 +340,17 @@ const toggleSidebar = () => {
   isSidebarVisible.value = !isSidebarVisible.value;
 };
 
-const convertBlob = (image) =>{
-
-return new Promise((resolve,reject)=>{
-  if(image){
-  const blob = new Blob([new Uint8Array(image)], { type: 'image/jpeg' }); 
-  const reader = new FileReader();
-  reader.readAsDataURL(blob);
+const convertBlob = (image) => {
+  return new Promise((resolve, reject) => {
+    if (image) {
+      const blob = new Blob([new Uint8Array(image)], { type: "image/jpeg" });
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
       reader.onloadend = () => {
         const dataURL = reader.result;
-        resolve (dataURL);
-      }
-  }
-});
-}
-
-
-
-
-
+        resolve(dataURL);
+      };
+    }
+  });
+};
 </script>

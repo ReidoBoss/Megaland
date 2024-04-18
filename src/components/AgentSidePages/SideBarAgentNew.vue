@@ -120,7 +120,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref, defineProps } from "vue";
 import { register } from "swiper/element/bundle";
 

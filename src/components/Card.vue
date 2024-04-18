@@ -31,14 +31,13 @@
   </div>
 </template>
 
-<script setup lang="ts">
-interface ProductType {
+<script setup>
+// interface ProductType {
 
 defineProps({
   name: String,
   title: String,
   img: String,
-  desc: String
-})
-
+  desc: String,
+});
 </script>

@@ -18,7 +18,7 @@
           {{ header }}
         </h5>
       </a>
-      <p class="mb-3 font-normal text-gray-700">
+      <p class="mb-3 font-normal text-gray-700 custom-sm:text-justify">
         {{ desc }}
       </p>
     </div>
@@ -26,11 +26,9 @@
 </template>
 
 <script setup>
-
 defineProps({
   header: String,
   desc: String,
-  imgSrc : String,
-})
-
+  imgSrc: String,
+});
 </script>

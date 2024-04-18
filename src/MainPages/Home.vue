@@ -126,11 +126,10 @@
     <div
       class="flex flex-wrap mt-2 h-full md:mx-auto md:w-[100%] lg:w-[84%] custom-sm:gap-3 custom-sm:mx-auto gap-y-9 md:gap-y-9 md:gap-5 justify-evenly"
     >
-    <Loading
-    v-if="properties.length === 0"
-    />
-    
-      <Products v-else
+      <Loading v-if="properties.length === 0" />
+
+      <Products
+        v-else
         class=""
         v-for="(property, index) in properties"
         :property_id="property.property_id"
@@ -157,7 +156,7 @@
     </div>
   </div>
   <!--Agents Carousel-->
-  <div class="p-8 relative">
+  <div class="relative mb-10">
     <h1
       class="mt-10 mb-2 font-black custom-sm:text-xl sm:text-2xl md:text-3.5xl lg:text-4xl flex justify-center items-center"
     >
@@ -177,7 +176,7 @@
       coverflow-effect-slide-shadows="false"
       :autoplay="true"
       disableOnInteraction="false"
-      class="w-full flex p-[50px]"
+      class="w-full flex lg:p-[50px] md:p-[50px] custom-sm:p-[0px]"
     >
       <swiper-slide
         v-for="(agent, index) in agents"
@@ -222,7 +221,9 @@ const properties = ref([]);
 
 // START OF PROPERTIES FETCH
 const get6Properties = async () => {
-  const response = await fetch("https://megaland-backend.vercel.app/getAllPropertyID");
+  const response = await fetch(
+    "https://megaland-backend.vercel.app/getAllPropertyID"
+  );
   const data = await response.json();
 
   for (var i = 0; i < data.length; i++) {
@@ -249,23 +250,23 @@ const get6Properties = async () => {
         property_local_area: propertyAddress[0].local_area,
         property_city: propertyAddress[0].city,
 
-      property_price: propertyData[0].property_price,
-      property_category: propertyData[0].category,
-      property_type: propertyData[0].property_type.toUpperCase(),
-      property_area: propertyAddress[0].property_area,
-      property_bedroom: propertyAddress[0].bedroom,
-      property_bathroom: propertyAddress[0].bathroom,
-      property_local_area: propertyAddress[0].local_area,
-      property_city: propertyAddress[0].city,
-      
-      property_airport: propertyLandmark[0].airport ? 1 : 0,
-      property_busstand: propertyLandmark[0].bus_stand ? 1 : 0,
-      property_hospital: propertyLandmark[0].hospital ? 1 : 0,
-      property_patroltank: propertyLandmark[0].patroltank ? 1 : 0,
-      property_railway: propertyLandmark[0].railway ? 1 : 0,
-      property_shopping: propertyLandmark[0].shopping ? 1 : 0,
-      property_universities: propertyLandmark[0].universities ? 1 : 0,
-    });
+        property_price: propertyData[0].property_price,
+        property_category: propertyData[0].category,
+        property_type: propertyData[0].property_type.toUpperCase(),
+        property_area: propertyAddress[0].property_area,
+        property_bedroom: propertyAddress[0].bedroom,
+        property_bathroom: propertyAddress[0].bathroom,
+        property_local_area: propertyAddress[0].local_area,
+        property_city: propertyAddress[0].city,
+
+        property_airport: propertyLandmark[0].airport ? 1 : 0,
+        property_busstand: propertyLandmark[0].bus_stand ? 1 : 0,
+        property_hospital: propertyLandmark[0].hospital ? 1 : 0,
+        property_patroltank: propertyLandmark[0].patroltank ? 1 : 0,
+        property_railway: propertyLandmark[0].railway ? 1 : 0,
+        property_shopping: propertyLandmark[0].shopping ? 1 : 0,
+        property_universities: propertyLandmark[0].universities ? 1 : 0,
+      });
 
       if (i + 1 == 6) {
         break;
@@ -278,7 +279,9 @@ const get6Properties = async () => {
 
 const general_data = async (i) => {
   try {
-    const response = await fetch(`https://megaland-backend.vercel.app/getGeneralData/${i}`);
+    const response = await fetch(
+      `https://megaland-backend.vercel.app/getGeneralData/${i}`
+    );
     const data = await response.json();
     return data;
   } catch (error) {
@@ -287,7 +290,9 @@ const general_data = async (i) => {
 };
 const property_image = async (i) => {
   try {
-    const response = await fetch(`https://megaland-backend.vercel.app/getPropertyImage/${i}`);
+    const response = await fetch(
+      `https://megaland-backend.vercel.app/getPropertyImage/${i}`
+    );
     const data = await response.json();
     return data;
   } catch (error) {
@@ -296,7 +301,9 @@ const property_image = async (i) => {
 };
 const property_data = async (i) => {
   try {
-    const response = await fetch(`https://megaland-backend.vercel.app/getPropertyData/${i}`);
+    const response = await fetch(
+      `https://megaland-backend.vercel.app/getPropertyData/${i}`
+    );
     const data = await response.json();
     return data;
   } catch (error) {
@@ -344,7 +351,9 @@ const getAgents = async () => {
   }
 };
 const getAgentImageByID = async (id) => {
-  const response = await fetch(`https://megaland-backend.vercel.app/getAgentByID/${id}`);
+  const response = await fetch(
+    `https://megaland-backend.vercel.app/getAgentByID/${id}`
+  );
   const data = await response.json();
 
   return data[0].profile_picture.data;
