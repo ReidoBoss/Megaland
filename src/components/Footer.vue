@@ -136,7 +136,7 @@
   </GalleryModal>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import { ref } from "vue";
 import GalleryModal from "./GalleryModal.vue";
 

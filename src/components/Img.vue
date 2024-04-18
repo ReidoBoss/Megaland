@@ -4,16 +4,16 @@
   >
     <div class="h-full w-full">
       <div class="rounded-2xl overflow-hidden relative h-full w-full">
-        <img :src="img" class="h-auto rounded-lg object-fill" />
+        <img :src="img" class="h-auto rounded-lg object-cover" />
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup>
-interface ProductType {
-  img: string;
-}
+<script setup>
 
-defineProps<ProductType>();
+defineProps({
+img: String
+});
+
 </script>

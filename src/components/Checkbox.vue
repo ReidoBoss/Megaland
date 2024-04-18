@@ -5,12 +5,13 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 
 
-interface ProductType {
-  amenities: string;
-}
 
-defineProps<ProductType>();
+defineProps({
+  amenities: String
+
+});
+
 </script>

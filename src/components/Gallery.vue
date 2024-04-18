@@ -19,7 +19,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script  setup>
 import Img from "../components/Img.vue";
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
@@ -41,7 +41,7 @@ const importImages = async () => {
   return [gal1.default, gal2.default, gal3.default];
 };
 
-const images = ref<string[]>([]);
+const images = ref([]);
 
 onMounted(async () => {
   window.addEventListener("resize", updateWindowWidth);
@@ -52,7 +52,7 @@ watch(windowWidth, resp);
 window.removeEventListener("resize", updateWindowWidth);
 window.addEventListener("resize", updateWindowWidth);
 resp(window.innerWidth);
-function resp(newWidth: number) {
+function resp(newWidth) {
   if (newWidth < 640) {
     carouselItemsToShow.value = 1;
   } else if (newWidth < 768) {

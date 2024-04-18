@@ -3,7 +3,7 @@
     class="w-full custom-sm:h-[230px] sm:h-[250px] md:h-[350px] lg:h-[550px] bg-slate-400 -z-10 cursor-pointer"
   >
     <swiper-container
-      class="w-full"
+      class="w-full custom-sm:h-[280px]"
       :cssMode="true"
       loop="true"
       :centeredSlides="true"
@@ -126,10 +126,11 @@
     <div
       class="flex flex-wrap mt-2 h-full md:mx-auto md:w-[100%] lg:w-[84%] custom-sm:gap-3 custom-sm:mx-auto gap-y-9 md:gap-y-9 md:gap-5 justify-evenly"
     >
-      <Loading v-if="properties.length === 0" />
-
-      <Products
-        v-else
+    <Loading
+    v-if="properties.length === 0"
+    />
+    
+      <Products v-else
         class=""
         v-for="(property, index) in properties"
         :property_id="property.property_id"
@@ -176,7 +177,7 @@
       coverflow-effect-slide-shadows="false"
       :autoplay="true"
       disableOnInteraction="false"
-      class="w-full flex lg:p-[50px] md:p-[50px] custom-sm:p-[0px]"
+      class="w-full flex p-[50px]"
     >
       <swiper-slide
         v-for="(agent, index) in agents"
@@ -248,23 +249,23 @@ const get6Properties = async () => {
         property_local_area: propertyAddress[0].local_area,
         property_city: propertyAddress[0].city,
 
-        property_price: propertyData[0].property_price,
-        property_category: propertyData[0].category,
-        property_type: propertyData[0].property_type.toUpperCase(),
-        property_area: propertyAddress[0].property_area,
-        property_bedroom: propertyAddress[0].bedroom,
-        property_bathroom: propertyAddress[0].bathroom,
-        property_local_area: propertyAddress[0].local_area,
-        property_city: propertyAddress[0].city,
-
-        property_airport: propertyLandmark[0].airport ? 1 : 0,
-        property_busstand: propertyLandmark[0].bus_stand ? 1 : 0,
-        property_hospital: propertyLandmark[0].hospital ? 1 : 0,
-        property_patroltank: propertyLandmark[0].patroltank ? 1 : 0,
-        property_railway: propertyLandmark[0].railway ? 1 : 0,
-        property_shopping: propertyLandmark[0].shopping ? 1 : 0,
-        property_universities: propertyLandmark[0].universities ? 1 : 0,
-      });
+      property_price: propertyData[0].property_price,
+      property_category: propertyData[0].category,
+      property_type: propertyData[0].property_type.toUpperCase(),
+      property_area: propertyAddress[0].property_area,
+      property_bedroom: propertyAddress[0].bedroom,
+      property_bathroom: propertyAddress[0].bathroom,
+      property_local_area: propertyAddress[0].local_area,
+      property_city: propertyAddress[0].city,
+      
+      property_airport: propertyLandmark[0].airport ? 1 : 0,
+      property_busstand: propertyLandmark[0].bus_stand ? 1 : 0,
+      property_hospital: propertyLandmark[0].hospital ? 1 : 0,
+      property_patroltank: propertyLandmark[0].patroltank ? 1 : 0,
+      property_railway: propertyLandmark[0].railway ? 1 : 0,
+      property_shopping: propertyLandmark[0].shopping ? 1 : 0,
+      property_universities: propertyLandmark[0].universities ? 1 : 0,
+    });
 
       if (i + 1 == 6) {
         break;

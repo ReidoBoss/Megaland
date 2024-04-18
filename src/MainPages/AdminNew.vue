@@ -79,7 +79,9 @@
   />
   
   <!-- THIS CHECKS AUTHENTICATION -->
-  <AuthChecker/>
+  <AuthChecker
+  currentUser="admin"
+  />
   </template>
   <script setup>
   

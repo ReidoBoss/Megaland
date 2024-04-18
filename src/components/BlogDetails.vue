@@ -42,7 +42,7 @@
             <div class="whitespace-break-spaces font-poppins">
               <strong>Landmarks:</strong>
               <div v-for="(landmark, index) in landmarks" :key="index">
-                <div v-if="!landmark == ''">⭐{{ landmark }}</div>
+                <div v-if="!landmark == ''">✔️{{ landmark }}</div>
               </div>
               <br /><br />
             </div>
@@ -50,7 +50,7 @@
             <div class="whitespace-break-spaces font-poppins">
               <strong>Highlight:</strong>
               <div v-for="(highlight, index) in highlights" :key="index">
-                <div v-if="!highlight == ''">⭐{{ highlight }}</div>
+                <div v-if="!highlight == ''">📍{{ highlight }}</div>
               </div>
               <br /><br />
             </div>

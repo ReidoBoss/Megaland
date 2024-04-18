@@ -10,7 +10,7 @@
           class="flex mx-auto items-center justify-center custom-sm:items-center custom-sm:justify-center custom-sm:flex"
         >
           <img
-            src="src/assets/mgLogo.png"
+            src="https://megalandrealty.com/image/catalog/272111904_3101243066800988_6003452442657631422_n.jpg"
             class="lg:h-30 lg:w-50 md:h-20 md:w-35 custom-sm:w-[30%] custom-sm:h-[20%]"
             alt="megaland"
           />
@@ -282,22 +282,25 @@
       </Transition>
     </div>
   </div>
-  
+  <AuthChecker
+  currentUser="agent"
+  />
 </template>
-<script lang="ts" setup>
-import { onMounted } from "vue";
-
-import { initFlowbite } from "flowbite";
-onMounted(() => {
-  initFlowbite();
-});
-import { ref } from "vue";
-
+<script setup>
+import AuthChecker from "../components/AuthChecker.vue";
 import EditAgent from "../components/AgentSidePages/EditAgent.vue";
 import ViewAgent from "../components/AgentSidePages/ViewAgent.vue";
 import AgentNewAddProperty from "../components/AgentSidePages/AgentNewAddProperty.vue";
 import AgentNewChangePassword from "../components/AgentSidePages/AgentNewChangePassword.vue";
 import AgentNewSignOut from "../components/AgentSidePages/AgentNewSignOut.vue";
 import AgentNewManageProperty from "../components/AgentSidePages/AgentNewManageProperty.vue";
+import { onMounted,ref } from "vue";
+import { initFlowbite } from "flowbite";
+
+onMounted(() => {
+  initFlowbite();
+});
 const currentTab = ref(0);
+
+
 </script>

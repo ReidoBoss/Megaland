@@ -33,11 +33,12 @@
 
 <script setup lang="ts">
 interface ProductType {
-  name: string;
-  title: string;
-  img: string;
-  desc: string;
-}
 
-defineProps<ProductType>();
+defineProps({
+  name: String,
+  title: String,
+  img: String,
+  desc: String
+})
+
 </script>

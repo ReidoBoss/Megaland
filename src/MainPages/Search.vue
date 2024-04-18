@@ -35,86 +35,8 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import { onMounted, ref } from "vue";
 import Products from "../components/Products.vue";
 
-onMounted(() => {
-  fetchAllData();
-  removeAllData();
-});
-var searched = localStorage.getItem("search");
-console.log(searched);
-
-interface Property {
-  id: number;
-  image: string;
-  property_name: string;
-  property_price: number;
-  property_area: number;
-  property_bedroom: number;
-  property_bathroom: number;
-
-  property_airport: boolean;
-  property_busstand: boolean;
-  property_hospital: boolean;
-  property_patroltank: boolean;
-  property_railway: boolean;
-  property_shopping: boolean;
-  property_universities: boolean;
-
-  property_category: string;
-  property_type: string;
-  property_local_area: string;
-  property_city: string;
-}
-
-var propertyData = ref<Property[]>([]);
-
-const findKeywordIndex = (inputString: string, keyword: string) => {
-  // Convert both the input string and the keyword to lowercase for case-insensitive comparison
-  const lowercasedInput = inputString.toLowerCase();
-  const lowercasedKeyword = keyword.toLowerCase();
-
-  // Split the input string into individual words
-  const wordsInInput = lowercasedInput.split(" ");
-
-  // Check if any word in the input string includes the keyword
-  if (wordsInInput.some((word) => word.includes(lowercasedKeyword))) {
-    return 1; // Return 1 if found
-  }
-
-  return -1; // Return -1 if not found
-};
-
-var propertyKeyArray: any = [];
-
-const removeAllData = () => {
-  propertyData.value.splice(0, propertyData.value.length);
-};
-const fetchAllData = () => {
-  fetch("https://backend-n4gs.onrender.com/api/search", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      var lth = Object.keys(data).length;
-      for (var i = 0; i < lth; i++) {
-        const temp = data[i];
-        var bulldog = `${temp.property_area},${temp.property_category},${temp.property_city},${temp.property_local_area},${temp.property_name},${temp.property_price},${temp.property_type}`;
-        propertyKeyArray.push(`${bulldog}`);
-
-        const index = findKeywordIndex(propertyKeyArray[i], searched ?? "");
-        if (index != -1) {
-          propertyData.value.push(data[i]);
-        } else {
-          propertyData.value.splice(i, 1);
-        }
-      }
-    })
-    .catch((error) => console.error("Error:", error));
-};
 </script>

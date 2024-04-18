@@ -33,7 +33,7 @@
   <div class="custom-sm:hidden sm:hidden md:hidden lg:block sticky">
     <div class="flex lg:h-14 sticky top-11 bg-white">
       <div class="flex w-[10%] pl-3">
-        <img src="../assets/mgLogo.jpg" alt="" />
+        <img src="../../assets/mgLogo.png" alt="" />
       </div>
       <div class="flex w-[80%] justify-center items-center gap-1">
         <input
@@ -65,13 +65,13 @@
 import AuthChecker from "../AuthChecker.vue";
 
 import { MagnifyingGlassIcon, UserIcon } from "@heroicons/vue/24/outline";
-import SideBar from "./SideBar.vue";
+import SideBar from "../SideBar.vue";
 const isSidebarVisible = ref(false);
 const toggleSidebar = () => {
   isSidebarVisible.value = !isSidebarVisible.value;
 };
 import { ref } from "vue";
-import router from "../router";
+import router from "../../router/router.js";
 import { useRoute } from "vue-router";
 
 const route = useRoute();

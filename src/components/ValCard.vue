@@ -6,34 +6,31 @@
     <p class="font-normal mr-3 ml-3 text-white text-justify">{{ desc }}</p>
   </div> -->
 
-  <div
-    class="max-w-sm bg-white rounded-lg custom-sm:w-[95%] custom-sm:flex custom-sm:mx-auto md:w-[45%] md:flex md:justify-center"
-  >
-    <div class="py-5 mx-auto">
-      <a href="#">
-        <img class="rounded-t-lg" :src="imgSrc" alt="" />
-      </a>
-
+  <div class="max-w-sm bg-white rounded-lg">
+    <a href="#">
+      <img class="rounded-t-lg" :src="imgSrc" alt="" />
+    </a>
+    <div class="p-5">
       <a href="#">
         <h5
-          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center custom-sm:text-dm font-poppins mt-5"
+          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
         >
           {{ header }}
         </h5>
       </a>
-      <p class="font-normal text-gray-700 text-justify custom-sm:text-sm">
+      <p class="mb-3 font-normal text-gray-700">
         {{ desc }}
       </p>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup>
-interface ProductType {
-  header: string;
-  desc: string;
-  imgSrc: string;
-}
+<script setup>
 
-defineProps<ProductType>();
+defineProps({
+  header: String,
+  desc: String,
+  imgSrc : String,
+})
+
 </script>

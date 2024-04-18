@@ -10,7 +10,7 @@
           class="flex mx-auto items-center justify-center custom-sm:items-center custom-sm:justify-center custom-sm:flex"
         >
           <img
-            src="src/assets/mgLogo.png"
+            src="../../assets/mgLogo.png"
             class="lg:h-20 lg:w-35 md:h-20 md:w-35 custom-sm:w-[30%] custom-sm:h-[20%]"
             alt=""
           />
@@ -290,7 +290,7 @@
                       <label
                         class="block mb-2 text-sm font-medium"
                         for="propertydesc"
-                        >Youtube Iframe:</label
+                        >Google Map Iframe:</label
                       >
                     </div>
                     <div>
@@ -1261,62 +1261,91 @@ const submitProperty = async () => {
 
 const handleFileImage = async (event) => {
   const file = (event.target.files || [])[0];
-  if (file) {
-    const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
-    if (!allowedTypes.includes(file.type)) {
-      console.log("Invalid file type. Please upload an image.");
-      return;
-    }
+  const img = new Image();
+  img.src = URL.createObjectURL(file);
+  img.onload = async () => {
+    const canvas = document.createElement('canvas');
 
-    const resizedImage = await resizeImage(file);
-    main_image.value = resizedImage;
-    console.log("File uploaded:", resizedImage.name);
-  }
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0, img.width, img.height);
+
+    const compressedImageDataUrl = canvas.toDataURL('image/jpeg', 0.7); 
+
+    const compressedImageBlob = await fetch(compressedImageDataUrl).then(res => res.blob());
+
+    main_image.value = compressedImageBlob;
+
+  };
 };
+
+
 
 const handleFileImage1 = async (event) => {
   const file = (event.target.files || [])[0];
-  if (file) {
-    const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
-    if (!allowedTypes.includes(file.type)) {
-      console.log("Invalid file type. Please upload an image.");
-      return;
-    }
+  const img = new Image();
+  img.src = URL.createObjectURL(file);
+  img.onload = async () => {
+    const canvas = document.createElement('canvas');
 
-    const resizedImage = await resizeImage(file);
-    extra1.value = resizedImage;
-    console.log("File uploaded:", resizedImage.name);
-  }
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0, img.width, img.height);
+
+    const compressedImageDataUrl = canvas.toDataURL('image/jpeg', 0.7); 
+
+    const compressedImageBlob = await fetch(compressedImageDataUrl).then(res => res.blob());
+
+    extra1.value = compressedImageBlob;
+
+  };
 };
 
 const handleFileImage2 = async (event) => {
   const file = (event.target.files || [])[0];
-  if (file) {
-    const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
-    if (!allowedTypes.includes(file.type)) {
-      console.log("Invalid file type. Please upload an image.");
-      return;
-    }
+  const img = new Image();
+  img.src = URL.createObjectURL(file);
+  img.onload = async () => {
+    const canvas = document.createElement('canvas');
 
-    const resizedImage = await resizeImage(file);
-    extra2.value = resizedImage;
-    console.log("File uploaded:", resizedImage.name);
-  }
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0, img.width, img.height);
+
+    const compressedImageDataUrl = canvas.toDataURL('image/jpeg', 0.7); 
+
+    const compressedImageBlob = await fetch(compressedImageDataUrl).then(res => res.blob());
+
+    extra2.value = compressedImageBlob;
+
+  };
 };
-
 const handleFileImage3 = async (event) => {
   const file = (event.target.files || [])[0];
-  if (file) {
-    const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
-    if (!allowedTypes.includes(file.type)) {
-      console.log("Invalid file type. Please upload an image.");
-      return;
-    }
+  const img = new Image();
+  img.src = URL.createObjectURL(file);
+  img.onload = async () => {
+    const canvas = document.createElement('canvas');
 
-    const resizedImage = await resizeImage(file);
-    extra3.value = resizedImage;
-    console.log("File uploaded:", resizedImage.name);
-  }
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0, img.width, img.height);
+
+    const compressedImageDataUrl = canvas.toDataURL('image/jpeg', 0.7); 
+
+    const compressedImageBlob = await fetch(compressedImageDataUrl).then(res => res.blob());
+
+    extra3.value = compressedImageBlob;
+
+  };
 };
 
 const resizeImage = (file) => {

@@ -29,7 +29,7 @@
 
     <!-- Sidebar content goes here -->
     <img
-      src="src/assets/mgLogo.jpg"
+      src="../../assets/mgLogo.png"
       class="lg:h-40 lg:w-50 md:h-20 md:w-35 custom-sm:w-[65%] custom-sm:h-[13%] mx-auto my-[10%] rounded-lg"
       alt="megaland"
     />
@@ -126,11 +126,12 @@ import { register } from "swiper/element/bundle";
 
 defineProps(["isVisible", "toggleSidebar"]);
 
-const modalActive = ref(null);
+const modalActive = ref(false);
+
 const toggleModal = () => {
   modalActive.value = !modalActive.value;
 };
-import router from "../router";
+import router from "../../router/router.js";
 import { useRoute } from "vue-router";
 register();
 const route = useRoute();

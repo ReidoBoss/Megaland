@@ -10,7 +10,7 @@
           class="flex mx-auto items-center justify-center custom-sm:items-center custom-sm:justify-center custom-sm:flex"
         >
           <img
-            src="src/assets/mgLogo.png"
+            src="../../assets/mgLogo.png"
             class="lg:h-40 lg:w-50 md:h-20 md:w-35 custom-sm:w-[30%] custom-sm:h-[20%]"
             alt="megaland"
           />
@@ -503,16 +503,9 @@ const submitAgent = async() => {
 
 const handleFileImage = (event) => {
   const file = (event.target.files || [])[0];
-  if (file) {
-    const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
-    if (!allowedTypes.includes(file.type)) {
-      console.log("Invalid file type. Please upload an image.");
-      return;
-    }
 
     image.value = file;
-    console.log("File uploaded:", file.name);
-  }
+  
 };
 
 

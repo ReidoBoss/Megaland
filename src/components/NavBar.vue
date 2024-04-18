@@ -4,7 +4,7 @@
     class="bg-[#E67E23] custom-sm:sticky custom-sm:top-0 sticky top-0 h-14 text-[#fefefe] text-[18px] font-semibold p-2 pt-3 z-10 pr-10"
   >
     <ul
-      class="flex justify-end gap-6 hover: cursor-pointer custom-sm:hidden font-poppins font-bold"
+      class="flex justify-end gap-6 hover:cursor-pointer custom-sm:hidden font-poppins font-bold"
     >
       <li class="">
         <router-link
@@ -44,7 +44,7 @@
     </ul>
     <button
       @click="toggleSidebar"
-      class="hover:underline custom-sm:md sm:text-md lg:hidden ml-2"
+      class="hover-underline custom-sm:md sm:text-md lg:hidden ml-2"
     >
       <mdicon
         name="ReorderHorizontal"
@@ -72,8 +72,8 @@
           placeholder="Search..."
           :value="data.textInputValue"
           @keyup.enter="search"
-          @input="(e: Event) => updateTextInputValue(e as InputEvent)"
-          @blur="typedValue()"
+          @input="updateTextInputValue"
+          @blur="typedValue"
         />
 
         <MagnifyingGlassIcon
@@ -89,11 +89,10 @@
       </div>
     </div>
   </div>
-  <LoginModal :modalActive="modalActive" @close-modal="toggleModal">
-  </LoginModal>
+  <LoginModal :modalActive="modalActive" @close-modal="toggleModal"/>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import { MagnifyingGlassIcon, UserIcon } from "@heroicons/vue/24/outline";
 import SideBar from "./SideBar.vue";
 const isSidebarVisible = ref(false);
@@ -101,7 +100,7 @@ const toggleSidebar = () => {
   isSidebarVisible.value = !isSidebarVisible.value;
 };
 import { ref } from "vue";
-import router from "../router";
+import router from "../router/router.js";
 import { useRoute } from "vue-router";
 import LoginModal from "./LoginModal.vue";
 
@@ -109,14 +108,24 @@ const route = useRoute();
 
 const modalActive = ref(false);
 const toggleModal = () => {
+  checker();
   modalActive.value = !modalActive.value;
 };
+//checks if already logged in
+const checker = () =>{
+  if(localStorage.getItem('currentUser')=='admin'){
+    router.push('/adminNew')
+    }
+    else if(localStorage.getItem('currentUser')=='agent'){
+      router.push('/agentNew')
+  }
+}
 
 const data = ref({
   textInputValue: "",
 });
-const updateTextInputValue = (event: InputEvent) => {
-  const inputElement = event.target as HTMLInputElement;
+const updateTextInputValue = (event) => {
+  const inputElement = event.target;
   data.value.textInputValue = inputElement.value;
 };
 

@@ -22,13 +22,13 @@
     </div>
   </div>
 </template>
-<script lang="ts" setup>
-interface PropertiesDescriptions {
-  quote: string;
-  add: string;
-  properties: string;
-}
-defineProps<PropertiesDescriptions>();
+<script setup>
+
+defineProps({
+quote: String,
+add: String,
+properties: String,
+});
 </script>
 
 <style scoped>

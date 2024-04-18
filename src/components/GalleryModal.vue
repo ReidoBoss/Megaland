@@ -75,14 +75,12 @@
   </Transition>
 </template>
 
-<script lang="ts" setup>
+<script  setup>
 defineEmits(["close-modal"]);
 defineProps({
-  modalActive: {
-    type: Boolean,
-    default: false,
-  },
-});
+  modalActive: Boolean
+})
+
 </script>
 
 <style scoped>

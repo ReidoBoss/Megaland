@@ -65,12 +65,13 @@
     </div>
   </div>
 </template>
-<script lang="ts" setup>
-interface ContactInfo {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-}
-defineProps<ContactInfo>();
+<script setup>
+
+defineProps({
+  name: String,
+  email: String,
+  phone: String,
+  message: String,
+
+});
 </script>

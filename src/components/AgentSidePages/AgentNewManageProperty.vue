@@ -1,12 +1,15 @@
 <template>
-  <div class="h-full custom-sm:w-[100%] sm:w-[100%] md:w-[100%] lg:w-[80%]">
+  <div class="h-full">
+
     <div class="lg:block w-[100%] h-[100%] sticky top-0 bg-[#e9d8c5]">
       <div class="flex flex-row row-span-2">
+  
+
         <div
-          class="custom-sm:w-[90%] custom-sm:h-[830px] md:w-[90%] mx-auto lg:w-[80%] md:h-[900px] md:mt-[10%] lg:mt-[5%] bg-[#e9d8c5]"
+          class="custom-sm:w-[90%] custom-sm:h-[750px] md:w-[80%] mx-auto lg:w-[80%] md:h-[750px] md:mt-[10%] lg:mt-[5%]"
         >
           <div
-            class="custom-sm:w-[100%] md:w-[100%] lg:w-[90%] mt-[5%] border-2 rounded-lg px-5 py-5 bg-white mx-auto"
+            class="custom-sm:w-[100%] md:w-[90%] mt-[5%] border-2 rounded-lg px-5 py-5 bg-white mx-auto"
           >
             <div class="flex justify-start items-center">
               <mdicon
@@ -76,17 +79,13 @@
             </div>
           </div>
 
-          <div
-            class="rounded-lg mx-auto lg:w-[100%] lg:h-[450px] custom-sm:w-[100%] custom-sm:h-[330px] md:h-[500px] md:w-[100%] lg:mt-20 md:mt-20 custom-sm:mt-10"
-          >
+          <div class="rounded-lg mx-auto lg:w-[100%]">
             <div
-              class="relative overflow-x-auto my-[5%] lg:w-[90%] lg:h-[100%] lg:mx-auto lg:my-[8%] custom-sm:w-[100%] custom-sm:h-[110%] md:w-[100%] md:h-[100%] md:my-[0%] mx-auto rounded-lg custom-sm:mt-[8%]"
+              class="relative overflow-x-auto my-[5%] lg:w-[90%] lg:mx-auto lg:my-[8%] md:w-[90%] md:my-[5%] mx-auto rounded-lg custom-sm:mt-[8%]"
             >
-              <table class="text-left rtl:text-right overflow-y-auto">
-                <thead
-                  class="text-[8.5px] uppercase bg-gray-200 sticky top-0 z-10"
-                >
-                  <tr class="lg:text-lg md:text-sm">
+              <table class="text-left rtl:text-right">
+                <thead class="text-[8.5px] uppercase bg-gray-200">
+                  <tr class="text-xs">
                     <th scope="col" class="py-3"></th>
                     <th scope="col" class="px-6 py-3">Images</th>
                     <th scope="col" class="px-12 py-3">Name</th>
@@ -97,7 +96,15 @@
                   </tr>
                 </thead>
                 <tbody class="font-semibold text-sm">
-                  <tr class="bg-white border-b">
+                  <tr  v-for="(property, index) in properties"
+                  :key="index" 
+                  :property_id="property.property_id"
+                  :image="property.imageUrl || ''"
+                  :name="property.property_name"
+                  :price="property.property_price"
+                  :type="property.property_type"
+
+                  class="bg-white border-b">
                     <th
                       scope="row"
                       class="px-2 py-6 font-medium text-gray-900 whitespace-nowrap flex justify-center items-center"
@@ -111,83 +118,26 @@
                         />
                       </div>
                     </th>
+                    <!-- START TABLE  -->
                     <td class="custom-sm:w-[20%] custom-sm:h-[20%] md:w-[10%]">
                       <img
                         class="md:w-[80%] lg:w-[80%] custom-sm:w-[80%] mx-auto my-2"
-                        src="src/assets/images/Youtube-Images/image1.png"
+                        :src="property.imageUrl"
                       />
                     </td>
-                    <td class="px-6">DANARRA SOUTH</td>
+                    <td class="px-6">{{property.property_name}}</td>
 
-                    <td class="px-6 py-4">Buy</td>
-                    <td class="px-6 py-4">7094018</td>
+                    <td class="px-6 py-4">{{property.property_type}}</td>
+                    <td class="px-6 py-4">{{property.property_price}}</td>
                     <td
                       class="px-6 py-4 text-blue-600 font bold cursor-pointer"
                     >
                       Edit
                     </td>
                   </tr>
+                  <!-- END TABLE -->
 
-                  <tr class="bg-white border-b">
-                    <th
-                      scope="row"
-                      class="px-2 py-6 font-medium text-gray-900 whitespace-nowrap flex justify-center items-center"
-                    >
-                      <div class="flex items-center justify-center">
-                        <input
-                          id="default-checkbox"
-                          type="checkbox"
-                          value=""
-                          class="w-5 h-5 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary"
-                        />
-                      </div>
-                    </th>
-                    <td class="custom-sm:w-[20%] custom-sm:h-[20%] md:w-[10%]">
-                      <img
-                        class="md:w-[80%] lg:w-[80%] custom-sm:w-[80%] mx-auto my-2"
-                        src="src/assets/images/Youtube-Images/image1.png"
-                      />
-                    </td>
-                    <td class="px-6">PASEO JULIO</td>
-
-                    <td class="px-6 py-4">Buy</td>
-                    <td class="px-6 py-4">7094018</td>
-                    <td
-                      class="px-6 py-4 text-blue-600 font bold cursor-pointer"
-                    >
-                      Edit
-                    </td>
-                  </tr>
-                  <tr class="bg-white border-b">
-                    <th
-                      scope="row"
-                      class="px-2 py-6 font-medium text-gray-900 whitespace-nowrap flex justify-center items-center"
-                    >
-                      <div class="flex items-center justify-center">
-                        <input
-                          id="default-checkbox"
-                          type="checkbox"
-                          value=""
-                          class="w-5 h-5 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary"
-                        />
-                      </div>
-                    </th>
-                    <td class="custom-sm:w-[20%] custom-sm:h-[20%] md:w-[10%]">
-                      <img
-                        class="md:w-[80%] lg:w-[80%] custom-sm:w-[80%] mx-auto my-2"
-                        src="src/assets/images/Youtube-Images/image1.png"
-                      />
-                    </td>
-                    <td class="px-6">PARKVILLE BACOLOD BY SMDC</td>
-
-                    <td class="px-6 py-4">Buy</td>
-                    <td class="px-6 py-4">7094018</td>
-                    <td
-                      class="px-6 py-4 text-blue-600 font bold cursor-pointer"
-                    >
-                      Edit
-                    </td>
-                  </tr>
+                
                 </tbody>
               </table>
             </div>
@@ -196,18 +146,143 @@
       </div>
     </div>
   </div>
+
 </template>
 
-<script lang="ts" setup>
-import SideBarAgentNew from "../AgentSidePages/SideBarAgentNew.vue";
-import { ref } from "vue";
+<script setup>
+import SideBarAdminNew from "../AdminSidePages/SideBarAdminNew.vue";
+import { ref , onMounted} from "vue";
+defineProps({
+  propertyListing:Function,
+  propertyTable:Function,
+  addAgent:Function,
+  agentTable:Function,
+  blogListing:Function,
+  blogTable:Function,
+  logout:Function,
+});
+
+
+onMounted(()=>{
+  getAllPropertyID();
+});
+
+const properties = ref([]);
+
+
+
+const getAllPropertyID = async () =>{
+  properties.value = [];
+  try{
+    const response = await fetch('http://localhost:8080/getAllPropertyID');
+    const data = await response.json();
+
+    for (var i = 0; i < data.length; i++) {
+      try {
+        var id = data[i].property_id;
+
+        const propertyGenData = await general_data(id);
+        const propertyData = await property_data(id);
+        const propertyImage = await property_image(id);
+        const imageData = propertyImage[0].main_image.data;
+
+        if(propertyData[0].agent_id==localStorage.getItem('agentID')){
+            properties.value.push({
+              property_id: id,
+              property_name: propertyGenData[0].name,
+              imageUrl: await convertBlob(imageData),
+              property_price: `₱${propertyData[0].property_price.toLocaleString()}`, 
+              property_type: propertyData[0].property_type.toUpperCase(),
+            });
+        }
+
+      }
+      catch(error){
+        console.log(error);
+      }
+    }
+    
+
+
+  }
+  catch(error){
+    console.log("Error: ", error);
+  }
+}
+
+
+const property_image = async (i) =>{
+  try {
+    const response = await fetch(`http://localhost:8080/getPropertyImage/${i}`)
+    const data = await response.json();
+    return data;
+  }
+  catch(error){
+    console.log("Error: ",error);
+  }
+}
+
+
+const general_data = async (i) =>{
+  try {
+    const response = await fetch(`http://localhost:8080/getGeneralData/${i}`)
+    const data = await response.json();
+    return data;
+  }
+  catch(error){
+    console.log("Error: ",error);
+  }
+}
+
+const property_data = async (i) =>{
+  try {
+    const response = await fetch(`http://localhost:8080/getPropertyData/${i}`)
+    const data = await response.json();
+    return data;
+  }
+  catch(error){
+    console.log("Error: ",error);
+  }
+}
+
+
+
+const convertBlob = (image) =>{
+
+return new Promise((resolve,reject)=>{
+  if(image){
+  const blob = new Blob([new Uint8Array(image)], { type: 'image/jpeg' }); 
+  const reader = new FileReader();
+  reader.readAsDataURL(blob);
+      reader.onloadend = () => {
+        const dataURL = reader.result;
+        resolve (dataURL);
+      }
+  }
+});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const active = ref(0);
 const isSidebarVisible = ref(false);
 const toggleSidebar = () => {
   isSidebarVisible.value = !isSidebarVisible.value;
 };
-import { ref } from "vue";
-import router from "../router";
-import { useRoute } from "vue-router";
+
+
+
+
+
 </script>
-../../router

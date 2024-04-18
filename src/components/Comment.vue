@@ -23,10 +23,10 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-interface CommentSection {
-  description: string;
-  name: string;
-}
-defineProps<CommentSection>();
+<script setup>
+
+defineProps({
+  description: String,
+  name: String,
+})
 </script>

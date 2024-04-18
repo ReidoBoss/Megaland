@@ -3,22 +3,9 @@
     class="h-screen custom-sm:w-[100%] sm:w-[100%] md:w-[100%] lg:w-[80%] bg-[#e9d8c5]"
   >
     <div class="w-full lg:hidden md:block custom-sm:block bg-[#e9d8c5]">
-      <!-- <button
-        @click="toggleSidebar"
-        class="hover:underline custom-sm:md sm:text-md lg:hidden ml-2"
-      >
-        <mdicon
-          name="ReorderHorizontal"
-          :width="35"
-          :height="35"
-          class="hover:text-white text-[#111929]"
-        />
-      </button> -->
+
     </div>
-    <!-- <SideBarAgentNew
-      :isVisible="isSidebarVisible"
-      :toggleSidebar="toggleSidebar"
-    /> -->
+ 
     <div class="lg:block w-[100%] h-[100%] sticky top-0 bg-[#e9d8c5]">
       <div class="flex flex-row row-span-2">
         <div
@@ -31,7 +18,7 @@
               class="mb-1 text-xl font-bold leading-tight tracking-tight text-primary md:text-2xl md:pb-[5%]"
             >
               <img
-                src="src/assets/mgLogo.png"
+                src="../../assets/mgLogo.png"
                 class="lg:h-40 lg:w-50 md:h-20 md:w-35 custom-sm:w-[30%] custom-sm:h-[20%] mx-auto"
                 alt="megaland"
               />
@@ -65,15 +52,15 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import SideBarAgentNew from "../AgentSidePages/SideBarAgentNew.vue";
 import { ref } from "vue";
-const active = ref(0);
-const isSidebarVisible = ref(false);
-const toggleSidebar = () => {
-  isSidebarVisible.value = !isSidebarVisible.value;
-};
-import { ref } from "vue";
-import router from "../router";
-import { useRoute } from "vue-router";
+import { useRouter} from "vue-router";
+
+const router = useRouter();
+
+const logout = () => {
+  localStorage.clear();
+  router.push("/");
+}
 </script>

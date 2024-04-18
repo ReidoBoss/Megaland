@@ -25,7 +25,7 @@
     </div>
 
     <img
-      src="src/assets/mgLogo.jpg"
+      src="../../assets/mgLogo.png"
       class="lg:h-40 lg:w-50 md:h-20 md:w-35 custom-sm:w-[65%] custom-sm:h-[13%] mx-auto my-[10%] rounded-lg"
       alt="megaland"
     />
@@ -125,7 +125,7 @@
 
 </template>
 
-<script setup lang="ts">
+<script setup>
 
 import { ref, defineProps } from "vue";
 import { register } from "swiper/element/bundle";
@@ -133,7 +133,6 @@ import AuthChecker from "../AuthChecker.vue";
 
 defineProps(["isVisible", "toggleSidebar"]);
 
-import router from "../router";
 import { useRoute } from "vue-router";
 register();
 const route = useRoute();

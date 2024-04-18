@@ -159,36 +159,33 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 
-interface ProductType {
-  property_id?: number;
-  name?: string;
-  price?: number;
-  size?: number;
-  bedroom?: number;
-  bathroom?: number;
-  image?: string;
 
-  category?: string;
-  type?: string;
-  city?: string;
-  address?: string;
+const props = defineProps({
+  property_id: Number,
+  name: String,
+  price: Number,
+  size: Number,
+  bedroom: Number,
+  bathroom: Number,
+  image: String,
 
-  airport?: boolean;
-  busstand?: boolean;
-  hospital?: boolean;
-  patroltank?: boolean;
-  railway?: boolean;
-  shopping?: boolean;
-  universities?: boolean;
+  category: String,
+  type: String,
+  city: String,
+  address: String,
 
-  image_data?: {
-    type: string[];
-    data: number[];
-  };
-  dataURL?: string;
-}
+  airport: Boolean,
+  busstand: Boolean,
+  hospital: Boolean,
+  patroltank: Boolean,
+  railway: Boolean,
+  shopping: Boolean,
+  universities: Boolean,
 
-const props = defineProps<ProductType>();
+  dataURL: String,
+});
+
+
 
 const redirectDetails = () => {
   router.push(`/Details/${props.property_id}`);

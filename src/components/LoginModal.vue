@@ -99,14 +99,13 @@
 <script lang="ts" setup>
 import { XMarkIcon } from "@heroicons/vue/24/outline";
 import { ref , onMounted} from "vue";
-import { useRouter} from "vue-router"
+import { useRouter, useRoute} from "vue-router"
 defineEmits(["close-modal"]);
+
 defineProps({
-  modalActive: {
-    type: Boolean,
-    default: false,
-  },
-});
+  modalActive: Boolean,
+})
+
 
 onMounted(()=>{
   
@@ -122,10 +121,18 @@ const password = ref();
 const errorMessage= ref();
 
 
-
+const checker = ()=>{
+  if(localStorage.getItem('currentUser')=='admin'){
+    router.push('/adminNew')
+  }
+  else if(localStorage.getItem('currentUser')=='agent'){
+      router.push('/agentNew')
+  }
+}
 
 
 const login = async () => {
+
 
   try{
     const response = await fetch ('http://localhost:8080/getUsers');
@@ -145,6 +152,7 @@ const login = async () => {
           else if(data[i].role =='agent'){
             localStorage.setItem('currentUser','agent');
             localStorage.setItem('authCheck','true');
+            localStorage.setItem('agent_userID',data[i].user_id);
             router.push("/agentNew");
           }
         }
@@ -162,6 +170,9 @@ const login = async () => {
     console.log("Error:" , error);
   }
 }
+
+
+
 
 
 

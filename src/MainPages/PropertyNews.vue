@@ -99,9 +99,9 @@
         >
           <span class="flex-row w-[200px] flex my-3 ml-2"
             ><h3 class="flex">
-              Related Blogs
+              More Blogs
               <mdicon
-                class="flex absolute ml-[35%] flex-row text-semibold"
+                class="flex absolute ml-[28%] flex-row"
                 name="post-outline"
                 :width="26"
                 :height="26"
@@ -226,6 +226,8 @@ const currentBlog = async (id) => {
   contact_telephone.value = blog.contact_telephone;
   email.value = blog.email_address;
   key_tags.value = blog.key_tags;
+  
+  console.log(email.value)
 
   amenities.value = await getAmenities(id);
   landmarks.value = await getLandmarks(id);

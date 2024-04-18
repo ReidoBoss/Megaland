@@ -2,76 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-.hover-underline {
-  position: relative;
-  display: inline-block;
-}
+@layer utilities {
+  .general-tab {
+    @apply hover:bg-secondary;
+    @apply hover:text-primary;
+    @apply w-[90%];
+    @apply pl-10;
+    @apply rounded-l-lg;
+  }
 
-.hover-underline::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px; /* Adjust the thickness of the underline as needed */
-  background-color: #fefefe; /* Adjust the color of the underline as needed */
-  transition: width 0.6s ease;
-}
+  .active-tab {
+    @apply bg-secondary;
+    @apply w-[90%];
+    @apply pl-10;
+    @apply rounded-l-lg;
+    @apply text-primary;
+  }
 
-.hover-underline:hover::before {
-  width: 100%;
-}
+  .general-tabs {
+    @apply bg-white;
+    @apply h-full;
+    @apply cursor-pointer;
+    @apply w-[18.5%];
+    @apply text-sm;
+    @apply flex;
+    @apply items-center;
+    @apply justify-center;
+    @apply font-semibold;
+    @apply rounded-t-md;
+    @apply border-2;
+    @apply border-r-stroke;
+    @apply border-t-stroke;
+    @apply border-l-stroke;
+    @apply hover:bg-active;
+  }
 
-.hover-underlines {
-  position: relative;
-  display: inline-block;
-}
+  .active-tabs {
+    @apply bg-active;
+    @apply h-full;
+    @apply cursor-pointer;
+    @apply w-[18.5%];
+    @apply text-sm;
+    @apply flex;
+    @apply items-center;
+    @apply justify-center;
+    @apply font-semibold;
+    @apply rounded-t-md;
+    @apply border-2;
+    @apply border-b-0;
+    @apply border-r-stroke;
+    @apply border-t-stroke;
+    @apply border-l-stroke;
+  }
 
-.hover-underlines::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px; /* Adjust the thickness of the underline as needed */
-  background-color: #fefefe; /* Adjust the color of the underline as needed */
-  transition: width 0.6s ease;
-  margin-left: 65px;
-}
-
-.hover-underlines:hover::before {
-  width: 50%;
-  margin-left: 65px;
-}
-
-body {
-  zoom: 125% !important;
-}
-
-/* Default styles go here */
-
-/* Apply 100% zoom for screens with a width up to 1920px */
-@media screen and (max-width: 1280px) {
-  body {
-    zoom: 100% !important;
+  .alert-normal {
+    @apply text-secondary;
+  }
+  .alert-hover {
+    @apply text-primary;
   }
 }
-
-@media screen and (min-width: 1281px) {
-  body {
-    zoom: 125% !important;
-  }
-}
-/* Apply 125% zoom for screens with a width of 1921px or more */
-/* @media screen and (min-width: 1921px) {
-  body {
-    zoom: 125% !important;
-  }
-} */
-
-/* Apply 125% zoom for screens with a width of 1366px or more */
-/* @media screen and (min-width: 1366px) {
-  body {
-    zoom: 125% !important;
-  }
-} */
