@@ -316,19 +316,19 @@ const allBlog = async()=>{
 }
 
 const getBlogs = async() =>{
-  const response = await fetch('https://backend-n4gs.onrender.com//getBlogs');
+  const response = await fetch('https://backend-n4gs.onrender.com/getBlogs');
   const data = await response.json();
   return data;
 }
 
 const getBlog = async(id) =>{
-  const response = await fetch(`https://backend-n4gs.onrender.com//getBlogByID/${id}`);
+  const response = await fetch(`https://backend-n4gs.onrender.com/getBlogByID/${id}`);
   const data = await response.json();
   return data[0];
 }
 
 const getBlogImage = async(id) =>{
-  const response = await fetch(`https://backend-n4gs.onrender.com//getBlogImageByID/${id}`);
+  const response = await fetch(`https://backend-n4gs.onrender.com/getBlogImageByID/${id}`);
   const data = await response.json();
   return data[0].thumbnail.data;
 }

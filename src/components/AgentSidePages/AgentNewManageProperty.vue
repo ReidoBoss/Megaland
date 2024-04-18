@@ -174,7 +174,7 @@ const properties = ref([]);
 const getAllPropertyID = async () =>{
   properties.value = [];
   try{
-    const response = await fetch('https://backend-n4gs.onrender.com//getAllPropertyID');
+    const response = await fetch('https://backend-n4gs.onrender.com/getAllPropertyID');
     const data = await response.json();
 
     for (var i = 0; i < data.length; i++) {
@@ -213,7 +213,7 @@ const getAllPropertyID = async () =>{
 
 const property_image = async (i) =>{
   try {
-    const response = await fetch(`https://backend-n4gs.onrender.com//getPropertyImage/${i}`)
+    const response = await fetch(`https://backend-n4gs.onrender.com/getPropertyImage/${i}`)
     const data = await response.json();
     return data;
   }
@@ -225,7 +225,7 @@ const property_image = async (i) =>{
 
 const general_data = async (i) =>{
   try {
-    const response = await fetch(`https://backend-n4gs.onrender.com//getGeneralData/${i}`)
+    const response = await fetch(`https://backend-n4gs.onrender.com/getGeneralData/${i}`)
     const data = await response.json();
     return data;
   }
@@ -236,7 +236,7 @@ const general_data = async (i) =>{
 
 const property_data = async (i) =>{
   try {
-    const response = await fetch(`https://backend-n4gs.onrender.com//getPropertyData/${i}`)
+    const response = await fetch(`https://backend-n4gs.onrender.com/getPropertyData/${i}`)
     const data = await response.json();
     return data;
   }

@@ -1082,7 +1082,7 @@ const submitProperty = async () => {
     formData.append("universities", universities.value);
     formData.append("others", others.value);
 
-    await axios.post("https://backend-n4gs.onrender.com//addProperty", formData, {
+    await axios.post("https://backend-n4gs.onrender.com/addProperty", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -1214,7 +1214,7 @@ const resizeImage = (file) => {
 
 const getAgentsName = async () => {
   try {
-    const response = await fetch(`https://backend-n4gs.onrender.com//getAgents`);
+    const response = await fetch(`https://backend-n4gs.onrender.com/getAgents`);
     const data = await response.json();
     for (var i = 0; i < data.length; i++) {
       agents.value.push({
