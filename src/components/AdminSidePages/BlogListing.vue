@@ -644,11 +644,9 @@ const submitBlog = async () => {
           : 0
       );
     }
-    console.log("FormData:");
     for (var pair of formData.entries()) {
-      console.log(pair[0] + ": " + pair[1]);
     }
-    await axios.post("https://backend-n4gs.onrender.com/addBlog", formData, {
+    await axios.post("https://megaland-backend.vercel.app/addBlog", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -679,7 +677,6 @@ const removeAmenity = () => {
 };
 
 const getAmenityValue = (id) => {
-  console.log(amenities.value[id].id);
   return amenities.value[id].id;
 };
 
@@ -703,7 +700,6 @@ const removeHighlight = () => {
 };
 
 const getHighlightValue = (id) => {
-  console.log(highlight.value[id].id);
   return highlight.value[id].id;
 };
 
@@ -728,7 +724,6 @@ const removeLandmark = () => {
 };
 
 const getLandmarkValue = (id) => {
-  console.log(landmark.value[id].id);
   return landmark.value[id].id;
 };
 

@@ -1082,7 +1082,7 @@ const submitProperty = async () => {
     formData.append("universities", universities.value);
     formData.append("others", others.value);
 
-    await axios.post("https://backend-n4gs.onrender.com/addProperty", formData, {
+    await axios.post("https://megaland-backend.vercel.app/addProperty", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -1098,13 +1098,12 @@ const handleFileImage = async (event) => {
   if (file) {
     const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
     if (!allowedTypes.includes(file.type)) {
-      console.log("Invalid file type. Please upload an image.");
+      alert("Invalid file type. Please upload an image.");
       return;
     }
 
     const resizedImage = await resizeImage(file);
     main_image.value = resizedImage;
-    console.log("File uploaded:", resizedImage.name);
   }
 };
 
@@ -1113,13 +1112,13 @@ const handleFileImage1 = async (event) => {
   if (file) {
     const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
     if (!allowedTypes.includes(file.type)) {
-      console.log("Invalid file type. Please upload an image.");
+      alert("Invalid file type. Please upload an image.");
       return;
     }
 
     const resizedImage = await resizeImage(file);
     extra1.value = resizedImage;
-    console.log("File uploaded:", resizedImage.name);
+    alert("File uploaded:", resizedImage.name);
   }
 };
 
@@ -1128,13 +1127,12 @@ const handleFileImage2 = async (event) => {
   if (file) {
     const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
     if (!allowedTypes.includes(file.type)) {
-      console.log("Invalid file type. Please upload an image.");
+      alert("Invalid file type. Please upload an image.");
       return;
     }
 
     const resizedImage = await resizeImage(file);
     extra2.value = resizedImage;
-    console.log("File uploaded:", resizedImage.name);
   }
 };
 
@@ -1143,13 +1141,12 @@ const handleFileImage3 = async (event) => {
   if (file) {
     const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
     if (!allowedTypes.includes(file.type)) {
-      console.log("Invalid file type. Please upload an image.");
+      alert("Invalid file type. Please upload an image.");
       return;
     }
 
     const resizedImage = await resizeImage(file);
     extra3.value = resizedImage;
-    console.log("File uploaded:", resizedImage.name);
   }
 };
 
@@ -1214,7 +1211,7 @@ const resizeImage = (file) => {
 
 const getAgentsName = async () => {
   try {
-    const response = await fetch(`https://backend-n4gs.onrender.com/getAgents`);
+    const response = await fetch(`https://megaland-backend.vercel.app/getAgents`);
     const data = await response.json();
     for (var i = 0; i < data.length; i++) {
       agents.value.push({

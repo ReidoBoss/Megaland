@@ -151,7 +151,7 @@ const city = ref();
 const country = ref();
 
 const getAgent = async ()=> {
-  const response = await fetch(`https://backend-n4gs.onrender.com/getAgentByID/${id}`);
+  const response = await fetch(`https://megaland-backend.vercel.app/getAgentByID/${id}`);
   const data = await response.json();
 
   image.value = await convertBlob(data[0].profile_picture.data);
@@ -163,7 +163,6 @@ const getAgent = async ()=> {
   country.value = data[0].country;
 
   fb.value = data[0].facebook;
-  console.log(data[0])
   x.value = data[0].x;
   instagram.value = data[0].instagram;
 }
