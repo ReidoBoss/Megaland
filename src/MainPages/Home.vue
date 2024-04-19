@@ -222,7 +222,7 @@ const properties = ref([]);
 // START OF PROPERTIES FETCH
 const get6Properties = async () => {
   const response = await fetch(
-    "https://megaland-backend.vercel.app/getAllPropertyID"
+    "https://backend-n4gs.onrender.com/getAllPropertyID"
   );
   const data = await response.json();
 
@@ -280,7 +280,7 @@ const get6Properties = async () => {
 const general_data = async (i) => {
   try {
     const response = await fetch(
-      `https://megaland-backend.vercel.app/getGeneralData/${i}`
+      `https://backend-n4gs.onrender.com/getGeneralData/${i}`
     );
     const data = await response.json();
     return data;
@@ -291,7 +291,7 @@ const general_data = async (i) => {
 const property_image = async (i) => {
   try {
     const response = await fetch(
-      `https://megaland-backend.vercel.app/getPropertyImage/${i}`
+      `https://backend-n4gs.onrender.com/getPropertyImage/${i}`
     );
     const data = await response.json();
     return data;
@@ -302,7 +302,7 @@ const property_image = async (i) => {
 const property_data = async (i) => {
   try {
     const response = await fetch(
-      `https://megaland-backend.vercel.app/getPropertyData/${i}`
+      `https://backend-n4gs.onrender.com/getPropertyData/${i}`
     );
     const data = await response.json();
     return data;
@@ -313,7 +313,7 @@ const property_data = async (i) => {
 const property_address = async (i) => {
   try {
     const response = await fetch(
-      `https://megaland-backend.vercel.app/getPropertyAddress/${i}`
+      `https://backend-n4gs.onrender.com/getPropertyAddress/${i}`
     );
     const data = await response.json();
     return data;
@@ -325,7 +325,7 @@ const property_address = async (i) => {
 const property_landmark = async (i) => {
   try {
     const response = await fetch(
-      `https://megaland-backend.vercel.app/getPropertyLandMark/${i}`
+      `https://backend-n4gs.onrender.com/getPropertyLandMark/${i}`
     );
     const data = await response.json();
     return data;
@@ -336,7 +336,7 @@ const property_landmark = async (i) => {
 //START OF AGENT FETCH
 const agents = ref([]); //array of agents
 const getAgents = async () => {
-  const response = await fetch("https://megaland-backend.vercel.app/getAgents");
+  const response = await fetch("https://backend-n4gs.onrender.com/getAgents");
   const data = await response.json();
 
   for (var i = 0; i < data.length; i++) {
@@ -352,7 +352,7 @@ const getAgents = async () => {
 };
 const getAgentImageByID = async (id) => {
   const response = await fetch(
-    `https://megaland-backend.vercel.app/getAgentByID/${id}`
+    `https://backend-n4gs.onrender.com/getAgentByID/${id}`
   );
   const data = await response.json();
 

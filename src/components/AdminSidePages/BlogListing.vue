@@ -646,7 +646,7 @@ const submitBlog = async () => {
     }
     for (var pair of formData.entries()) {
     }
-    await axios.post("https://megaland-backend.vercel.app/addBlog", formData, {
+    await axios.post("https://backend-n4gs.onrender.com/addBlog", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },

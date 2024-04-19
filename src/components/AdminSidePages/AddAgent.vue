@@ -477,7 +477,7 @@ const submitAgent = async() => {
     formData.append("x",x.value);
     formData.append("instagram",instagram.value);
 
-    await axios.post("https://megaland-backend.vercel.app/addAgent",formData,{
+    await axios.post("https://backend-n4gs.onrender.com/addAgent",formData,{
       headers: {
         "Content-Type" : "multipart/form-data",
         },

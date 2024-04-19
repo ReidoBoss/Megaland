@@ -135,7 +135,7 @@ const login = async () => {
 
 
   try{
-    const response = await fetch ('https://megaland-backend.vercel.app/getUsers');
+    const response = await fetch ('https://backend-n4gs.onrender.com/getUsers');
     const data = await response.json();
 
     for(var i = 0 ; i < data.length ; i ++){

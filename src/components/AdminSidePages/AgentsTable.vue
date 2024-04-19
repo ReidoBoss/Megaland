@@ -311,7 +311,7 @@ onMounted(() => {
 
 const agents = ref([]); //array of agents
 const getAgents = async () => {
-  const response = await fetch("https://megaland-backend.vercel.app/getAgents");
+  const response = await fetch("https://backend-n4gs.onrender.com/getAgents");
   const data = await response.json();
 
   for (var i = 0; i < data.length; i++) {
@@ -327,7 +327,7 @@ const getAgents = async () => {
 };
 const getAgentImageByID = async (id) => {
   const response = await fetch(
-    `https://megaland-backend.vercel.app/getAgentByID/${id}`
+    `https://backend-n4gs.onrender.com/getAgentByID/${id}`
   );
   const data = await response.json();
 
