@@ -84,7 +84,4 @@ const isSidebarVisible = ref(false);
 const toggleSidebar = () => {
   isSidebarVisible.value = !isSidebarVisible.value;
 };
-import { ref } from "vue";
-import router from "../router";
-import { useRoute } from "vue-router";
 </script>
