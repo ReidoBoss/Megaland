@@ -197,8 +197,8 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref, defineProps, onMounted, Ref } from "vue";
+<script setup>
+import { ref, defineProps, onMounted } from "vue";
 import { register } from "swiper/element/bundle";
 import Accordion from "../components/Accordion.vue";
 defineProps(["isVisible", "toggleSidebar"]);

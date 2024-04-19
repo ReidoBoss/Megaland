@@ -153,7 +153,7 @@
     </div>
   </div>
 </template>
-<script lang="ts" setup>
+<script setup>
 import { BookmarkIcon } from "@heroicons/vue/24/solid";
 import { useRouter } from "vue-router";
 

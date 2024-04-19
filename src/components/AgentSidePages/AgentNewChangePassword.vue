@@ -76,7 +76,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import SideBarAgentNew from "../AgentSidePages/SideBarAgentNew.vue";
 import { ref } from "vue";
 const active = ref(0);

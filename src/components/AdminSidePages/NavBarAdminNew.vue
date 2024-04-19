@@ -42,15 +42,11 @@
           name=""
           id="search_bar"
           placeholder="Search..."
-          :value="data.textInputValue"
-          @keyup.enter="search"
-          @input="(e: Event) => updateTextInputValue(e as InputEvent)"
-          @blur="typedValue()"
+
         />
 
         <MagnifyingGlassIcon
           class="h-11 w-11 text-[#E67E23] cursor-pointer hover:scale-[1.02]"
-          @click="search"
         />
       </div>
       <div class="flex w-[10%] justify-end items-center pr-3">
@@ -61,43 +57,18 @@
 
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import AuthChecker from "../AuthChecker.vue";
 
 import { MagnifyingGlassIcon, UserIcon } from "@heroicons/vue/24/outline";
 import SideBar from "../SideBar.vue";
+import { ref } from "vue";
+
 const isSidebarVisible = ref(false);
 const toggleSidebar = () => {
   isSidebarVisible.value = !isSidebarVisible.value;
 };
-import { ref } from "vue";
-import router from "../../router/router.js";
-import { useRoute } from "vue-router";
 
-const route = useRoute();
 
-const data = ref({
-  textInputValue: "",
-});
-const updateTextInputValue = (event: InputEvent) => {
-  const inputElement = event.target as HTMLInputElement;
-  data.value.textInputValue = inputElement.value;
-};
 
-const typedValue = () => {
-  var textValue = data.value.textInputValue;
-  localStorage.setItem("search", `${textValue}`);
-};
-
-const search = () => {
-  var textValue = data.value.textInputValue;
-  var currentPath = route.fullPath;
-
-  if (currentPath == "/search") {
-    localStorage.setItem("search", `${textValue}`);
-    location.reload();
-  } else {
-    router.push("/search");
-  }
-};
 </script>

@@ -96,7 +96,7 @@
   </Transition>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import { XMarkIcon } from "@heroicons/vue/24/outline";
 import { ref , onMounted} from "vue";
 import { useRouter, useRoute} from "vue-router"
